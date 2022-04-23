@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.InputSystem;
 #endif
 using UnityEngine.SceneManagement;
-
+using TMPro;
 using Cinemachine;
 using System;
 
@@ -77,20 +77,24 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		//Time Travel
-		private bool hasTravel = false;
-
 		private Vector3 oldXpos;
-		public GameObject _followcamera;
-		public float teleportDistace;
+		public GameObject followCamera;
+		public float teleportDistace = 100;
 
 		private CinemachineVirtualCamera vcam;
 
-		//State enums
+		// UI elements
+		public TextMeshProUGUI pressEText;
+		public TextMeshProUGUI pressESCText;
+		private GameObject _openNote;
+
+		// State enums
 		private enum PlayerState
         {
 			Moving,
-			TimeTraveling
+			TimeTraveling,
+			Interacting,
+			Reading
         }
 		private PlayerState _playerState;
 		private enum TimeState
@@ -119,7 +123,7 @@ namespace StarterAssets
 			_playerInput = GetComponent<PlayerInput>();
 
 
-			vcam = _followcamera.GetComponent<CinemachineVirtualCamera>();
+			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
 
 			// reset our timeouts on start
@@ -131,50 +135,107 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			if(_playerState == PlayerState.Moving)
+			if (_playerState == PlayerState.Moving)
             {
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
 			
-
 			if (_input.timeTravel)
             {
-				vcam.enabled = false;
 				_playerState = PlayerState.TimeTraveling;
-				Debug.Log(_playerState);
 				TimeTravel();
 				StartCoroutine("Pause");
-				vcam.enabled = true;
+			}
+
+			if (_playerState == PlayerState.Interacting)
+			{
+				pressESCText.gameObject.SetActive(true);
+				PointAndClick();
+			}
+
+			if (_playerState == PlayerState.Reading)
+			{
+				if (_input.exit)
+				{
+
+					_playerState = PlayerState.Interacting;
+					_openNote.SendMessage("toggleNoteImg");
+					_input.exit = false;
+				}
 			}
 			
+			_input.clickInput = false;
 		}
 
 		IEnumerator Pause()
         {
 			yield return new WaitForSeconds(0.1f);
 			_playerState = PlayerState.Moving;
-			Debug.Log(_playerState);
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (_playerState == PlayerState.Moving)
+			{
+				CameraRotation();
+			}
+		}
+
+		private void PointAndClick()
+		{
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+
+			if (_input.clickInput)
+			{
+				Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+				RaycastHit hit;
+				if (Physics.Raycast(ray, out hit, 100))
+				{
+					if (hit.transform.gameObject.CompareTag("Note"))
+					{
+						hit.transform.gameObject.SendMessage("toggleNoteImg");
+						_openNote = hit.transform.gameObject;
+						_playerState = PlayerState.Reading;
+					}
+				}
+				_input.clickInput = false;
+			}
+
+			if (_input.exit)
+			{
+				_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
+				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
+				_playerState = PlayerState.Moving;
+
+				pressESCText.gameObject.SetActive(false);
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
+				_input.exit = false;
+			}
 		}
 
 		private void TimeTravel()
 		{ 
 			oldXpos = gameObject.transform.position;
-			gameObject.transform.position = new Vector3(gameObject.transform.position.x + teleportDistace * (1 + (-2 * Convert.ToInt32(hasTravel))), gameObject.transform.position.y, gameObject.transform.position.z);
-			Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x + "\n " +Convert.ToInt32(hasTravel));
-			vcam.OnTargetObjectWarped(gameObject.transform, gameObject.transform.position + oldXpos * (1 + (-2 * Convert.ToInt32(hasTravel))));
 
-			hasTravel = !hasTravel;
+			if (_timeState == TimeState.Past)
+			{
+				gameObject.transform.position = new Vector3(gameObject.transform.position.x - teleportDistace, gameObject.transform.position.y, gameObject.transform.position.z);
+				vcam.OnTargetObjectWarped(gameObject.transform, gameObject.transform.position + oldXpos);
+				_timeState = TimeState.Present;
+			}
+			else
+			{
+				gameObject.transform.position = new Vector3(gameObject.transform.position.x + teleportDistace, gameObject.transform.position.y, gameObject.transform.position.z);
+				vcam.OnTargetObjectWarped(gameObject.transform, gameObject.transform.position + oldXpos);
+				_timeState = TimeState.Past;
+			}
 
-			
-			_input.timeTravel = false;
-			
+			Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
+			_input.timeTravel = false;			
 		}
 
 		private void GroundedCheck()
@@ -306,6 +367,42 @@ namespace StarterAssets
 			if (lfAngle < -360f) lfAngle += 360f;
 			if (lfAngle > 360f) lfAngle -= 360f;
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
+		}
+
+
+		private void OnTriggerStay(Collider col)
+		{
+			
+			if (col.gameObject.tag == "Interact" && _input.interact)
+			{
+				//Debug.Log("Interacted with E");
+				_playerState = PlayerState.Interacting;
+
+
+				pressEText.gameObject.SetActive(false);
+				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+				col.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+				_input.interact = false;
+			}
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.tag == "Interact")
+            {
+				//Debug.Log("Interacted");
+				pressEText.gameObject.SetActive(true);
+            }
+
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			if (other.tag == "Interact")
+            {
+				//Debug.Log("Interacted off");
+				pressEText.gameObject.SetActive(false);
+            }
 		}
 
 		private void OnDrawGizmosSelected()

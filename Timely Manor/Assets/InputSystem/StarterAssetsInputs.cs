@@ -14,6 +14,10 @@ namespace StarterAssets
 		public bool sprint;
 
 		public bool timeTravel;
+		public bool interact;
+		public bool exit;
+		public bool clickInput;
+
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -53,6 +57,20 @@ namespace StarterAssets
 			TimeTravelInput(value.isPressed);
 		}
 
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
+
+		public void OnExit(InputValue value)
+		{
+			ExitInput(value.isPressed);
+		}
+
+		public void OnClickInput(InputValue value)
+        {
+			ClickInput(value.isPressed);
+        }
 
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -84,6 +102,21 @@ namespace StarterAssets
 			timeTravel = newTimeTravelState;
 		}
 
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState; 
+		}
+
+		public void ExitInput(bool newExitState)
+		{
+			exit = newExitState;
+		}
+
+		public void ClickInput(bool newClickInputState)
+        {
+			clickInput = newClickInputState;
+        }
+
 #if !UNITY_IOS || !UNITY_ANDROID
 
 		private void OnApplicationFocus(bool hasFocus)
@@ -98,6 +131,11 @@ namespace StarterAssets
 
 #endif
 
-	}
+
+
+
+
+
+    }
 
 }
