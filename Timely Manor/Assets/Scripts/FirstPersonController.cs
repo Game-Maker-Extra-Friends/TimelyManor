@@ -97,12 +97,15 @@ namespace StarterAssets
 			Reading
         }
 		private PlayerState _playerState;
+
+		// Time travel
 		private enum TimeState
         {
 			Past,
 			Present
         }
 		private TimeState _timeState;
+		public string pastScene, presentScene;
 
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
@@ -145,7 +148,7 @@ namespace StarterAssets
 			if (_input.timeTravel)
             {
 				_playerState = PlayerState.TimeTraveling;
-				TimeTravel();
+				TimeTravel2();
 				StartCoroutine("Pause");
 			}
 
@@ -215,6 +218,19 @@ namespace StarterAssets
 				Cursor.lockState = CursorLockMode.Locked;
 				_input.exit = false;
 			}
+		}
+
+		private void TimeTravel2()
+        {
+			_input.timeTravel = false;
+			Scene scene = SceneManager.GetActiveScene();
+			if (scene.name == pastScene)
+			{
+				// TODO scene change needs animation etc
+				SceneManager.LoadScene(presentScene);
+				return;
+			}
+			SceneManager.LoadScene(pastScene);
 		}
 
 		private void TimeTravel()
