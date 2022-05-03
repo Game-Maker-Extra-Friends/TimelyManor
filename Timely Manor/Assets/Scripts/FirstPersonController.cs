@@ -106,6 +106,8 @@ namespace StarterAssets
         }
 		private TimeState _timeState;
 		public string pastScene, presentScene;
+		public Animator transition;
+		public float transitionTime = 1f;
 
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
@@ -147,8 +149,8 @@ namespace StarterAssets
 			
 			if (_input.timeTravel)
             {
+				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
-				TimeTravel2();
 				StartCoroutine("Pause");
 			}
 
@@ -172,9 +174,13 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
-		IEnumerator Pause()
+		IEnumerator Pause() // change name?
         {
-			yield return new WaitForSeconds(0.1f);
+			transition.SetTrigger("Start");
+
+			yield return new WaitForSeconds(transitionTime);
+			
+			TimeTravel2();
 			_playerState = PlayerState.Moving;
 		}
 
@@ -221,8 +227,7 @@ namespace StarterAssets
 		}
 
 		private void TimeTravel2()
-        {
-			_input.timeTravel = false;
+		{ 
 			Scene scene = SceneManager.GetActiveScene();
 			if (scene.name == pastScene)
 			{
