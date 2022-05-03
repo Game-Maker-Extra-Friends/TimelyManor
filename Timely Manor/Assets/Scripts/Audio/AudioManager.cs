@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
+            //Set each sound to their settings from inspector
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -41,6 +42,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        //Test Play sound
         Play("Music");
     }
 

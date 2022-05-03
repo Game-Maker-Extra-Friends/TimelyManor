@@ -169,6 +169,7 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
+		//Teleport pause (We think the camera as stopping the teleport, now its just for the future transition)
 		IEnumerator Pause()
         {
 			yield return new WaitForSeconds(0.1f);
