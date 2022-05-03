@@ -180,7 +180,7 @@ namespace StarterAssets
 
 			yield return new WaitForSeconds(transitionTime);
 			
-			TimeTravel2();
+			TimeTravel();
 			_playerState = PlayerState.Moving;
 		}
 
@@ -226,18 +226,18 @@ namespace StarterAssets
 			}
 		}
 
-		private void TimeTravel2()
+		private void TimeTravel()
 		{ 
 			Scene scene = SceneManager.GetActiveScene();
 			if (scene.name == pastScene)
 			{
-				// TODO scene change needs animation etc
 				SceneManager.LoadScene(presentScene);
 				return;
 			}
 			SceneManager.LoadScene(pastScene);
 		}
-
+		
+		/* deprecated function
 		private void TimeTravel()
 		{ 
 			oldXpos = gameObject.transform.position;
@@ -258,6 +258,7 @@ namespace StarterAssets
 			Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
 			_input.timeTravel = false;			
 		}
+		*/
 
 		private void GroundedCheck()
 		{
