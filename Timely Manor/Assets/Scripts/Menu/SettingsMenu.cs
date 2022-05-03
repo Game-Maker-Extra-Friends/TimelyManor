@@ -19,12 +19,13 @@ public class SettingsMenu : MonoBehaviour
     {
         
 
-
+        //set the array to screen resolutions
         resolutions = Screen.resolutions;
 
         //Clear the dropdown just in case
         resolutionDropDown.ClearOptions();
 
+        //the option to display
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
@@ -39,11 +40,13 @@ public class SettingsMenu : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
-
+        //Add option and values + refresh the value so it's displayed to the player.
         resolutionDropDown.AddOptions(options);
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
     }
+
+    //Set volume for each type
     public void SetMasterVolume (float volume)
     {
         Debug.Log(volume);
@@ -63,48 +66,40 @@ public class SettingsMenu : MonoBehaviour
     }
 
 
-
+    //Set the quality according to the quality option.
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
+    //Fullscreen option
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
 
+    //Set the resolution
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
     }
 
+    //Set mouse sensitivity
     public void SetMouseSensivity(InputAction action, string bindingPathStart, float sensivity )
     {
-        //Vector2 scale;
-        //var bindings = action.bindings;
-        //for (var i = 0; i < bindings.Count; i++)
-        //{
-        //    Debug.Log("checking " + action.GetBindingDisplayString(i) + " (" + bindings[i].path + ")");
-        //    if (bindingPath.ToLower() == bindings[i].path.ToLower())
-        //    {
-        //        scale = new Vector2(sensivity, sensivity);
-        //        Debug.Log("setting scale on " + bindings[i] + " - " + bindings[i].path + " to " + scale);
-        //        action.ApplyBindingOverride(i, new InputBinding { overrideProcessors = $"ScaleVector2(x={scale.x},y={scale.y})" });
-        //        return;
-        //    }
-        //}
         var bindings = action.bindings;
         var scale = new Vector2(sensivity, sensivity);
         for (var i = 0; i < bindings.Count; i++)
         {
             if (bindings[i].isPartOfComposite || !bindings[i].path.StartsWith(bindingPathStart)) continue;
+            //Override the binding of the playerinput and insert the new value (kinda dumb since you can't just change one thing)
             action.ApplyBindingOverride(i, new InputBinding { overrideProcessors = $"ScaleVector2(x={scale.x},y={scale.y}), InvertVector2(invertx=false,inverty=true)" });
             return;
         }
     }
 
+    //This is for the slider to use
     public void SetMouseSensivityFloat(float sensivity)
     {
         var action = _input.FindAction("Look");
