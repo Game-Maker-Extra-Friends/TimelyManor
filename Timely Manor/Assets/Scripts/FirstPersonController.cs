@@ -203,13 +203,28 @@ namespace StarterAssets
 				RaycastHit hit;
 				if (Physics.Raycast(ray, out hit, 100))
 				{
+					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 					if (hit.transform.gameObject.CompareTag("Note"))
 					{
 						hit.transform.gameObject.SendMessage("toggleNoteImg");
 						_openNote = hit.transform.gameObject;
 						_playerState = PlayerState.Reading;
 					}
+
+					if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
+					{
+						Debug.Log("we hit an object! " + hit.transform.gameObject.name);
+						string value = hit.transform.name;
+						codeLock.SetValue(value);
+					}
+					else if (hit.transform.gameObject.CompareTag("SafePuzzleSubmit"))
+					{
+						codeLock.CheckCode();
+					}
 				}
+
+				
+
 				_input.clickInput = false;
 			}
 
