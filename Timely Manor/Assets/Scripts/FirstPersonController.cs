@@ -241,7 +241,7 @@ namespace StarterAssets
 				_audioManager.FadeOut("MusicFuture", "MusicPast");
 			}
 
-			Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
+			//Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
 			_input.timeTravel = false;			
 		}
 
