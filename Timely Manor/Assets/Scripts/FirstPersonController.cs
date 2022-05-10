@@ -130,6 +130,8 @@ namespace StarterAssets
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -158,6 +160,18 @@ namespace StarterAssets
 			{
 				pressESCText.gameObject.SetActive(true);
 				PointAndClick();
+
+				if (_input.exit)
+				{
+					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
+					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
+					_playerState = PlayerState.Moving;
+
+					pressESCText.gameObject.SetActive(false);
+					Cursor.visible = false;
+					Cursor.lockState = CursorLockMode.Locked;
+					_input.exit = false;
+				}
 			}
 
 			if (_playerState == PlayerState.Reading)
@@ -223,22 +237,10 @@ namespace StarterAssets
 					}
 				}
 
-				
-
 				_input.clickInput = false;
 			}
 
-			if (_input.exit)
-			{
-				_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
-				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
-				_playerState = PlayerState.Moving;
-
-				pressESCText.gameObject.SetActive(false);
-				Cursor.visible = false;
-				Cursor.lockState = CursorLockMode.Locked;
-				_input.exit = false;
-			}
+			
 		}
 
 		private void TimeTravel()
