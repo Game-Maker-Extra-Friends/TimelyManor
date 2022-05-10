@@ -88,6 +88,10 @@ namespace StarterAssets
 		public TextMeshProUGUI pressESCText;
 		private GameObject _openNote;
 
+
+		// Audio
+		public AudioManager _audioManager;
+
 		// State enums
 		private enum PlayerState
         {
@@ -247,15 +251,17 @@ namespace StarterAssets
 				gameObject.transform.position = new Vector3(gameObject.transform.position.x - teleportDistace, gameObject.transform.position.y, gameObject.transform.position.z);
 				vcam.OnTargetObjectWarped(gameObject.transform, gameObject.transform.position + oldXpos);
 				_timeState = TimeState.Present;
+				_audioManager.FadeOut("MusicPast", "MusicFuture");
 			}
 			else
 			{
 				gameObject.transform.position = new Vector3(gameObject.transform.position.x + teleportDistace, gameObject.transform.position.y, gameObject.transform.position.z);
 				vcam.OnTargetObjectWarped(gameObject.transform, gameObject.transform.position + oldXpos);
 				_timeState = TimeState.Past;
+				_audioManager.FadeOut("MusicFuture", "MusicPast");
 			}
 
-			Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
+			//Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
 			_input.timeTravel = false;			
 		}
 		*/
