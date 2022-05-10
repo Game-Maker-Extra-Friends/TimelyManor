@@ -101,12 +101,17 @@ namespace StarterAssets
 			Reading
         }
 		private PlayerState _playerState;
+
+		// Time travel
 		private enum TimeState
         {
 			Past,
 			Present
         }
 		private TimeState _timeState;
+		public string pastScene, presentScene;
+		public Animator transition;
+		public float transitionTime = 1f;
 
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
@@ -148,8 +153,8 @@ namespace StarterAssets
 			
 			if (_input.timeTravel)
             {
+				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
-				TimeTravel();
 				StartCoroutine("Pause");
 			}
 
@@ -173,10 +178,13 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
-		//Teleport pause (We think the camera as stopping the teleport, now its just for the future transition)
-		IEnumerator Pause()
+		IEnumerator Pause() // change name?
         {
-			yield return new WaitForSeconds(0.1f);
+			transition.SetTrigger("Start");
+
+			yield return new WaitForSeconds(transitionTime);
+			
+			TimeTravel();
 			_playerState = PlayerState.Moving;
 		}
 
@@ -224,6 +232,18 @@ namespace StarterAssets
 
 		private void TimeTravel()
 		{ 
+			Scene scene = SceneManager.GetActiveScene();
+			if (scene.name == pastScene)
+			{
+				SceneManager.LoadScene(presentScene);
+				return;
+			}
+			SceneManager.LoadScene(pastScene);
+		}
+		
+		/* deprecated function
+		private void TimeTravel()
+		{ 
 			oldXpos = gameObject.transform.position;
 
 			if (_timeState == TimeState.Past)
@@ -244,6 +264,7 @@ namespace StarterAssets
 			//Debug.Log("Time Travel Forward Initiated + X coordinate is " + gameObject.transform.position.x);
 			_input.timeTravel = false;			
 		}
+		*/
 
 		private void GroundedCheck()
 		{
