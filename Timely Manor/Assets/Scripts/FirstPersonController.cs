@@ -149,7 +149,7 @@ namespace StarterAssets
 				Move();
 			}
 			
-			if (_input.timeTravel)
+			if (_input.timeTravel && _playerState == PlayerState.Moving)
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
