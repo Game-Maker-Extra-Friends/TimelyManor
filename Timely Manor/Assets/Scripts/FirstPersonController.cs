@@ -149,12 +149,13 @@ namespace StarterAssets
 				Move();
 			}
 			
-			if (_input.timeTravel && _playerState == PlayerState.Moving)
+			if (_input.timeTravel && _playerState == PlayerState.Moving )
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
 				StartCoroutine("Pause");
 			}
+			_input.timeTravel = false;
 
 			if (_playerState == PlayerState.Interacting)
 			{
