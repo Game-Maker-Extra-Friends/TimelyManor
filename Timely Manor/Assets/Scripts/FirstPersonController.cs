@@ -86,7 +86,7 @@ namespace StarterAssets
 		// UI elements
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
-		private GameObject _openNote;
+		private GameObject _openClue;
 
 		// State enums
 		private enum PlayerState
@@ -179,9 +179,8 @@ namespace StarterAssets
 			{
 				if (_input.exit)
 				{
-
 					_playerState = PlayerState.Interacting;
-					_openNote.SendMessage("toggleNoteImg");
+					_openClue.SendMessage("toggleCanvas");
 					_input.exit = false;
 				}
 			}
@@ -219,10 +218,10 @@ namespace StarterAssets
 				if (Physics.Raycast(ray, out hit, 100))
 				{
 					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
-					if (hit.transform.gameObject.CompareTag("Note"))
+					if (hit.transform.gameObject.CompareTag("Clue"))
 					{
-						hit.transform.gameObject.SendMessage("toggleNoteImg");
-						_openNote = hit.transform.gameObject;
+						hit.transform.gameObject.SendMessage("toggleCanvas");
+						_openClue = hit.transform.gameObject;
 						_playerState = PlayerState.Reading;
 					}
 

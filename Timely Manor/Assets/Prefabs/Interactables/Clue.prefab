@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8522515280453936000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -462,8 +462,8 @@ GameObject:
   - component: {fileID: 8522515280557468439}
   - component: {fileID: 8522515280557468438}
   m_Layer: 0
-  m_Name: Note
-  m_TagString: Note
+  m_Name: Clue
+  m_TagString: Clue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,12 +556,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8522515280557468441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6312438c3a039544821e6ec5803e0db, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   noteImg: {fileID: 8522515280453936001}
   noteText: {fileID: 8522515280991817750}
   textButton: {fileID: 1195987606645887075}
+  canvas: {fileID: 8522515280416116205}
 --- !u!1 &8522515280991817752
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8522515280991817753
 RectTransform:
   m_ObjectHideFlags: 0

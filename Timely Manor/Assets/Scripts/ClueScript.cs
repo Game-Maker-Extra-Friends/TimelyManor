@@ -4,24 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class NoteScript : MonoBehaviour
+public class ClueScript : MonoBehaviour
 {
 	public Image noteImg;
 	public TextMeshProUGUI noteText;
 	public Button textButton;
+	public Canvas canvas;
 
-    public void toggleNoteImg()
+	public void toggleCanvas()
 	{
-		if (noteImg.isActiveAndEnabled == false)
+		if (canvas.isActiveAndEnabled == false)
 		{
-			noteImg.gameObject.SetActive(true);
-			textButton.gameObject.SetActive(true);
+			canvas.gameObject.SetActive(true);
 		}
 		else
 		{
-			noteImg.gameObject.SetActive(false);
-			textButton.gameObject.SetActive(false);
-			noteText.gameObject.SetActive(false);
+			canvas.gameObject.SetActive(false);
 		}
 	}
 
