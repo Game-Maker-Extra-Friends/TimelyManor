@@ -89,14 +89,14 @@ namespace StarterAssets
 		private GameObject _openNote;
 
 		// State enums
-		private enum PlayerState
+		public enum PlayerState
         {
 			Moving,
 			TimeTraveling,
 			Interacting,
 			Reading
         }
-		private PlayerState _playerState;
+		public PlayerState _playerState;
 
 		// Time travel
 		private enum TimeState
