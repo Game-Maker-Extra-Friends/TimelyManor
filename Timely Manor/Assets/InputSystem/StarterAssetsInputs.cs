@@ -17,6 +17,7 @@ namespace StarterAssets
 		public bool interact;
 		public bool exit;
 		public bool clickInput;
+		public bool openJournal;
 
 
 		[Header("Movement Settings")]
@@ -72,6 +73,10 @@ namespace StarterAssets
 			ClickInput(value.isPressed);
         }
 
+		public void OnOpenJournal(InputValue value)
+		{
+			OpenJournalInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -116,6 +121,12 @@ namespace StarterAssets
         {
 			clickInput = newClickInputState;
         }
+
+		public void OpenJournalInput(bool newOpenJournalState)
+		{
+			openJournal = newOpenJournalState;
+		}
+
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

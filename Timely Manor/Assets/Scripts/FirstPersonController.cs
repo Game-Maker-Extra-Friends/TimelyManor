@@ -94,7 +94,9 @@ namespace StarterAssets
 			Moving,
 			TimeTraveling,
 			Interacting,
-			Reading
+			Reading,
+			Paused,
+			Journal
         }
 		public PlayerState _playerState;
 

@@ -14,16 +14,18 @@ public class PauseMenu : MonoBehaviour
     //public InputAction exit;
     public StarterAssets.StarterAssetsInputs _input;
     public StarterAssets.FirstPersonController _state;
+    public FirstPersonController.PlayerState originalState;
 
     public GameObject PauseMenuUI;
     public GameObject OptionMenuUI;
     // Update is called once per frame
     void Update()
     {
-        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Interacting)
+        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Paused)
         {
             if(GameIsPaused)
             {
+                _state._playerState = originalState;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 _input.exit = false;
@@ -31,6 +33,8 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                originalState = _state._playerState;
+                _state._playerState = FirstPersonController.PlayerState.Paused;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 _input.exit = false;
@@ -42,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        OptionMenuUI.SetActive(false);
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
