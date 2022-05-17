@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Paused)
+        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Interacting)
         {
             if(GameIsPaused)
             {

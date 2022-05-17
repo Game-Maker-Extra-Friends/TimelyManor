@@ -27,7 +27,7 @@ public class JournalMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_input.openJournal && _state._playerState != FirstPersonController.PlayerState.Interacting)
+        if (_input.openJournal && _state._playerState != FirstPersonController.PlayerState.Paused)
         {
             _input.openJournal = false;
             Debug.Log("Journal open");
@@ -66,6 +66,7 @@ public class JournalMenu : MonoBehaviour
         journalOpened = true;
     }
 
+    //So the player can close the UI when the page changes + the bonus of opening the same page the player left off from.
     public void CurrentPage(string tabName)
     {
         currentPageObject = gameObject.transform.Find(tabName);
