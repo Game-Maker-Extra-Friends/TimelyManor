@@ -101,12 +101,6 @@ namespace StarterAssets
 		public PlayerState _playerState;
 
 		// Time travel
-		private enum TimeState
-        {
-			Past,
-			Present
-        }
-		private TimeState _timeState;
 		public string pastScene, presentScene;
 		public Animator transition;
 		public float transitionTime = 1f;
@@ -139,26 +133,32 @@ namespace StarterAssets
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 			_playerState = PlayerState.Moving;
-			_timeState = TimeState.Present;
-		}
+			}
 
 		private void Update()
 		{
+
+			// Moving
 			if (_playerState == PlayerState.Moving)
             {
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
-			
+
+
+			// Time Travel
 			if (_input.timeTravel && _playerState == PlayerState.Moving )
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
 				StartCoroutine("Pause");
 			}
-			_input.timeTravel = false;
+			// Not needed?
+            //_input.timeTravel = false;
 
+
+			// Interact mode
 			if (_playerState == PlayerState.Interacting)
 			{
 				pressESCText.gameObject.SetActive(true);
@@ -177,6 +177,7 @@ namespace StarterAssets
 				}
 			}
 
+			// Read clues
 			if (_playerState == PlayerState.Reading)
 			{
 				if (_input.exit)

@@ -10,12 +10,19 @@ public class ClueScript : MonoBehaviour
 	public TextMeshProUGUI noteText;
 	public Button textButton;
 	public Canvas canvas;
+	private AudioSource _audioSource;
 
-	public void toggleCanvas()
+    public void Start()
+    {
+		_audioSource = GetComponent<AudioSource>();
+    }
+
+    public void toggleCanvas()
 	{
 		if (canvas.isActiveAndEnabled == false)
 		{
 			canvas.gameObject.SetActive(true);
+			_audioSource.Play();
 		}
 		else
 		{
