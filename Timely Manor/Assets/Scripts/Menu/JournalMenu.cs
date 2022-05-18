@@ -27,7 +27,7 @@ public class JournalMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_input.openJournal && _state._playerState != FirstPersonController.PlayerState.Paused)
+        if (_input.openJournal && (_state._playerState != FirstPersonController.PlayerState.Paused && _state._playerState != FirstPersonController.PlayerState.Interacting))
         {
             _input.openJournal = false;
             Debug.Log("Journal open");
@@ -47,6 +47,7 @@ public class JournalMenu : MonoBehaviour
                 OpenJournal();
             }
         }
+        _input.openJournal = false;
     }
 
 
