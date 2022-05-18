@@ -16,16 +16,14 @@ public class PauseMenu : MonoBehaviour
     public StarterAssets.FirstPersonController _state;
     public FirstPersonController.PlayerState originalState;
 
-    public GameObject PauseMenuUI;
-    public GameObject OptionMenuUI;
+    public Transform currentPageObject;
     // Update is called once per frame
     void Update()
     {
-        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Interacting)
+        if (_input.exit && (_state._playerState != FirstPersonController.PlayerState.Interacting && _state._playerState != FirstPersonController.PlayerState.Reading))
         {
             if(GameIsPaused)
             {
-                _state._playerState = originalState;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 _input.exit = false;
@@ -33,8 +31,6 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                originalState = _state._playerState;
-                _state._playerState = FirstPersonController.PlayerState.Paused;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 _input.exit = false;
@@ -46,8 +42,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        OptionMenuUI.SetActive(false);
-        PauseMenuUI.SetActive(false);
+        _state._playerState = originalState;
+        currentPageObject.gameObject.SetActive(false);
+        currentPageObject = gameObject.transform.Find("PauseMenu");
+        //PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         Debug.Log("Resume");
@@ -56,7 +54,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        PauseMenuUI.SetActive(true);
+
+        //Redundancy
+        originalState = _state._playerState;
+        _state._playerState = FirstPersonController.PlayerState.Paused;
+        currentPageObject.gameObject.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -70,8 +72,14 @@ public class PauseMenu : MonoBehaviour
         {
             Destroy(d.gameObject);
         }
-
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Menu_Test");
+    }
+
+
+    public void CurrentPage(string tabName)
+    {
+        currentPageObject = gameObject.transform.Find(tabName);
     }
     //public void LoadOption()
     //{
