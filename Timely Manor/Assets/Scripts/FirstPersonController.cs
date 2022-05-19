@@ -133,7 +133,7 @@ namespace StarterAssets
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 			_playerState = PlayerState.Moving;
-			}
+		}
 
 		private void Update()
 		{
@@ -148,11 +148,14 @@ namespace StarterAssets
 
 
 			// Time Travel
-			if (_input.timeTravel && _playerState == PlayerState.Moving )
+			if (_input.timeTravel && _playerState == PlayerState.Moving)
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
-				StartCoroutine("Pause");
+				transition.SetTrigger("Start");
+				StartCoroutine("TimeTravel");
+				TimeTravel();
+				
 			}
 			// Not needed?
             //_input.timeTravel = false;
@@ -191,13 +194,18 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
-		IEnumerator Pause() // change name?
+		IEnumerator TimeTravel()
         {
-			transition.SetTrigger("Start");
-
 			yield return new WaitForSeconds(transitionTime);
-			
-			TimeTravel();
+			Scene scene = SceneManager.GetActiveScene();
+			if (scene.name == pastScene)
+			{
+				SceneManager.LoadScene(presentScene);
+			}
+			else
+			{
+				SceneManager.LoadScene(pastScene);
+			}
 			_playerState = PlayerState.Moving;
 		}
 
@@ -246,16 +254,6 @@ namespace StarterAssets
 			
 		}
 
-		private void TimeTravel()
-		{ 
-			Scene scene = SceneManager.GetActiveScene();
-			if (scene.name == pastScene)
-			{
-				SceneManager.LoadScene(presentScene);
-				return;
-			}
-			SceneManager.LoadScene(pastScene);
-		}
 		
 		/* deprecated function
 		private void TimeTravel()
