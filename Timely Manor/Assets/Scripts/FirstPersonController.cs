@@ -77,7 +77,6 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private Vector3 oldXpos;
 		public GameObject followCamera;
 		public float teleportDistace = 100;
 
@@ -87,6 +86,7 @@ namespace StarterAssets
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
 		private GameObject _openClue;
+
 
 		// State enums
 		public enum PlayerState
@@ -123,9 +123,9 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
 
-
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
+			CursorController.Instance.defaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
@@ -140,12 +140,11 @@ namespace StarterAssets
 
 			// Moving
 			if (_playerState == PlayerState.Moving)
-            {
+			{
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
-
 
 			// Time Travel
 			if (_input.timeTravel && _playerState == PlayerState.Moving)
@@ -165,6 +164,10 @@ namespace StarterAssets
 			if (_playerState == PlayerState.Interacting)
 			{
 				pressESCText.gameObject.SetActive(true);
+
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+
 				PointAndClick();
 
 				if (_input.exit)
@@ -219,16 +222,23 @@ namespace StarterAssets
 
 		private void PointAndClick()
 		{
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.None;
-
-			if (_input.clickInput)
+			Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, 100))
 			{
-				Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-				RaycastHit hit;
-				if (Physics.Raycast(ray, out hit, 100))
+				CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
+
+				if (hit.transform.gameObject.CompareTag("Clue"))
+                {
+					CursorController.Instance.clueCursor();
+                }
+				else
+                {
+					CursorController.Instance.defaultCursor();
+				}
+
+				if (_input.clickInput)
 				{
-					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 					if (hit.transform.gameObject.CompareTag("Clue"))
 					{
 						hit.transform.gameObject.SendMessage("toggleCanvas");
