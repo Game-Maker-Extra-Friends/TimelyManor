@@ -137,7 +137,7 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator StartFadeIn(string nextMusic)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Fade in");
         FadeIn(nextMusic);
 
