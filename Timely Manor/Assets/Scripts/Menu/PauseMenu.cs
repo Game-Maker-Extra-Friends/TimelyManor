@@ -14,26 +14,25 @@ public class PauseMenu : MonoBehaviour
     //public InputAction exit;
     public StarterAssets.StarterAssetsInputs _input;
     public StarterAssets.FirstPersonController _state;
+    public FirstPersonController.PlayerState originalState;
 
-    public GameObject PauseMenuUI;
-    public GameObject OptionMenuUI;
+    public Transform currentPageObject;
     // Update is called once per frame
     void Update()
     {
-        if (_input.exit && _state._playerState != FirstPersonController.PlayerState.Interacting)
+        // Check for exit input + make sure that the player isn't interacting or reading/clue
+        if (_input.exit && (_state._playerState != FirstPersonController.PlayerState.Interacting && _state._playerState != FirstPersonController.PlayerState.Reading))
         {
-            if(GameIsPaused)
+
+            // set to false so the if satatement doesn't get spammed
+            _input.exit = false;
+            //Check if game is paused or not
+            if (GameIsPaused)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                _input.exit = false;
                 Resume();
             }
             else
             {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                _input.exit = false;
                 Pause();
             }
         }
@@ -42,18 +41,34 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
+        // Makes the cursor invisible and lock it
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        
+        _state._playerState = originalState;
+        currentPageObject.gameObject.SetActive(false);
+        currentPageObject = gameObject.transform.Find("PauseMenu");
+        //PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         Debug.Log("Resume");
+        Debug.Log(_state._playerState);
     }
 
 
     public void Pause()
     {
-        PauseMenuUI.SetActive(true);
+        // Makes the cursor visible and unlock it
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        //Redundancy
+        originalState = _state._playerState;
+        _state._playerState = FirstPersonController.PlayerState.Paused;
+        currentPageObject.gameObject.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        Debug.Log(_state._playerState);
     }
 
 
@@ -65,8 +80,16 @@ public class PauseMenu : MonoBehaviour
         {
             Destroy(d.gameObject);
         }
-
+        Time.timeScale = 1f;
+        //So that when the player play the game again, they don't have to press escape twice
+        GameIsPaused = false;
         SceneManager.LoadScene("Menu_Test");
+    }
+
+
+    public void CurrentPage(string tabName)
+    {
+        currentPageObject = gameObject.transform.Find(tabName);
     }
     //public void LoadOption()
     //{
