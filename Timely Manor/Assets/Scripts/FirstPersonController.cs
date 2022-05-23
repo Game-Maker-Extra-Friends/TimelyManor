@@ -88,6 +88,9 @@ namespace StarterAssets
 		public TextMeshProUGUI pressESCText;
 		private GameObject _openNote;
 
+		// Audio
+		public AudioManager _audioManager;
+
 		// State enums
 		public enum PlayerState
         {
@@ -194,6 +197,19 @@ namespace StarterAssets
 		IEnumerator Pause() // change name?
         {
 			transition.SetTrigger("Start");
+			if(_timeState == TimeState.Present)
+            {
+				Debug.Log("Fade out Present Music");
+				_audioManager.FadeOut("MusicPresent", "MusicPast");
+				_timeState = TimeState.Past;
+            }
+            else
+            {
+				Debug.Log("Fade out Past Music");
+				_audioManager.FadeOut("MusicPast", "MusicPresent");
+				_timeState = TimeState.Present;
+			}
+
 
 			yield return new WaitForSeconds(transitionTime);
 			
