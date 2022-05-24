@@ -77,6 +77,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private Vector3 oldXpos;
 		public GameObject followCamera;
 		public float teleportDistace = 100;
 
@@ -85,8 +86,10 @@ namespace StarterAssets
 		// UI elements
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
-		private GameObject _openClue;
+		private GameObject _openNote;
 
+		// Audio
+		public AudioManager _audioManager;
 
 		// State enums
 		public enum PlayerState
@@ -101,6 +104,12 @@ namespace StarterAssets
 		public PlayerState _playerState;
 
 		// Time travel
+		private enum TimeState
+        {
+			Past,
+			Present
+        }
+		private TimeState _timeState;
 		public string pastScene, presentScene;
 		public Animator transition;
 		public float transitionTime = 1f;
@@ -123,9 +132,9 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
 
+
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
-			CursorController.Instance.defaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
@@ -133,41 +142,29 @@ namespace StarterAssets
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 			_playerState = PlayerState.Moving;
+			_timeState = TimeState.Present;
 		}
 
 		private void Update()
 		{
-
-			// Moving
 			if (_playerState == PlayerState.Moving)
-			{
+            {
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
-
-			// Time Travel
-			if (_input.timeTravel && _playerState == PlayerState.Moving)
+			
+			if (_input.timeTravel && _playerState == PlayerState.Moving )
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
-				transition.SetTrigger("Start");
-				StartCoroutine("TimeTravel");
-				TimeTravel();
-				
+				StartCoroutine("Pause");
 			}
-			// Not needed?
-            //_input.timeTravel = false;
+			_input.timeTravel = false;
 
-
-			// Interact mode
 			if (_playerState == PlayerState.Interacting)
 			{
 				pressESCText.gameObject.SetActive(true);
-
-				Cursor.visible = true;
-				Cursor.lockState = CursorLockMode.None;
-
 				PointAndClick();
 
 				if (_input.exit)
@@ -183,13 +180,13 @@ namespace StarterAssets
 				}
 			}
 
-			// Read clues
 			if (_playerState == PlayerState.Reading)
 			{
 				if (_input.exit)
 				{
+
 					_playerState = PlayerState.Interacting;
-					_openClue.SendMessage("toggleCanvas");
+					_openNote.SendMessage("toggleNoteImg");
 					_input.exit = false;
 				}
 			}
@@ -197,18 +194,26 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
-		IEnumerator TimeTravel()
+		IEnumerator Pause() // change name?
         {
+			transition.SetTrigger("Start");
+			if(_timeState == TimeState.Present)
+            {
+				Debug.Log("Fade out Present Music");
+				_audioManager.FadeOut("MusicPresent", "MusicPast");
+				_timeState = TimeState.Past;
+            }
+            else
+            {
+				Debug.Log("Fade out Past Music");
+				_audioManager.FadeOut("MusicPast", "MusicPresent");
+				_timeState = TimeState.Present;
+			}
+
+
 			yield return new WaitForSeconds(transitionTime);
-			Scene scene = SceneManager.GetActiveScene();
-			if (scene.name == pastScene)
-			{
-				SceneManager.LoadScene(presentScene);
-			}
-			else
-			{
-				SceneManager.LoadScene(pastScene);
-			}
+			
+			TimeTravel();
 			_playerState = PlayerState.Moving;
 		}
 
@@ -222,27 +227,20 @@ namespace StarterAssets
 
 		private void PointAndClick()
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, 100))
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+
+			if (_input.clickInput)
 			{
-				CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
-
-				if (hit.transform.gameObject.CompareTag("Clue"))
-                {
-					CursorController.Instance.clueCursor();
-                }
-				else
-                {
-					CursorController.Instance.defaultCursor();
-				}
-
-				if (_input.clickInput)
+				Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+				RaycastHit hit;
+				if (Physics.Raycast(ray, out hit, 100))
 				{
-					if (hit.transform.gameObject.CompareTag("Clue"))
+					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
+					if (hit.transform.gameObject.CompareTag("Note"))
 					{
-						hit.transform.gameObject.SendMessage("toggleCanvas");
-						_openClue = hit.transform.gameObject;
+						hit.transform.gameObject.SendMessage("toggleNoteImg");
+						_openNote = hit.transform.gameObject;
 						_playerState = PlayerState.Reading;
 					}
 
@@ -264,6 +262,16 @@ namespace StarterAssets
 			
 		}
 
+		private void TimeTravel()
+		{ 
+			Scene scene = SceneManager.GetActiveScene();
+			if (scene.name == pastScene)
+			{
+				SceneManager.LoadScene(presentScene);
+				return;
+			}
+			SceneManager.LoadScene(pastScene);
+		}
 		
 		/* deprecated function
 		private void TimeTravel()
