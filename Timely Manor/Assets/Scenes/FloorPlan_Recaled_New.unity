@@ -5389,6 +5389,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4587d7a088622ac4b8fbd0c9d1cdf6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &594754243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5420857361349278248, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 594754237}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594754238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &594754245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 594754237}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594754238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &609165831
 Mesh:
   m_ObjectHideFlags: 0
@@ -6713,8 +6735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1c5269e2a4a2b4eb3d797f39616eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
-  _state: {fileID: 0}
+  _input: {fileID: 594754243}
+  _state: {fileID: 594754245}
   originalState: 0
   currentPageObject: {fileID: 660554501}
 --- !u!114 &755305949
@@ -10067,8 +10089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f902ceac994824ea60fa2831ec6685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
-  _state: {fileID: 0}
+  _input: {fileID: 594754243}
+  _state: {fileID: 594754245}
   originalState: 0
   currentPageObject: {fileID: 1041253115}
 --- !u!114 &1019771521
@@ -13499,14 +13521,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 68bc842c0ccbf984b997f3e4766a154e, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
     audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
   - name: MusicPast
     clip: {fileID: 8300000, guid: 3ce1e7623024bde4a84f755c70d2e90e, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
     audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!114 &1281260282
