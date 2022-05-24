@@ -24,24 +24,25 @@ public class JournalMenu : MonoBehaviour
     }
 
     public Transform currentPageObject;
+
     // Update is called once per frame
     void Update()
     {
-        // Check for exit input + make sure that the player isn't interacting, reading/clue or pausing
-        if (_input.openJournal && (_state._playerState != FirstPersonController.PlayerState.Paused && _state._playerState != FirstPersonController.PlayerState.Interacting && _state._playerState != FirstPersonController.PlayerState.Reading))
+        // Open journal: Check for open journal input, if journal is not open and that player is in moving state
+        if (_input.openJournal && !journalOpened && _state._playerState == FirstPersonController.PlayerState.Moving) 
         {
             _input.openJournal = false;
-            Debug.Log("Journal open");
-            // Check if journal is open or not
-            if (journalOpened)
-            {  
-                CloseJournal();
-            }
-            else
-            {
-                OpenJournal();
-            }
+            OpenJournal();
         }
+
+        // Close journal: check for either exit or open journal input and if journal is open
+        if ((_input.exit || _input.openJournal) && journalOpened)
+		{
+            _input.exit = false;
+            _input.openJournal = false;
+            CloseJournal();
+		}
+
         //Put here so that the if statement doesn't get spam from the input being active
         _input.openJournal = false;
     }

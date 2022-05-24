@@ -31,13 +31,12 @@ public class CodeLock : MonoBehaviour
         if(attemptedCode == code)
         {
             Success.Play();
-            greenLight();
         }
         else
         {
             Debug.Log("wrong code");
             Fail.Play();
-            attemptedCode = "";
+            attemptedCode = null;
             showNumber.GetComponent<TMPro.TextMeshPro>().text = attemptedCode;
             placeInCode = 0;
         }

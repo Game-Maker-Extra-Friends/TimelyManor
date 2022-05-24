@@ -29,11 +29,11 @@ public class CursorController : MonoBehaviour
 
     public void defaultCursor()
     {
-        Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     public void clueCursor()
     {
-        Cursor.SetCursor(cursorTexture2, new Vector2(0, 0), CursorMode.Auto);
+        Cursor.SetCursor(cursorTexture2, Vector2.zero, CursorMode.Auto);
     }
 }

@@ -11,7 +11,6 @@ public class ClueScript : MonoBehaviour
 	public Button textButton;
 	public Canvas canvas;
 	private AudioSource _audioSource;
-	public Texture2D cursorTexture;
 
     public void Start()
     {

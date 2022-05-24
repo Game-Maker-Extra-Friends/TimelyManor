@@ -77,7 +77,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private Vector3 oldXpos;
+
 		public GameObject followCamera;
 		public float teleportDistace = 100;
 
@@ -135,6 +135,7 @@ namespace StarterAssets
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
+			CursorController.Instance.defaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
@@ -158,12 +159,15 @@ namespace StarterAssets
             {
 				_input.timeTravel = false;
 				_playerState = PlayerState.TimeTraveling;
-				StartCoroutine("Pause");
+				StartCoroutine("TimeTravel");
 			}
 			_input.timeTravel = false;
 
 			if (_playerState == PlayerState.Interacting)
 			{
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+
 				pressESCText.gameObject.SetActive(true);
 				PointAndClick();
 
@@ -184,9 +188,8 @@ namespace StarterAssets
 			{
 				if (_input.exit)
 				{
-
 					_playerState = PlayerState.Interacting;
-					_openNote.SendMessage("toggleNoteImg");
+					_openNote.SendMessage("toggleCanvas");
 					_input.exit = false;
 				}
 			}
@@ -194,7 +197,7 @@ namespace StarterAssets
 			_input.clickInput = false;
 		}
 
-		IEnumerator Pause() // change name?
+		IEnumerator TimeTravel()
         {
 			transition.SetTrigger("Start");
 			if(_timeState == TimeState.Present)
@@ -212,8 +215,17 @@ namespace StarterAssets
 
 
 			yield return new WaitForSeconds(transitionTime);
-			
-			TimeTravel();
+
+			Scene scene = SceneManager.GetActiveScene();
+			if (scene.name == pastScene)
+			{
+				SceneManager.LoadScene(presentScene);
+			}
+			else
+			{
+				SceneManager.LoadScene(pastScene);
+			}
+
 			_playerState = PlayerState.Moving;
 		}
 
@@ -227,26 +239,32 @@ namespace StarterAssets
 
 		private void PointAndClick()
 		{
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.None;
-
-			if (_input.clickInput)
+			Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, 100))
 			{
-				Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-				RaycastHit hit;
-				if (Physics.Raycast(ray, out hit, 100))
+				// Change mouse cursor as appropriate
+				if (hit.transform.gameObject.CompareTag("Clue"))
 				{
-					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
-					if (hit.transform.gameObject.CompareTag("Note"))
+					CursorController.Instance.clueCursor();
+				}
+				else
+				{
+					CursorController.Instance.defaultCursor();
+				}
+
+				if (_input.clickInput)
+				{
+					if (hit.transform.gameObject.CompareTag("Clue"))
 					{
-						hit.transform.gameObject.SendMessage("toggleNoteImg");
+						hit.transform.gameObject.SendMessage("toggleCanvas");
 						_openNote = hit.transform.gameObject;
 						_playerState = PlayerState.Reading;
 					}
 
+					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 					if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
 					{
-						Debug.Log("we hit an object! " + hit.transform.gameObject.name);
 						string value = hit.transform.name;
 						codeLock.SetValue(value);
 					}
@@ -257,20 +275,7 @@ namespace StarterAssets
 				}
 
 				_input.clickInput = false;
-			}
-
-			
-		}
-
-		private void TimeTravel()
-		{ 
-			Scene scene = SceneManager.GetActiveScene();
-			if (scene.name == pastScene)
-			{
-				SceneManager.LoadScene(presentScene);
-				return;
-			}
-			SceneManager.LoadScene(pastScene);
+			}			
 		}
 		
 		/* deprecated function

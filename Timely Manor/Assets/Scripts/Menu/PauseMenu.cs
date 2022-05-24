@@ -21,17 +21,17 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // Check for exit input + make sure that the player isn't interacting or reading/clue
-        if (_input.exit && (_state._playerState != FirstPersonController.PlayerState.Interacting && _state._playerState != FirstPersonController.PlayerState.Reading))
+        if (_input.exit)
         {
-
             // set to false so the if satatement doesn't get spammed
             _input.exit = false;
+
             //Check if game is paused or not
-            if (GameIsPaused)
-            {
+            if (_state._playerState == FirstPersonController.PlayerState.Paused)
+            { 
                 Resume();
             }
-            else
+            else if (_state._playerState == FirstPersonController.PlayerState.Moving)
             {
                 Pause();
             }
@@ -45,13 +45,12 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        
-        _state._playerState = originalState;
+        _state._playerState = FirstPersonController.PlayerState.Moving;
         currentPageObject.gameObject.SetActive(false);
         currentPageObject = gameObject.transform.Find("PauseMenu");
         //PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+
         Debug.Log("Resume");
         Debug.Log(_state._playerState);
     }
@@ -63,11 +62,10 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         //Redundancy
-        originalState = _state._playerState;
         _state._playerState = FirstPersonController.PlayerState.Paused;
         currentPageObject.gameObject.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+
         Debug.Log(_state._playerState);
     }
 
