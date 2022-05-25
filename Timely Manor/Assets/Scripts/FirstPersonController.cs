@@ -264,6 +264,15 @@ namespace StarterAssets
 						_playerState = PlayerState.Reading;
 					}
 
+					// Pickup Item when the item has the correct tag
+                    if (hit.transform.gameObject.CompareTag("PickupObject"))
+                    {
+						hit.transform.gameObject.TryGetComponent<ItemObject>(out ItemObject item);
+						item.OnHandlePickupItem();
+                    }
+
+
+
 					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 					if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
 					{
