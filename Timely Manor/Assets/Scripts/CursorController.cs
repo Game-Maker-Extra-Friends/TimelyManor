@@ -25,7 +25,7 @@ public class CursorController : MonoBehaviour
 
     #endregion
 
-    public Texture2D cursorTexture, cursorTexture2;
+    public Texture2D cursorTexture, inspectCursorTexture;
 
     public void defaultCursor()
     {
@@ -34,6 +34,6 @@ public class CursorController : MonoBehaviour
 
     public void clueCursor()
     {
-        Cursor.SetCursor(cursorTexture2, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 }
