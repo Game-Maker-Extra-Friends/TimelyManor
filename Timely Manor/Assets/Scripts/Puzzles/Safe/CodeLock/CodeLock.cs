@@ -15,6 +15,8 @@ public class CodeLock : MonoBehaviour
     public Transform lightBulb;
     public CorrectLightBulb _light;
 
+    public GameObject key;
+
     public AudioSource Fail;
     public AudioSource Success;
 
@@ -31,6 +33,7 @@ public class CodeLock : MonoBehaviour
         if(attemptedCode == code)
         {
             Success.Play();
+            key.SetActive(true);
         }
         else
         {

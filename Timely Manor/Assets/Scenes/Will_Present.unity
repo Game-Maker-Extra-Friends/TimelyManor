@@ -5415,7 +5415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: pastScene
-      value: FloorPlan_Recaled_Old
+      value: Will_Past
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: pressEText
@@ -5431,7 +5431,7 @@ PrefabInstance:
       objectReference: {fileID: 796992096}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: presentScene
-      value: FloorPlan_Recaled_New
+      value: Will_Present
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: pressESCText
@@ -24706,6 +24706,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1122729819}
     m_Modifications:
+    - target: {fileID: 2019525422722023767, guid: 52018830d365b234095520c931eca09e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.031
+      objectReference: {fileID: 0}
     - target: {fileID: 3064507324845561665, guid: 52018830d365b234095520c931eca09e, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -24812,6 +24816,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585414721337303259, guid: 52018830d365b234095520c931eca09e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071920278939860967, guid: 52018830d365b234095520c931eca09e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

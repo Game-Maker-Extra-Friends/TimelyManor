@@ -169,10 +169,12 @@ namespace StarterAssets
 				Cursor.lockState = CursorLockMode.None;
 
 				pressESCText.gameObject.SetActive(true);
+				Debug.Log("pre pac");
 				PointAndClick();
-
+				Debug.Log("post pac");
 				if (_input.exit)
 				{
+					Debug.Log("exit");
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 					_playerState = PlayerState.Moving;
@@ -246,11 +248,11 @@ namespace StarterAssets
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clue"))
 				{
-					CursorController.Instance.clueCursor();
+					//CursorController.Instance.clueCursor();
 				}
 				else
 				{
-					CursorController.Instance.defaultCursor();
+					//CursorController.Instance.defaultCursor();
 				}
 
 				if (_input.clickInput)
