@@ -23,16 +23,15 @@ public class PauseMenu : MonoBehaviour
         // Check for exit input + make sure that the player isn't interacting or reading/clue
         if (_input.exit)
         {
-            // set to false so the if satatement doesn't get spammed
-            _input.exit = false;
-
             //Check if game is paused or not
             if (_state._playerState == FirstPersonController.PlayerState.Paused)
-            { 
+            {
+                _input.exit = false;
                 Resume();
             }
             else if (_state._playerState == FirstPersonController.PlayerState.Moving)
             {
+                _input.exit = false;
                 Pause();
             }
         }
