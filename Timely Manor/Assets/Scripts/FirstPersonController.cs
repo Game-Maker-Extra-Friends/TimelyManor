@@ -169,12 +169,11 @@ namespace StarterAssets
 				Cursor.lockState = CursorLockMode.None;
 
 				pressESCText.gameObject.SetActive(true);
-				Debug.Log("pre pac");
-				PointAndClick();
-				Debug.Log("post pac");
+
+
 				if (_input.exit)
 				{
-					Debug.Log("exit");
+
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 					_playerState = PlayerState.Moving;
@@ -183,6 +182,10 @@ namespace StarterAssets
 					Cursor.visible = false;
 					Cursor.lockState = CursorLockMode.Locked;
 					_input.exit = false;
+				}
+				else
+				{
+					PointAndClick();
 				}
 			}
 
