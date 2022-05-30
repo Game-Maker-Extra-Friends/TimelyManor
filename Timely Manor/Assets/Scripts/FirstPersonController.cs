@@ -150,7 +150,7 @@ namespace StarterAssets
 		{
 			if (_playerState == PlayerState.Moving)
             {
-				JumpAndGravity();
+				//JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
@@ -450,9 +450,8 @@ namespace StarterAssets
 		private void OnTriggerStay(Collider col)
 		{
 			
-			if (col.gameObject.tag == "Interact" && _input.interact)
+			if (col.gameObject.tag == "InteractPoint" && _input.interact)
 			{
-				//Debug.Log("Interacted with E");
 				_playerState = PlayerState.Interacting;
 
 
@@ -465,9 +464,8 @@ namespace StarterAssets
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.tag == "Interact")
+			if (other.tag == "InteractPoint")
             {
-				//Debug.Log("Interacted");
 				pressEText.gameObject.SetActive(true);
             }
 
@@ -475,9 +473,8 @@ namespace StarterAssets
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.tag == "Interact")
+			if (other.tag == "InteractPoint")
             {
-				//Debug.Log("Interacted off");
 				pressEText.gameObject.SetActive(false);
             }
 		}
