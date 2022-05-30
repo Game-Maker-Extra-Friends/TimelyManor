@@ -260,6 +260,13 @@ namespace StarterAssets
 
 				if (_input.clickInput)
 				{
+					if (hit.transform.gameObject.CompareTag("Clickable"))
+					{
+						hit.transform.gameObject.SendMessage("Interact");
+					}
+
+
+
 					if (hit.transform.gameObject.CompareTag("Clue"))
 					{
 						hit.transform.gameObject.SendMessage("toggleCanvas");
