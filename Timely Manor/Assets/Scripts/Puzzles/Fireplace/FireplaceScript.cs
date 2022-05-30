@@ -37,7 +37,7 @@ public class FireplaceScript : MonoBehaviour
     public void SetValue(string value)
     {
         attemptedCode += value;
-        if (attemptedCode.Length >= 5)
+        if (attemptedCode.Length >= code.Length)
 		{
             CheckCode();
 		}
