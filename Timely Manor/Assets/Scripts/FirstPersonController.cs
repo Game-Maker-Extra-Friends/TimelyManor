@@ -251,11 +251,11 @@ namespace StarterAssets
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clue"))
 				{
-					//CursorController.Instance.clueCursor();
+					CursorController.Instance.clueCursor();
 				}
 				else
 				{
-					//CursorController.Instance.defaultCursor();
+					CursorController.Instance.defaultCursor();
 				}
 
 				if (_input.clickInput)
