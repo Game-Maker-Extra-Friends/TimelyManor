@@ -64,6 +64,21 @@ public class AudioManager : MonoBehaviour
         Debug.Log("playing sound: " + name);
     }
 
+    public void Stop(string name)
+    {
+        //find sounds in sound array, and find where sound.anme is equal to the name that is being played
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("The sound you are looking for: " + name + " is not found!");
+            return;
+        }
+
+        s.source.Stop();
+        Debug.Log("Stopping sound: " + name);
+    }
+
     public void FadeOut(string currentName, string nextName)
     {
         //find sounds in sound array, and find where sound.anme is equal to the name that is being played
