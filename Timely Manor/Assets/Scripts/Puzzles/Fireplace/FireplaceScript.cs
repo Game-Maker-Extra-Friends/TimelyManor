@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FireplaceScript : MonoBehaviour
 {
-    public SpriteRenderer unsolved, finished, key;
+    public SpriteRenderer unsolved, fireplaceKey, finished;
+    public GameObject key;
 
     public string code = "12345";
     public string attemptedCode = "";
@@ -21,7 +22,8 @@ public class FireplaceScript : MonoBehaviour
                 brick.gameObject.SetActive(false);
 
             unsolved.enabled = false;
-            key.enabled = true;
+            fireplaceKey.enabled = true;
+            key.SetActive(true);
         }
         else
         {
@@ -42,4 +44,20 @@ public class FireplaceScript : MonoBehaviour
             CheckCode();
 		}
     }
+
+    public void RemoveValue(string value)
+	{
+        string replacementCode = "";
+
+        for (int i = 0; i < attemptedCode.Length; ++i)
+		{
+            if (attemptedCode[i] != value[0])
+			{
+                replacementCode += attemptedCode[i];
+			}
+		}
+
+        attemptedCode = replacementCode;
+	}
+
 }

@@ -18,6 +18,11 @@ public class FireplaceBrickScript : MonoBehaviour
 			FireplaceScript fireplaceScript = GetComponentInParent(typeof(FireplaceScript)) as FireplaceScript;
 			fireplaceScript.SetValue(value);
 		}
+		else
+		{
+			FireplaceScript fireplaceScript = GetComponentInParent(typeof(FireplaceScript)) as FireplaceScript;
+			fireplaceScript.RemoveValue(value);
+		}
 	}
 
 	public void Toggle()

@@ -246,7 +246,7 @@ namespace StarterAssets
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, 100))
+			if (Physics.Raycast(ray, out hit, 200))
 			{
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clue"))
