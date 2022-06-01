@@ -66,6 +66,7 @@ public class JournalMenu : MonoBehaviour
         Time.timeScale = 1f;
         journalOpened = false;
         Debug.Log("Journal opened");
+        onJournalOpenChangeEvent();
     }
 
 
@@ -100,6 +101,7 @@ public class JournalMenu : MonoBehaviour
         currentPageObject.gameObject.SetActive(false);
         SetCurrentPage(nextPageName);
         currentPageObject.gameObject.SetActive(true);
+        onJournalOpenChangeEvent();
     }
 
 
