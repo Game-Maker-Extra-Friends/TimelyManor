@@ -8,6 +8,7 @@ public class InventoryItemData : ScriptableObject
     // to reference easily
     public string id;
     public string displayName;
+    public string description;
     public Sprite icon;
     public GameObject prefab;
 }
