@@ -7268,6 +7268,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1175771809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5764571580147963360, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
+  m_PrefabInstance: {fileID: 5764571579981256474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1179706021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14755,6 +14760,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 331.199
       objectReference: {fileID: 0}
+    - target: {fileID: 5764571578623383109, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1175771809}
+    - target: {fileID: 5764571578623383109, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 5764571578789435260, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 332.467
@@ -14889,7 +14902,7 @@ PrefabInstance:
       objectReference: {fileID: 594754245}
     - target: {fileID: 5764571580537967646, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5764571580540655026, guid: 4c69f5f55a17e49f8816a399c01d71eb, type: 3}
       propertyPath: m_AnchoredPosition.y
