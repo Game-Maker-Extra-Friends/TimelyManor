@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class ClueObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ClueData referenceItem;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private bool _hasBeenAdded = false;
+
+    public void OnHandlePickupClue()
     {
+        // If the clue hasn't been added, add it.
+        if(_hasBeenAdded == false)
+        {
+            Debug.Log(referenceItem);
+            ClueSystem.currentClueSystem.Add(referenceItem);
+            Destroy(gameObject);
+            _hasBeenAdded = true;
+        }
         
+        Debug.Log("DestroyItem");
     }
 }

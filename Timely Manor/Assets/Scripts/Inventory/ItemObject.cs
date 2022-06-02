@@ -9,7 +9,7 @@ public class ItemObject : MonoBehaviour
     public void OnHandlePickupItem()
     {
         // Singleton reference, call Add function and add the item
-        InventorySystem.current.Add(referenceItem);
+        InventorySystem.currentInventory.Add(referenceItem);
         Debug.Log(referenceItem.icon);
         Destroy(gameObject);
         Debug.Log("DestroyItem");

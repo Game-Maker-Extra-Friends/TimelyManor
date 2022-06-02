@@ -6,30 +6,24 @@ using System;
 public class ClueSystem : MonoBehaviour
 {
     // To grab item stack more easily with item data
-    private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
-    public List<InventoryItem> inventory { get; private set; }
+    private Dictionary<ClueData, ClueItem> m_ClueDictionary;
+    public List<ClueItem> clueInventory { get; private set; }
 
-    //public InventorySystem current;
 
     // Singleton ref
-    public static ClueSystem current;
+    public static ClueSystem currentClueSystem;
 
     private void Awake()
     {
-        inventory = new List<InventoryItem>();
-        m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
-        current = this;
+        clueInventory = new List<ClueItem>();
+        m_ClueDictionary = new Dictionary<ClueData, ClueItem>();
+        currentClueSystem = this;
 
     }
 
-    private void Start()
+    public ClueItem Get(ClueData referenceData)
     {
-        //EventSystem.current.onInventoryAddEvent += Add();
-    }
-
-    public InventoryItem Get(InventoryItemData referenceData)
-    {
-        if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
+        if (m_ClueDictionary.TryGetValue(referenceData, out ClueItem value))
         {
             return value;
         }
@@ -38,40 +32,41 @@ public class ClueSystem : MonoBehaviour
 
 
     // Add new item
-    public void Add(InventoryItemData referenceData)
+    public void Add(ClueData referenceData)
     {
         // If item already exist, add to the stack, otherwise add a new instance
         Debug.Log("Add called");
-        if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
+        if (m_ClueDictionary.TryGetValue(referenceData, out ClueItem value))
         {
             value.AddToStack();
             Debug.Log("Item Added");
         }
         else
         {
+            // Removed later, just in case it breaks something
             Debug.Log("Add new Item");
-            InventoryItem newItem = new InventoryItem(referenceData);
-            inventory.Add(newItem);
-            m_itemDictionary.Add(referenceData, newItem);
+            ClueItem newClue = new ClueItem(referenceData);
+            clueInventory.Add(newClue);
+            m_ClueDictionary.Add(referenceData, newClue);
         }
 
         // Call this to let other know that inventory has changed.
-        InventoryChangeEvent();
+        ClueChangeEvent();
     }
 
-    public void Remove(InventoryItemData referenceData)
+    public void Remove(ClueData referenceData)
     {
         // If item already exist, remove from the stack, otherwise remove the item from the inventory and the data in item dict.
-        if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
+        if (m_ClueDictionary.TryGetValue(referenceData, out ClueItem value))
         {
             value.RemoveFromStack();
             if (value.stackSize == 0)
             {
-                inventory.Remove(value);
-                m_itemDictionary.Remove(referenceData);
+                clueInventory.Remove(value);
+                m_ClueDictionary.Remove(referenceData);
             }
         }
-        InventoryChangeEvent();
+        ClueChangeEvent();
     }
 
 
@@ -83,15 +78,15 @@ public class ClueSystem : MonoBehaviour
 
 
     // Action for when Inventory Changes
-    public event Action onInventoryChangeEvent;
+    public event Action onClueChangeEvent;
 
 
     // Add and remove calls this to let others who listen in to know that inventory has changed.
-    public void InventoryChangeEvent()
+    public void ClueChangeEvent()
     {
-        if (onInventoryChangeEvent != null)
+        if (onClueChangeEvent != null)
         {
-            onInventoryChangeEvent();
+            onClueChangeEvent();
         }
     }
 

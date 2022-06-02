@@ -60,7 +60,7 @@ public class JournalMenu : MonoBehaviour
         Cursor.visible = false;
 
         // Need an event here just for close journal so inventory can delete.
-        onJournalCloseChangeEvent();
+        JournalCloseChangeEventInventory();
 
 
         // Close the current page
@@ -92,7 +92,7 @@ public class JournalMenu : MonoBehaviour
 
         journalOpened = true;
         if(currentPageObject.name == "InventoryTab")
-            onJournalOpenChangeEvent();
+            JournalOpenChangeEventInventory();
     }
 
     //So the player can close the UI when the page changes + the bonus of opening the same page the player left off from.
@@ -109,22 +109,29 @@ public class JournalMenu : MonoBehaviour
         if(nextPageName == "InventoryTab")
         {
             // Load inventory if the page is changing to inventory
-            onJournalOpenChangeEvent();
+            JournalOpenChangeEventInventory();
+        }
+        else if (nextPageName == "NotesTab")
+        {
+            // For Updating Clues Tab
+            JournalOpenChangeEventClue();
         }
         else
         {
             // Reset inventory if other page is open
-            onJournalCloseChangeEvent();
+            JournalCloseChangeEventInventory();
         }
     }
 
-
+    // For Inventory
     public event Action onJournalOpenEvent;
     public event Action onJournalCloseEvent;
 
+    public event Action onJournalOpenEventClue;
+
 
     // Add and remove calls this to let others who listen in to know that inventory has changed.
-    public void onJournalOpenChangeEvent()
+    public void JournalOpenChangeEventInventory()
     {
         if (onJournalOpenEvent != null)
         {
@@ -133,11 +140,22 @@ public class JournalMenu : MonoBehaviour
     }
 
     // So the inventory can remove the child object.
-    public void onJournalCloseChangeEvent()
+    public void JournalCloseChangeEventInventory()
     {
         if (onJournalCloseEvent != null)
         {
             onJournalCloseEvent();
         }
     }
+
+
+    public void JournalOpenChangeEventClue()
+    {
+        if (onJournalOpenEventClue != null)
+        {
+            onJournalOpenEventClue();
+        }
+    }
+
+
 }

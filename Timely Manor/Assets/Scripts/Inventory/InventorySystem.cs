@@ -12,13 +12,13 @@ public class InventorySystem : MonoBehaviour
     //public InventorySystem current;
 
     // Singleton ref
-    public static InventorySystem current;
+    public static InventorySystem currentInventory;
 
     private void Awake()
     {
         inventory = new List<InventoryItem>();
         m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
-        current = this;
+        currentInventory = this;
         
     }
 
