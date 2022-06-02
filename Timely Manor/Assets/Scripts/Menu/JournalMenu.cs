@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using StarterAssets;
@@ -10,7 +11,7 @@ public class JournalMenu : MonoBehaviour
     public static bool journalOpened = false;
     private DontDestroyScript[] dontDestroyObjects;
 
-    //public InputAction exit;
+    // For accessing exit input
     public StarterAssets.StarterAssetsInputs _input;
     public StarterAssets.FirstPersonController _state;
     public FirstPersonController.PlayerState originalState;
@@ -24,6 +25,7 @@ public class JournalMenu : MonoBehaviour
     }
 
     public Transform currentPageObject;
+    public Transform nextPageObject;
 
     // Update is called once per frame
     void Update()
@@ -57,6 +59,10 @@ public class JournalMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // Need an event here just for close journal so inventory can delete.
+        onJournalCloseChangeEvent();
+
+
         // Close the current page
         currentPageObject.gameObject.SetActive(false);
 
@@ -64,6 +70,7 @@ public class JournalMenu : MonoBehaviour
         Time.timeScale = 1f;
         journalOpened = false;
         Debug.Log("Journal opened");
+        
     }
 
 
@@ -84,23 +91,53 @@ public class JournalMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         journalOpened = true;
+        if(currentPageObject.name == "InventoryTab")
+            onJournalOpenChangeEvent();
     }
 
     //So the player can close the UI when the page changes + the bonus of opening the same page the player left off from.
-    public void CurrentPage(string tabName)
+    public void SetCurrentPage(string tabName)
     {
         currentPageObject = gameObject.transform.Find(tabName);
     }
 
-    //public void LoadMenu()
-    //{
-    //    //Destory all don't destory object so it doesn't screw up the menu
-    //    dontDestroyObjects = FindObjectsOfType<DontDestroyScript>();
-    //    foreach (DontDestroyScript d in dontDestroyObjects)
-    //    {
-    //        Destroy(d.gameObject);
-    //    }
+    public void ChangePage(string nextPageName)
+    {
+        currentPageObject.gameObject.SetActive(false);
+        SetCurrentPage(nextPageName);
+        currentPageObject.gameObject.SetActive(true);
+        if(nextPageName == "InventoryTab")
+        {
+            // Load inventory if the page is changing to inventory
+            onJournalOpenChangeEvent();
+        }
+        else
+        {
+            // Reset inventory if other page is open
+            onJournalCloseChangeEvent();
+        }
+    }
 
-    //    SceneManager.LoadScene("Menu_Test");
-    //}
+
+    public event Action onJournalOpenEvent;
+    public event Action onJournalCloseEvent;
+
+
+    // Add and remove calls this to let others who listen in to know that inventory has changed.
+    public void onJournalOpenChangeEvent()
+    {
+        if (onJournalOpenEvent != null)
+        {
+            onJournalOpenEvent();
+        }
+    }
+
+    // So the inventory can remove the child object.
+    public void onJournalCloseChangeEvent()
+    {
+        if (onJournalCloseEvent != null)
+        {
+            onJournalCloseEvent();
+        }
+    }
 }

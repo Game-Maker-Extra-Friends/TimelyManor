@@ -34,7 +34,10 @@ public class InventoryUI : MonoBehaviour
 
     public void AddInventorySlot(InventoryItem item)
     {
+        // Instantiate Item slot prefab
         GameObject obj = Instantiate(m_slotPrefabs);
+
+        // Set parent as which a layout group
         obj.transform.SetParent(transform, false);
 
         ItemSlot slot = obj.GetComponent<ItemSlot>();
