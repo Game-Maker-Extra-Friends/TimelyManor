@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 16
+  controlID: 33
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 23
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18
+  controlID: 24
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -494,22 +494,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Uni\UndecidedGame\Timely Manor
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 527}
-    m_SelectedIDs: da710000
-    m_LastClickedID: 29146
-    m_ExpandedIDs: 000000004c7100004e71000050710000527100005471000056710000587100005a7100005c7100005e71000060710000627100006471000066710000687100006a7100006c7100006e7100007071000072710000747100007671000078710000da71000000ca9a3b
+    m_SelectedIDs: e2710000
+    m_LastClickedID: 29154
+    m_ExpandedIDs: 00000000b8710000ba710000bc710000be710000c0710000c2710000c4710000c6710000c8710000ca710000cc710000ce710000d0710000d2710000d4710000d6710000d8710000da710000dc710000de710000e0710000e2710000e471000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -537,7 +537,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c7100004e71000050710000527100005471000056710000587100005a7100005c7100005e71000060710000627100006471000066710000687100006a7100006c7100006e7100007071000072710000747100007671000078710000
+    m_ExpandedIDs: 00000000b8710000ba710000bc710000be710000c0710000c2710000c4710000c6710000c8710000ca710000cc710000ce710000d0710000d2710000d4710000d6710000d8710000da710000dc710000de710000e0710000e2710000e4710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -667,18 +667,18 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ea5df8ff2465f8ffca71f8ff1479f8ff1c87f8ff0c9ef8fff29ef8ffe0a5f8ff4cadf8ff9aaef8ffb8b4f8ff06b6f8ff04bcf8ff52bdf8ff38bef8ff6ac4f8ff7cc6f8ff84ccf8ff16cef8ff1ed4f8ffb0d5f8ffb8dbf8ff4addf8ff52e3f8ffe4e4f8ffeceaf8ff90ecf8ff94f2f8ff423cffff763cffff543dffff823fffffca49ffffcc49ffff0c4bfffffa4cffff2855ffffb656ffff5c69ffffee6affff6075ffff1e7bffff4a82ffffca8affff5c8cffffe899ffffe4a4ffff88a6ffff3aadffff00fbffff02fbfffff4ffffff92650000d46500003466000048660000746600000e670000706700007e6700000a680000bafd00005afe00003cff000064ff0000f0010100e6020100280b0100d20c010016150100ac150100da300100a8490100d85801007c590100265b01006402020084020200d808020086090200
+      m_ExpandedIDs: 9a27ffffe427ffff6428ffff222fffff1c39ffff623dffff9051ffff9e51ffffb451ffff2e52ffff366effff0872ffff9072ffff7074ffffa8f6ffff6ef7ffff4cf8ffff76faffff7afaffff02fbffff4c640000a6640000ba640000e464000054650000ccf2000064f30000d4f30000880f010052100100ea10010026220100be2201002e2301008a2701003c280100e42801005e2a0100902a0100d62b0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Light Probe Group (1)
-        m_OriginalName: Light Probe Group (1)
+        m_Name: PlayerCapsule
+        m_OriginalName: PlayerCapsule
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 130698
+        m_UserData: 75836
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -916,9 +916,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 150.77905, y: -26.897287, z: 195.90149}
+    m_Target: {x: 14.163892, y: 11.676024, z: 0.33235335}
     speed: 2
-    m_Value: {x: 150.77905, y: -26.897287, z: 195.90149}
+    m_Value: {x: 14.163892, y: 11.676024, z: 0.33235335}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -965,13 +965,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.07821234, y: -0.31388146, z: 0.025956448, w: -0.94588244}
+    m_Target: {x: -0.017819207, y: -0.91123974, z: 0.03966763, w: -0.4095513}
     speed: 2
-    m_Value: {x: -0.07817309, y: -0.31529897, z: 0.026073659, w: -0.94540775}
+    m_Value: {x: -0.017819375, y: -0.9112483, z: 0.039668, w: -0.40955514}
   m_Size:
-    m_Target: 121.24355
+    m_Target: 2.8985639
     speed: 2
-    m_Value: 121.243546
+    m_Value: 2.8985639
   m_Ortho:
     m_Target: 0
     speed: 2
