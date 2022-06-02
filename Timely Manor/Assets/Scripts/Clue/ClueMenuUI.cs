@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryMenuUI : MonoBehaviour
+public class ClueMenuUI : MonoBehaviour
 {
     [SerializeField]
     GameObject m_slotPrefabs;
@@ -14,24 +14,24 @@ public class InventoryMenuUI : MonoBehaviour
     JournalMenu _journalMenu;
 
     [SerializeField]
-    private SlotManagement[] m_slots;
+    private ClueSlotManagement[] m_clueSlots;
 
 
     // Have to be awake since its deactivaed at the beginning
     private void Awake()
     {
-        _journalMenu.onJournalOpenEvent += OnOpenJournal;
+        _journalMenu.onJournalOpenEventClue += OnOpenJournal;
 
         _journalMenu.onJournalCloseEvent += OnCloseJournal;
 
         int slotLength = m_slotGameObject.Length;
-        m_slots = new SlotManagement[slotLength];
+        m_clueSlots = new ClueSlotManagement[slotLength];
 
         int i = 0;
         foreach (GameObject o in m_slotGameObject)
         {
             Debug.Log(i);
-            m_slots[i] = o.transform.GetComponent<SlotManagement>();
+            m_clueSlots[i] = o.transform.GetComponent<ClueSlotManagement>();
             i++;
         }
     }
@@ -39,18 +39,18 @@ public class InventoryMenuUI : MonoBehaviour
     private void OnCloseJournal()
     {
         // Delete Slots here.
-        foreach (SlotManagement sm in m_slots)
+        foreach (ClueSlotManagement cm in m_clueSlots)
         {
-            sm.DespawnSlot();
+            cm.DespawnSlot();
         }
     }
 
     private void OnOpenJournal()
     {
         // Redundant but just in case
-        foreach (SlotManagement sm in m_slots)
+        foreach (ClueSlotManagement cm in m_clueSlots)
         {
-            sm.DespawnSlot();
+            cm.DespawnSlot();
         }
 
         DrawInventory();
@@ -58,15 +58,15 @@ public class InventoryMenuUI : MonoBehaviour
 
     public void DrawInventory()
     {
-        foreach (InventoryItem item in InventorySystem.currentInventory.inventory)
+        foreach (ClueItem item in ClueSystem.currentClueSystem.clueInventory)
         {
             AddInventorySlot(item);
         }
     }
 
-    public void AddInventorySlot(InventoryItem item)
+    public void AddInventorySlot(ClueItem item)
     {
-        Debug.Log("Inventory Menu Added item");
+        Debug.Log("Clue Menu Added item");
         GameObject obj = Instantiate(m_slotPrefabs);
 
         // Add the slot into an empty slot
@@ -80,9 +80,9 @@ public class InventoryMenuUI : MonoBehaviour
             }
         }
 
-        
 
-        InventorySlot slot = obj.GetComponent<InventorySlot>();
+
+        ClueSlot slot = obj.GetComponent<ClueSlot>();
         slot.Set(item);
     }
 }

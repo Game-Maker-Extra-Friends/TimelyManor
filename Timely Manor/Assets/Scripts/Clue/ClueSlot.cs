@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventorySlot : MonoBehaviour
+public class ClueSlot : MonoBehaviour
 {
     [SerializeField]
     private Image m_icon;
@@ -25,22 +25,22 @@ public class InventorySlot : MonoBehaviour
     private TextMeshProUGUI m_description;
 
     [SerializeField]
-    private InventoryItem currentItem;
+    private ClueItem currentItem;
 
     public void Start()
     {
-        m_largeIcon = GameObject.Find("InventoryObjectImage").GetComponent<Image>();
-        m_description = GameObject.Find("InventoryDescription").GetComponent<TextMeshProUGUI>();
+        m_largeIcon = GameObject.Find("ClueObjectImage").GetComponent<Image>();
+        m_description = GameObject.Find("ClueDescription").GetComponent<TextMeshProUGUI>();
     }
 
 
-    public void Set(InventoryItem item)
+    public void Set(ClueItem item)
     {
         currentItem = item;
 
 
         // Set the image to the icon set in Inventory Item
-        Debug.Log("Inventory Slot Called");
+        Debug.Log("Clue Slot Called");
         m_icon.sprite = item.data.icon;
 
         // Set text to Display name
@@ -48,7 +48,7 @@ public class InventorySlot : MonoBehaviour
 
 
 
-        // If there are less than 1 stack, turn off the count
+        // Remove later
         if (item.stackSize <= 1)
         {
             m_stackObj.SetActive(false);
@@ -58,7 +58,7 @@ public class InventorySlot : MonoBehaviour
         m_stackLabel.text = item.stackSize.ToString();
     }
 
-    public void SelectInventoryObject()
+    public void SelectClueObject()
     {
         // When the item is clicked on, display the description and Image
         m_description.text = currentItem.data.description;

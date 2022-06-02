@@ -273,6 +273,10 @@ namespace StarterAssets
 						hit.transform.gameObject.SendMessage("toggleCanvas");
 						_openNote = hit.transform.gameObject;
 						_playerState = PlayerState.Reading;
+
+						// For picking up clue
+						hit.transform.gameObject.TryGetComponent<ClueObject>(out ClueObject clue);
+						clue.OnHandlePickupClue();
 					}
 
 					// Pickup Item when the item has the correct tag
@@ -281,7 +285,8 @@ namespace StarterAssets
 						hit.transform.gameObject.TryGetComponent<ItemObject>(out ItemObject item);
 						item.OnHandlePickupItem();
                     }
-
+					
+		
 
 
 					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();

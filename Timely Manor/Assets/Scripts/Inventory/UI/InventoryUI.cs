@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InventorySystem.current.onInventoryChangeEvent += OnUpdateInventory;
+        InventorySystem.currentInventory.onInventoryChangeEvent += OnUpdateInventory;
     }
 
     private void OnUpdateInventory()
@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
 
     public void DrawInventory()
     {
-        foreach(InventoryItem item in InventorySystem.current.inventory)
+        foreach(InventoryItem item in InventorySystem.currentInventory.inventory)
         {
             AddInventorySlot(item);
         }
