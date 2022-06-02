@@ -19,13 +19,33 @@ public class InventoryMenuUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //_journalMenu.onJournalOpenEvent += OnOpenJournal;
+
+        //_journalMenu.onJournalCloseEvent += OnCloseJournal;
+
+        //int slotLength = m_slotGameObject.Length;
+        //m_slots = new SlotManagement[slotLength];
+
+        //int i = 0;
+        //foreach(GameObject o in m_slotGameObject)
+        //{
+        //    Debug.Log(i);
+        //    m_slots[i] = o.transform.GetComponent<SlotManagement>();
+        //    i++;
+        //}
+    }
+
+    private void Awake()
+    {
         _journalMenu.onJournalOpenEvent += OnOpenJournal;
+
+        _journalMenu.onJournalCloseEvent += OnCloseJournal;
 
         int slotLength = m_slotGameObject.Length;
         m_slots = new SlotManagement[slotLength];
 
         int i = 0;
-        foreach(GameObject o in m_slotGameObject)
+        foreach (GameObject o in m_slotGameObject)
         {
             Debug.Log(i);
             m_slots[i] = o.transform.GetComponent<SlotManagement>();
@@ -33,8 +53,18 @@ public class InventoryMenuUI : MonoBehaviour
         }
     }
 
+    private void OnCloseJournal()
+    {
+        // Delete Slots here.
+        foreach (SlotManagement sm in m_slots)
+        {
+            sm.DespawnSlot();
+        }
+    }
+
     private void OnOpenJournal()
     {
+        // Redundant but just in case
         foreach (SlotManagement sm in m_slots)
         {
             sm.DespawnSlot();

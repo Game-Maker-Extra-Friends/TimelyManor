@@ -59,6 +59,10 @@ public class JournalMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // Need an event here just for close journal so inventory can delete.
+        onJournalCloseChangeEvent();
+
+
         // Close the current page
         currentPageObject.gameObject.SetActive(false);
 
@@ -66,7 +70,7 @@ public class JournalMenu : MonoBehaviour
         Time.timeScale = 1f;
         journalOpened = false;
         Debug.Log("Journal opened");
-        onJournalOpenChangeEvent();
+        
     }
 
 
@@ -87,7 +91,8 @@ public class JournalMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         journalOpened = true;
-        onJournalOpenChangeEvent();
+        if(currentPageObject.name == "InventoryTab")
+            onJournalOpenChangeEvent();
     }
 
     //So the player can close the UI when the page changes + the bonus of opening the same page the player left off from.
@@ -101,11 +106,21 @@ public class JournalMenu : MonoBehaviour
         currentPageObject.gameObject.SetActive(false);
         SetCurrentPage(nextPageName);
         currentPageObject.gameObject.SetActive(true);
-        onJournalOpenChangeEvent();
+        if(nextPageName == "InventoryTab")
+        {
+            // Load inventory if the page is changing to inventory
+            onJournalOpenChangeEvent();
+        }
+        else
+        {
+            // Reset inventory if other page is open
+            onJournalCloseChangeEvent();
+        }
     }
 
 
     public event Action onJournalOpenEvent;
+    public event Action onJournalCloseEvent;
 
 
     // Add and remove calls this to let others who listen in to know that inventory has changed.
@@ -114,6 +129,15 @@ public class JournalMenu : MonoBehaviour
         if (onJournalOpenEvent != null)
         {
             onJournalOpenEvent();
+        }
+    }
+
+    // So the inventory can remove the child object.
+    public void onJournalCloseChangeEvent()
+    {
+        if (onJournalCloseEvent != null)
+        {
+            onJournalCloseEvent();
         }
     }
 }
