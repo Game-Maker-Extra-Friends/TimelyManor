@@ -12,7 +12,7 @@ public class ClueSystem : MonoBehaviour
     //public InventorySystem current;
 
     // Singleton ref
-    public static InventorySystem current;
+    public static ClueSystem current;
 
     private void Awake()
     {
