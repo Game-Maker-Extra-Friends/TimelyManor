@@ -16,25 +16,8 @@ public class InventoryMenuUI : MonoBehaviour
     [SerializeField]
     private SlotManagement[] m_slots;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //_journalMenu.onJournalOpenEvent += OnOpenJournal;
 
-        //_journalMenu.onJournalCloseEvent += OnCloseJournal;
-
-        //int slotLength = m_slotGameObject.Length;
-        //m_slots = new SlotManagement[slotLength];
-
-        //int i = 0;
-        //foreach(GameObject o in m_slotGameObject)
-        //{
-        //    Debug.Log(i);
-        //    m_slots[i] = o.transform.GetComponent<SlotManagement>();
-        //    i++;
-        //}
-    }
-
+    // Have to be awake since its deactivaed at the beginning
     private void Awake()
     {
         _journalMenu.onJournalOpenEvent += OnOpenJournal;
