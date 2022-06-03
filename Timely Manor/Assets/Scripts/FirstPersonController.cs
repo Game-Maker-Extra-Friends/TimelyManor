@@ -275,7 +275,7 @@ namespace StarterAssets
 						_playerState = PlayerState.Reading;
 
 						// For picking up clue
-						hit.transform.gameObject.TryGetComponent<ClueObject>(out ClueObject clue);
+						hit.transform.gameObject.TryGetComponent<ClueScript>(out ClueScript clue);
 						clue.OnHandlePickupClue();
 					}
 
