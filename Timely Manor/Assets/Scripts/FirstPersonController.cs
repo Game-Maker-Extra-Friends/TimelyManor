@@ -265,7 +265,7 @@ namespace StarterAssets
 					{
 						hit.transform.gameObject.SendMessage("Interact");
 					}
-
+					Debug.Log(hit.transform.name);
 
 
 					if (hit.transform.gameObject.CompareTag("Clue"))
