@@ -108,11 +108,15 @@ public class JournalMenu : MonoBehaviour
         currentPageObject.gameObject.SetActive(true);
         if(nextPageName == "InventoryTab")
         {
+            // Reset Clues if there is any
+            JournalCloseChangeEventInventory();
             // Load inventory if the page is changing to inventory
             JournalOpenChangeEventInventory();
         }
         else if (nextPageName == "NotesTab")
         {
+            // Reset Inventory if there is any
+            JournalCloseChangeEventInventory();
             // For Updating Clues Tab
             JournalOpenChangeEventClue();
         }

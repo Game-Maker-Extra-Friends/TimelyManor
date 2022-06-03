@@ -14,12 +14,10 @@ public class ClueObject : MonoBehaviour
         // If the clue hasn't been added, add it.
         if(_hasBeenAdded == false)
         {
-            Debug.Log(referenceItem);
+            // Debug.Log(referenceItem);
             ClueSystem.currentClueSystem.Add(referenceItem);
-            Destroy(gameObject);
             _hasBeenAdded = true;
         }
         
-        Debug.Log("DestroyItem");
     }
 }

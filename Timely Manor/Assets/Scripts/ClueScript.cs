@@ -39,4 +39,29 @@ public class ClueScript : MonoBehaviour
 			noteText.gameObject.SetActive(false);
 	}
 
+
+
+
+
+	// Clue Object Script
+
+	public ClueData referenceItem;
+
+	[SerializeField]
+	private bool _hasBeenAdded = false;
+
+	public void OnHandlePickupClue()
+	{
+		// Assign the note Text to the description.
+		referenceItem.description = noteText.text;
+		// If the clue hasn't been added, add it.
+		if (_hasBeenAdded == false)
+		{
+			// Debug.Log(referenceItem);
+			ClueSystem.currentClueSystem.Add(referenceItem);
+			_hasBeenAdded = true;
+		}
+
+	}
+
 }
