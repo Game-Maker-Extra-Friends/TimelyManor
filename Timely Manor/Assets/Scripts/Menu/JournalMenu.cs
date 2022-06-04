@@ -60,7 +60,7 @@ public class JournalMenu : MonoBehaviour
         Cursor.visible = false;
 
         // Need an event here just for close journal so inventory can delete.
-        JournalCloseChangeEventInventory();
+        JournalCloseChangeEvent();
 
 
         // Close the current page
@@ -92,7 +92,19 @@ public class JournalMenu : MonoBehaviour
 
         journalOpened = true;
         if(currentPageObject.name == "InventoryTab")
+        {
+            // Reset Clues and Inventory if there is any
+            JournalCloseChangeEvent();
+            // Load Inventory if the last page closed is inventory
             JournalOpenChangeEventInventory();
+        }
+        else if(currentPageObject.name == "NotesTab")
+        {
+            // Reset Clues and Inventory if there is any
+            JournalCloseChangeEvent();
+            // Load Clue if the last page closed is clues
+            JournalOpenChangeEventClue();
+        }
     }
 
     //So the player can close the UI when the page changes + the bonus of opening the same page the player left off from.
@@ -109,21 +121,21 @@ public class JournalMenu : MonoBehaviour
         if(nextPageName == "InventoryTab")
         {
             // Reset Clues if there is any
-            JournalCloseChangeEventInventory();
+            JournalCloseChangeEvent();
             // Load inventory if the page is changing to inventory
             JournalOpenChangeEventInventory();
         }
         else if (nextPageName == "NotesTab")
         {
             // Reset Inventory if there is any
-            JournalCloseChangeEventInventory();
+            JournalCloseChangeEvent();
             // For Updating Clues Tab
             JournalOpenChangeEventClue();
         }
         else
         {
             // Reset inventory if other page is open
-            JournalCloseChangeEventInventory();
+            JournalCloseChangeEvent();
         }
     }
 
@@ -144,7 +156,7 @@ public class JournalMenu : MonoBehaviour
     }
 
     // So the inventory can remove the child object.
-    public void JournalCloseChangeEventInventory()
+    public void JournalCloseChangeEvent()
     {
         if (onJournalCloseEvent != null)
         {
