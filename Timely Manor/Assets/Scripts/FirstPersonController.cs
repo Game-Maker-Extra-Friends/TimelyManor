@@ -249,6 +249,8 @@ namespace StarterAssets
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, 100))
 			{
+				Debug.Log(hit.transform.name);
+
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clue"))
 				{
