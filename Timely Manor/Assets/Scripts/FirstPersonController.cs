@@ -191,6 +191,7 @@ namespace StarterAssets
 
 			if (_playerState == PlayerState.Reading)
 			{
+				CursorController.Instance.defaultCursor();
 				if (_input.exit)
 				{
 					_playerState = PlayerState.Interacting;
