@@ -27,4 +27,9 @@ public class InventorySlot : MonoBehaviour
         icon.enabled = false;
     }
 
+    public void DisplayDescription()
+    {
+        // The item des go into the next page
+    }
+
 }
