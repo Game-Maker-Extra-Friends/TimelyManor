@@ -3,40 +3,94 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class ClueScript : MonoBehaviour
 {
-	public Image noteImg;
+	[Header("Clue")]
 	public TextMeshProUGUI noteText;
-	public Button textButton;
-	public Canvas canvas;
+	public Canvas canvas = null;
 	private AudioSource _audioSource;
 
-    public void Start()
+	[Header("New Clue Popup")]
+	public Canvas newClueCanvas;
+	private bool seen = false;
+	private AudioSource _newClueAudio;
+
+	public void Start()
     {
-		_audioSource = GetComponent<AudioSource>();
+		Component[] audioSources;
+		audioSources = GetComponents(typeof(AudioSource));
+		
+		if (audioSources.Length > 0)
+			_audioSource = (AudioSource)audioSources[0];
+		//_newClueAudio = (AudioSource)audioSources[1];
     }
+
+	public void Interact()
+	{
+		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
+		StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
+
+		if (!seen)
+		{
+			newClueCanvas.gameObject.SetActive(true);
+			seen = true;
+		}
+		else 
+		{
+			toggleCanvas();
+		}
+
+		OnHandlePickupClue();
+	}
+
 
     public void toggleCanvas()
 	{
-		if (canvas.isActiveAndEnabled == false)
+
+		if (newClueCanvas.isActiveAndEnabled == false)
 		{
-			canvas.gameObject.SetActive(true);
-			_audioSource.Play();
+			if (canvas.isActiveAndEnabled == false)
+			{
+				canvas.gameObject.SetActive(true);
+				_audioSource.Play();
+			}
+			else
+			{
+				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+				canvas.gameObject.SetActive(false);
+			}
 		}
-		else
+		
+
+
+		if (!seen && newClueCanvas.isActiveAndEnabled == false)
 		{
-			canvas.gameObject.SetActive(false);
+			newClueCanvas.gameObject.SetActive(true);
+			seen = true;
 		}
+		else if (seen && newClueCanvas.isActiveAndEnabled == true)
+		{
+			newClueCanvas.gameObject.SetActive(false);
+			if (canvas != null)
+			{
+				canvas.gameObject.SetActive(true);
+			}
+		}
+
+		
 	}
 
-	public void toggleNoteText()
+	public void newClueButton()
 	{
+		if (!seen)
+		{
+			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
+			newClueCanvas.gameObject.SetActive(true);
+			seen = true;
 
-		if (noteText.isActiveAndEnabled == false)
-			noteText.gameObject.SetActive(true);
-		else
-			noteText.gameObject.SetActive(false);
+		}
 	}
 
 
@@ -44,7 +98,7 @@ public class ClueScript : MonoBehaviour
 
 
 	// Clue Object Script
-
+	[Header("Clue Object")]
 	public ClueData referenceItem;
 
 	[SerializeField]
