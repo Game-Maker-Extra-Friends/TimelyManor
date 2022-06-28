@@ -30,13 +30,13 @@ public class ClueInventory : MonoBehaviour
 
 
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
-    public bool Add(Clue clue)
+    public void Add(Clue clue)
     {
 
         if (clues.Count >= space)
         {
             Debug.Log("BUG - We screwed up and somehow don't have enough room");
-            return false;
+            return;
         }
 
         clues.Add(clue);
@@ -45,7 +45,7 @@ public class ClueInventory : MonoBehaviour
         if (onClueCalledback != null)
             onClueCalledback.Invoke();
 
-        return true;
+        return;
     }
 
     public void Remove(Clue clue)

@@ -107,11 +107,7 @@ public class ClueScript : MonoBehaviour
 	public void OnHandlePickupClue()
 	{
 		Debug.Log("Picking up: " + clue.name);
-		bool wasPickedUp = ClueInventory.instance.Add(clue);
-
-		// If item is picked up then destroy the gameobject
-		if (wasPickedUp)
-			Destroy(gameObject);
+		ClueInventory.instance.Add(clue);
 
 	}
 
