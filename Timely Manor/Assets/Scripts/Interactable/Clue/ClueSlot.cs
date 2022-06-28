@@ -1,67 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 public class ClueSlot : MonoBehaviour
 {
-    [SerializeField]
-    private Image m_icon;
+    Clue clue;
+    public Image icon;
 
-    [SerializeField]
-    private Image m_largeIcon;
+    public Image detailsIcon;
+    public TextMeshProUGUI detailsText;
 
-    [SerializeField]
-    private TextMeshProUGUI m_label;
 
-    [SerializeField]
-    private GameObject m_stackObj;
-
-    [SerializeField]
-    private TextMeshProUGUI m_stackLabel;
-
-    [SerializeField]
-    private TextMeshProUGUI m_description;
-
-    [SerializeField]
-    private ClueItem currentItem;
-
-    public void Start()
+    public void AddClue(Clue newClue)
     {
-        m_largeIcon = GameObject.Find("ClueObjectImage").GetComponent<Image>();
-        m_description = GameObject.Find("ClueDescription").GetComponent<TextMeshProUGUI>();
+        clue = newClue;
+
+        Debug.Log("The added item is: " + clue);
+        Debug.Log("The added icon is: " + clue.icon);
+
+        icon.enabled = true;
+        icon.sprite = clue.icon;
+        //Debug.Log("The icon is added");
+
     }
 
-
-    public void Set(ClueItem item)
+    public void ClearSlot()
     {
-        currentItem = item;
+        clue = null;
 
+        icon.sprite = null;
+        icon.enabled = false;
+    }
 
-        // Set the image to the icon set in Inventory Item
-        Debug.Log("Clue Slot Called");
-        m_icon.sprite = item.data.icon;
-
-        // Set text to Display name
-        m_label.text = item.data.displayName;
-
-
-
-        // Remove later
-        if (item.stackSize <= 1)
+    public void DisplayDescription()
+    {
+        // The item des go into the next page
+        if (clue != null)
         {
-            m_stackObj.SetActive(false);
-            return;
+            detailsIcon.sprite = clue.icon;
+            detailsText.text = clue.description;
         }
-
-        m_stackLabel.text = item.stackSize.ToString();
-    }
-
-    public void SelectClueObject()
-    {
-        // When the item is clicked on, display the description and Image
-        m_description.text = currentItem.data.description;
-        m_largeIcon.sprite = currentItem.data.icon;
     }
 }

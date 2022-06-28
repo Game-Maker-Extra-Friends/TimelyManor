@@ -99,22 +99,15 @@ public class ClueScript : MonoBehaviour
 
 	// Clue Object Script
 	[Header("Clue Object")]
-	public ClueData referenceItem;
+	public Clue clue;
 
 	[SerializeField]
 	private bool _hasBeenAdded = false;
 
 	public void OnHandlePickupClue()
 	{
-		// Assign the note Text to the description.
-		referenceItem.description = noteText.text;
-		// If the clue hasn't been added, add it.
-		if (_hasBeenAdded == false)
-		{
-			// Debug.Log(referenceItem);
-			ClueSystem.currentClueSystem.Add(referenceItem);
-			_hasBeenAdded = true;
-		}
+		Debug.Log("Picking up: " + clue.name);
+		ClueInventory.instance.Add(clue);
 
 	}
 

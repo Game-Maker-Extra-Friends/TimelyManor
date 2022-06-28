@@ -571,11 +571,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteImg: {fileID: 3657425751812090440}
   noteText: {fileID: 3657425751276296671}
-  textButton: {fileID: 6061501285848209834}
   canvas: {fileID: 3657425751917003812}
-  referenceItem: {fileID: 0}
+  newClueCanvas: {fileID: 0}
+  clue: {fileID: 11400000, guid: f5e4ef2bbd1c27a4887697b49dfd0e2b, type: 2}
   _hasBeenAdded: 0
 --- !u!82 &8542293931908098545
 AudioSource:
