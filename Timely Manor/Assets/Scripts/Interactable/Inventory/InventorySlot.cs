@@ -21,8 +21,8 @@ public class InventorySlot : MonoBehaviour
         icon.enabled = true;
         icon.sprite = item.icon;
         //Debug.Log("The icon is added");
-
-    }
+        
+    } 
 
     public void ClearSlot()
     {
@@ -35,7 +35,7 @@ public class InventorySlot : MonoBehaviour
     public void DisplayDescription()
     {
         // The item des go into the next page
-        if (item != null)
+        if(item != null)
         {
             detailsIcon.sprite = item.icon;
             detailsText.text = item.description;

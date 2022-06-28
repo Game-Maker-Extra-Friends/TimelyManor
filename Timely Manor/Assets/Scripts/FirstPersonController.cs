@@ -315,8 +315,8 @@ namespace StarterAssets
 					// Pickup Item when the item has the correct tag
                     if (hit.transform.gameObject.CompareTag("PickupObject"))
                     {
-						hit.transform.gameObject.TryGetComponent<ItemObject>(out ItemObject item);
-						item.OnHandlePickupItem();
+						hit.transform.gameObject.TryGetComponent<ItemPickup>(out ItemPickup item);
+						item.PickUp();
                     }
 					
 		
