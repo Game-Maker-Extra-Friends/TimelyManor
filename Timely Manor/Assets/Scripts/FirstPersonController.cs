@@ -279,7 +279,6 @@ namespace StarterAssets
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, 100))
 			{
-				// Debug.Log(hit.transform.name);
 
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clickable"))
@@ -313,17 +312,17 @@ namespace StarterAssets
 					}
 					*/
 
-                    // Pickup Item when the item has the correct tag
+					// Pickup Item when the item has the correct tag
                     if (hit.transform.gameObject.CompareTag("PickupObject"))
                     {
-                        hit.transform.gameObject.TryGetComponent<ItemPickup>(out ItemPickup item);
-                        item.PickUp();
+						hit.transform.gameObject.TryGetComponent<ItemObject>(out ItemObject item);
+						item.OnHandlePickupItem();
                     }
+					
+		
 
 
-
-
-                    CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
+					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 					if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
 					{
 						string value = hit.transform.name;
