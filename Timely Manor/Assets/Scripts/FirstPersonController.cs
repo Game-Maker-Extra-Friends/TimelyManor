@@ -17,6 +17,26 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		#region Singleton
+
+		private static FirstPersonController _instance;
+
+		public static FirstPersonController Instance => _instance;
+
+		private void Awake()
+		{
+			if (_instance != null)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				_instance = this;
+			}
+		}
+
+		#endregion
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -86,7 +106,9 @@ namespace StarterAssets
 		// UI elements
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
-		private GameObject _openNote;
+		public GameObject _openNote;
+		public GameObject _openNewClue = null;
+		
 
 		// Audio
 		public AudioManager _audioManager;
@@ -117,17 +139,15 @@ namespace StarterAssets
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
 
-		private void Awake()
+	
+
+		private void Start()
 		{
-			// get a reference to our main camera
 			if (_mainCamera == null)
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
-		}
 
-		private void Start()
-		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
@@ -161,6 +181,7 @@ namespace StarterAssets
 				_playerState = PlayerState.TimeTraveling;
 				StartCoroutine("TimeTravel");
 			}
+
 			_input.timeTravel = false;
 
 			if (_playerState == PlayerState.Interacting)
@@ -192,15 +213,23 @@ namespace StarterAssets
 			if (_playerState == PlayerState.Reading)
 			{
 				CursorController.Instance.defaultCursor();
-				if (_input.exit)
+				// Exits open newClueCanvas or ClueCanvas. If it is the last available canvas to close then return to moving state (done in the open note).
+				if (_input.exit) 
 				{
-					_playerState = PlayerState.Interacting;
-					_openNote.SendMessage("toggleCanvas");
+					if (_openNewClue == null)
+					{
+						_openNote.SendMessage("toggleCanvas");
+					}
+					else
+					{
+						_openNewClue.SendMessage("toggleCanvas");
+						_openNewClue = null;
+					}
+
 					_input.exit = false;
 				}
 			}
 			
-
 			_input.clickInput = false;
 		}
 
@@ -253,7 +282,7 @@ namespace StarterAssets
 				// Debug.Log(hit.transform.name);
 
 				// Change mouse cursor as appropriate
-				if (hit.transform.gameObject.CompareTag("Clue"))
+				if (hit.transform.gameObject.CompareTag("Clickable"))
 				{
 					CursorController.Instance.clueCursor();
 				}
@@ -269,8 +298,9 @@ namespace StarterAssets
 						hit.transform.gameObject.SendMessage("Interact");
 					}
 					Debug.Log(hit.transform.name);
+				
 
-
+					/*
 					if (hit.transform.gameObject.CompareTag("Clue"))
 					{
 						hit.transform.gameObject.SendMessage("toggleCanvas");
@@ -281,6 +311,7 @@ namespace StarterAssets
 						hit.transform.gameObject.TryGetComponent<ClueScript>(out ClueScript clue);
 						clue.OnHandlePickupClue();
 					}
+					*/
 
                     // Pickup Item when the item has the correct tag
                     if (hit.transform.gameObject.CompareTag("PickupObject"))
