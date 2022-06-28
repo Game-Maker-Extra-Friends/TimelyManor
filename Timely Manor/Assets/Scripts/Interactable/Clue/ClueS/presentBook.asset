@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a8dd175430563428ffd9f618b27386, type: 3}
-  m_Name: presentBook
+  m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
+  m_Name: PresentBook
   m_EditorClassIdentifier: 
-  id: presentBook
-  displayName: Present Book
-  description: 
+  name: Present Book
   icon: {fileID: 21300000, guid: db12c63592aef594d80a458f886576e1, type: 3}
-  prefab: {fileID: 3657425752046756560, guid: 06ed1dcd5dd8ad7498b3ed3d03e1a3a9, type: 3}
+  description: A book with some marking and suspicous white substance
