@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 
-public class ClueScript : MonoBehaviour
+public class ClueScript : Interactable
 {
 	[Header("Clue")]
 	public TextMeshProUGUI noteText;
@@ -25,9 +25,18 @@ public class ClueScript : MonoBehaviour
 		if (audioSources.Length > 0)
 			_audioSource = (AudioSource)audioSources[0];
 		//_newClueAudio = (AudioSource)audioSources[1];
+
+		interactbleType = "Clue";
+		if(ES3.KeyExists(interactedID))
+			interacted = ES3.Load<bool>(interactedID, "Saves/");
+
+        if (ES3.KeyExists(interactedID + "Seen"))
+        {
+			seen = ES3.Load<bool>(interactedID + "Seen", "Saves/");
+        }
     }
 
-	public void Interact()
+	public override void Interact()
 	{
 		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
 		StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
@@ -69,6 +78,7 @@ public class ClueScript : MonoBehaviour
 		{
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
+			ES3.Save(interactedID + "Seen", seen, "Saves/ClueSaves.es3");
 		}
 		else if (seen && newClueCanvas.isActiveAndEnabled == true)
 		{
@@ -101,14 +111,20 @@ public class ClueScript : MonoBehaviour
 	[Header("Clue Object")]
 	public Clue clue;
 
+
 	[SerializeField]
-	private bool _hasBeenAdded = false;
+	//private bool _hasBeenAdded = false;
 
 	public void OnHandlePickupClue()
 	{
 		Debug.Log("Picking up: " + clue.name);
-		ClueInventory.instance.Add(clue);
-
+		if(interacted == false)
+		{ 
+			ClueInventory.instance.Add(clue);
+			//_hasBeenAdded = true;
+			interacted = true;
+			ES3.Save(interactedID, interacted, "Saves/ClueSaves.es3");
+		}
 	}
 
 }

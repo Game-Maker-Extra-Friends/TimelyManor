@@ -3477,6 +3477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactedID: 
+  interactbleType: 
+  interacted: 0
   noteText: {fileID: 0}
   canvas: {fileID: 0}
   newClueCanvas: {fileID: 634117060}
@@ -4526,6 +4529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactedID: 
+  interactbleType: 
+  interacted: 0
   noteText: {fileID: 0}
   canvas: {fileID: 0}
   newClueCanvas: {fileID: 916959815}
@@ -12113,6 +12119,10 @@ PrefabInstance:
     - target: {fileID: 3657425752046756571, guid: 06ed1dcd5dd8ad7498b3ed3d03e1a3a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657425752046756575, guid: 06ed1dcd5dd8ad7498b3ed3d03e1a3a9, type: 3}
+      propertyPath: interactedID
+      value: presentBook
       objectReference: {fileID: 0}
     - target: {fileID: 3657425752046756575, guid: 06ed1dcd5dd8ad7498b3ed3d03e1a3a9, type: 3}
       propertyPath: newClueCanvas

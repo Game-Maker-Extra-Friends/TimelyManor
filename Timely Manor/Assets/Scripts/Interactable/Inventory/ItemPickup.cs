@@ -9,13 +9,18 @@ public class ItemPickup : Interactable
     public void Start()
     {
         // Check if interacted save exists, if it does then load the bool which will destroy the gameobject.
-        if(ES3.KeyExists(interactedID))
-            interacted = ES3.Load<bool>(interactedID);   
+        if (ES3.KeyExists(interactedID))
+        {
+            interacted = ES3.Load<bool>(interactedID, "Saves/");
+            Debug.Log("Save exists");
+        }
+
 
         if(interacted == true)
         {
             Destroy(gameObject);
         }
+        interactbleType = "Item";
     }
 
     public override void Interact()
@@ -33,7 +38,7 @@ public class ItemPickup : Interactable
         // If item is picked up then destroy the gameobject + save the fact that it has been picked up so changing timeline 
         if (wasPickedUp)
             interacted = true;
-            ES3.Save(interactedID, interacted);
+            ES3.Save(interactedID, interacted, "Saves/ItemSaves.es3");
             Destroy(gameObject);
     }
 }
