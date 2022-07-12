@@ -27,12 +27,12 @@ public class ClueScript : Interactable
 		//_newClueAudio = (AudioSource)audioSources[1];
 
 		interactbleType = "Clue";
-		if(ES3.KeyExists(interactedID))
-			interacted = ES3.Load<bool>(interactedID, "Saves/");
+		if(ES3.KeyExists(interactedID, "Saves/ClueSaves.es3"))
+			interacted = ES3.Load<bool>(interactedID, "Saves/ClueSaves.es3");
 
-        if (ES3.KeyExists(interactedID + "Seen"))
+        if (ES3.KeyExists(interactedID + "Seen", "Saves/ClueSaves.es3"))
         {
-			seen = ES3.Load<bool>(interactedID + "Seen", "Saves/");
+			seen = ES3.Load<bool>(interactedID + "Seen", "Saves/ClueSaves.es3");
         }
     }
 

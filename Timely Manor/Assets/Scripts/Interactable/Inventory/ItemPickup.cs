@@ -9,9 +9,9 @@ public class ItemPickup : Interactable
     public void Start()
     {
         // Check if interacted save exists, if it does then load the bool which will destroy the gameobject.
-        if (ES3.KeyExists(interactedID))
+        if (ES3.KeyExists(interactedID, "Saves/ItemSaves.es3"))
         {
-            interacted = ES3.Load<bool>(interactedID, "Saves/");
+            interacted = ES3.Load<bool>(interactedID, "Saves/ItemSaves.es3");
             Debug.Log("Save exists");
         }
 
