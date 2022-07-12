@@ -22,8 +22,8 @@ public class ClueScript : Interactable
 		Component[] audioSources;
 		audioSources = GetComponents(typeof(AudioSource));
 		
-		if (audioSources.Length > 0)
-			_audioSource = (AudioSource)audioSources[0];
+
+		_audioSource = (AudioSource)audioSources[0];
 		//_newClueAudio = (AudioSource)audioSources[1];
 
 		interactbleType = "Clue";
@@ -48,7 +48,10 @@ public class ClueScript : Interactable
 		}
 		else 
 		{
-			toggleCanvas();
+			if (canvas != null)
+				toggleCanvas();
+			else
+				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 		}
 
 		OnHandlePickupClue();
@@ -60,15 +63,22 @@ public class ClueScript : Interactable
 
 		if (newClueCanvas.isActiveAndEnabled == false)
 		{
-			if (canvas.isActiveAndEnabled == false)
+			if (canvas != null)
 			{
-				canvas.gameObject.SetActive(true);
-				_audioSource.Play();
+				if (canvas.isActiveAndEnabled == false)
+				{
+					canvas.gameObject.SetActive(true);
+					_audioSource.Play();
+				}
+				else
+				{
+					StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+					canvas.gameObject.SetActive(false);
+				}
 			}
 			else
 			{
 				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
-				canvas.gameObject.SetActive(false);
 			}
 		}
 		
@@ -87,11 +97,16 @@ public class ClueScript : Interactable
 			{
 				canvas.gameObject.SetActive(true);
 			}
+			else
+			{
+				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+			}
 		}
 
 		
 	}
 
+	// For new clue popups opened via canvas buttons
 	public void newClueButton()
 	{
 		if (!seen)
