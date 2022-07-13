@@ -12,6 +12,15 @@ public class FireplaceScript : MonoBehaviour
 
     public AudioSource Success;
 
+    private void Start()
+    {
+        if (ES3.KeyExists("CorrectCode", "Saves/FirePlace.es3"))
+        {
+            attemptedCode = ES3.Load<string>("CorrectCode", "Saves/FirePlace.es3");
+            CheckCode();
+        }
+    }
+
     private void CheckCode()
     {
         if (attemptedCode == code)
@@ -24,6 +33,7 @@ public class FireplaceScript : MonoBehaviour
             unsolved.enabled = false;
             fireplaceKey.enabled = true;
             key.SetActive(true);
+            ES3.Save("CorrectCode", attemptedCode, "Saves/FirePlace.es3");
         }
         else
         {

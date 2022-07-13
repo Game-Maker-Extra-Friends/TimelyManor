@@ -28,6 +28,16 @@ public class ClueInventory : MonoBehaviour
 
     public List<Clue> clues = new List<Clue>();
 
+    private void Start()
+    {
+        if (ES3.KeyExists("CluesInventory", "Saves/CluesInventory.es3"))
+        {
+            clues = ES3.Load<List<Clue>>("CluesInventory", "Saves/CluesInventory.es3");
+            if (onClueCalledback != null)
+                onClueCalledback.Invoke(); // Invote update when laod stuff
+        }
+    }
+
 
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
     public void Add(Clue clue)
@@ -41,6 +51,8 @@ public class ClueInventory : MonoBehaviour
 
         clues.Add(clue);
 
+        ES3.Save("CluesInventory", clues, "Saves/CluesInventory.es3");
+
         // Call the delgate to let other method who subscribes to it know.
         if (onClueCalledback != null)
             onClueCalledback.Invoke();
@@ -51,5 +63,6 @@ public class ClueInventory : MonoBehaviour
     public void Remove(Clue clue)
     {
         clues.Remove(clue);
+        ES3.Save("CluesInventory", clues, "Saves/CluesInventory.es3");
     }
 }
