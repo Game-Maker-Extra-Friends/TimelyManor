@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public string interactedID; // for saving and loading
     public string interactbleType; // The type of interactable
+    public bool interacted = false;
+
 
     public virtual void Interact()
     {

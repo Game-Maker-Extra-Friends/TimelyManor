@@ -11565,6 +11565,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1469389924633619720, guid: 83c3f36cc534db74ca87c4b311c8955b, type: 3}
+      propertyPath: pickedUpID
+      value: testCube2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469389924633619720, guid: 83c3f36cc534db74ca87c4b311c8955b, type: 3}
+      propertyPath: interactedID
+      value: PastTestPickup
+      objectReference: {fileID: 0}
     - target: {fileID: 1746650012844323535, guid: 83c3f36cc534db74ca87c4b311c8955b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -11699,9 +11707,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 76660aeafc6996341ad739f1db935009, type: 2}
     - target: {fileID: 1927925851076629455, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
+      propertyPath: interactedID
+      value: PastBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927925851076629455, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: newClueCanvas
       value: 
       objectReference: {fileID: 1649888242}
+    - target: {fileID: 1927925851076629455, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
+      propertyPath: interactbleType
+      value: Clue
+      objectReference: {fileID: 0}
     - target: {fileID: 1927925851511023808, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 209.7724

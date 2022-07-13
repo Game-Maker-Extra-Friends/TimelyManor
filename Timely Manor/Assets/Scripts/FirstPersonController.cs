@@ -510,6 +510,7 @@ namespace StarterAssets
 
 		private void OnTriggerEnter(Collider other)
 		{
+			_input.interact = false; // Prevent E toggle bug
 			if (other.tag == "InteractPoint")
             {
 				pressEText.gameObject.SetActive(true);

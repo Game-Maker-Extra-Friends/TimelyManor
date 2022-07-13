@@ -17,6 +17,9 @@ public class Inventory : MonoBehaviour
             Debug.Log("more than one instance of inventory found!");
         }
         instance = this;
+
+
+        
     }
 
     #endregion
@@ -27,6 +30,16 @@ public class Inventory : MonoBehaviour
     public int space = 20;
 
     public List<Item> items = new List<Item>();
+
+    private void Start()
+    {
+        if (ES3.KeyExists("InventoryItems", "Saves/InventoryItems.es3"))
+        {
+            items = ES3.Load<List<Item>>("InventoryItems", "Saves/InventoryItems.es3");
+            if (onItemCalledback != null)
+                onItemCalledback.Invoke(); // Invote update when laod stuff
+        }
+    }
 
 
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
@@ -41,9 +54,12 @@ public class Inventory : MonoBehaviour
 
         items.Add(item);
 
+        ES3.Save("InventoryItems", items, "Saves/InventoryItems.es3");
+
         // Call the delgate to let other method who subscribes to it know.
         if(onItemCalledback != null)
             onItemCalledback.Invoke();
+
 
         return true;
     }
@@ -51,6 +67,7 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
+        ES3.Save("InventoryItems", items, "Saves/InventoryItems.es3");
     }
 
 }
