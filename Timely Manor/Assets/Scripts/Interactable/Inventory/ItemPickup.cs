@@ -20,7 +20,9 @@ public class ItemPickup : Interactable
         {
             Destroy(gameObject);
         }
-        interactbleType = "Item";
+
+        // Set interactable type to item if people forget to set it to item in inspector
+        interactbleType = InteractbleType.Item;
     }
 
     public override void Interact()

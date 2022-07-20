@@ -5,9 +5,17 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public string interactedID; // for saving and loading
-    public string interactbleType; // The type of interactable
+
+    // The type of interactable
+    public enum InteractbleType
+    {
+        Item,
+        Clue
+    };
+
     public bool interacted = false;
 
+    public InteractbleType interactbleType;
 
     public virtual void Interact()
     {

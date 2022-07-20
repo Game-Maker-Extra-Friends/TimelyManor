@@ -26,7 +26,9 @@ public class ClueScript : Interactable
 			_audioSource = (AudioSource)audioSources[0];
 		//_newClueAudio = (AudioSource)audioSources[1];
 
-		interactbleType = "Clue";
+
+		// Set the type to Clue in case people forgot to change it in editor
+		interactbleType = InteractbleType.Clue;
 		if(ES3.KeyExists(interactedID, "Saves/ClueSaves.es3"))
 			interacted = ES3.Load<bool>(interactedID, "Saves/ClueSaves.es3");
 
