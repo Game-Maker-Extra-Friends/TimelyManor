@@ -6,7 +6,7 @@ public class SubmitLetterPuzzle : MonoBehaviour
 {
     public LetterPuzzleController _LetterPuzzleController;
 
-    void OnMouseDown()
+    public void Submit()
     {
         //Debug.Log("Work");
         _LetterPuzzleController.CheckAnswer();

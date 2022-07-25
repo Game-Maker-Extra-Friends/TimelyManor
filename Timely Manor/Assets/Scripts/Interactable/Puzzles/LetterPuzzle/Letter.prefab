@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 228326268562732652}
   - component: {fileID: 228326268562732655}
   - component: {fileID: 228326268562732654}
-  - component: {fileID: 228326268562732691}
-  - component: {fileID: 228326268562732690}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Untagged
@@ -115,7 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f931f78fb4a468f41b275a7dcda1352f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLetter: 0
+  currentLetterNum: 0
+  currentLetterStr: 
+  correctLetter: A
   LetterObj: {fileID: 228326268756596674}
   _letter1: A
   _letter2: B
@@ -124,37 +124,6 @@ MonoBehaviour:
   _letter5: E
   _letter6: F
   self: {fileID: 228326268562732652}
---- !u!54 &228326268562732691
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326268562732648}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!138 &228326268562732690
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326268562732648}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &228326268683995769
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,12 +136,10 @@ GameObject:
   - component: {fileID: 228326268683995772}
   - component: {fileID: 228326268683995775}
   - component: {fileID: 228326268683995746}
-  - component: {fileID: 228326268683995747}
-  - component: {fileID: 228326268683995744}
   - component: {fileID: 8131926629404426734}
   m_Layer: 0
   m_Name: Up
-  m_TagString: Untagged
+  m_TagString: LetterUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,37 +227,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.010000016}
   m_Center: {x: 0, y: -0.00000011920929, z: -0.00000017881393}
---- !u!54 &228326268683995747
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326268683995769}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!138 &228326268683995744
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326268683995769}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!33 &8131926629404426734
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -482,13 +418,11 @@ GameObject:
   - component: {fileID: 228326269142790690}
   - component: {fileID: 228326269142790689}
   - component: {fileID: 228326269142790688}
-  - component: {fileID: 228326269142790691}
   - component: {fileID: 228326269142790694}
-  - component: {fileID: 228326269142790695}
-  - component: {fileID: 228326269142790692}
+  - component: {fileID: 3107646012904614907}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Untagged
+  m_TagString: LetterDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,19 +492,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &228326269142790691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326269142790717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f9bd679c79bb4448e9222c07ddea01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _letterPuzzle: {fileID: 228326268562732654}
 --- !u!65 &228326269142790694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -584,34 +505,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.010000003, y: 0.010000003, z: 0.010000016}
   m_Center: {x: -0.00000008940697, y: 0.00000015646219, z: -0.00000017881393}
---- !u!54 &228326269142790695
-Rigidbody:
+--- !u!114 &3107646012904614907
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228326269142790717}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!138 &228326269142790692
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228326269142790717}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e337de438afa684428417993991d6cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _letterPuzzle: {fileID: 228326268562732654}

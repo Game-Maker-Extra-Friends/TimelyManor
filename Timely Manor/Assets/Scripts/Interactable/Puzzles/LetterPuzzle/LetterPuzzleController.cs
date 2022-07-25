@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class LetterPuzzleController : MonoBehaviour
 {
-    //Reference to all the letters
-    [SerializeField]
-    private LetterPuzzle _letter1;
-    [SerializeField]
-    private LetterPuzzle _letter2;
-    [SerializeField]
-    private LetterPuzzle _letter3;
-    [SerializeField]
-    private LetterPuzzle _letter4;
-    [SerializeField]
-    private LetterPuzzle _letter5;
+    public LetterPuzzle[] _letters;
+
+    bool _correctCombination = false;
+
 
     //ref to light
     [SerializeField]
@@ -24,21 +17,43 @@ public class LetterPuzzleController : MonoBehaviour
 
     public AudioSource fail;
     public AudioSource success;
-    // Update is called once per frame
     public void CheckAnswer()
     {
-        // 
-        if (_letter1.currentLetter == 2 && _letter2.currentLetter == 2 && _letter3.currentLetter == 1 && _letter4.currentLetter == 5 && _letter5.currentLetter == 1)
+        foreach(LetterPuzzle lp in _letters)
         {
-            var cubeRenderer = lightBulb.GetComponent<Renderer>();
-            cubeRenderer.material.SetColor("_Color", Color.green);
+            if(lp.currentLetterStr == lp.correctLetter)
+            {
+                _correctCombination = true;
+            }
+            else
+            {
+                _correctCombination = false;
+                break;
+            }
+        }
 
-            _lightBulb.turnOn();
+
+        if (_correctCombination)
+        {
+            //_lightBulb.turnOn();
             success.Play();
         }
-        else
+        else 
         {
             fail.Play();
         }
+        // 
+        //if (_letter1.currentLetterNum == 2 && _letter2.currentLetterNum == 2 && _letter3.currentLetterNum == 1 && _letter4.currentLetterNum == 5 && _letter5.currentLetterNum == 1)
+        //{
+        //    var cubeRenderer = lightBulb.GetComponent<Renderer>();
+        //    cubeRenderer.material.SetColor("_Color", Color.green);
+
+        //    _lightBulb.turnOn();
+        //    success.Play();
+        //}
+        //else
+        //{
+        //    fail.Play();
+        //}
     }
 }

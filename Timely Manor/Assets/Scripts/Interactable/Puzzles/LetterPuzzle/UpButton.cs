@@ -7,7 +7,7 @@ public class UpButton : MonoBehaviour
     [SerializeField]
     private LetterPuzzle _letterPuzzle;
 
-    void OnMouseDown()
+    public void ChangeLetterUp()
     {
         _letterPuzzle.updateCurrentLetterUp();
     }

@@ -7,7 +7,11 @@ public class LetterPuzzle : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public int currentLetter = 0;
+    public int currentLetterNum = 0;
+
+    public string currentLetterStr;
+
+    public string correctLetter;
 
     public GameObject LetterObj;
     public string _letter1;
@@ -22,40 +26,46 @@ public class LetterPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentLetter == 0)
+        if (currentLetterNum == 0)
         {
             //Make this letter 1
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter1;
+            currentLetterStr = _letter1;
             //Debug.Log(currentLetter);
         }
-        if (currentLetter == 1)
+        if (currentLetterNum == 1)
         {
             //Make this letter 2
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter2;
+            currentLetterStr = _letter2;
             //Debug.Log(currentLetter);
         }
-        if (currentLetter == 2)
+        if (currentLetterNum == 2)
         {
             //Make this letter 3
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter3;
+            currentLetterStr = _letter3;
             //Debug.Log(currentLetter);
         }
-        if (currentLetter == 3)
+        if (currentLetterNum == 3)
         {
             //Make this letter 4
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter4;
+            currentLetterStr = _letter4;
             // Debug.Log(currentLetter);
         }
-        if (currentLetter == 4)
+        if (currentLetterNum == 4)
         {
             //Make this letter 5
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter5;
+            currentLetterStr = _letter5;
             // Debug.Log(currentLetter);
         }
-        if (currentLetter == 5)
+        if (currentLetterNum == 5)
         {
             //Make this letter 6
             LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter6;
+            currentLetterStr = _letter6;
             // Debug.Log(currentLetter);
         }
     }
@@ -65,24 +75,24 @@ public class LetterPuzzle : MonoBehaviour
     {
         //if we do up to F, put a limit of 6 and reset it back to 0
         
-        if(currentLetter < 6)
+        if(currentLetterNum < 6)
         {
-            currentLetter++;
+            currentLetterNum++;
         }
         else
         {
-            currentLetter = 0;
+            currentLetterNum = 0;
         }
     }
     public void updateCurrentLetterDown()
     {
-        if (currentLetter > 0)
+        if (currentLetterNum > 0)
         {
-            currentLetter--;
+            currentLetterNum--;
         }
         else
         {
-            currentLetter = 5;
+            currentLetterNum = 5;
         }
         
     }
