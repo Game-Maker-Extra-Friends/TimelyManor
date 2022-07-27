@@ -34,7 +34,9 @@ public class ClueInventory : MonoBehaviour
         {
             clues = ES3.Load<List<Clue>>("CluesInventory", "Saves/CluesInventory.es3");
             if (onClueCalledback != null)
-                onClueCalledback.Invoke(); // Invote update when laod stuff
+            {
+                onClueCalledback.Invoke(); // Invote update when load stuff
+            }
         }
     }
 

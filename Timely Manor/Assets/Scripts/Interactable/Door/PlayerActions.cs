@@ -44,7 +44,7 @@ public class PlayerActions : MonoBehaviour
                 UseText.SetText("Open \"E\"");
             }
 
-            Debug.Log(hit.transform.gameObject.name);
+            // Debug.Log(hit.transform.gameObject.name);
 
             UseText.gameObject.SetActive(true);
             UseText.transform.position = hit.point - (hit.point - Camera.position).normalized * 0.01f;
