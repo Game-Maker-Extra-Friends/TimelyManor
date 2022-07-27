@@ -210,15 +210,17 @@ namespace StarterAssets
 				}
 			}
 
+			
 			if (_playerState == PlayerState.Reading)
 			{
 				CursorController.Instance.defaultCursor();
-				// Exits open newClueCanvas or ClueCanvas. If it is the last available canvas to close then return to moving state (done in the open note).
+				// Exits open newClueCanvas or ClueCanvas. If it is the last available canvas to close then return to interacting state (done in the open note).
 				if (_input.exit) 
 				{
 					if (_openNewClue == null)
 					{
 						_openNote.SendMessage("toggleCanvas");
+						_openNote = null;
 					}
 					else
 					{
@@ -229,6 +231,7 @@ namespace StarterAssets
 					_input.exit = false;
 				}
 			}
+			
 			
 			_input.clickInput = false;
 		}

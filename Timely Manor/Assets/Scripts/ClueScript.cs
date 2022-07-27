@@ -22,8 +22,8 @@ public class ClueScript : Interactable
 		Component[] audioSources;
 		audioSources = GetComponents(typeof(AudioSource));
 		
-
-		_audioSource = (AudioSource)audioSources[0];
+		if (audioSources.Length > 0)
+			_audioSource = (AudioSource)audioSources[0];
 		//_newClueAudio = (AudioSource)audioSources[1];
 
 		interactbleType = "Clue";
@@ -39,19 +39,23 @@ public class ClueScript : Interactable
 	public override void Interact()
 	{
 		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
-		StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
 
 		if (!seen)
 		{
+			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
 		}
 		else 
 		{
 			if (canvas != null)
+			{
 				toggleCanvas();
+			}
 			else
+			{
 				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+			}
 		}
 
 		OnHandlePickupClue();
@@ -67,6 +71,7 @@ public class ClueScript : Interactable
 			{
 				if (canvas.isActiveAndEnabled == false)
 				{
+					StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
 					canvas.gameObject.SetActive(true);
 					_audioSource.Play();
 				}
@@ -96,10 +101,12 @@ public class ClueScript : Interactable
 			if (canvas != null)
 			{
 				canvas.gameObject.SetActive(true);
+				StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
 			}
 			else
-			{
-				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+			{ 
+				// new clues opened via canvas buttons break here when closed
+				//StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
 
@@ -114,7 +121,6 @@ public class ClueScript : Interactable
 			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
-
 		}
 	}
 
