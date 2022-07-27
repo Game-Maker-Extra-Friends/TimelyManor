@@ -335,6 +335,19 @@ namespace StarterAssets
 					{
 						codeLock.CheckCode();
 					}
+
+                    if (hit.transform.gameObject.CompareTag("LetterUp"))
+                    {
+						hit.transform.gameObject.GetComponent<UpButton>().ChangeLetterUp();
+                    }
+					else if (hit.transform.gameObject.CompareTag("LetterDown"))
+                    {
+						hit.transform.gameObject.GetComponent<DownButton>().ChangeLetterDown();
+					}
+					else if (hit.transform.gameObject.CompareTag("LetterSubmit"))
+                    {
+						hit.transform.gameObject.GetComponent<SubmitLetterPuzzle>().Submit();
+					}
 				}
 
 				_input.clickInput = false;
