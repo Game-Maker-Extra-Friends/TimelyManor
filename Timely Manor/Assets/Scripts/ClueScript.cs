@@ -14,6 +14,7 @@ public class ClueScript : Interactable
 
 	[Header("New Clue Popup")]
 	public Canvas newClueCanvas;
+	[SerializeField]
 	private bool seen = false;
 	private AudioSource _newClueAudio;
 
@@ -149,6 +150,7 @@ public class ClueScript : Interactable
 			//_hasBeenAdded = true;
 			interacted = true;
 			ES3.Save(interactedID, interacted, "Saves/ClueSaves.es3");
+			ES3.Save(interactedID + "Seen", seen, "Saves/ClueSaves.es3");
 		}
 	}
 
