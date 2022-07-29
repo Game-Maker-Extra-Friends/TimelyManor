@@ -105,10 +105,10 @@ public class ClueScript : Interactable
 				canvas.gameObject.SetActive(true);
 				StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
 			}
-			else
+			else if (StarterAssets.FirstPersonController.Instance._openNote == null)
 			{ 
 				// new clues opened via canvas buttons break here when closed
-				//StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
 
@@ -123,6 +123,8 @@ public class ClueScript : Interactable
 			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
+			
+			OnHandlePickupClue();
 		}
 	}
 

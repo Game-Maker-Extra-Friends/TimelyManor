@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1808698764563578651}
   - component: {fileID: 39754103895948853}
   - component: {fileID: 310147638816731739}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: InteractPoint
   m_TagString: InteractPoint
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3250005922608434198}
   - component: {fileID: 5835873099862039881}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9836513, y: 1}
+    m_SensorSize: {x: 1.9231693, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7009961938888399051}
   - component: {fileID: 8876820824576402222}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

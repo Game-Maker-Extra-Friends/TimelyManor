@@ -222,7 +222,7 @@ namespace StarterAssets
 						_openNote.SendMessage("toggleCanvas");
 						_openNote = null;
 					}
-					else
+					else 
 					{
 						_openNewClue.SendMessage("toggleCanvas");
 						_openNewClue = null;

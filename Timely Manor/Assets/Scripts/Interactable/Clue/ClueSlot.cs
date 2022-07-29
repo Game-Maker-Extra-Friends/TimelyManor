@@ -36,7 +36,7 @@ public class ClueSlot : MonoBehaviour
         // The item des go into the next page
         if (clue != null)
         {
-            Debug.LogError(clue.icon);
+            //cant put game object in debug log Debug.LogError(clue.icon);
             detailsIcon.sprite = clue.icon;
             detailsText.text = clue.description;
         }
