@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &342675765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342675766}
+  - component: {fileID: 342675767}
+  m_Layer: 0
+  m_Name: OptionsLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342675766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342675765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7756601612216782398}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342675767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342675765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123fbbb2caeb341409bc26708e528173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!1 &7756601610338505958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2274,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: NewClue
+    clip: {fileID: 8300000, guid: 39f2f9630dcc7b24f94335a28741c593, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!1 &7756601610670444546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,7 +4193,6 @@ MonoBehaviour:
   musicVolume: {fileID: 7756601612090992679}
   mouseSensitivity: {fileID: 7756601612285451412}
   graphicQuality: {fileID: 7756601612297712435}
-  resolution: {fileID: 7756601611454720106}
 --- !u!1 &7756601610891913760
 GameObject:
   m_ObjectHideFlags: 0
@@ -11938,6 +11989,7 @@ Transform:
   - {fileID: 7756601612063582681}
   - {fileID: 7756601610660956095}
   - {fileID: 7756601610598197900}
+  - {fileID: 342675766}
   m_Father: {fileID: 7756601612258958751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
