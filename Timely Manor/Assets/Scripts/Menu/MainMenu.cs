@@ -16,4 +16,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void NewGame()
+    {
+        ES3.DeleteDirectory("Saves/");
+        Debug.Log("Saves deleted");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
