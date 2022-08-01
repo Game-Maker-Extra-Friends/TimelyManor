@@ -171,7 +171,7 @@ namespace StarterAssets
 			if (_playerState == PlayerState.Moving)
             {
 				//JumpAndGravity();
-				GroundedCheck();
+				//GroundedCheck();
 				Move();
 			}
 			
