@@ -30,8 +30,8 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField]
     private TMP_Dropdown graphicQuality;
-    [SerializeField]
-    private TMP_Dropdown resolution;
+    //[SerializeField]
+    //private TMP_Dropdown resolution;
 
     public void Start()
     {
@@ -58,8 +58,15 @@ public class SettingsMenu : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
+        
         //Add option and values + refresh the value so it's displayed to the player.
         resolutionDropDown.AddOptions(options);
+
+        if (ES3.KeyExists("Resolution", "Options/GraphicOptions.es3"))
+        {
+            currentResolutionIndex = ES3.Load<int>("Resolution", "Options/GraphicOptions.es3");
+        }
+
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
 
@@ -108,12 +115,7 @@ public class SettingsMenu : MonoBehaviour
             graphicQuality.value = qualityIndex;
             SetQuality(qualityIndex);
         }
-        if (ES3.KeyExists("Resolution", "Options/GraphicOptions.es3"))
-        {
-            int resolutionIndex = ES3.Load<int>("Resolution", "Options/GraphicOptions.es3");
-            resolution.value = resolutionIndex;
-            SetResolution(resolutionIndex);
-        }
+        
 
     }
 
@@ -161,6 +163,7 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
         ES3.Save("Resolution", resolutionIndex, "Options/GraphicOptions.es3");
+        Debug.Log("res changed");
     }
 
     //Set mouse sensitivity

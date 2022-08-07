@@ -42,26 +42,29 @@ public class ClueScript : Interactable
 	public override void Interact()
 	{
 		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
-
+		OnHandlePickupClue();
 		if (!seen)
 		{
 			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
+			if(_audioSource != null)
+				_audioSource.Play();
 		}
 		else 
 		{
 			if (canvas != null)
 			{
 				toggleCanvas();
+				_audioSource.Play();
 			}
 			else
 			{
 				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
-
-		OnHandlePickupClue();
+		// Debug.Log("OnHandleCalled");
+		
 	}
 
 
@@ -145,7 +148,8 @@ public class ClueScript : Interactable
 	{
 		Debug.Log("Picking up: " + clue.name);
 		if(interacted == false)
-		{ 
+		{
+			AudioManager.instance.Play("NewClue");
 			ClueInventory.instance.Add(clue);
 			//_hasBeenAdded = true;
 			interacted = true;
