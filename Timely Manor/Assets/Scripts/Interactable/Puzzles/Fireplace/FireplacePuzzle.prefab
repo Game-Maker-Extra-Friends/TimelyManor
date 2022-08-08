@@ -240,7 +240,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -451,7 +451,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -695,7 +695,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1111,7 +1111,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1475,7 +1475,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1927,6 +1927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b63751a5b41ce644b5eb811aee219c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactedID: 
+  interacted: 0
+  interactbleType: 0
   dontdestroy: {fileID: 0}
 --- !u!4 &4490032253121911401 stripped
 Transform:
@@ -2058,7 +2061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5835873099862039881, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.3035715
+      value: 1.9220023
       objectReference: {fileID: 0}
     - target: {fileID: 6267356589379756718, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_StaticEditorFlags
