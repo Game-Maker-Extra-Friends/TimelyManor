@@ -113,6 +113,8 @@ namespace StarterAssets
 		// Audio
 		public AudioManager audioManager;
 
+		public bool canPause;
+
 		// State enums
 		public enum PlayerState
         {
@@ -176,6 +178,11 @@ namespace StarterAssets
 				//JumpAndGravity();
 				GroundedCheck();
 				Move();
+				canPause = true;
+			}
+			else
+			{
+				canPause = false;
 			}
 			
 			if (_input.timeTravel && playerState == PlayerState.Moving )
