@@ -3735,7 +3735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601610851330625}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.25, y: 11.15, z: 1.297}
+  m_LocalPosition: {x: 12.169, y: -3.223, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3799,8 +3799,8 @@ MonoBehaviour:
   _openNewClue: {fileID: 0}
   _audioManager: {fileID: 7756601610660956064}
   _playerState: 0
-  pastScene: Will_Past
-  presentScene: Will_Present
+  pastScene: Present_Room
+  presentScene: Past_Room
   transition: {fileID: 7756601610989880412}
   transitionTime: 1
 --- !u!114 &7756601610851330651
@@ -12103,7 +12103,7 @@ GameObject:
   - component: {fileID: 7756601612258958720}
   m_Layer: 0
   m_Name: DontDestroyGameObjectPrefabGroup
-  m_TagString: Untagged
+  m_TagString: DontDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13555,7 +13555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612429130036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.45, y: 12.525, z: 1.297}
+  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13749,7 +13749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612472120803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.45, y: 12.525, z: 1.297}
+  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
