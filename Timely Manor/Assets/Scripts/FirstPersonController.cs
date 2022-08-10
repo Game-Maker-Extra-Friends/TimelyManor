@@ -155,7 +155,7 @@ namespace StarterAssets
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
-			CursorController.instance.defaultCursor();
+			CursorController.instance.DefaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
@@ -212,7 +212,7 @@ namespace StarterAssets
 			
 			if (playerState == PlayerState.Reading)
 			{
-				CursorController.instance.defaultCursor();
+				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
 				if (ExitAction.triggered)
 				{

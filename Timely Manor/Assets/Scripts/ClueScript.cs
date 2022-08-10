@@ -11,20 +11,15 @@ public class ClueScript : Interactable
 	public delegate void interact(Clue clue);
 	public static event interact ClueInteract;
 
-	[Header("Clue")]
-	public TextMeshProUGUI noteText;
-	public Canvas canvas = null;
 	private AudioSource _audioSource;
-
-	[Header("New Clue Popup")]
+	private AudioSource _newClueAudio;
 	private ClueUI clueUI;
 
 	[SerializeField]
 	private bool seen = false;
-	private AudioSource _newClueAudio;
 
 	// Clue Object Script
-	[Header("Clue Object")]
+	[Header("Clue")]
 	public Clue clue;
 
 	
