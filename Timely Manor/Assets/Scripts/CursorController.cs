@@ -9,21 +9,15 @@ public class CursorController : MonoBehaviour
 
     #region Singleton
 
-    private static CursorController _instance;
-
-    public static CursorController Instance => _instance;
+    public static CursorController instance;
 
 	private InputAction clickAction;
 
     private void Awake()
     {
-        if (_instance != null)
+        if (instance != null)
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            _instance = this;
+            DestroyImmediate(gameObject);
         }
         
         instance = this;

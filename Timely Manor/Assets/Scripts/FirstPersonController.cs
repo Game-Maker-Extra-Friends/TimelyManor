@@ -19,23 +19,20 @@ namespace StarterAssets
 	{
 		#region Singleton
 
-		private static FirstPersonController _instance;
-
-		public static FirstPersonController Instance => _instance;
+		public static FirstPersonController instance;
 
 		public delegate void interact();
 		public static event interact ExitUI;
 
 		private void Awake()
 		{
-			if (_instance != null)
+			if (instance != null)
 			{
-				Destroy(gameObject);
+				DestroyImmediate(gameObject);
 			}
-			else
-			{
-				_instance = this;
-			}
+				
+			instance = this;
+			DontDestroyOnLoad(gameObject);
 		}
 
 		#endregion
@@ -114,7 +111,7 @@ namespace StarterAssets
 		public InputAction ExitAction => _playerInput.actions["Exit"];
 
 		// Audio
-		public AudioManager _audioManager;
+		public AudioManager audioManager;
 
 		// State enums
 		public enum PlayerState
@@ -126,7 +123,7 @@ namespace StarterAssets
 			Paused,
 			Journal
         }
-		public PlayerState _playerState;
+		public PlayerState playerState;
 
 		// Time travel
 		private enum TimeState
@@ -158,14 +155,14 @@ namespace StarterAssets
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
-			CursorController.Instance.defaultCursor();
+			CursorController.instance.defaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-			_playerState = PlayerState.Moving;
+			playerState = PlayerState.Moving;
 			_timeState = TimeState.Present;
 			
 			// ctx dumps unnecessary parameters of event
@@ -174,23 +171,23 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			if (_playerState == PlayerState.Moving)
+			if (playerState == PlayerState.Moving)
             {
 				//JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
 			
-			if (_input.timeTravel && _playerState == PlayerState.Moving )
+			if (_input.timeTravel && playerState == PlayerState.Moving )
             {
 				_input.timeTravel = false;
-				_playerState = PlayerState.TimeTraveling;
+				playerState = PlayerState.TimeTraveling;
 				StartCoroutine("TimeTravel");
 			}
 
 			_input.timeTravel = false;
 
-			if (_playerState == PlayerState.Interacting)
+			if (playerState == PlayerState.Interacting)
 			{
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.None;
@@ -203,7 +200,7 @@ namespace StarterAssets
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
-					_playerState = PlayerState.Moving;
+					playerState = PlayerState.Moving;
 
 					pressESCText.gameObject.SetActive(false);
 					Cursor.visible = false;
@@ -213,7 +210,7 @@ namespace StarterAssets
 			}
 
 			
-			if (_playerState == PlayerState.Reading)
+			if (playerState == PlayerState.Reading)
 			{
 				CursorController.instance.defaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
@@ -233,13 +230,13 @@ namespace StarterAssets
 			if(_timeState == TimeState.Present)
             {
 				Debug.Log("Fade out Present Music");
-				_audioManager.FadeOut("MusicPresent", "MusicPast");
+				audioManager.FadeOut("MusicPresent", "MusicPast");
 				_timeState = TimeState.Past;
             }
             else
             {
 				Debug.Log("Fade out Past Music");
-				_audioManager.FadeOut("MusicPast", "MusicPresent");
+				audioManager.FadeOut("MusicPast", "MusicPresent");
 				_timeState = TimeState.Present;
 			}
 
@@ -256,12 +253,12 @@ namespace StarterAssets
 				SceneManager.LoadScene(pastScene);
 			}
 
-			_playerState = PlayerState.Moving;
+			playerState = PlayerState.Moving;
 		}
 
 		private void LateUpdate()
 		{
-			if (_playerState == PlayerState.Moving)
+			if (playerState == PlayerState.Moving)
 			{
 				CameraRotation();
 			}
@@ -409,7 +406,7 @@ namespace StarterAssets
 			
 			if (col.gameObject.tag == "InteractPoint" && _input.interact)
 			{
-				_playerState = PlayerState.Interacting;
+				playerState = PlayerState.Interacting;
 
 
 				pressEText.gameObject.SetActive(false);
