@@ -19,20 +19,17 @@ namespace StarterAssets
 	{
 		#region Singleton
 
-		private static FirstPersonController _instance;
-
-		public static FirstPersonController Instance => _instance;
+		public static FirstPersonController instance;
 
 		private void Awake()
 		{
-			if (_instance != null)
+			if (instance != null)
 			{
-				Destroy(gameObject);
+				DestroyImmediate(gameObject);
 			}
-			else
-			{
-				_instance = this;
-			}
+				
+			instance = this;
+			DontDestroyOnLoad(gameObject);
 		}
 
 		#endregion
@@ -106,12 +103,12 @@ namespace StarterAssets
 		// UI elements
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
-		public GameObject _openNote;
-		public GameObject _openNewClue = null;
+		public GameObject openNote;
+		public GameObject openNewClue = null;
 		
 
 		// Audio
-		public AudioManager _audioManager;
+		public AudioManager audioManager;
 
 		// State enums
 		public enum PlayerState
@@ -123,7 +120,7 @@ namespace StarterAssets
 			Paused,
 			Journal
         }
-		public PlayerState _playerState;
+		public PlayerState playerState;
 
 		// Time travel
 		private enum TimeState
@@ -155,36 +152,36 @@ namespace StarterAssets
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
-			CursorController.Instance.defaultCursor();
+			CursorController.instance.defaultCursor();
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-			_playerState = PlayerState.Moving;
+			playerState = PlayerState.Moving;
 			_timeState = TimeState.Present;
 		}
 
 		private void Update()
 		{
-			if (_playerState == PlayerState.Moving)
+			if (playerState == PlayerState.Moving)
             {
 				//JumpAndGravity();
 				GroundedCheck();
 				Move();
 			}
 			
-			if (_input.timeTravel && _playerState == PlayerState.Moving )
+			if (_input.timeTravel && playerState == PlayerState.Moving )
             {
 				_input.timeTravel = false;
-				_playerState = PlayerState.TimeTraveling;
+				playerState = PlayerState.TimeTraveling;
 				StartCoroutine("TimeTravel");
 			}
 
 			_input.timeTravel = false;
 
-			if (_playerState == PlayerState.Interacting)
+			if (playerState == PlayerState.Interacting)
 			{
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.None;
@@ -197,7 +194,7 @@ namespace StarterAssets
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
-					_playerState = PlayerState.Moving;
+					playerState = PlayerState.Moving;
 
 					pressESCText.gameObject.SetActive(false);
 					Cursor.visible = false;
@@ -211,21 +208,21 @@ namespace StarterAssets
 			}
 
 			
-			if (_playerState == PlayerState.Reading)
+			if (playerState == PlayerState.Reading)
 			{
-				CursorController.Instance.defaultCursor();
+				CursorController.instance.defaultCursor();
 				// Exits open newClueCanvas or ClueCanvas. If it is the last available canvas to close then return to interacting state (done in the open note).
 				if (_input.exit) 
 				{
-					if (_openNewClue == null)
+					if (openNewClue == null)
 					{
-						_openNote.SendMessage("toggleCanvas");
-						_openNote = null;
+						openNote.SendMessage("toggleCanvas");
+						openNote = null;
 					}
 					else 
 					{
-						_openNewClue.SendMessage("toggleCanvas");
-						_openNewClue = null;
+						openNewClue.SendMessage("toggleCanvas");
+						openNewClue = null;
 					}
 
 					_input.exit = false;
@@ -242,13 +239,13 @@ namespace StarterAssets
 			if(_timeState == TimeState.Present)
             {
 				Debug.Log("Fade out Present Music");
-				_audioManager.FadeOut("MusicPresent", "MusicPast");
+				audioManager.FadeOut("MusicPresent", "MusicPast");
 				_timeState = TimeState.Past;
             }
             else
             {
 				Debug.Log("Fade out Past Music");
-				_audioManager.FadeOut("MusicPast", "MusicPresent");
+				audioManager.FadeOut("MusicPast", "MusicPresent");
 				_timeState = TimeState.Present;
 			}
 
@@ -265,12 +262,12 @@ namespace StarterAssets
 				SceneManager.LoadScene(pastScene);
 			}
 
-			_playerState = PlayerState.Moving;
+			playerState = PlayerState.Moving;
 		}
 
 		private void LateUpdate()
 		{
-			if (_playerState == PlayerState.Moving)
+			if (playerState == PlayerState.Moving)
 			{
 				CameraRotation();
 			}
@@ -286,11 +283,11 @@ namespace StarterAssets
 				// Change mouse cursor as appropriate
 				if (hit.transform.gameObject.CompareTag("Clickable"))
 				{
-					CursorController.Instance.clueCursor();
+					CursorController.instance.clueCursor();
 				}
 				else
 				{
-					CursorController.Instance.defaultCursor();
+					CursorController.instance.defaultCursor();
 				}
 
 				if (_input.clickInput)
@@ -514,7 +511,7 @@ namespace StarterAssets
 			
 			if (col.gameObject.tag == "InteractPoint" && _input.interact)
 			{
-				_playerState = PlayerState.Interacting;
+				playerState = PlayerState.Interacting;
 
 
 				pressEText.gameObject.SetActive(false);

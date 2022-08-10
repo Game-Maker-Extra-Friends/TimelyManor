@@ -12,8 +12,8 @@ public class PauseMenu : MonoBehaviour
     private DontDestroyScript[] dontDestroyObjects;
 
     //public InputAction exit;
-    public StarterAssets.StarterAssetsInputs _input;
-    public StarterAssets.FirstPersonController _state;
+    public StarterAssets.StarterAssetsInputs input;
+    public StarterAssets.FirstPersonController state;
     public FirstPersonController.PlayerState originalState;
 
     public Transform currentPageObject;
@@ -21,17 +21,17 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // Check for exit input + make sure that the player isn't interacting or reading/clue
-        if (_input.exit)
+        if (input.exit)
         {
             //Check if game is paused or not
-            if (_state._playerState == FirstPersonController.PlayerState.Paused)
+            if (state.playerState == FirstPersonController.PlayerState.Paused)
             {
-                _input.exit = false;
+                input.exit = false;
                 Resume();
             }
-            else if (_state._playerState == FirstPersonController.PlayerState.Moving)
+            else if (state.playerState == FirstPersonController.PlayerState.Moving)
             {
-                _input.exit = false;
+                input.exit = false;
                 Pause();
             }
         }
@@ -44,14 +44,14 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        _state._playerState = FirstPersonController.PlayerState.Moving;
+        state.playerState = FirstPersonController.PlayerState.Moving;
         currentPageObject.gameObject.SetActive(false);
         currentPageObject = gameObject.transform.Find("PauseMenu");
         //PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
 
         Debug.Log("Resume");
-        Debug.Log(_state._playerState);
+        Debug.Log(state.playerState);
     }
 
 
@@ -61,11 +61,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         //Redundancy
-        _state._playerState = FirstPersonController.PlayerState.Paused;
+        state.playerState = FirstPersonController.PlayerState.Paused;
         currentPageObject.gameObject.SetActive(true);
         Time.timeScale = 0f;
 
-        Debug.Log(_state._playerState);
+        Debug.Log(state.playerState);
     }
 
 

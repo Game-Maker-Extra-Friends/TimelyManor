@@ -14,10 +14,11 @@ public class Inventory : MonoBehaviour
         // makes the instace = to this component, anyone can now access this so this is now a singleton.
         if(instance != null)
         {
-            Debug.Log("more than one instance of inventory found!");
+            DestroyImmediate(gameObject);
         }
-        instance = this;
 
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         
     }

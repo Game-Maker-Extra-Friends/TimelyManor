@@ -12,8 +12,8 @@ public class JournalMenu : MonoBehaviour
     private DontDestroyScript[] dontDestroyObjects;
 
     // For accessing exit input
-    public StarterAssets.StarterAssetsInputs _input;
-    public StarterAssets.FirstPersonController _state;
+    public StarterAssets.StarterAssetsInputs input;
+    public StarterAssets.FirstPersonController state;
     public FirstPersonController.PlayerState originalState;
 
     enum currentPage
@@ -31,29 +31,29 @@ public class JournalMenu : MonoBehaviour
     void Update()
     {
         // Open journal: Check for open journal input, if journal is not open and that player is in moving state
-        if (_input.openJournal && !journalOpened && _state._playerState == FirstPersonController.PlayerState.Moving) 
+        if (input.openJournal && !journalOpened && state.playerState == FirstPersonController.PlayerState.Moving) 
         {
-            _input.openJournal = false;
+            input.openJournal = false;
             OpenJournal();
         }
 
         // Close journal: check for either exit or open journal input and if journal is open
-        if ((_input.exit || _input.openJournal) && journalOpened)
+        if ((input.exit || input.openJournal) && journalOpened)
 		{
-            _input.exit = false;
-            _input.openJournal = false;
+            input.exit = false;
+            input.openJournal = false;
             CloseJournal();
 		}
 
         //Put here so that the if statement doesn't get spam from the input being active
-        _input.openJournal = false;
+        input.openJournal = false;
     }
 
 
     public void CloseJournal()
     {
         //Return the state to the original
-        _state._playerState = originalState;
+        state.playerState = originalState;
 
         // Makes the cursor invisible and lock it
         Cursor.lockState = CursorLockMode.Locked;
@@ -77,9 +77,9 @@ public class JournalMenu : MonoBehaviour
     public void OpenJournal()
     {
         // Save the current sate so that they can resume
-        originalState = _state._playerState;
+        originalState = state.playerState;
         // Set the player state to Journal 
-        _state._playerState = FirstPersonController.PlayerState.Journal;
+        state.playerState = FirstPersonController.PlayerState.Journal;
         // Makes the cursor visible and unlock it
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

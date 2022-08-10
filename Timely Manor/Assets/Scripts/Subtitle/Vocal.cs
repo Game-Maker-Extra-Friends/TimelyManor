@@ -11,7 +11,13 @@ public class Vocal : MonoBehaviour
 
     public void Awake()
     {
+        if (instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Start()

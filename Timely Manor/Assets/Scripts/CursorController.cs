@@ -7,20 +7,17 @@ public class CursorController : MonoBehaviour
 
     #region Singleton
 
-    private static CursorController _instance;
-
-    public static CursorController Instance => _instance;
+    public static CursorController instance;
 
     private void Awake()
     {
-        if (_instance != null)
+        if (instance != null)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
-        else
-        {
-            _instance = this;
-        }
+        
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     #endregion

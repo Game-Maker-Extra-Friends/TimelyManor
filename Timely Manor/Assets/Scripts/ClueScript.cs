@@ -41,11 +41,11 @@ public class ClueScript : Interactable
 
 	public override void Interact()
 	{
-		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
+		StarterAssets.FirstPersonController.instance.playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
 		OnHandlePickupClue();
 		if (!seen)
 		{
-			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
+			StarterAssets.FirstPersonController.instance.openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
 			if(_audioSource != null)
@@ -60,7 +60,7 @@ public class ClueScript : Interactable
 			}
 			else
 			{
-				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+				StarterAssets.FirstPersonController.instance.playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
 		// Debug.Log("OnHandleCalled");
@@ -77,19 +77,19 @@ public class ClueScript : Interactable
 			{
 				if (canvas.isActiveAndEnabled == false)
 				{
-					StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
+					StarterAssets.FirstPersonController.instance.openNote = this.transform.gameObject;
 					canvas.gameObject.SetActive(true);
 					_audioSource.Play();
 				}
 				else
 				{
-					StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+					StarterAssets.FirstPersonController.instance.playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 					canvas.gameObject.SetActive(false);
 				}
 			}
 			else
 			{
-				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+				StarterAssets.FirstPersonController.instance.playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
 		
@@ -107,12 +107,12 @@ public class ClueScript : Interactable
 			if (canvas != null)
 			{
 				canvas.gameObject.SetActive(true);
-				StarterAssets.FirstPersonController.Instance._openNote = this.transform.gameObject;
+				StarterAssets.FirstPersonController.instance.openNote = this.transform.gameObject;
 			}
-			else if (StarterAssets.FirstPersonController.Instance._openNote == null)
+			else if (StarterAssets.FirstPersonController.instance.openNote == null)
 			{ 
 				// new clues opened via canvas buttons break here when closed
-				StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
+				StarterAssets.FirstPersonController.instance.playerState = StarterAssets.FirstPersonController.PlayerState.Interacting;
 			}
 		}
 
@@ -124,7 +124,7 @@ public class ClueScript : Interactable
 	{
 		if (!seen)
 		{
-			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
+			StarterAssets.FirstPersonController.instance.openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
 			seen = true;
 			

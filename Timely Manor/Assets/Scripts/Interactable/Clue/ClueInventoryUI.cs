@@ -1,9 +1,7 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class ClueInventoryUI : MonoBehaviour
 {
-    // Cache it so it doesn't have to call the instance every time
-    ClueInventory clueInventory;
 
     public Transform cluesParent;
 
@@ -12,11 +10,8 @@ public class ClueInventoryUI : MonoBehaviour
 
     void Start()
     {
-        clueInventory = ClueInventory.instance;
-
-        Debug.Log(clueInventory);
         // Update UI everytime item is added or removed.
-        clueInventory.onClueCalledback += UpdateUI;
+        ClueInventory.instance.onClueCalledback += UpdateUI;
 
 
         slots = cluesParent.GetComponentsInChildren<ClueSlot>();
@@ -31,13 +26,14 @@ public class ClueInventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
+        List<Clue> clues = ClueInventory.instance.clues;   
         // Additem to slots or clear them if there's nothing.
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < clueInventory.clues.Count)
+            if (i < clues.Count)
             {
-                Debug.Log("Inventory count is: " + clueInventory.clues.Count);
-                slots[i].AddClue(clueInventory.clues[i]);
+                Debug.Log("Inventory count is: " + clues.Count);
+                slots[i].AddClue(clues[i]);
             }
             else
             {
