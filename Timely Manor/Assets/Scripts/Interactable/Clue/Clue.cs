@@ -9,4 +9,6 @@ public class Clue : ScriptableObject
     public Sprite icon = null;
     public string description = "description";
 
+    public Enum.Location location;
+    public Enum.Timeline timeline;
 }

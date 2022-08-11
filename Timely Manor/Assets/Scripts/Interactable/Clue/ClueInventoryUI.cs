@@ -7,7 +7,7 @@ public class ClueInventoryUI : MonoBehaviour
 
     public Transform cluesParent;
 
-    ClueSlot[] slots;
+    ClueSlotGroup[] slotsGroup;
 
 
     void Start()
@@ -19,30 +19,15 @@ public class ClueInventoryUI : MonoBehaviour
         clueInventory.onClueCalledback += UpdateUI;
 
 
-        slots = cluesParent.GetComponentsInChildren<ClueSlot>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        slotsGroup = cluesParent.GetComponentsInChildren<ClueSlotGroup>();
     }
 
 
     void UpdateUI()
     {
-        // Additem to slots or clear them if there's nothing.
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slotsGroup.Length; i++)
         {
-            if (i < clueInventory.clues.Count)
-            {
-                Debug.Log("Inventory count is: " + clueInventory.clues.Count);
-                slots[i].AddClue(clueInventory.clues[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
+            slotsGroup[i].UpdateUI();
         }
     }
 }
