@@ -32,9 +32,12 @@ public class ClueInventory : MonoBehaviour
     {
         if (ES3.KeyExists("CluesInventory", "Saves/CluesInventory.es3"))
         {
+            Debug.Log("Loading Clue");
             clues = ES3.Load<List<Clue>>("CluesInventory", "Saves/CluesInventory.es3");
+            Debug.Log(onClueCalledback);
             if (onClueCalledback != null)
             {
+               
                 onClueCalledback.Invoke(); // Invote update when load stuff
             }
         }

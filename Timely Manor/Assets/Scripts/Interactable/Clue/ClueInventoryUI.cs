@@ -11,7 +11,7 @@ public class ClueInventoryUI : MonoBehaviour
 
     public List<ClueSlotGroup> slotsGroup;
 
-    void Start()
+    void Awake()
     {
         clueInventory = ClueInventory.instance;
 

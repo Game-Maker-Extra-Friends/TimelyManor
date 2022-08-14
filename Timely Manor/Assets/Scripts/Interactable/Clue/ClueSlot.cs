@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 public class ClueSlot : MonoBehaviour
 {
-    Clue clue;
+    // Made public so ClueSlotGroup can check if there's clue in slot or not
+    public Clue clue;
     public Image icon;
 
     public Image detailsIcon;

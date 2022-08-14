@@ -46,7 +46,16 @@ public class ClueSlotGroup : MonoBehaviour
                 if (clueInventory.clues[i].timeline == timeline && clueInventory.clues[i].location == location)
                 {
                     Debug.Log("Adding Clue to: " + slots[i]);
-                    slots[i].AddClue(clueInventory.clues[i]);
+                    for(int slotInt = 0; slotInt < slots.Count; slotInt++)
+                    {
+                        if(slots[slotInt].clue == null)
+                        {
+                            slots[slotInt].AddClue(clueInventory.clues[i]);
+                            // So it doesn't add item to every single slot
+                            break;
+                        }
+                    }
+                    
                 }
             }
             else
