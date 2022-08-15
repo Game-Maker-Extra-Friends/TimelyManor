@@ -31,7 +31,7 @@ public class ClueInventoryUI : MonoBehaviour
     {
         for (int i = 0; i < slotsGroup.Count; i++)
         {
-            Debug.Log("Calling Slot Group: " + slotsGroup[i]);
+            //Debug.Log("Calling Slot Group: " + slotsGroup[i]);
             slotsGroup[i].UpdateUI();
         }
     }

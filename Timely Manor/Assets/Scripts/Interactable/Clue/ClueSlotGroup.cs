@@ -33,15 +33,16 @@ public class ClueSlotGroup : MonoBehaviour
     public void UpdateUI()
     {
         clueInventory = ClueInventory.instance;
-        Debug.Log("The slot count is: " + slots.Count);
-        Debug.Log("Singleton count is: " + clueInventory.clues.Count);
+        //Debug.Log("The slot count is: " + slots.Count);
+        //Debug.Log("Singleton count is: " + clueInventory.clues.Count);
         // Additem to slots or clear them if there's nothing.
         for (int i = 0; i < slots.Count; i++)
         {
+            Debug.Log(clueInventory.clues[i]);
             if (i < clueInventory.clues.Count)
             {
-                Debug.Log("Timeline inventory is: " + clueInventory.clues[i].timeline);
-                Debug.Log("Location inventory is: " + clueInventory.clues[i].location);
+                // Debug.Log("Timeline inventory is: " + clueInventory.clues[i].timeline);
+                // Debug.Log("Location inventory is: " + clueInventory.clues[i].location);
                 // Debug.Log("Inventory count is: " + clueInventory.clues.Count);
                 if (clueInventory.clues[i].timeline == timeline && clueInventory.clues[i].location == location)
                 {
@@ -50,6 +51,7 @@ public class ClueSlotGroup : MonoBehaviour
                     {
                         if(slots[slotInt].clue == null)
                         {
+                            Debug.Log("The clue being added to the UI is: " + clueInventory.clues[i]);
                             slots[slotInt].AddClue(clueInventory.clues[i]);
                             // So it doesn't add item to every single slot
                             break;
