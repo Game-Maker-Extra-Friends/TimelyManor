@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 public class ClueSlot : MonoBehaviour
 {
-    Clue clue;
+    // Made public so ClueSlotGroup can check if there's clue in slot or not
+    public Clue clue;
     public Image icon;
 
     public Image detailsIcon;
@@ -14,11 +15,11 @@ public class ClueSlot : MonoBehaviour
     {
         clue = newClue;
 
-        Debug.Log("The added item is: " + clue);
-        Debug.Log("The added icon is: " + clue.icon);
+        //Debug.Log("The added item is: " + clue);
+        //Debug.Log("The added icon is: " + clue.icon);
 
-        Debug.Log("The Nullreference is: "+ transform.gameObject.name);
-        Debug.Log("The Nullreference Clue is: " + clue.icon.name);
+        // Debug.Log("The Nullreference is: "+ transform.gameObject.name);
+        // Debug.Log("The Nullreference Clue is: " + clue.icon.name);
 
         icon.enabled = true;
         icon.sprite = clue.icon;
