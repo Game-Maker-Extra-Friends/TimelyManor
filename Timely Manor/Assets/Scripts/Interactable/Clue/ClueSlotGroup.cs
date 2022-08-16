@@ -38,7 +38,7 @@ public class ClueSlotGroup : MonoBehaviour
         // Additem to slots or clear them if there's nothing.
         for (int i = 0; i < slots.Count; i++)
         {
-            Debug.Log(clueInventory.clues[i]);
+            // Debug.Log(clueInventory.clues[i]);
             if (i < clueInventory.clues.Count)
             {
                 // Debug.Log("Timeline inventory is: " + clueInventory.clues[i].timeline);
@@ -47,6 +47,7 @@ public class ClueSlotGroup : MonoBehaviour
                 if (clueInventory.clues[i].timeline == timeline && clueInventory.clues[i].location == location)
                 {
                     Debug.Log("Adding Clue to: " + slots[i]);
+                    // This loop will add the item number 1 again since it doesn't skip
                     for(int slotInt = 0; slotInt < slots.Count; slotInt++)
                     {
                         if(slots[slotInt].clue == null)
@@ -54,6 +55,11 @@ public class ClueSlotGroup : MonoBehaviour
                             Debug.Log("The clue being added to the UI is: " + clueInventory.clues[i]);
                             slots[slotInt].AddClue(clueInventory.clues[i]);
                             // So it doesn't add item to every single slot
+                            break;
+                        }
+                        else if(slots[slotInt].clue == clueInventory.clues[i])
+                        {
+                            Debug.Log("This is the same clue therefore break it");
                             break;
                         }
                     }

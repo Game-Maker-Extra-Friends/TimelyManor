@@ -15,8 +15,8 @@ public class ClueSlot : MonoBehaviour
     {
         clue = newClue;
 
-        Debug.Log("The added item is: " + clue);
-        Debug.Log("The added icon is: " + clue.icon);
+        //Debug.Log("The added item is: " + clue);
+        //Debug.Log("The added icon is: " + clue.icon);
 
         // Debug.Log("The Nullreference is: "+ transform.gameObject.name);
         // Debug.Log("The Nullreference Clue is: " + clue.icon.name);
