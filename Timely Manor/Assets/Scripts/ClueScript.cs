@@ -146,7 +146,7 @@ public class ClueScript : Interactable
 
 	public void OnHandlePickupClue()
 	{
-		Debug.Log("Picking up: " + clue.name);
+		//Debug.Log("Picking up: " + clue.name);
 		if(interacted == false)
 		{
 			AudioManager.instance.Play("NewClue");

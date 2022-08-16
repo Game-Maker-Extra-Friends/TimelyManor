@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ClueInventoryUI : MonoBehaviour
 {
@@ -7,10 +9,9 @@ public class ClueInventoryUI : MonoBehaviour
 
     public Transform cluesParent;
 
-    ClueSlot[] slots;
+    public List<ClueSlotGroup> slotsGroup;
 
-
-    void Start()
+    void Awake()
     {
         clueInventory = ClueInventory.instance;
 
@@ -18,31 +19,20 @@ public class ClueInventoryUI : MonoBehaviour
         // Update UI everytime item is added or removed.
         clueInventory.onClueCalledback += UpdateUI;
 
-
-        slots = cluesParent.GetComponentsInChildren<ClueSlot>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+            
+        for(int i = 0; i < cluesParent.childCount - 1; i++)
+        {
+            slotsGroup.Add(cluesParent.GetChild(i).GetComponent<ClueSlotGroup>());
+        }
     }
 
 
     void UpdateUI()
     {
-        // Additem to slots or clear them if there's nothing.
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slotsGroup.Count; i++)
         {
-            if (i < clueInventory.clues.Count)
-            {
-                Debug.Log("Inventory count is: " + clueInventory.clues.Count);
-                slots[i].AddClue(clueInventory.clues[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
+            //Debug.Log("Calling Slot Group: " + slotsGroup[i]);
+            slotsGroup[i].UpdateUI();
         }
     }
 }
