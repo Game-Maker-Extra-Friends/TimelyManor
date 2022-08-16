@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    private Save save;
+
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropDown;
 
@@ -35,7 +37,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
-        
+        save = Resources.Load<Save>("Saves/Save");
 
         //set the array to screen resolutions
         resolutions = Screen.resolutions;
@@ -45,8 +47,6 @@ public class SettingsMenu : MonoBehaviour
 
         //the option to display
         List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
         //Format the list of string
         for(int i = 0; i < resolutions.Length; i++)
         {
@@ -55,66 +55,39 @@ public class SettingsMenu : MonoBehaviour
 
             if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
-                currentResolutionIndex = i;
+                save.resolutionIndex = i;
             }
         }
         
         //Add option and values + refresh the value so it's displayed to the player.
         resolutionDropDown.AddOptions(options);
 
-        if (ES3.KeyExists("Resolution", "Options/GraphicOptions.es3"))
-        {
-            currentResolutionIndex = ES3.Load<int>("Resolution", "Options/GraphicOptions.es3");
-        }
-
-        resolutionDropDown.value = currentResolutionIndex;
+        resolutionDropDown.value = save.resolutionIndex;
         resolutionDropDown.RefreshShownValue();
 
 
 
         // Load option changes
-        if (ES3.KeyExists("FullScreen", "Options/GraphicOptions.es3"))
-        {
-            bool fs = ES3.Load<bool>("FullScreen", "Options/GraphicOptions.es3");
-            SetFullScreen(fs);
-            fullScreenToggle.isOn = fs;
-        }
+        SetFullScreen(save.fullscreen);
+        fullScreenToggle.isOn = save.fullscreen;
 
         // Audio Saves
-        if (ES3.KeyExists("MasterVolume", "Options/AudioOptions.es3"))
-        {
-            float volume = ES3.Load<float>("MasterVolume", "Options/AudioOptions.es3");
-            masterVolume.value = volume;
-            SetMasterVolume(volume);
-        }
-        if (ES3.KeyExists("SFXVolume", "Options/AudioOptions.es3"))
-        {
-            float volume = ES3.Load<float>("SFXVolume", "Options/AudioOptions.es3");
-            sfxVolume.value = volume;
-            SetSFXVolume(volume);
-        }
-        if (ES3.KeyExists("MusicVolume", "Options/AudioOptions.es3"))
-        {
-            float volume = ES3.Load<float>("MusicVolume", "Options/AudioOptions.es3");
-            musicVolume.value = volume;
-            SetMusicVolume(volume);
-        }
+        masterVolume.value = save.masterVolume;
+        SetMasterVolume(save.masterVolume);
 
-        // Mouse Sen
-        if (ES3.KeyExists("Sensitivity", "Options/ControlOptions.es3"))
-        {
-            float sen = ES3.Load<float>("Sensitivity", "Options/ControlOptions.es3");
-            mouseSensitivity.value = sen;
-            SetMouseSensivityFloat(sen);
-        }
+        sfxVolume.value = save.sfxVolume;
+        SetSFXVolume(save.sfxVolume);
+
+        musicVolume.value = save.musicVolume;
+        SetMusicVolume(save.musicVolume);
+
+        // Mouse Sensitivity
+        mouseSensitivity.value = save.mouseSensitivity;
+        SetMouseSensivityFloat(save.mouseSensitivity);
 
         // Graphic Options
-        if (ES3.KeyExists("GraphicQuality", "Options/GraphicOptions.es3"))
-        {
-            int qualityIndex = ES3.Load<int>("GraphicQuality", "Options/GraphicOptions.es3");
-            graphicQuality.value = qualityIndex;
-            SetQuality(qualityIndex);
-        }
+        graphicQuality.value = save.graphicQuality;
+        SetQuality(save.graphicQuality);
         
 
     }
@@ -124,21 +97,21 @@ public class SettingsMenu : MonoBehaviour
     {
         Debug.Log(volume);
         audioMixer.SetFloat("master_volume", volume);
-        ES3.Save("MasterVolume", volume, "Options/AudioOptions.es3");
+        save.masterVolume = volume;
     }
 
     public void SetSFXVolume(float volume)
     {
         Debug.Log(volume);
         audioMixer.SetFloat("sfx_volume", volume);
-        ES3.Save("SFXVolume", volume, "Options/AudioOptions.es3");
+        save.sfxVolume = volume;
     }
 
     public void SetMusicVolume(float volume)
     {
         Debug.Log(volume);
         audioMixer.SetFloat("music_volume", volume);
-        ES3.Save("MusicVolume", volume, "Options/AudioOptions.es3");
+        save.musicVolume = volume;
     }
 
 
@@ -146,15 +119,14 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
-        ES3.Save("GraphicQuality", qualityIndex, "Options/GraphicOptions.es3");
+        save.graphicQuality = qualityIndex;
     }
 
     //Fullscreen option
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-
-        ES3.Save("FullScreen", isFullscreen, "Options/GraphicOptions.es3");
+        save.fullscreen = isFullscreen;
     }
 
     //Set the resolution
@@ -162,7 +134,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
-        ES3.Save("Resolution", resolutionIndex, "Options/GraphicOptions.es3");
+        save.resolutionIndex = resolutionIndex;
         Debug.Log("res changed");
     }
 
@@ -186,6 +158,6 @@ public class SettingsMenu : MonoBehaviour
         var action = _input.FindAction("Look");
         SetMouseSensivity(action, "<Pointer>", sensivity);
         Debug.Log("Mouse Sen changed");
-        ES3.Save("Sensitivity", sensivity, "Options/ControlOptions.es3");
+        save.mouseSensitivity = sensivity;
     }
 }

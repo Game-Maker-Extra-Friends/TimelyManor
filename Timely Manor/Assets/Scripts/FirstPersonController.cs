@@ -297,6 +297,7 @@ namespace StarterAssets
 				{
 					if (hit.transform.gameObject.CompareTag("Clickable"))
 					{
+						Debug.Log("Trying to interact with " + hit.collider.name);
 						hit.transform.gameObject.SendMessage("Interact");
 					}
 					Debug.Log(hit.transform.name);

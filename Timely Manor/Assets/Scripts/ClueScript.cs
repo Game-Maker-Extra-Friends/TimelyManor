@@ -14,8 +14,6 @@ public class ClueScript : Interactable
 
 	[Header("New Clue Popup")]
 	public Canvas newClueCanvas;
-	[SerializeField]
-	private bool seen = false;
 	private AudioSource _newClueAudio;
 
 	public void Start()
@@ -30,24 +28,19 @@ public class ClueScript : Interactable
 
 		// Set the type to Clue in case people forgot to change it in editor
 		interactbleType = InteractbleType.Clue;
-		if(ES3.KeyExists(interactedID, "Saves/ClueSaves.es3"))
-			interacted = ES3.Load<bool>(interactedID, "Saves/ClueSaves.es3");
-
-        if (ES3.KeyExists(interactedID + "Seen", "Saves/ClueSaves.es3"))
-        {
-			seen = ES3.Load<bool>(interactedID + "Seen", "Saves/ClueSaves.es3");
-        }
+		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(name);
     }
 
 	public override void Interact()
 	{
+		Debug.Log("Interacting with " + clue.name);
 		StarterAssets.FirstPersonController.Instance._playerState = StarterAssets.FirstPersonController.PlayerState.Reading;
 		OnHandlePickupClue();
-		if (!seen)
+		if (!clue.seen)
 		{
 			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
-			seen = true;
+			clue.seen = true;
 			if(_audioSource != null)
 				_audioSource.Play();
 		}
@@ -70,7 +63,6 @@ public class ClueScript : Interactable
 
     public void toggleCanvas()
 	{
-
 		if (newClueCanvas.isActiveAndEnabled == false)
 		{
 			if (canvas != null)
@@ -95,13 +87,12 @@ public class ClueScript : Interactable
 		
 
 
-		if (!seen && newClueCanvas.isActiveAndEnabled == false)
+		if (!clue.seen && newClueCanvas.isActiveAndEnabled == false)
 		{
 			newClueCanvas.gameObject.SetActive(true);
-			seen = true;
-			ES3.Save(interactedID + "Seen", seen, "Saves/ClueSaves.es3");
+			clue.seen = true;
 		}
-		else if (seen && newClueCanvas.isActiveAndEnabled == true)
+		else if (clue.seen && newClueCanvas.isActiveAndEnabled == true)
 		{
 			newClueCanvas.gameObject.SetActive(false);
 			if (canvas != null)
@@ -122,11 +113,11 @@ public class ClueScript : Interactable
 	// For new clue popups opened via canvas buttons
 	public void newClueButton()
 	{
-		if (!seen)
+		if (!clue.seen)
 		{
 			StarterAssets.FirstPersonController.Instance._openNewClue = this.transform.gameObject;
 			newClueCanvas.gameObject.SetActive(true);
-			seen = true;
+			clue.seen = true;
 			
 			OnHandlePickupClue();
 		}
@@ -153,9 +144,18 @@ public class ClueScript : Interactable
 			ClueInventory.instance.Add(clue);
 			//_hasBeenAdded = true;
 			interacted = true;
-			ES3.Save(interactedID, interacted, "Saves/ClueSaves.es3");
-			ES3.Save(interactedID + "Seen", seen, "Saves/ClueSaves.es3");
+			clue.seen = true;
 		}
 	}
 
+
+	private void OnApplicationQuit()
+	{
+		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+	}
+
+	private void OnDestroy()
+	{
+		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+	}
 }
