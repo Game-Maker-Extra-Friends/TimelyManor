@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ClueInventory : MonoBehaviour
 {
@@ -10,13 +11,14 @@ public class ClueInventory : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Clue Instance set");
-        // makes the instace = to this component, anyone can now access this so this is now a singleton.
         if (instance != null)
         {
-            Debug.Log("more than one instance of clueInventory found!");
+            DestroyImmediate(gameObject);
         }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
+        
     }
 
     #endregion
@@ -30,23 +32,16 @@ public class ClueInventory : MonoBehaviour
 
     private void Start()
     {
-        if (ES3.KeyExists("CluesInventory", "Saves/CluesInventory.es3"))
-        {
-            Debug.Log("Loading Clue");
-            clues = ES3.Load<List<Clue>>("CluesInventory", "Saves/CluesInventory.es3");
-            Debug.Log(onClueCalledback);
-            if (onClueCalledback != null)
-            {
-               
-                onClueCalledback.Invoke(); // Invote update when load stuff
-            }
-        }
+        clues = Resources.LoadAll<Clue>("Clues").ToList();
+        onClueCalledback?.Invoke(); // Invote update when load stuff
     }
 
 
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
     public void Add(Clue clue)
     {
+        //prevent duplicates
+        if (clues.Contains(clue)) return;
 
         if (clues.Count >= space)
         {
@@ -56,11 +51,10 @@ public class ClueInventory : MonoBehaviour
 
         clues.Add(clue);
 
-        ES3.Save("CluesInventory", clues, "Saves/CluesInventory.es3");
+        clue.seen = true;
 
         // Call the delgate to let other method who subscribes to it know.
-        if (onClueCalledback != null)
-            onClueCalledback.Invoke();
+        onClueCalledback?.Invoke();
 
         return;
     }
@@ -68,6 +62,6 @@ public class ClueInventory : MonoBehaviour
     public void Remove(Clue clue)
     {
         clues.Remove(clue);
-        ES3.Save("CluesInventory", clues, "Saves/CluesInventory.es3");
+        clue.seen = false;
     }
 }
