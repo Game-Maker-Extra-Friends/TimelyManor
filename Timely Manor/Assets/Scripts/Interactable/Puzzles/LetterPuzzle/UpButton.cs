@@ -9,6 +9,7 @@ public class UpButton : MonoBehaviour
 
     public void ChangeLetterUp()
     {
-        _letterPuzzle.updateCurrentLetterUp();
+        _letterPuzzle.updateCurrentImageUp();
+        _letterPuzzle.updateImage();
     }
 }

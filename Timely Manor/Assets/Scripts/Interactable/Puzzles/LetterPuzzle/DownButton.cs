@@ -9,7 +9,8 @@ public class DownButton : MonoBehaviour
 
     public void ChangeLetterDown()
     {
-        _letterPuzzle.updateCurrentLetterDown();
+        _letterPuzzle.updateCurrentImageDown();
+        _letterPuzzle.updateImage();
         Debug.Log("Update Down");
     }
 }
