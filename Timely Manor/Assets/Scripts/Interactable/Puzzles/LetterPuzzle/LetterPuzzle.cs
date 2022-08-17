@@ -17,7 +17,6 @@ public class LetterPuzzle : MonoBehaviour
 
     public Sprite[] flowers;
 
-    public Renderer self;
 
 
     public void updateImage()
