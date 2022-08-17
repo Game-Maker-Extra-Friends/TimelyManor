@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4433480615446735200}
   - component: {fileID: 8195391070248325576}
-  - component: {fileID: 332060898352437061}
+  - component: {fileID: 572718670456335230}
   m_Layer: 0
   m_Name: Key
   m_TagString: PickupObject
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.046527866, y: 0.14543535, z: 0.22534296}
   m_Center: {x: -6.970739, y: 3.8249836, z: 0.0377625}
---- !u!114 &332060898352437061
+--- !u!114 &572718670456335230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2886122502124022759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a8e7f0d943903d4b914d4c88a9ddc60, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd18e0c2a781044eb6ed200ca0ce954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceItem: {fileID: 11400000, guid: 85142829a03e01c49ae1529f4fafc8bb, type: 2}
+  interactedID: 
+  interacted: 0
+  interactbleType: 0
+  item: {fileID: 0}
