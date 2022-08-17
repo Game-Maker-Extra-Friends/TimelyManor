@@ -73,19 +73,19 @@ public class Save : ScriptableObject
 
     private bool LoadInventoryObjectState(List<InventoryObjectState> states, string name)
     {
-        InventoryObjectState s = itemInventoryObjectStates.Where(x => x.objectName == name).FirstOrDefault();
+        InventoryObjectState s = states.Where(x => x.objectName == name).FirstOrDefault();
         return s == null ? false : s.pickedUp;
     }
 
     private void SaveInventoryObjectState(List<InventoryObjectState> states, string name, bool pickedUp)
     {
         // Try to get existing save state
-        InventoryObjectState s = itemInventoryObjectStates.Where(x => x.objectName == name).FirstOrDefault();
+        InventoryObjectState s = states.Where(x => x.objectName == name).FirstOrDefault();
 
         // Create new if not found
         if (s == null)
         {
-            itemInventoryObjectStates.Add(new InventoryObjectState(name, pickedUp));
+            states.Add(new InventoryObjectState(name, pickedUp));
         }
         // Edit existing
         else

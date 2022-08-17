@@ -22,6 +22,7 @@ public class ClueUI : MonoBehaviour
         ClueScript.ClueInteract += Set;
     }
 
+
     public void Set(Clue clue)
     {
         frame.SetActive(true);

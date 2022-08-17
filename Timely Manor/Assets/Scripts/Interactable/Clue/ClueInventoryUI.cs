@@ -9,7 +9,7 @@ public class ClueInventoryUI : MonoBehaviour
 
     public List<ClueSlotGroup> slotsGroup;
 
-    void Awake()
+    void Start()
     {
         // Update UI everytime item is added or removed.
         ClueInventory.instance.onClueCalledback += UpdateUI;
@@ -28,20 +28,6 @@ public class ClueInventoryUI : MonoBehaviour
         {
             //Debug.Log("Calling Slot Group: " + slotsGroup[i]);
             slotsGroup[i].UpdateUI();
-        }
-        List<Clue> clues = ClueInventory.instance.clues;   
-        // Additem to slots or clear them if there's nothing.
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (i < clues.Count)
-            {
-                Debug.Log("Inventory count is: " + clues.Count);
-                slots[i].AddClue(clues[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
         }
     }
 }
