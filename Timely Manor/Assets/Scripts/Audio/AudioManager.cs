@@ -14,13 +14,12 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         //destroy the audioManager in another scene if it already exists to prevent double audio.
-        if (instance == null)
-            instance = this;
-        else
+        if (instance != null)
         {
-            Destroy(gameObject);
-            return;
+            DestroyImmediate(gameObject);
         }
+        
+        instance = this;
 
         coroutineDone = false;
         DontDestroyOnLoad(gameObject);

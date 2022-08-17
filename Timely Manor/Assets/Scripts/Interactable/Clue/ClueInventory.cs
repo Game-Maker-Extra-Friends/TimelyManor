@@ -10,13 +10,14 @@ public class ClueInventory : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Clue Instance set");
-        // makes the instace = to this component, anyone can now access this so this is now a singleton.
         if (instance != null)
         {
-            Debug.Log("more than one instance of clueInventory found!");
+            DestroyImmediate(gameObject);
         }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
+        
     }
 
     #endregion
@@ -47,6 +48,8 @@ public class ClueInventory : MonoBehaviour
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
     public void Add(Clue clue)
     {
+        //prevent duplicates
+        if (clues.Contains(clue)) return;
 
         if (clues.Count >= space)
         {

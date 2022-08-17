@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class ClueInventoryUI : MonoBehaviour
 {
-    // Cache it so it doesn't have to call the instance every time
-    ClueInventory clueInventory;
 
     public Transform cluesParent;
 
@@ -13,11 +11,8 @@ public class ClueInventoryUI : MonoBehaviour
 
     void Awake()
     {
-        clueInventory = ClueInventory.instance;
-
-        Debug.Log(clueInventory);
         // Update UI everytime item is added or removed.
-        clueInventory.onClueCalledback += UpdateUI;
+        ClueInventory.instance.onClueCalledback += UpdateUI;
 
             
         for(int i = 0; i < cluesParent.childCount - 1; i++)
@@ -33,6 +28,20 @@ public class ClueInventoryUI : MonoBehaviour
         {
             //Debug.Log("Calling Slot Group: " + slotsGroup[i]);
             slotsGroup[i].UpdateUI();
+        }
+        List<Clue> clues = ClueInventory.instance.clues;   
+        // Additem to slots or clear them if there's nothing.
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < clues.Count)
+            {
+                Debug.Log("Inventory count is: " + clues.Count);
+                slots[i].AddClue(clues[i]);
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
         }
     }
 }
