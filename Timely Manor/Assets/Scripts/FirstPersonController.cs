@@ -224,6 +224,7 @@ namespace StarterAssets
 				if (ExitAction.triggered)
 				{
 					//tells openUI to exit
+					Debug.Log("exit action");
 					ExitUI?.Invoke();
 					playerState = PlayerState.Interacting;
 				}

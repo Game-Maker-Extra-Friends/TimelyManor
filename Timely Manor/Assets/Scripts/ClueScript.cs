@@ -45,10 +45,10 @@ public class ClueScript : Interactable
 		OnHandlePickupClue();
 
 		
-		if (!seen)
+		if (!clue.seen)
 		{
 			ClueInteract?.Invoke(clue);
-			seen = true;
+			clue.seen = true;
 		}
 		_audioSource?.Play();
 		
@@ -59,7 +59,7 @@ public class ClueScript : Interactable
 	{
 		if (!clue.seen)
 		{
-			seen = true;
+			clue.seen = true;
 			
 			OnHandlePickupClue();
 		}
@@ -74,7 +74,6 @@ public class ClueScript : Interactable
 			ClueInventory.instance.Add(clue);
 			//_hasBeenAdded = true;
 			interacted = true;
-			clue.seen = true;
 		}
 	}
 
