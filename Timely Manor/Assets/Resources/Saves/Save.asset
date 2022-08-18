@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682655f5b04e4104c9c46d5d1d44d12f, type: 3}
+  m_Name: Save
+  m_EditorClassIdentifier: 
+  itemInventoryObjectStates: []
+  clueInventoryObjectStates:
+  - objectName: Book Code
+    pickedUp: 0
+  - objectName: Drugs
+    pickedUp: 0
+  - objectName: EmptyAlcohol
+    pickedUp: 0
+  - objectName: Present Book
+    pickedUp: 0
+  - objectName: Joey's Note
+    pickedUp: 0
+  - objectName: CocaneLine
+    pickedUp: 0
+  fireplaceSolved: 0
+  masterVolume: -33.319073
+  sfxVolume: -54.15402
+  musicVolume: -46.067474
+  resolutionIndex: 19
+  graphicQuality: 5
+  fullscreen: 1
+  mouseSensitivity: 0.94

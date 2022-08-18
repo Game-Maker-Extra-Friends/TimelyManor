@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
@@ -14,10 +15,11 @@ public class Inventory : MonoBehaviour
         // makes the instace = to this component, anyone can now access this so this is now a singleton.
         if(instance != null)
         {
-            Debug.Log("more than one instance of inventory found!");
+            DestroyImmediate(gameObject);
         }
-        instance = this;
 
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         
     }
@@ -27,20 +29,17 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemCalledback;
 
+    private Save save;
+
     public int space = 20;
 
-    public List<Item> items = new List<Item>();
+    public List<Item> items;
 
     private void Start()
     {
-        if (ES3.KeyExists("InventoryItems", "Saves/InventoryItems.es3"))
-        {
-            items = ES3.Load<List<Item>>("InventoryItems", "Saves/InventoryItems.es3");
-            if (onItemCalledback != null)
-                onItemCalledback.Invoke(); // Invote update when laod stuff
-        }
+        items = Resources.LoadAll<Item>("Items").ToList();
+        onItemCalledback?.Invoke(); // Invote update when laod stuff
     }
-
 
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
     public bool Add(Item item)
@@ -52,13 +51,10 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
-        items.Add(item);
-
-        ES3.Save("InventoryItems", items, "Saves/InventoryItems.es3");
+        item.pickedUp = true;
 
         // Call the delgate to let other method who subscribes to it know.
-        if(onItemCalledback != null)
-            onItemCalledback.Invoke();
+        onItemCalledback?.Invoke();
 
 
         return true;
@@ -66,8 +62,8 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
+        item.pickedUp = false;
         items.Remove(item);
-        ES3.Save("InventoryItems", items, "Saves/InventoryItems.es3");
     }
 
 }
