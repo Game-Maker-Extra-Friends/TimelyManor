@@ -3149,7 +3149,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: faf10ec738f18f74b92f9f26896d9f75, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3213,7 +3213,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -0.15875243, z: 0, w: 2.8474731}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7756601610497973240
@@ -4239,8 +4239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1c5269e2a4a2b4eb3d797f39616eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 7756601610851330652}
-  _state: {fileID: 7756601610851330650}
+  input: {fileID: 7756601610851330652}
+  state: {fileID: 7756601610851330650}
   originalState: 0
   currentPageObject: {fileID: 7756601611762324960}
   nextPageObject: {fileID: 0}
@@ -5826,10 +5826,9 @@ MonoBehaviour:
   teleportDistace: 100
   pressEText: {fileID: 7756601611273830271}
   pressESCText: {fileID: 7756601611155377950}
-  _openNote: {fileID: 0}
-  _openNewClue: {fileID: 0}
-  _audioManager: {fileID: 7756601610660956064}
-  _playerState: 0
+  audioManager: {fileID: 0}
+  canPause: 0
+  playerState: 0
   pastScene: Present_Room
   presentScene: Past_Room
   transition: {fileID: 7756601610989880412}
@@ -11118,8 +11117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f902ceac994824ea60fa2831ec6685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 7756601610851330652}
-  _state: {fileID: 7756601610851330650}
   originalState: 0
   currentPageObject: {fileID: 7756601610463132187}
 --- !u!1 &7756601611640236240
@@ -15852,7 +15849,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6876513, y: 1}
+    m_SensorSize: {x: 1.9530201, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
