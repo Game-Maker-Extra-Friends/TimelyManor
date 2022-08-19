@@ -1,98 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LetterPuzzle : MonoBehaviour
 {
     // Start is called before the first frame update
 
 
-    public int currentLetterNum = 0;
+    public int currentImageNum = 0;
 
-    public string currentLetterStr;
+    public SpriteRenderer currentSprite;
 
-    public string correctLetter;
+    public Sprite correctSprite;
 
-    public GameObject LetterObj;
-    public string _letter1;
-    public string _letter2;
-    public string _letter3;
-    public string _letter4;
-    public string _letter5;
-    public string _letter6;
 
-    public Renderer self;
+    public Sprite[] flowers;
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void updateImage()
     {
-        if (currentLetterNum == 0)
+        for(int i = 0; i < flowers.Length; i++)
         {
-            //Make this letter 1
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter1;
-            currentLetterStr = _letter1;
-            //Debug.Log(currentLetter);
-        }
-        if (currentLetterNum == 1)
-        {
-            //Make this letter 2
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter2;
-            currentLetterStr = _letter2;
-            //Debug.Log(currentLetter);
-        }
-        if (currentLetterNum == 2)
-        {
-            //Make this letter 3
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter3;
-            currentLetterStr = _letter3;
-            //Debug.Log(currentLetter);
-        }
-        if (currentLetterNum == 3)
-        {
-            //Make this letter 4
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter4;
-            currentLetterStr = _letter4;
-            // Debug.Log(currentLetter);
-        }
-        if (currentLetterNum == 4)
-        {
-            //Make this letter 5
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter5;
-            currentLetterStr = _letter5;
-            // Debug.Log(currentLetter);
-        }
-        if (currentLetterNum == 5)
-        {
-            //Make this letter 6
-            LetterObj.GetComponent<TMPro.TextMeshPro>().text = _letter6;
-            currentLetterStr = _letter6;
-            // Debug.Log(currentLetter);
+            if(currentImageNum == i)
+            {
+                currentSprite.sprite = flowers[i];
+            }
         }
     }
 
     //call on the + - button 
-    public void updateCurrentLetterUp()
+    public void updateCurrentImageUp()
     {
         //if we do up to F, put a limit of 6 and reset it back to 0
         
-        if(currentLetterNum < 6)
+        if(currentImageNum < flowers.Length)
         {
-            currentLetterNum++;
+            currentImageNum++;
         }
         else
         {
-            currentLetterNum = 0;
+            currentImageNum = 0;
         }
     }
-    public void updateCurrentLetterDown()
+    public void updateCurrentImageDown()
     {
-        if (currentLetterNum > 0)
+        if (currentImageNum > 0)
         {
-            currentLetterNum--;
+            currentImageNum--;
         }
         else
         {
-            currentLetterNum = 5;
+            currentImageNum = flowers.Length - 1;
         }
         
     }
