@@ -1979,15 +1979,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433480615446735200, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4982717
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 4433480615446735200, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.364832
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: 4433480615446735200, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.680502
+      value: -1.46
       objectReference: {fileID: 0}
     - target: {fileID: 4433480615446735200, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2017,7 +2017,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.06356206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.15338922
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Size.z
+      value: 0.33044446
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Center.x
+      value: 0.68481934
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9423741
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195391070248325576, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
+      propertyPath: m_Center.z
+      value: 0.27562496
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 332060898352437061, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5cbebe3cbf47e34c9dd759cb459dff4, type: 3}
 --- !u!4 &7623499831493591983 stripped
 Transform:
