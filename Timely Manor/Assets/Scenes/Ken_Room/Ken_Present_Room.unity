@@ -631,11 +631,6 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 3064507324845561666, guid: 52018830d365b234095520c931eca09e, type: 3}
   m_PrefabInstance: {fileID: 53765417}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &53765462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3153855323705809134, guid: 52018830d365b234095520c931eca09e, type: 3}
-  m_PrefabInstance: {fileID: 53765417}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &53765463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5125685458437907920, guid: 52018830d365b234095520c931eca09e, type: 3}
@@ -939,7 +934,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311634
+  m_Name: pb_Mesh280632
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1137,7 +1132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173966
+  m_Name: pb_Mesh280820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1501,7 +1496,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219766
+  m_Name: pb_Mesh281462
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3267,7 +3262,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311624
+  m_Name: pb_Mesh281540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5015,7 +5010,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219390
+  m_Name: pb_Mesh281084
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5215,7 +5210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-314514
+  m_Name: pb_Mesh281332
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6161,7 +6156,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173710
+  m_Name: pb_Mesh280506
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6325,7 +6320,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311636
+  m_Name: pb_Mesh280612
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11713,6 +11708,7 @@ Transform:
   - {fileID: 470175195}
   - {fileID: 1760702403}
   - {fileID: 1101093999}
+  - {fileID: 1501404933}
   m_Father: {fileID: 1234773962}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11722,7 +11718,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219266
+  m_Name: pb_Mesh280960
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13313,7 +13309,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219060
+  m_Name: pb_Mesh280754
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15706,7 +15702,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173996
+  m_Name: pb_Mesh280874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16217,7 +16213,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219444
+  m_Name: pb_Mesh281138
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16412,6 +16408,68 @@ BoxCollider:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5c3769871c90e442a34dfd7a7da4c6a, type: 3}
   m_PrefabInstance: {fileID: 129144227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1501404932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1122729819}
+    m_Modifications:
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.620001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.2620487
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99733996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.07289002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 8.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115080491371945128, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+      propertyPath: m_Name
+      value: Couch_Future_3D
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+--- !u!4 &1501404933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8445539876075537938, guid: 85f6255dbf358f144bf1d9c8bf36e25d, type: 3}
+  m_PrefabInstance: {fileID: 1501404932}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504021419 stripped
 GameObject:
@@ -17521,7 +17579,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311628
+  m_Name: pb_Mesh281390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18594,7 +18652,7 @@ MonoBehaviour:
     - {fileID: 53765464}
     - {fileID: 53765463}
     - {fileID: 11500000, guid: 0834d3775abee934da741c236faf9d3c, type: 3}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 8300000, guid: 10daa8ab359e1794ca9d469a88107ec9, type: 3}
     - {fileID: 53765460}
@@ -18922,7 +18980,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -19169,7 +19227,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -19417,7 +19475,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -19664,7 +19722,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -19911,7 +19969,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -20158,7 +20216,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -20460,7 +20518,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -20754,7 +20812,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -21053,7 +21111,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -21492,7 +21550,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -22028,7 +22086,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -22399,7 +22457,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -22928,7 +22986,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -23309,7 +23367,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -23680,7 +23738,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -24051,7 +24109,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -24422,7 +24480,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -24793,7 +24851,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -25164,7 +25222,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -25535,7 +25593,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -25906,7 +25964,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -26277,7 +26335,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -26648,7 +26706,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -27019,7 +27077,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -27390,7 +27448,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -27761,7 +27819,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -28132,7 +28190,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -28503,7 +28561,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -28892,7 +28950,7 @@ MonoBehaviour:
     - {fileID: 53765465}
     - {fileID: 53765464}
     - {fileID: 53765463}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 53765460}
     - {fileID: 53765459}
@@ -29538,7 +29596,7 @@ MonoBehaviour:
     - {fileID: 53765464}
     - {fileID: 53765463}
     - {fileID: 11500000, guid: 0834d3775abee934da741c236faf9d3c, type: 3}
-    - {fileID: 53765462}
+    - {fileID: 0}
     - {fileID: 53765461}
     - {fileID: 8300000, guid: 10daa8ab359e1794ca9d469a88107ec9, type: 3}
     - {fileID: 53765460}
@@ -30525,7 +30583,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311622
+  m_Name: pb_Mesh280860
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31406,7 +31464,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311632
+  m_Name: pb_Mesh280946
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31674,7 +31732,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-311626
+  m_Name: pb_Mesh281070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32760,7 +32818,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173874
+  m_Name: pb_Mesh280734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
