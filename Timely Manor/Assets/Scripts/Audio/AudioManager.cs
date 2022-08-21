@@ -8,21 +8,21 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    private bool coroutineDone;
+    // private bool coroutineDone;
     public static AudioManager instance;
 
     void Awake()
     {
-        //destroy the audioManager in another scene if it already exists to prevent double audio.
-        if (instance != null)
-        {
-            DestroyImmediate(gameObject);
-        }
+        ////destroy the audioManager in another scene if it already exists to prevent double audio.
+        //if (instance != null)
+        //{
+        //    DestroyImmediate(gameObject);
+        //}
         
         instance = this;
 
-        coroutineDone = false;
-        DontDestroyOnLoad(gameObject);
+        // coroutineDone = false;
+        //DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {
@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
         //fadeOut.Start();
         
         StartCoroutine(StartFadeIn(nextName));
-        coroutineDone = false;
+        // coroutineDone = false;
 
         Debug.Log("fading out sound: " + currentName);
     }
@@ -144,7 +144,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Stop();
         }
-        coroutineDone = true;
+        // coroutineDone = true;
         yield break;
     }
 
