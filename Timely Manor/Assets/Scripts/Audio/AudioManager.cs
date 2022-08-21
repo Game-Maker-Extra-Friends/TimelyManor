@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         //    DestroyImmediate(gameObject);
         //}
         
-        //instance = this;
+        instance = this;
 
         // coroutineDone = false;
         //DontDestroyOnLoad(gameObject);
