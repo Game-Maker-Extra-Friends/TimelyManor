@@ -11,6 +11,4 @@ public class Clue : ScriptableObject
 
     public Enum.Location location;
     public Enum.Timeline timeline;
-
-    public bool seen;
 }

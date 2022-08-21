@@ -13,11 +13,22 @@ public class LoadOptions : MonoBehaviour
     // Load volume since volume option doesn't carry over scenes
     void Start()
     {
-        Save save = Resources.Load<Save>("Saves/Save");
-        Debug.Log(save.name);
-        audioMixer.SetFloat("master_volume", save.masterVolume);
-        audioMixer.SetFloat("sfx_volume", save.sfxVolume);
-        audioMixer.SetFloat("music_volume", save.musicVolume);
+        // Audio Saves
+        if (ES3.KeyExists("MasterVolume", "Options/AudioOptions.es3"))
+        {
+            float volume = ES3.Load<float>("MasterVolume", "Options/AudioOptions.es3");
+            audioMixer.SetFloat("master_volume", volume);
+        }
+        if (ES3.KeyExists("SFXVolume", "Options/AudioOptions.es3"))
+        {
+            float volume = ES3.Load<float>("SFXVolume", "Options/AudioOptions.es3");
+            audioMixer.SetFloat("sfx_volume", volume);
+        }
+        if (ES3.KeyExists("MusicVolume", "Options/AudioOptions.es3"))
+        {
+            float volume = ES3.Load<float>("MusicVolume", "Options/AudioOptions.es3");
+            audioMixer.SetFloat("music_volume", volume);
+        }
     }
 
 }

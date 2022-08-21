@@ -14,14 +14,16 @@ public class FireplaceScript : MonoBehaviour
 
     private void Start()
     {
-        CheckCode();
+        if (ES3.KeyExists("CorrectCode", "Saves/FirePlace.es3"))
+        {
+            attemptedCode = ES3.Load<string>("CorrectCode", "Saves/FirePlace.es3");
+            CheckCode();
+        }
     }
 
     private void CheckCode()
     {
-        Save save = Resources.Load<Save>("Saves/Save");
-
-        if (attemptedCode == code || save.fireplaceSolved)
+        if (attemptedCode == code)
         {
             Success.Play();
 
@@ -31,7 +33,7 @@ public class FireplaceScript : MonoBehaviour
             unsolved.enabled = false;
             fireplaceKey.enabled = true;
             key.SetActive(true);
-            save.fireplaceSolved = true;
+            ES3.Save("CorrectCode", attemptedCode, "Saves/FirePlace.es3");
         }
         else
         {

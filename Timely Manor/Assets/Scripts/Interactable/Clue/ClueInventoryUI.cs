@@ -4,15 +4,20 @@ using System.Collections.Generic;
 
 public class ClueInventoryUI : MonoBehaviour
 {
+    // Cache it so it doesn't have to call the instance every time
+    ClueInventory clueInventory;
 
     public Transform cluesParent;
 
     public List<ClueSlotGroup> slotsGroup;
 
-    void Start()
+    void Awake()
     {
+        clueInventory = ClueInventory.instance;
+
+        Debug.Log(clueInventory);
         // Update UI everytime item is added or removed.
-        ClueInventory.instance.onClueCalledback += UpdateUI;
+        clueInventory.onClueCalledback += UpdateUI;
 
             
         for(int i = 0; i < cluesParent.childCount - 1; i++)
