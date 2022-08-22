@@ -21,8 +21,9 @@ public class FireplaceScript : MonoBehaviour
     {
         Save save = Resources.Load<Save>("Saves/Save");
 
-        if (attemptedCode == code || save.fireplaceSolved)
+        if (attemptedCode == code || save.LoadFireplaceState(name))
         {
+            Debug.Log("unlocked");
             Success.Play();
 
             foreach (Transform brick in transform)
@@ -30,15 +31,15 @@ public class FireplaceScript : MonoBehaviour
 
             unsolved.enabled = false;
             fireplaceKey.enabled = true;
-            key.SetActive(true);
-            save.fireplaceSolved = true;
+            if (key != null) key.SetActive(true);
+            save.SaveFireplaceState(name, true);
         }
         else
         {
             attemptedCode = null;
             foreach (Transform brick in transform)
 			{
-                brick.SendMessage("Toggle");
+                brick.SendMessage("ResetState");
 			}
         }
     }
