@@ -25,11 +25,10 @@ public class ClueUI : MonoBehaviour
 
     public void Set(Clue clue)
     {
+        Debug.Log("setting clue ui active");
         frame.SetActive(true);
         icon.sprite = clue.icon;
         description.text = clue.description;
-
-        
     }
 
     public void Close()

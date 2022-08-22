@@ -22,8 +22,7 @@ public class Save : ScriptableObject
     [Header("Progress")]
     public List<InventoryObjectState> itemInventoryObjectStates;
     public List<InventoryObjectState> clueInventoryObjectStates;
-
-    public bool fireplaceSolved;
+    public List<InventoryObjectState> fireplaceStates;
 
     [Header("Audio Settings")]
     public float masterVolume;
@@ -42,12 +41,17 @@ public class Save : ScriptableObject
         foreach (Clue c in Resources.LoadAll<Clue>("Clues"))
         {
             SaveClueState(c.name, false);
+            c.seen = false;
         }
         foreach (Item i in Resources.LoadAll<Item>("Items"))
         {
             SaveItemState(i.name, false);
+            i.pickedUp = false;
         }
-        fireplaceSolved = false;
+        foreach (InventoryObjectState i in fireplaceStates)
+        {
+            SaveFireplaceState(i.objectName, false);
+        }
     }
 
     // Gets state of item, returns null if not found
@@ -69,6 +73,16 @@ public class Save : ScriptableObject
     public void SaveClueState(string clueName, bool pickedUp)
     {
         SaveInventoryObjectState(clueInventoryObjectStates, clueName, pickedUp);
+    }
+
+    public bool LoadFireplaceState(string fireplaceName)
+    {
+        return LoadInventoryObjectState(fireplaceStates, fireplaceName);
+    }
+
+    public void SaveFireplaceState(string fireplaceName, bool completed)
+    {
+        SaveInventoryObjectState(fireplaceStates, fireplaceName, completed);
     }
 
     private bool LoadInventoryObjectState(List<InventoryObjectState> states, string name)

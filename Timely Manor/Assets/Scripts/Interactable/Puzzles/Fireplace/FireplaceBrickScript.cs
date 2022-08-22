@@ -31,4 +31,11 @@ public class FireplaceBrickScript : MonoBehaviour
 		sprite.enabled = isPressed;
 		sound.Play();
 	}
+
+    public void ResetState()
+    {
+		isPressed = false;
+		sprite.enabled = false;
+		sound.Play();
+    }
 }

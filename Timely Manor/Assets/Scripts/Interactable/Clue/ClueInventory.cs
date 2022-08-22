@@ -51,8 +51,6 @@ public class ClueInventory : MonoBehaviour
 
         clues.Add(clue);
 
-        clue.seen = true;
-
         // Call the delgate to let other method who subscribes to it know.
         onClueCalledback?.Invoke();
 

@@ -36,18 +36,20 @@ public class ClueScript : Interactable
 
 		// Set the type to Clue in case people forgot to change it in editor
 		interactbleType = InteractbleType.Clue;
-		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(name);
+		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
     }
 
 	public override void Interact()
 	{
-		
-		OnHandlePickupClue();
 
-		
 		if (!clue.seen)
 		{
+			Debug.Log("Interacting with clue");
+			OnHandlePickupClue();
+
+		
 			ClueInteract?.Invoke(clue);
+			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 			clue.seen = true;
 		}
 		_audioSource?.Play();
