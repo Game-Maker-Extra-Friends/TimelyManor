@@ -35,9 +35,15 @@ public class SettingsMenu : MonoBehaviour
     //[SerializeField]
     //private TMP_Dropdown resolution;
 
+    public void Awake()
+    {
+
+        Debug.Log("adding save reference");
+        save = Resources.Load<Save>("Saves/Save");
+    }
+
     public void Start()
     {
-        save = Resources.Load<Save>("Saves/Save");
 
         //set the array to screen resolutions
         resolutions = Screen.resolutions;

@@ -6234,11 +6234,11 @@ MonoBehaviour:
   teleportDistace: 100
   pressEText: {fileID: 7756601611273830271}
   pressESCText: {fileID: 7756601611155377950}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 7756601610660956064}
   canPause: 0
   playerState: 0
-  pastScene: Present_Room
-  presentScene: Past_Room
+  pastScene: Past
+  presentScene: Present
   transition: {fileID: 7756601610989880412}
   transitionTime: 1
 --- !u!114 &7756601610851330651
@@ -16258,7 +16258,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9530201, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16856,7 +16856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
