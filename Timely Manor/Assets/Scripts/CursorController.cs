@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using UnityEngine.EventSystems;
 
-public class CursorController : MonoBehaviour
+public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     #region Singleton
@@ -39,6 +40,22 @@ public class CursorController : MonoBehaviour
     {
         Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
+
+	public void OnPointerEnter(PointerEventData data)
+	{
+		if (data.selectedObject.CompareTag("Clickable"))
+		{
+			ClueCursor();
+		}
+	}
+
+	public void OnPointerExit(PointerEventData data)
+	{
+		if (data.selectedObject.CompareTag("Clickable"))
+		{
+			DefaultCursor();
+		}
+	}
 
 	private void Update()
 	{
