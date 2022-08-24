@@ -175,7 +175,7 @@ namespace StarterAssets
 		{
 			if (playerState == PlayerState.Moving)
             {
-				//JumpAndGravity();
+				JumpAndGravity();
 				GroundedCheck();
 				Move();
 				canPause = true;
@@ -361,6 +361,7 @@ namespace StarterAssets
 					_verticalVelocity = -2f;
 				}
 
+				/*
 				// Jump
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
@@ -373,6 +374,7 @@ namespace StarterAssets
 				{
 					_jumpTimeoutDelta -= Time.deltaTime;
 				}
+				*/
 			}
 			else
 			{
