@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using UnityEngine.EventSystems;
 
 public class CursorController : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class CursorController : MonoBehaviour
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
-    public void ClueCursor()
+	public void ClueCursor()
     {
         Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }

@@ -8,11 +8,17 @@ using StarterAssets;
 public class ClueUI : MonoBehaviour
 {
     [SerializeField]
-    private Image icon;
+    private Image simpleIcon;
     [SerializeField]
-    private TMP_Text description;
+    private TMP_Text simpleDescription;
     [SerializeField]
-    private GameObject frame;
+    private GameObject simpleFrame;
+    [SerializeField]
+    private Image longIcon;
+    [SerializeField]
+    private TMP_Text longDescription;
+    [SerializeField]
+    private GameObject longFrame;
 
     private StarterAssetsInputs _input;
 
@@ -25,14 +31,29 @@ public class ClueUI : MonoBehaviour
 
     public void Set(Clue clue)
     {
-        Debug.Log("setting clue ui active");
-        frame.SetActive(true);
-        icon.sprite = clue.icon;
-        description.text = clue.description;
+        switch (clue.presentationMode)
+        {
+            case PresentationMode.Simple:
+
+                simpleFrame.SetActive(true);
+                simpleIcon.sprite = clue.icon;
+                simpleDescription.text = clue.description;
+
+                simpleDescription.GetComponent<LayoutElement>().preferredHeight = clue.description.Length / 2.2f;
+                break;
+            case PresentationMode.Long:
+                longFrame.SetActive(true);
+                longIcon.sprite = clue.icon;
+                longDescription.text = clue.description;
+
+                longDescription.GetComponent<LayoutElement>().preferredHeight = clue.description.Length/2.2f;
+                break;
+        }
     }
 
     public void Close()
     {
-        frame.SetActive(false);
+        longFrame.SetActive(false);
+        simpleFrame.SetActive(false);
     }
 }
