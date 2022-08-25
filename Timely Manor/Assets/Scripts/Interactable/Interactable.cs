@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public string interactedID; // for saving and loading
-
     // The type of interactable
     public enum InteractbleType
     {

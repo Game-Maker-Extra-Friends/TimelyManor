@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PresentationMode
+{
+    Simple,
+    Long
+}
+
 [CreateAssetMenu(fileName = "New Clue", menuName = "Inventory/Clue")]
 public class Clue : ScriptableObject
 {
@@ -13,4 +19,6 @@ public class Clue : ScriptableObject
     public Enum.Timeline timeline;
 
     public bool seen;
+
+    public PresentationMode presentationMode;
 }
