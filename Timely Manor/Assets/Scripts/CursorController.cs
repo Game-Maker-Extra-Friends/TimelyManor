@@ -84,20 +84,10 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
 			if (clickAction.triggered)
 			{
-				if (hit.transform.gameObject.CompareTag("Clickable"))
+				if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
 				{
 					hit.transform.gameObject.SendMessage("Interact");
 				}
-
-				// Pickup Item when the item has the correct tag
-				if (hit.transform.gameObject.CompareTag("PickupObject"))
-				{
-					hit.transform.gameObject.TryGetComponent(out ItemPickup item);
-					item.PickUp();
-				}
-
-
-
 
 				CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 				if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
