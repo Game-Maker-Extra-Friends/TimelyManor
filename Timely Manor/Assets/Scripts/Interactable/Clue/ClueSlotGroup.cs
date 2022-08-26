@@ -39,7 +39,6 @@ public class ClueSlotGroup : MonoBehaviour
         // Additem to slots or clear them if there's nothing.
 
         List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.timeline == timeline).Where(x => x.seen).ToList();
-        Debug.Log(clues.Count);
         for (int i = 0; i < clues.Count; i++)
         {
             slots[i].AddClue(clues[i]);

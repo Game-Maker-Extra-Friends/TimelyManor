@@ -21,9 +21,6 @@ namespace StarterAssets
 
 		public static FirstPersonController instance;
 
-		public delegate void interact();
-		public static event interact ExitUI;
-
 		private void Awake()
 		{
 			if (instance != null)
@@ -107,6 +104,8 @@ namespace StarterAssets
 		public TextMeshProUGUI pressEText;
 		public TextMeshProUGUI pressESCText;
 
+		public UIController uIController;
+
 
 		public InputAction ExitAction => _playerInput.actions["Exit"];
 
@@ -153,7 +152,7 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
-
+			uIController = FindObjectOfType<UIController>();
 
 			vcam = followCamera.GetComponent<CinemachineVirtualCamera>();
 
@@ -225,8 +224,7 @@ namespace StarterAssets
 				{
 					//tells openUI to exit
 					Debug.Log("exit action");
-					ExitUI?.Invoke();
-					playerState = PlayerState.Interacting;
+					playerState = uIController.ExitUILayer() ? PlayerState.Reading : PlayerState.Interacting;
 				}
 				
 			}

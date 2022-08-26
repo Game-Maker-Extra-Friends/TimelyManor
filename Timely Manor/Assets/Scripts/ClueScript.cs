@@ -24,7 +24,7 @@ public class ClueScript : Interactable
 
 	public override void Interact()
 	{
-		if (!clue.seen)
+		if (!clue.seen || clue.presentationMode == PresentationMode.Long)
 		{
 			Debug.Log("Interacting with clue");
 			OnHandlePickupClue();
