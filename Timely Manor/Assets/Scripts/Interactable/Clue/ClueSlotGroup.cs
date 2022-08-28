@@ -39,17 +39,23 @@ public class ClueSlotGroup : MonoBehaviour
         //Debug.Log("Singleton count is: " + clueInventory.clues.Count);
         // Additem to slots or clear them if there's nothing.
 
+        // Linq to get the clues where it is the same location as this slot + it's alreay been seen
         List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.seen).ToList();
-        Debug.Log(clues.Count);
+
+
+        // Debug.Log(clues.Count);
+        // So it doesn't skip a slot if one clue is past and one clue is present;
         int presentSlotcount = 0;
         int pastSlotcount = 0;
         for (int i = 0; i < clues.Count; i++)
         {
+            // Add to the present slot group if the clue is based on present. 
             if(clues[i].timeline == Enum.Timeline.Present)
             {
                 presentSlots[presentSlotcount].AddClue(clues[i]);
                 presentSlotcount++;
             }
+            // Add to past ""
             else if(clues[i].timeline == Enum.Timeline.Past)
             {
                 pastSlots[pastSlotcount].AddClue(clues[i]);
