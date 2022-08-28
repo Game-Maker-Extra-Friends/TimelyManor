@@ -328,11 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactedID: 
   interacted: 0
   interactbleType: 0
   clue: {fileID: 0}
-  newClueCanvas: {fileID: 0}
 --- !u!82 &6813035966613199073
 AudioSource:
   m_ObjectHideFlags: 0
@@ -438,12 +436,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1927925851076629440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc1d06d35272b14d86194719c27b58b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 1927925851511023823}
-  image: {fileID: 1927925850973133656}
-  canvas: {fileID: 0}
+  interacted: 0
+  interactbleType: 1
+  clue: {fileID: 11400000, guid: 76660aeafc6996341ad739f1db935009, type: 2}
 --- !u!1 &1927925851511023809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1133,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3568005920696971254}
   m_HandleRect: {fileID: 6497064192441354530}
   m_Direction: 2
-  m_Value: 1.0000006
+  m_Value: 1.0000007
   m_Size: 0.3119376
   m_NumberOfSteps: 0
   m_OnValueChanged:

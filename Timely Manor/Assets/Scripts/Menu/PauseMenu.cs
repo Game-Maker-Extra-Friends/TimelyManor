@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         //So that when the player play the game again, they don't have to press escape twice
         GameIsPaused = false;
-        SceneManager.LoadScene("Menu_Test");
+        SceneManager.LoadScene("MainMenu");
     }
 
 

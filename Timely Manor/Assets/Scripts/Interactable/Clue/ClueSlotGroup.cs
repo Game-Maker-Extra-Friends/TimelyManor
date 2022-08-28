@@ -10,10 +10,11 @@ public class ClueSlotGroup : MonoBehaviour
 
     public Transform cluesParent;
 
-    public List<ClueSlot> slots;
+    public List<ClueSlot> presentSlots;
+    public List<ClueSlot> pastSlots;
 
     public Enum.Location location;
-    public Enum.Timeline timeline;
+    // public Enum.Timeline timeline;
 
     private bool run = true;
 
@@ -38,11 +39,22 @@ public class ClueSlotGroup : MonoBehaviour
         //Debug.Log("Singleton count is: " + clueInventory.clues.Count);
         // Additem to slots or clear them if there's nothing.
 
-        List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.timeline == timeline).Where(x => x.seen).ToList();
+        List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.seen).ToList();
         Debug.Log(clues.Count);
+        int presentSlotcount = 0;
+        int pastSlotcount = 0;
         for (int i = 0; i < clues.Count; i++)
         {
-            slots[i].AddClue(clues[i]);
+            if(clues[i].timeline == Enum.Timeline.Present)
+            {
+                presentSlots[presentSlotcount].AddClue(clues[i]);
+                presentSlotcount++;
+            }
+            else if(clues[i].timeline == Enum.Timeline.Past)
+            {
+                pastSlots[pastSlotcount].AddClue(clues[i]);
+                pastSlotcount++;
+            }
         }
 
         //for (int i = 0; i < slots.Count; i++)
