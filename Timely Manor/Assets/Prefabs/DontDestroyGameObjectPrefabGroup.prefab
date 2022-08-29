@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 2998057606218589082}
   - component: {fileID: 1191883301530520431}
   - component: {fileID: 5876896715725139456}
+  - component: {fileID: 2720233497992743706}
   m_Layer: 5
   m_Name: GreenHouseButton
   m_TagString: Untagged
@@ -113,8 +114,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -132,7 +133,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2720233497992743706}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -148,6 +149,36 @@ MonoBehaviour:
           m_StringArgument: Greenhouse
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2720233497992743706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118771637193692137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1354347541484491514
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +404,7 @@ GameObject:
   - component: {fileID: 6453592274458739712}
   - component: {fileID: 7288725940347784297}
   - component: {fileID: 5155581452699052824}
+  - component: {fileID: 5746347779269082302}
   m_Layer: 5
   m_Name: LivingRoomButton
   m_TagString: Untagged
@@ -429,8 +461,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -448,7 +480,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5746347779269082302}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -464,6 +496,36 @@ MonoBehaviour:
           m_StringArgument: LivingRoom
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5746347779269082302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723727098637169582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3248549888584010971
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +537,7 @@ GameObject:
   - component: {fileID: 8379280238029123048}
   - component: {fileID: 2984488828113834148}
   - component: {fileID: 6557575486393390621}
+  - component: {fileID: 1150306011621998005}
   m_Layer: 5
   m_Name: BedRooms
   m_TagString: Untagged
@@ -531,8 +594,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -550,7 +613,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1150306011621998005}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -566,6 +629,36 @@ MonoBehaviour:
           m_StringArgument: BedRooms
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1150306011621998005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248549888584010971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3852854477837296114
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4782630669332853740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5685,7 +5778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 183, y: 369.63}
+  m_AnchoredPosition: {x: 225, y: 468}
   m_SizeDelta: {x: 129.7395, y: 19.883202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601611075548817
@@ -6824,8 +6917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 358, y: 136.99298}
-  m_SizeDelta: {x: 430.1204, y: 302.0141}
+  m_AnchoredPosition: {x: 400.463, y: 197.1}
+  m_SizeDelta: {x: 449.194, y: 329.262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601611219558001
 CanvasRenderer:
@@ -10129,7 +10222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 328.06006, y: 136.99298}
+  m_AnchoredPosition: {x: 380, y: 221}
   m_SizeDelta: {x: 430.1204, y: 302.0141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601611704694082
@@ -10360,7 +10453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 328.06018, y: -167.325}
+  m_AnchoredPosition: {x: 380, y: -138.32}
   m_SizeDelta: {x: 430.12, y: 276.6499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601611740289515
@@ -10869,7 +10962,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7756601611864221413}
   m_HandleRect: {fileID: 7756601611864221414}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.32129416
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11017,8 +11110,8 @@ RectTransform:
   m_Father: {fileID: 7756601610690221619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6787058}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.67870575}
+  m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12196,7 +12289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 368.65}
+  m_AnchoredPosition: {x: -530, y: 470}
   m_SizeDelta: {x: 141.138, y: 17.928001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601612168679541
@@ -12332,7 +12425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.43036, y: -183.37135}
+  m_AnchoredPosition: {x: 400.46, y: -187}
   m_SizeDelta: {x: 830.5955, y: 542.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7756601612176762720
@@ -14492,7 +14585,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.2349727, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14565,6 +14658,7 @@ GameObject:
   - component: {fileID: 1188700438823860817}
   - component: {fileID: 3449515803313966208}
   - component: {fileID: 2486481606592826628}
+  - component: {fileID: 5084209903662759387}
   m_Layer: 5
   m_Name: HallwayButton
   m_TagString: Untagged
@@ -14621,8 +14715,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7372549}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -14640,7 +14734,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5084209903662759387}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -14656,6 +14750,36 @@ MonoBehaviour:
           m_StringArgument: Hallway
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5084209903662759387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152303788439855625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &1970763183452854832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17003,6 +17127,14 @@ PrefabInstance:
       propertyPath: detailsText
       value: 
       objectReference: {fileID: 7756601610495882247}
+    - target: {fileID: 5047750516090573802, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: faf10ec738f18f74b92f9f26896d9f75, type: 2}
+    - target: {fileID: 5047750516090573802, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6363599925738665834, guid: faf10ec738f18f74b92f9f26896d9f75, type: 2}
     - target: {fileID: 5065292406660478439, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -457
@@ -18531,13 +18663,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LongUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1551557535011479951, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Size
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Value
-      value: 0.99999845
+      value: 0.99999815
       objectReference: {fileID: 0}
     - target: {fileID: 3424407641336729620, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_AnchorMax.x

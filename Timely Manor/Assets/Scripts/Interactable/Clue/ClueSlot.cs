@@ -15,7 +15,7 @@ public class ClueSlot : MonoBehaviour
     public void AddClue(Clue newClue)
     {
         clue = newClue;
-
+        clueName.text = clue.name;
         //Debug.Log("The added item is: " + clue);
         //Debug.Log("The added icon is: " + clue.icon);
 

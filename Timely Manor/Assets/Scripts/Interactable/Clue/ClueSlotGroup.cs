@@ -52,12 +52,14 @@ public class ClueSlotGroup : MonoBehaviour
             // Add to the present slot group if the clue is based on present. 
             if(clues[i].timeline == Enum.Timeline.Present)
             {
+                Debug.Log("Adding Clue to Present: " + presentSlots[presentSlotcount]);
                 presentSlots[presentSlotcount].AddClue(clues[i]);
                 presentSlotcount++;
             }
             // Add to past ""
             else if(clues[i].timeline == Enum.Timeline.Past)
             {
+                Debug.Log("Adding Clue to Past: " + pastSlots[pastSlotcount]);
                 pastSlots[pastSlotcount].AddClue(clues[i]);
                 pastSlotcount++;
             }
