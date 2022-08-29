@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
+
+
 
 public class ClueInventoryUI : MonoBehaviour
 {
@@ -28,6 +31,15 @@ public class ClueInventoryUI : MonoBehaviour
         {
             //Debug.Log("Calling Slot Group: " + slotsGroup[i]);
             slotsGroup[i].UpdateUI();
+        }
+    }
+
+    public void Update()
+    {
+        
+        while (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+        {
+
         }
     }
 }
