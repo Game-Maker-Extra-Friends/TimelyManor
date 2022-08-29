@@ -29,6 +29,7 @@ public class ClueScript : Interactable
 			Debug.Log("Interacting with clue");
 			OnHandlePickupClue();
 
+			FirstPersonController.instance.playerState = FirstPersonController.PlayerState.Reading;
 		
 			ClueInteract?.Invoke(clue);
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
