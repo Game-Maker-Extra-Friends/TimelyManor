@@ -8,52 +8,29 @@ using StarterAssets;
 public class ClueUI : MonoBehaviour
 {
     [SerializeField]
-    private Image simpleIcon;
+    private Image icon;
     [SerializeField]
-    private TMP_Text simpleDescription;
+    private TMP_Text description;
     [SerializeField]
-    private GameObject simpleFrame;
-    [SerializeField]
-    private Image longIcon;
-    [SerializeField]
-    private TMP_Text longDescription;
-    [SerializeField]
-    private GameObject longFrame;
-
-    private StarterAssetsInputs _input;
+    private GameObject frame;
 
     private void Start()
     {
-        FirstPersonController.ExitUI += Close;
         ClueScript.ClueInteract += Set;
     }
 
 
     public void Set(Clue clue)
     {
-        switch (clue.presentationMode)
-        {
-            case PresentationMode.Simple:
+        if (clue.seen) return;
 
-                simpleFrame.SetActive(true);
-                simpleIcon.sprite = clue.icon;
-                simpleDescription.text = clue.description;
-
-                simpleDescription.GetComponent<LayoutElement>().preferredHeight = clue.description.Length / 2.2f;
-                break;
-            case PresentationMode.Long:
-                longFrame.SetActive(true);
-                longIcon.sprite = clue.icon;
-                longDescription.text = clue.description;
-
-                longDescription.GetComponent<LayoutElement>().preferredHeight = clue.description.Length/2.2f;
-                break;
-        }
+        frame.SetActive(true);
+        icon.sprite = clue.icon;
+        description.text = clue.description;
     }
 
     public void Close()
     {
-        longFrame.SetActive(false);
-        simpleFrame.SetActive(false);
+        frame.SetActive(false);
     }
 }

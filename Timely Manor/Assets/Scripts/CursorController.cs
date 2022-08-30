@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using StarterAssets;
 using UnityEngine.EventSystems;
 
-public class CursorController : MonoBehaviour
+public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     #region Singleton
@@ -41,6 +41,22 @@ public class CursorController : MonoBehaviour
         Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
+	public void OnPointerEnter(PointerEventData data)
+	{
+		if (data.selectedObject.CompareTag("Clickable"))
+		{
+			ClueCursor();
+		}
+	}
+
+	public void OnPointerExit(PointerEventData data)
+	{
+		if (data.selectedObject.CompareTag("Clickable"))
+		{
+			DefaultCursor();
+		}
+	}
+
 	private void Update()
 	{
 		if (FirstPersonController.instance.Interacting)
@@ -68,20 +84,10 @@ public class CursorController : MonoBehaviour
 
 			if (clickAction.triggered)
 			{
-				if (hit.transform.gameObject.CompareTag("Clickable"))
+				if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
 				{
 					hit.transform.gameObject.SendMessage("Interact");
 				}
-
-				// Pickup Item when the item has the correct tag
-				if (hit.transform.gameObject.CompareTag("PickupObject"))
-				{
-					hit.transform.gameObject.TryGetComponent(out ItemPickup item);
-					item.PickUp();
-				}
-
-
-
 
 				CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
 				if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
