@@ -774,12 +774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974aad4be86a51b4a93596fa86a5a7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleIcon: {fileID: 4879491371188634336}
-  simpleDescription: {fileID: 17259227450734992}
-  simpleFrame: {fileID: 2333809995135326826}
-  longIcon: {fileID: 9080339097522861800}
-  longDescription: {fileID: 5548021930420690616}
-  longFrame: {fileID: 6529842760168608028}
+  icon: {fileID: 0}
+  description: {fileID: 0}
+  frame: {fileID: 0}
 --- !u!1 &6101372478175434333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,6 +4633,7 @@ MonoBehaviour:
   teleportDistace: 100
   pressEText: {fileID: 7756601611273830271}
   pressESCText: {fileID: 7756601611155377950}
+  uIController: {fileID: 0}
   audioManager: {fileID: 7756601610660956064}
   canPause: 0
   playerState: 0
@@ -10337,7 +10335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -885.85205, y: 20.840332}
+  m_AnchoredPosition: {x: -885.9, y: 20.840332}
   m_SizeDelta: {x: -1771.7041, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7756601611732820489
@@ -14585,7 +14583,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2349727, y: 1}
+    m_SensorSize: {x: 2.5547945, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18838,30 +18836,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6104179964396472845, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
   m_PrefabInstance: {fileID: 5698905377961226387}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5548021930420690616 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 281506528970436139, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
-  m_PrefabInstance: {fileID: 5698905377961226387}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &6529842760168608028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1551557535011479951, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
-  m_PrefabInstance: {fileID: 5698905377961226387}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9080339097522861800 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3536817143167436411, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
-  m_PrefabInstance: {fileID: 5698905377961226387}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
