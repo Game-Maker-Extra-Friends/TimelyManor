@@ -5,7 +5,8 @@ public class ClueSlot : MonoBehaviour
 {
     // Made public so ClueSlotGroup can check if there's clue in slot or not
     public Clue clue;
-    public Image icon;
+    //public Image icon;
+    public TextMeshProUGUI clueName;
 
     public Image detailsIcon;
     public TextMeshProUGUI detailsText;
@@ -14,15 +15,15 @@ public class ClueSlot : MonoBehaviour
     public void AddClue(Clue newClue)
     {
         clue = newClue;
-
+        clueName.text = clue.name;
         //Debug.Log("The added item is: " + clue);
         //Debug.Log("The added icon is: " + clue.icon);
 
         // Debug.Log("The Nullreference is: "+ transform.gameObject.name);
         // Debug.Log("The Nullreference Clue is: " + clue.icon.name);
 
-        icon.enabled = true;
-        icon.sprite = clue.icon;
+        //icon.enabled = true;
+        //icon.sprite = clue.icon;
         //Debug.Log("The icon is added");
 
     }
@@ -31,8 +32,8 @@ public class ClueSlot : MonoBehaviour
     {
         clue = null;
 
-        icon.sprite = null;
-        icon.enabled = false;
+        //icon.sprite = null;
+        //icon.enabled = false;
     }
 
     public void DisplayDescription()

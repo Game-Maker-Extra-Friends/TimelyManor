@@ -12,9 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682655f5b04e4104c9c46d5d1d44d12f, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  itemInventoryObjectStates: []
-  clueInventoryObjectStates: []
-  fireplaceSolved: 0
+  itemInventoryObjectStates:
+  - objectName: Cube
+    pickedUp: 0
+  - objectName: Key
+    pickedUp: 0
+  clueInventoryObjectStates:
+  - objectName: EmptyAlcohol
+    pickedUp: 1
+  - objectName: Drugs
+    pickedUp: 0
+  - objectName: Book Code
+    pickedUp: 0
+  - objectName: Present Book
+    pickedUp: 0
+  - objectName: CocaneLine
+    pickedUp: 0
+  - objectName: Torn Note
+    pickedUp: 0
+  - objectName: Game Board
+    pickedUp: 0
+  - objectName: Joey's Note
+    pickedUp: 0
+  - objectName: Past Book
+    pickedUp: 0
+  - objectName: Scattered Money
+    pickedUp: 0
+  fireplaceStates: []
   masterVolume: -33.319073
   sfxVolume: -54.15402
   musicVolume: -46.067474
