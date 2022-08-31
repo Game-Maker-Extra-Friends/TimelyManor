@@ -5,12 +5,11 @@ using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using StarterAssets;
 
 public class LoadOptions : MonoBehaviour
 {
     public AudioMixer audioMixer;
-
-    public InputActionAsset _input;
 
     // Load volume since volume option doesn't carry over scenes
     void Start()
@@ -21,12 +20,11 @@ public class LoadOptions : MonoBehaviour
         audioMixer.SetFloat("sfx_volume", save.sfxVolume);
         audioMixer.SetFloat("music_volume", save.musicVolume);
 
-        SetMouseSensivityFloat(save.mouseSensitivity);
-    }
+        var action = FirstPersonController.instance.GetComponent<PlayerInput>().actions["Look"];
 
-    public void SetMouseSensivity(InputAction action, string bindingPathStart, float sensivity)
-    {
         var bindings = action.bindings;
+        var sensivity = save.mouseSensitivity;
+        var bindingPathStart = "<Pointer>";
         var scale = new Vector2(sensivity, sensivity);
         for (var i = 0; i < bindings.Count; i++)
         {
@@ -35,12 +33,6 @@ public class LoadOptions : MonoBehaviour
             action.ApplyBindingOverride(i, new InputBinding { overrideProcessors = $"ScaleVector2(x={scale.x},y={scale.y}), InvertVector2(invertx=false,inverty=true)" });
             return;
         }
-    }
-
-    public void SetMouseSensivityFloat(float sensivity)
-    {
-        var action = _input.FindAction("Look");
-        SetMouseSensivity(action, "<Pointer>", sensivity);
     }
 
 }
