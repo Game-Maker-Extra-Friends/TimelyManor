@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using StarterAssets;
 
-public class ClueScript : Interactable
+public class ClueScript : MonoBehaviour
 {
 	public delegate void interact(Clue clue);
 	public static event interact ClueInteract;
@@ -17,50 +17,26 @@ public class ClueScript : Interactable
 
 	public void Start()
     {
-		// Set the type to Clue in case people forgot to change it in editor
-		interactbleType = InteractbleType.Clue;
+		// Set the type to Clue in case people forgot to change it in edito
 		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
     }
 
-	public override void Interact()
+	public void Interact()
 	{
-		if (!clue.seen)
+		if (!clue.seen || clue.presentationMode == PresentationMode.Long)
 		{
 			Debug.Log("Interacting with clue");
-			OnHandlePickupClue();
 
-			FirstPersonController.instance.playerState = FirstPersonController.PlayerState.Reading;
-		
+			AudioManager.instance.Play("NewClue");
+			ClueInventory.instance.Add(clue);
+
+
 			ClueInteract?.Invoke(clue);
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 			clue.seen = true;
 		}
 		
 	}
-
-	// For new clue popups opened via canvas buttons
-	public void newClueButton()
-	{
-		if (!clue.seen)
-		{
-			clue.seen = true;
-			
-			OnHandlePickupClue();
-		}
-	}
-
-	public void OnHandlePickupClue()
-	{
-		//Debug.Log("Picking up: " + clue.name);
-		if(interacted == false)
-		{
-			AudioManager.instance.Play("NewClue");
-			ClueInventory.instance.Add(clue);
-			//_hasBeenAdded = true;
-			interacted = true;
-		}
-	}
-
 
 	private void OnApplicationQuit()
 	{

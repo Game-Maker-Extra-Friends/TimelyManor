@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemPickup : Interactable
+public class ItemPickup : MonoBehaviour
 {
     public Item item;
 
@@ -13,19 +13,9 @@ public class ItemPickup : Interactable
         {
             Destroy(gameObject);
         }
-
-        // Set interactable type to item if people forget to set it to item in inspector
-        interactbleType = InteractbleType.Item;
     }
 
-    public override void Interact()
-    {
-        base.Interact();
-
-        PickUp();
-    }
-
-    public void PickUp()
+    public void Interact()
     {
         Debug.Log("Picking up: " + item.name);
         bool wasPickedUp = Inventory.instance.Add(item);
@@ -33,11 +23,9 @@ public class ItemPickup : Interactable
         // If item is picked up then destroy the gameobject + save the fact that it has been picked up so changing timeline 
         if (wasPickedUp)
         {
-            interacted = true;
             item.pickedUp = true;
             Destroy(gameObject);
         }
-            
     }
 
     private void OnApplicationQuit()
