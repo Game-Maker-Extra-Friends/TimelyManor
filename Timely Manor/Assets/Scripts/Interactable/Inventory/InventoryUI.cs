@@ -9,6 +9,8 @@ public class InventoryUI : MonoBehaviour
 
     InventorySlot[] slots;
 
+    [SerializeField]
+    GameObject m_slotPrefab;
 
     void Start()
     {
@@ -39,4 +41,34 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+	private void OnUpdateInventory()
+	{
+		foreach (Transform t in transform)
+		{
+			Destroy(t.gameObject);
+		}
+
+		DrawInventory();
+	}
+
+	public void DrawInventory()
+	{
+		foreach (Item item in Inventory.instance.items)
+		{
+			AddInventorySlot(item);
+		}
+	}
+
+	public void AddInventorySlot(Item item)
+	{
+		// Instantiate Item slot prefab
+		GameObject obj = Instantiate(m_slotPrefab);
+
+		// Set parent as which a layout group
+		obj.transform.SetParent(transform, false);
+
+		ItemSlot slot = obj.GetComponent<ItemSlot>();
+		slot.Set(item);
+	}
+
 }
