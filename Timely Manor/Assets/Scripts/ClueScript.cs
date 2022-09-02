@@ -30,10 +30,9 @@ public class ClueScript : MonoBehaviour
 			AudioManager.instance.Play("NewClue");
 			ClueInventory.instance.Add(clue);
 
-
 			ClueInteract?.Invoke(clue);
-			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 			clue.seen = true;
+			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 		}
 		
 	}
