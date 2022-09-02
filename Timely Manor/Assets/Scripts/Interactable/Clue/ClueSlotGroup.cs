@@ -10,10 +10,11 @@ public class ClueSlotGroup : MonoBehaviour
 
     public Transform cluesParent;
 
-    public List<ClueSlot> slots;
+    public List<ClueSlot> presentSlots;
+    public List<ClueSlot> pastSlots;
 
     public Enum.Location location;
-    public Enum.Timeline timeline;
+    // public Enum.Timeline timeline;
 
     private bool run = true;
 
@@ -38,11 +39,30 @@ public class ClueSlotGroup : MonoBehaviour
         //Debug.Log("Singleton count is: " + clueInventory.clues.Count);
         // Additem to slots or clear them if there's nothing.
 
-        List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.timeline == timeline).Where(x => x.seen).ToList();
-        Debug.Log(clues.Count);
+        // Linq to get the clues where it is the same location as this slot + it's alreay been seen
+        List<Clue> clues = clueInventory.clues.Where(x => x.location == location).Where(x => x.seen).ToList();
+
+
+        // Debug.Log(clues.Count);
+        // So it doesn't skip a slot if one clue is past and one clue is present;
+        int presentSlotcount = 0;
+        int pastSlotcount = 0;
         for (int i = 0; i < clues.Count; i++)
         {
-            slots[i].AddClue(clues[i]);
+            // Add to the present slot group if the clue is based on present. 
+            if(clues[i].timeline == Enum.Timeline.Present)
+            {
+                Debug.Log("Adding Clue to Present: " + presentSlots[presentSlotcount]);
+                presentSlots[presentSlotcount].AddClue(clues[i]);
+                presentSlotcount++;
+            }
+            // Add to past ""
+            else if(clues[i].timeline == Enum.Timeline.Past)
+            {
+                Debug.Log("Adding Clue to Past: " + pastSlots[pastSlotcount]);
+                pastSlots[pastSlotcount].AddClue(clues[i]);
+                pastSlotcount++;
+            }
         }
 
         //for (int i = 0; i < slots.Count; i++)
