@@ -23,6 +23,7 @@ public class Save : ScriptableObject
     public List<InventoryObjectState> itemInventoryObjectStates;
     public List<InventoryObjectState> clueInventoryObjectStates;
     public List<InventoryObjectState> fireplaceStates;
+    public List<InventoryObjectState> flowerLockStates;
 
     [Header("Audio Settings")]
     public float masterVolume;
@@ -51,6 +52,10 @@ public class Save : ScriptableObject
         foreach (InventoryObjectState i in fireplaceStates)
         {
             SaveFireplaceState(i.objectName, false);
+        }
+        foreach (InventoryObjectState i in flowerLockStates)
+        {
+            SaveFlowerPuzzleState(i.objectName, false);
         }
     }
 
@@ -84,6 +89,16 @@ public class Save : ScriptableObject
     {
         SaveInventoryObjectState(fireplaceStates, fireplaceName, completed);
     }
+
+    public void SaveFlowerPuzzleState(string flowerPuzzleName, int currentImgNum)
+    {
+        // SaveInventoryObjectState(flowerLockStates, flowerPuzzleName, currentImgNum);
+    }
+    public void LoadFlowerPuzzleState(string flowerPuzzleName)
+    {
+        // SaveInventoryObjectState(flowerLockStates, flowerPuzzleName, currentImgNum);
+    }
+
 
     private bool LoadInventoryObjectState(List<InventoryObjectState> states, string name)
     {
