@@ -328,8 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interacted: 0
-  interactbleType: 0
   clue: {fileID: 0}
 --- !u!82 &6813035966613199073
 AudioSource:
@@ -439,8 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc331ffcdb9c4d96824721b06aa8813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interacted: 0
-  interactbleType: 1
   clue: {fileID: 11400000, guid: 76660aeafc6996341ad739f1db935009, type: 2}
 --- !u!1 &1927925851511023809
 GameObject:
@@ -468,17 +464,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927925851511023809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8199998, y: 1.8200002, z: 1.8200003}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3467866419624993342}
+  m_Father: {fileID: 7348124598937634468}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -579.004}
-  m_SizeDelta: {x: 207.5367, y: 924.7231}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1927925851511023822
 CanvasRenderer:
@@ -508,33 +504,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Towards the end of the 18th century, hidden rooms and compartments became
-    a craze amongst many aristocratic families. It\u2019s difficult to pin down when
-    installation of such rooms began, due to the secrecy that surrounded them. Multiple
-    theories have been offered as to what caused this sudden resurgence. Dr Benedict
-    Francois believes the upper class were intended to hide property deeds and stashes
-    of valuables in the wake of the civil war and the chaos that followed. Graham
-    Yon instead argued that the rich man's need to protect their assets meant such
-    devices were inevitable, and likely first appeared some decades prior.\r\n\r\nRegardless
-    of the origin and secrecy, word seemed to get around. Reports of lost riches
-    and treasures rediscovered in the state of Charlington have flooded in over the
-    past decade. Installation of these entrances varied greatly depending on the
-    architecture of said home, but it was common practice to install switches into
-    existing foundations, so visitors could not notice the difference. Stone and
-    brick work, as well as wooden walls were most often used for these compartments.
-    There are even reports of some families installing such compartments into their
-    furniture.\r\n\r\nTrades such as plumbing and carpentry offered installation
-    services under a strict confidentiality agreement. The process typically consisted
-    of hollowing out a structure on a side that wasn\u2019t visible, to make room
-    for the desired hidden valuables. Nearby walls or floors were then kitted with
-    moving parts to allow users to input an unlocking code. \r\n\r\nOne unfortunate
-    side effect of this process was the structural damage it caused over an extended
-    period of time. The moving parts required to open the compartments often caused
-    the foundations to decay at faster rates due to the hollowing process. Families
-    have reported discovering these compartments by searching for signs of damage
-    within their home. Unfortunately, as many of these compartments are mere decades
-    old at the time of writing, it will be a long time until this method becomes
-    truly viable.\r\n"
+  m_text: "Towards the end of recy that surrounded them. Multiple theories have been
+    offered as to what caused this sudden resurgence. Dr Benedict Francois believes
+    the upper class were intended to hide property deeds and stashes of valuables
+    in the wake of the civil war and the chaos that followed. Graham Yon instead
+    argued that the rich man's need to protect their assets meant such devices were
+    inevitable, and likely first appeared some decades prior.\r\n\r\nRegardless of
+    the origin and secrecy, word seemed to get around. Reports of lost riches and
+    treasures rediscovered in the state of Charlington have flooded in over the past
+    decade. Installation of these entrances varied greatly depending on the architecture
+    of said home, but it was common practice to install switches into existing foundations,
+    so visitors could not notice the difference. Stone and brick work, as well as
+    wooden walls were most often used for these compartments. There are even reports
+    of some families installing such compartments into their furniture.\r\n\r\nTrades
+    such as plumbing and carpentry offered installation services under a strict confidentiality
+    agreement. The process typically consisted of hollowing out a structure on a
+    side that wasn\u2019t visible, to make room for the desired hidden valuables.
+    Nearby walls or floors were then kitted with moving parts to allow users to input
+    an unlocking code. \r\n\r\nOne unfortunate side effect of this process was the
+    structural damage it caused over an extended period of time. The moving parts
+    required to open the compartments often caused the foundations to decay at faster
+    rates due to the hollowing process. Families have reported discovering these
+    compartments by searching for signs of damage within their home. Unfortunately,
+    as many of these compartments are mere decades old at the time of writing, it
+    will be a long time until this method becomes truly viable.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -561,8 +554,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -632,8 +625,8 @@ RectTransform:
   m_LocalScale: {x: 0.5494507, y: 0.5494505, z: 0.5494505}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1927925851511023808}
   - {fileID: 774085947178564314}
+  - {fileID: 7348124598937634468}
   m_Father: {fileID: 2690458157695473578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -672,6 +665,85 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &2994726482910338937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7348124598937634468}
+  - component: {fileID: 6241954392434066767}
+  - component: {fileID: 8262289902545321459}
+  m_Layer: 0
+  m_Name: TextContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7348124598937634468
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994726482910338937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1927925851511023808}
+  m_Father: {fileID: 3467866419624993342}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6241954392434066767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994726482910338937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &8262289902545321459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994726482910338937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &3768900972292870993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1117,7 @@ RectTransform:
   m_Children:
   - {fileID: 4624494800340672724}
   m_Father: {fileID: 3467866419624993342}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1133,8 +1205,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3568005920696971254}
   m_HandleRect: {fileID: 6497064192441354530}
   m_Direction: 2
-  m_Value: 1.0000007
-  m_Size: 0.3119376
+  m_Value: 0.49999997
+  m_Size: 0.25731513
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

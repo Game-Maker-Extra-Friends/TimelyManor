@@ -40,24 +40,6 @@ public class ClueInventory : MonoBehaviour
     // return bool, if inventory is full return false so the Item doesn't get destroyed.
     public void Add(Clue clue)
     {
-        //prevent duplicates
-        //if (clues.Contains(clue)) return;
-
-        //if (clues.Count >= space)
-        //{
-        //    Debug.Log("BUG - We screwed up and somehow don't have enough room");
-        //    return;
-        //}
-
-        for(int i = 0; i < clues.Count; i++)
-        {
-            if(clue == clues[i])
-            {
-                clues[i].seen = true;
-                break;
-            }
-        }
-
         // Call the delgate to let other method who subscribes to it know.
         onClueCalledback?.Invoke();
 
