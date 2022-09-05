@@ -135,6 +135,7 @@ namespace StarterAssets
 		private TimeState _timeState;
 		public string pastScene, presentScene;
 		public Animator transition;
+		public Animator timetravelAnim;
 		public float transitionTime = 1f;
 
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
@@ -233,6 +234,7 @@ namespace StarterAssets
 		IEnumerator TimeTravel()
         {
 			transition.SetTrigger("Start");
+
 			if(_timeState == TimeState.Present)
             {
 				Debug.Log("Fade out Present Music");
