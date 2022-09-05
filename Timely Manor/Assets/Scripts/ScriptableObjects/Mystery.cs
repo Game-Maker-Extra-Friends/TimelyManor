@@ -6,6 +6,7 @@ using System.Linq;
 [CreateAssetMenu]
 public class Mystery : ScriptableObject
 {
+    public string title;
     public List<MysteryEntry> entries;
     public string resolution;
 
