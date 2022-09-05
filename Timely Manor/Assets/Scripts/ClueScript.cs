@@ -26,14 +26,11 @@ public class ClueScript : MonoBehaviour
 		if (!clue.seen || clue.presentationMode == PresentationMode.Long)
 		{
 			Debug.Log("Interacting with clue");
+			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
 			ClueInventory.instance.Add(clue);
-
-
-			ClueInteract?.Invoke(clue);
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
-			clue.seen = true;
 		}
 		
 	}
