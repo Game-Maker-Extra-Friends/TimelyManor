@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 6618756391801747543}
   - component: {fileID: 6618756391801747528}
   - component: {fileID: 6618756391801747529}
+  - component: {fileID: 1064342384681730810}
   m_Layer: 5
   m_Name: stopwatch
   m_TagString: Untagged
@@ -471,10 +472,10 @@ RectTransform:
   m_Father: {fileID: 7756601610516610463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015259}
-  m_SizeDelta: {x: 1299, y: 791}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6618756391801747543
 CanvasRenderer:
@@ -498,13 +499,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4a993e9eac805b04ca7437fd45b7099d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -534,6 +535,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1064342384681730810
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618756391801747531}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7756601610516610432
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +980,7 @@ MonoBehaviour:
   pastScene: Past
   presentScene: Present
   transition: {fileID: 7756601610989880412}
+  timetravelAnim: {fileID: 6618756391801747529}
   transitionTime: 1
 --- !u!114 &7756601610851330651
 MonoBehaviour:
@@ -2660,7 +2674,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.642225, y: 1}
+    m_SensorSize: {x: 1.6038216, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3021,10 +3035,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7756601611638064168}
     m_Modifications:
+    - target: {fileID: 3374258039115392024, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     - target: {fileID: 3374258039607998794, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7756601611638064167}
+    - target: {fileID: 3374258039943683532, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - target: {fileID: 3374258039991901971, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - target: {fileID: 3374258040083861362, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     - target: {fileID: 3374258040267932786, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3113,6 +3143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3374258040267932791, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3374258040343596657, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3125,6 +3159,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7756601611638064167}
+    - target: {fileID: 3374258040433625151, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     - target: {fileID: 3374258040719061431, guid: 357748ddb0decd14c8bd835a1064de84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -3162,11 +3200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Size
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Value
-      value: 0.99999815
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3424407641336729620, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3384,6 +3422,10 @@ PrefabInstance:
     - target: {fileID: 1077034771588226584, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
       propertyPath: m_Name
       value: JournalTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077034771588226584, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1077034771588226585, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
       propertyPath: m_Pivot.x

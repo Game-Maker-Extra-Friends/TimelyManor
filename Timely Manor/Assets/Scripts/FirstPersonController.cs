@@ -234,7 +234,7 @@ namespace StarterAssets
 		IEnumerator TimeTravel()
         {
 			transition.SetTrigger("Start");
-
+			timetravelAnim.Play("stopwatch");
 			if(_timeState == TimeState.Present)
             {
 				Debug.Log("Fade out Present Music");
