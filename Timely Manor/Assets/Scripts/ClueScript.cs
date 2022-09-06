@@ -19,6 +19,11 @@ public class ClueScript : MonoBehaviour
     {
 		// Set the type to Clue in case people forgot to change it in edito
 		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
+
+		if (clue.seen)
+        {
+			GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
 	public void Interact()
@@ -26,14 +31,13 @@ public class ClueScript : MonoBehaviour
 		if (!clue.seen || clue.presentationMode == PresentationMode.Long)
 		{
 			Debug.Log("Interacting with clue");
+			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
-			ClueInventory.instance.Add(clue);
-
-
-			ClueInteract?.Invoke(clue);
-			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 			clue.seen = true;
+			GetComponent<BoxCollider>().enabled = false;
+			ClueInventory.instance.Add(clue);
+			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 		}
 		
 	}
