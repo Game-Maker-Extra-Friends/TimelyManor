@@ -14,6 +14,21 @@ public class InventoryObjectState
 
     public string objectName;
     public bool pickedUp;
+
+}
+
+[System.Serializable]
+public class FlowerLockObjectState
+{
+    public FlowerLockObjectState(string name, int num)
+    {
+        objectName = name;
+        currentImgNum = num;
+    }
+
+    public string objectName;
+    // For Flower Lock puzzle
+    public int currentImgNum;
 }
 
 [CreateAssetMenu]
@@ -23,6 +38,7 @@ public class Save : ScriptableObject
     public List<InventoryObjectState> itemInventoryObjectStates;
     public List<InventoryObjectState> clueInventoryObjectStates;
     public List<InventoryObjectState> fireplaceStates;
+    public List<FlowerLockObjectState> flowerLockStates;
 
     [Header("Audio Settings")]
     public float masterVolume;
@@ -51,6 +67,10 @@ public class Save : ScriptableObject
         foreach (InventoryObjectState i in fireplaceStates)
         {
             SaveFireplaceState(i.objectName, false);
+        }
+        foreach (FlowerLockObjectState i in flowerLockStates)
+        {
+            SaveFlowerPuzzleState(i.objectName, 0);
         }
     }
 
@@ -85,10 +105,26 @@ public class Save : ScriptableObject
         SaveInventoryObjectState(fireplaceStates, fireplaceName, completed);
     }
 
+    public void SaveFlowerPuzzleState(string flowerPuzzleName, int currentImgNum)
+    {
+        SaveFlowerObjectState(flowerLockStates ,flowerPuzzleName, currentImgNum);
+    }
+    public int LoadFlowerPuzzleState(string flowerPuzzleName)
+    {
+        return LoadFlowerLockObjectState(flowerLockStates, flowerPuzzleName);
+    }
+
+
     private bool LoadInventoryObjectState(List<InventoryObjectState> states, string name)
     {
         InventoryObjectState s = states.Where(x => x.objectName == name).FirstOrDefault();
         return s == null ? false : s.pickedUp;
+    }
+
+    private int LoadFlowerLockObjectState(List<FlowerLockObjectState> states, string name)
+    {
+        FlowerLockObjectState s = states.Where(x => x.objectName == name).FirstOrDefault();
+        return s == null ? 0 : s.currentImgNum;
     }
 
     private void SaveInventoryObjectState(List<InventoryObjectState> states, string name, bool pickedUp)
@@ -105,6 +141,23 @@ public class Save : ScriptableObject
         else
         {
             s.pickedUp = pickedUp;
+        }
+    }
+
+    private void SaveFlowerObjectState(List<FlowerLockObjectState> states, string name, int currentImgNum)
+    {
+        // Try to get existing save state
+        FlowerLockObjectState s = states.Where(x => x.objectName == name).FirstOrDefault();
+
+        // Create new if not found
+        if (s == null)
+        {
+            states.Add(new FlowerLockObjectState(name, currentImgNum));
+        }
+        // Edit existing
+        else
+        {
+            s.currentImgNum = currentImgNum;
         }
     }
 }

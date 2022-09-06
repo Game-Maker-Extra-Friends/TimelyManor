@@ -17,17 +17,29 @@ public class LetterPuzzle : MonoBehaviour
 
     public Sprite[] flowers;
 
-
+    private void Start()
+    {
+        Save save = Resources.Load<Save>("Saves/Save");
+        // If the flower lock is not zero then load
+        if (save.LoadFlowerPuzzleState(name) != 0)
+        {
+            currentImageNum = save.LoadFlowerPuzzleState(name);
+            updateImage();
+        }
+        
+    }
 
     public void updateImage()
     {
-        for(int i = 0; i < flowers.Length; i++)
+        Save save = Resources.Load<Save>("Saves/Save");
+        for (int i = 0; i < flowers.Length; i++)
         {
             if(currentImageNum == i)
             {
                 currentSprite.sprite = flowers[i];
             }
         }
+        save.SaveFlowerPuzzleState(name, currentImageNum);
     }
 
     //call on the + - button 
