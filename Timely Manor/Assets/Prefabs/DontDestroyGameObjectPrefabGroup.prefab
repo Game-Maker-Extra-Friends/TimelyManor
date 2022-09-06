@@ -1054,7 +1054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7756601610989880408
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2106,6 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 7756601612454415631}
+  m_slotPrefab: {fileID: 0}
 --- !u!114 &7756601612127305652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2562,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.2696629, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3063,11 +3064,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Size
-      value: 0.75
+      value: 0.74999994
       objectReference: {fileID: 0}
     - target: {fileID: 1947827542018453026, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_Value
-      value: 0.99999845
+      value: 0.99999815
       objectReference: {fileID: 0}
     - target: {fileID: 3424407641336729620, guid: dae95d60dd7701846a5eecf467ae55e4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3281,6 +3282,10 @@ PrefabInstance:
     - target: {fileID: 1077034771588226584, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
       propertyPath: m_Name
       value: JournalTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077034771588226584, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1077034771588226585, guid: 4930256a308dd95449b0e55dbeb04339, type: 3}
       propertyPath: m_Pivot.x

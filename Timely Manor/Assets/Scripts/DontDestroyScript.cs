@@ -9,10 +9,6 @@ public class DontDestroyScript : MonoBehaviour
     private void Awake()
     {
         objectID = name + transform.position.ToString() + transform.eulerAngles.ToString();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         var dontDestroyObjects = Object.FindObjectsOfType<DontDestroyScript>();
 
         for (int i = 0; i < dontDestroyObjects.Length; i++)
@@ -24,5 +20,10 @@ public class DontDestroyScript : MonoBehaviour
 
         }
         DontDestroyOnLoad(gameObject);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 }

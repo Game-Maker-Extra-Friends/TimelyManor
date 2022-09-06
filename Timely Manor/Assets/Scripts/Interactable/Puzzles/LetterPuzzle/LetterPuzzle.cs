@@ -20,8 +20,13 @@ public class LetterPuzzle : MonoBehaviour
     private void Start()
     {
         Save save = Resources.Load<Save>("Saves/Save");
-        save.LoadFlowerPuzzleState(name);
-        updateImage();
+        // If the flower lock is not zero then load
+        if (save.LoadFlowerPuzzleState(name) != 0)
+        {
+            currentImageNum = save.LoadFlowerPuzzleState(name);
+            updateImage();
+        }
+        
     }
 
     public void updateImage()
