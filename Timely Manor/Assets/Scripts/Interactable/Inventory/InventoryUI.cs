@@ -1,11 +1,15 @@
 using UnityEngine;
+using StarterAssets;
 
 public class InventoryUI : MonoBehaviour
 {
+    
+    public static InventoryUI instance;
     // Cache it so it doesn't have to call the instance every time
     Inventory inventory;
 
     public Transform itemsParent;
+    public Transform inventoryBar;
 
     InventorySlot[] slots;
 
@@ -17,12 +21,13 @@ public class InventoryUI : MonoBehaviour
         inventory = Inventory.instance;
 
         // Update UI everytime item is added or removed.
+        inventory.onItemCalledback += OnUpdateInventory;
         inventory.onItemCalledback += UpdateUI;
 
+        instance = this;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
-
 
 
     void UpdateUI()
@@ -41,13 +46,11 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
-	private void OnUpdateInventory()
-	{
-		foreach (Transform t in transform)
-		{
-			Destroy(t.gameObject);
-		}
 
+	public void OnUpdateInventory()
+	{
+
+        HideInventory();
 		DrawInventory();
 	}
 
@@ -55,17 +58,26 @@ public class InventoryUI : MonoBehaviour
 	{
 		foreach (Item item in Inventory.instance.items)
 		{
-			AddInventorySlot(item);
+            if (item.pickedUp)
+    			AddInventorySlot(item);
 		}
 	}
+
+    public void HideInventory()
+    {
+        foreach (Transform t in inventoryBar)
+        {
+            Destroy(t.gameObject);
+        }
+    }
 
 	public void AddInventorySlot(Item item)
 	{
 		// Instantiate Item slot prefab
 		GameObject obj = Instantiate(m_slotPrefab);
-
+        
 		// Set parent as which a layout group
-		obj.transform.SetParent(transform, false);
+		obj.transform.SetParent(inventoryBar, false);
 
 		ItemSlot slot = obj.GetComponent<ItemSlot>();
 		slot.Set(item);
