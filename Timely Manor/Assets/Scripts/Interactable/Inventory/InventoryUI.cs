@@ -3,6 +3,8 @@ using StarterAssets;
 
 public class InventoryUI : MonoBehaviour
 {
+    
+    public static InventoryUI instance;
     // Cache it so it doesn't have to call the instance every time
     Inventory inventory;
 
@@ -19,20 +21,13 @@ public class InventoryUI : MonoBehaviour
         inventory = Inventory.instance;
 
         // Update UI everytime item is added or removed.
+        inventory.onItemCalledback += OnUpdateInventory;
         inventory.onItemCalledback += UpdateUI;
 
+        instance = this;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
-
-    private void Update()
-    {
-        if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
-            OnUpdateInventory();
-        else
-            HideInventory();
-    }
-
 
 
     void UpdateUI()
@@ -52,7 +47,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-	private void OnUpdateInventory()
+	public void OnUpdateInventory()
 	{
 
         HideInventory();

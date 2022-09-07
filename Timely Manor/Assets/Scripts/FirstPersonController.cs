@@ -169,6 +169,11 @@ namespace StarterAssets
 			
 			// ctx dumps unnecessary parameters of event
 			ClueScript.ClueInteract += (ctx) => SetReading();
+
+
+
+			
+			
 		}
 
 		private void Update()
@@ -204,6 +209,8 @@ namespace StarterAssets
 				
 				if (ExitAction.triggered)
 				{
+				
+					InventoryUI.instance.HideInventory();
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
@@ -416,12 +423,15 @@ namespace StarterAssets
 			
 			if (col.gameObject.tag == "InteractPoint" && _input.interact)
 			{
-				playerState = PlayerState.Interacting;
 
+				InventoryUI.instance.OnUpdateInventory();
+
+				playerState = PlayerState.Interacting;
 
 				pressEText.gameObject.SetActive(false);
 				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
 				col.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
 				_input.interact = false;
 			}
 		}
