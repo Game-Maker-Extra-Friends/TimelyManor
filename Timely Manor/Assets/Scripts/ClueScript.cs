@@ -34,9 +34,11 @@ public class ClueScript : MonoBehaviour
 			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
+			ClueInventory.instance.Add(clue);
+
+			ClueInteract?.Invoke(clue);
 			clue.seen = true;
 			GetComponent<BoxCollider>().enabled = false;
-			ClueInventory.instance.Add(clue);
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 		}
 		

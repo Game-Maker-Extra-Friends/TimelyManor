@@ -22,8 +22,6 @@ public class ClueUI : MonoBehaviour
 
     public void Set(Clue clue)
     {
-        if (clue.seen) return; 
-
         frame.SetActive(true);
         icon.sprite = clue.icon;
         description.text = clue.description;
