@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -41,6 +42,11 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
+	public void ItemCursor(Texture image)
+    {
+		Cursor.SetCursor(image as Texture2D, Vector2.zero, CursorMode.Auto);
+    }
+
 	public void OnPointerEnter(PointerEventData data)
 	{
 		if (data.selectedObject.CompareTag("Clickable"))
@@ -71,46 +77,57 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit, 100))
 		{
+			if (FirstPersonController.instance.GetEquippedItem() != null)
+            {
+				if (hit.transform.gameObject.GetComponent<ItemInteract>() != null)
+                {
 
-			// Change mouse cursor as appropriate
-			if (hit.transform.gameObject.CompareTag("Clickable"))
-			{
-				ClueCursor();
-			}
+                }
+
+				ItemCursor(FirstPersonController.instance.GetEquippedItem().icon);
+            }
 			else
-			{
-				DefaultCursor();
-			}
-
-			if (clickAction.triggered)
-			{
-				if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
+			{ 
+				// Change mouse cursor as appropriate
+				if (hit.transform.gameObject.CompareTag("Clickable"))
 				{
-					hit.transform.gameObject.SendMessage("Interact");
+					ClueCursor();
+				}
+				else
+				{
+					DefaultCursor();
 				}
 
-				CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
-				if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
+				if (clickAction.triggered)
 				{
-					string value = hit.transform.name;
-					codeLock.SetValue(value);
-				}
-				else if (hit.transform.gameObject.CompareTag("SafePuzzleSubmit"))
-				{
-					codeLock.CheckCode();
-				}
+					if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
+					{
+						hit.transform.gameObject.SendMessage("Interact");
+					}
 
-				if (hit.transform.gameObject.CompareTag("LetterUp"))
-				{
-					hit.transform.gameObject.GetComponent<UpButton>().ChangeLetterUp();
-				}
-				else if (hit.transform.gameObject.CompareTag("LetterDown"))
-				{
-					hit.transform.gameObject.GetComponent<DownButton>().ChangeLetterDown();
-				}
-				else if (hit.transform.gameObject.CompareTag("LetterSubmit"))
-				{
-					hit.transform.gameObject.GetComponent<SubmitLetterPuzzle>().Submit();
+					CodeLock codeLock = hit.transform.gameObject.GetComponentInParent<CodeLock>();
+					if (hit.transform.gameObject.CompareTag("SafePuzzleNumber")) //for Codelock puzzle, if script CodeLock return not null 
+					{
+						string value = hit.transform.name;
+						codeLock.SetValue(value);
+					}
+					else if (hit.transform.gameObject.CompareTag("SafePuzzleSubmit"))
+					{
+						codeLock.CheckCode();
+					}
+
+					if (hit.transform.gameObject.CompareTag("LetterUp"))
+					{
+						hit.transform.gameObject.GetComponent<UpButton>().ChangeLetterUp();
+					}
+					else if (hit.transform.gameObject.CompareTag("LetterDown"))
+					{
+						hit.transform.gameObject.GetComponent<DownButton>().ChangeLetterDown();
+					}
+					else if (hit.transform.gameObject.CompareTag("LetterSubmit"))
+					{
+						hit.transform.gameObject.GetComponent<SubmitLetterPuzzle>().Submit();
+					}
 				}
 			}
 		}

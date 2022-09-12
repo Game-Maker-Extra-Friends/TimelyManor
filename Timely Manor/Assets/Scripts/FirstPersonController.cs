@@ -141,6 +141,8 @@ namespace StarterAssets
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 		public bool Interacting => playerState == PlayerState.Interacting;
 
+
+		private Item _equippedItem = null;
 	
 
 		private void Start()
@@ -169,9 +171,6 @@ namespace StarterAssets
 			
 			// ctx dumps unnecessary parameters of event
 			ClueScript.ClueInteract += (ctx) => SetReading();
-
-
-
 			
 			
 		}
@@ -453,6 +452,21 @@ namespace StarterAssets
 				pressEText.gameObject.SetActive(false);
             }
 		}
+
+		public void Equip(string itmName)
+        {
+			_equippedItem = Inventory.instance.GetItem(itmName);
+        }
+
+		public Item GetEquippedItem()
+        {
+			return _equippedItem;
+        }
+
+		public void unEquipItem()
+        {
+			_equippedItem = new Item();
+        }
 
 		private void OnDrawGizmosSelected()
 		{

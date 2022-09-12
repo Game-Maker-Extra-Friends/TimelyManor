@@ -5,21 +5,25 @@ using TMPro;
 public class InventorySlot : MonoBehaviour
 {
     Item item;
-    public Image icon;
+    public RawImage icon;
 
-    public Image detailsIcon;
+    public RawImage detailsIcon;
     public TextMeshProUGUI detailsText;
 
+    public void Start()
+    {
+        icon = GetComponentInChildren(typeof(RawImage)) as RawImage;
+    }
 
     public void AddItem(Item newItem)
     {
         item = newItem;
-
+        
         Debug.Log("The added item is: " + item);
         Debug.Log("The added icon is: " + item.icon);
 
         icon.enabled = true;
-        icon.sprite = item.icon;
+        icon.texture = item.icon;
         //Debug.Log("The icon is added");
         
     } 
@@ -28,7 +32,7 @@ public class InventorySlot : MonoBehaviour
     {
         item = null;
 
-        icon.sprite = null;
+        icon = null;
         icon.enabled = false;
     }
 
@@ -37,7 +41,7 @@ public class InventorySlot : MonoBehaviour
         // The item des go into the next page
         if(item != null)
         {
-            detailsIcon.sprite = item.icon;
+            detailsIcon.texture = item.icon;
             detailsText.text = item.description;
         }
     }

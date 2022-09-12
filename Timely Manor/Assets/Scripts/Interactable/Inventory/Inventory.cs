@@ -66,4 +66,17 @@ public class Inventory : MonoBehaviour
         items.Remove(item);
     }
 
+    public Item GetItem(string itmName)
+    {
+        Item i = new Item();
+        foreach (Item item in items)
+        {
+            if (itmName == item.name)
+            {
+                i = item;
+                break;
+            }
+        }
+        return i;
+    }
 }
