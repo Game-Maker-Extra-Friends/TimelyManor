@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PresentationMode
 {
     Simple,
-    Long
+    Long,
+    Interactable
 }
 
 [CreateAssetMenu(fileName = "New Clue", menuName = "Inventory/Clue")]

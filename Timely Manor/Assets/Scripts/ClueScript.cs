@@ -15,6 +15,8 @@ public class ClueScript : MonoBehaviour
 	[Header("Clue")]
 	public Clue clue;
 
+	public GameObject interactableClue;
+
 	public void Start()
     {
 		// Set the type to Clue in case people forgot to change it in edito
@@ -40,6 +42,20 @@ public class ClueScript : MonoBehaviour
 			clue.seen = true;
 			GetComponent<BoxCollider>().enabled = false;
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+		}
+		if (clue.presentationMode == PresentationMode.Interactable) 
+		{
+			//         if (!clue.seen)
+			//         {
+			//	Debug.Log("Interacting with clue");
+			//	ClueInteract?.Invoke(clue);
+
+			//	AudioManager.instance.Play("NewClue");
+			//	ClueInventory.instance.Add(clue);
+			//}
+			Debug.Log("InteractableMode Activated");
+			GetComponent<BoxCollider>().enabled = true;
+			interactableClue.SetActive(true);
 		}
 		
 	}
