@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
-  m_Name: emptyAlcohol
+  m_Name: powderTraces
   m_EditorClassIdentifier: 
-  name: EmptyAlcohol
-  icon: {fileID: 21300000, guid: 10b3856f03f17114ca2ad52faeca66f3, type: 3}
-  description: 'Damn kids have made a mess of the place. This amount of alcohol indicates
-    multiple participants, likely a party. '
+  name: Powder Traces
+  icon: {fileID: 21300000, guid: 6960a85319831e042a3951061f6bd9f0, type: 3}
+  description: "Traces of some mysterious powder. Damn kids have no idea what they\u2019re
+    getting into."
+  content: 
   location: 0
   timeline: 0
-  seen: 1
+  seen: 0
+  presentationMode: 0

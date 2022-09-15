@@ -17,13 +17,11 @@ public class InspectUI : MonoBehaviour
 
     public void Open(Clue clue)
     {
-        if (clue.presentationMode == PresentationMode.Long && clue.seen)
+        if (clue.presentationMode == PresentationMode.Long)
         {
             frame.SetActive(true);
             icon.sprite = clue.icon;
-            description.text = clue.description;
-
-            description.GetComponent<LayoutElement>().preferredHeight = clue.description.Length / 2.2f;
+            description.text = clue.content;
         }
     }
 

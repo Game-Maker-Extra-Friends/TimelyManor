@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
-  m_Name: presentBook
+  m_Name: scatteredBottles
   m_EditorClassIdentifier: 
-  name: Present Book
-  icon: {fileID: 21300000, guid: db12c63592aef594d80a458f886576e1, type: 3}
-  description: A book with some marking and suspicous white substance
+  name: Scattered Bottles
+  icon: {fileID: 21300000, guid: 10b3856f03f17114ca2ad52faeca66f3, type: 3}
+  description: Damn kids have made a mess of the place. Multiple participants judging
+    by the amount of empty bottles, likely a party.
+  content: 
   location: 0
   timeline: 0
-  seen: 0
-  presentationMode: 1
+  seen: 1
+  presentationMode: 0
