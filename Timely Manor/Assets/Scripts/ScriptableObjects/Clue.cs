@@ -29,4 +29,8 @@ public class Clue : ScriptableObject
 
     public bool seen;
 
+    public bool Triggered()
+    {
+        return seen;
+    }
 }
