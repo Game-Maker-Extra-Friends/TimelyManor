@@ -21,14 +21,29 @@ public class LetterPuzzleController : MonoBehaviour
     {
         foreach(LetterPuzzle lp in _letters)
         {
-            if(lp.currentSprite.sprite == lp.correctSprite)
+            if(lp.image == false) // If the spriteRenderer is used instead of image (World)
             {
-                _correctCombination = true;
+                if(lp.currentSprite.sprite == lp.correctSprite)
+                {
+                    _correctCombination = true;
+                }
+                else
+                {
+                    _correctCombination = false;
+                    break;
+                }
             }
-            else
+            else // If Image is used instead of SpriteRenderer (UI)
             {
-                _correctCombination = false;
-                break;
+                if (lp.currentImage.sprite == lp.correctSprite)
+                {
+                    _correctCombination = true;
+                }
+                else
+                {
+                    _correctCombination = false;
+                    break;
+                }
             }
         }
 
