@@ -897,143 +897,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &6693826275092230154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1949513592668171535}
-  - component: {fileID: 7107903975452109183}
-  - component: {fileID: 5300491751247170881}
-  - component: {fileID: 6869665011134093930}
-  - component: {fileID: 767065917768560051}
-  m_Layer: 0
-  m_Name: MysteryController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1949513592668171535
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693826275092230154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.265637, y: -0.81021786, z: -17.532112}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7756601612216782398}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7107903975452109183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693826275092230154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a212aa401b4fd44bc805db2f476f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mysteries: []
-  sixPastClues: {fileID: 11400000, guid: 091f0a16c4c8bae438dd73ad441de232, type: 2}
-  secondLeatherBook: {fileID: 11400000, guid: 6fbc5e39110e0a64bb8ce7908cf34091, type: 2}
-  thirdLeatherBook: {fileID: 11400000, guid: aa63b5afa7dfe9d4aae66ed9570e4eee, type: 2}
-  pastClueCount: 0
-  leatherBookCount: 0
---- !u!114 &5300491751247170881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693826275092230154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995fd596ccfdf144d8e5c4814795727b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1b5f861749b9c1e428d8bc2d9f7cc8a9, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7107903975452109183}
-        m_TargetAssemblyTypeName: MysteryController, Assembly-CSharp
-        m_MethodName: OnEventRaised
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6869665011134093930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693826275092230154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995fd596ccfdf144d8e5c4814795727b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 091f0a16c4c8bae438dd73ad441de232, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7107903975452109183}
-        m_TargetAssemblyTypeName: MysteryController, Assembly-CSharp
-        m_MethodName: OnEventRaised
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &767065917768560051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693826275092230154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995fd596ccfdf144d8e5c4814795727b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 393d394cc604ffc4788a830aada555ad, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7107903975452109183}
-        m_TargetAssemblyTypeName: MysteryController, Assembly-CSharp
-        m_MethodName: OnEventRaised
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &7756601610338505958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4631,8 +4494,6 @@ MonoBehaviour:
   transition: {fileID: 7756601610989880412}
   timetravelAnim: {fileID: 4264737557991142056}
   transitionTime: 1
-  startGame: {fileID: 11400000, guid: 1b5f861749b9c1e428d8bc2d9f7cc8a9, type: 2}
-  activateTimeTravel: {fileID: 11400000, guid: 393d394cc604ffc4788a830aada555ad, type: 2}
 --- !u!114 &7756601610851330651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12581,7 +12442,6 @@ Transform:
   - {fileID: 7756601610660956095}
   - {fileID: 7756601610598197900}
   - {fileID: 342675766}
-  - {fileID: 1949513592668171535}
   m_Father: {fileID: 7756601612258958751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14378,7 +14238,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.778626, y: 1}
+    m_SensorSize: {x: 1.7775629, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
