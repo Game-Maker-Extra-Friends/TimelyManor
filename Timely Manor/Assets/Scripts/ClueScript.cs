@@ -15,49 +15,41 @@ public class ClueScript : MonoBehaviour
 	[Header("Clue")]
 	public Clue clue;
 
-	public GameObject interactableClue;
-
 	public void Start()
     {
 		// Set the type to Clue in case people forgot to change it in edito
 		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
 
-		if (clue.seen)
-        {
-			GetComponent<BoxCollider>().enabled = false;
-        }
+		if (clue.seen == true && clue.presentationMode == PresentationMode.Simple) DisableInteraction();
     }
 
 	public void Interact()
 	{
-		if (!clue.seen || clue.presentationMode == PresentationMode.Long)
+		if (!clue.seen || clue.presentationMode != PresentationMode.Simple)
 		{
 			Debug.Log("Interacting with clue");
 			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
 			ClueInventory.instance.Add(clue);
-
-			ClueInteract?.Invoke(clue);
 			clue.seen = true;
-			GetComponent<BoxCollider>().enabled = false;
+
+			if (clue.presentationMode == PresentationMode.Simple) DisableInteraction();
+
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 		}
-		if (clue.presentationMode == PresentationMode.Interactable) 
-		{
-			//         if (!clue.seen)
-			//         {
-			//	Debug.Log("Interacting with clue");
-			//	ClueInteract?.Invoke(clue);
+	}
 
-			//	AudioManager.instance.Play("NewClue");
-			//	ClueInventory.instance.Add(clue);
-			//}
-			Debug.Log("InteractableMode Activated");
-			GetComponent<BoxCollider>().enabled = true;
-			interactableClue.SetActive(true);
+	private void DisableInteraction()
+	{
+		if (GetComponent<BoxCollider>() != null)
+		{
+			GetComponent<BoxCollider>().enabled = false;
 		}
-		
+		else
+		{
+			GetComponent<Button>().enabled = false;
+		}
 	}
 
 	private void OnApplicationQuit()
