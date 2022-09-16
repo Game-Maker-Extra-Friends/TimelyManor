@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
-  m_Name: powderTraces
+  m_Name: presentBook
   m_EditorClassIdentifier: 
-  name: Powder Traces
-  icon: {fileID: 21300000, guid: 6960a85319831e042a3951061f6bd9f0, type: 3}
-  description: "Traces of some mysterious powder. Damn kids have no idea what they\u2019re
-    getting into."
-  content: 
+  name: Present Book
+  icon: {fileID: 21300000, guid: db12c63592aef594d80a458f886576e1, type: 3}
+  description: A book with some marking and suspicous white substance
   location: 0
   timeline: 0
   seen: 0
-  presentationMode: 0
+  presentationMode: 1

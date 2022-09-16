@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
-  m_Name: joeysMap
+  m_Name: Firepit
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
-  presentationMode: 0
-  description: description
-  content: 
-  display: {fileID: 0}
+  name: Firepit
+  icon: {fileID: 21300000, guid: dc140a70178a9b546a7da61118c97b58, type: 3}
+  description: "The flame is\u2026 still running? People must have been here recently."
   location: 0
-  timeline: 0
+  timeline: 1
   seen: 0
+  presentationMode: 0

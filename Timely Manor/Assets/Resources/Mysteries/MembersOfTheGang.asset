@@ -14,44 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Members of the Gang
   entries:
-  - eventBased: 0
-    allRequired: 0
-    text: "Joey seems to be the adventurous member of the gang, being the one to
+  - text: "Joey seems to be the adventurous member of the gang, being the one to
       discover the manor and use it for himself. He\u2019s left a number of diary
       pages around the house, which have helped me gain insight into their activities."
-    clueTriggers: []
-    eventTriggers: []
-    revealed: 0
-  - eventBased: 0
-    allRequired: 0
-    text: Kabir is the daredevil of the gang. Breaking and entering, destruction
+    triggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b6edd553ae284b84facc805a155f59aa, type: 2}
+    revealed: 1
+  - text: Kabir is the daredevil of the gang. Breaking and entering, destruction
       of property, seems like a loose cannon. Likely has some form of infatuation
       with Christine.
-    clueTriggers: []
-    eventTriggers: []
-    revealed: 0
-  - eventBased: 0
-    allRequired: 0
-    text: Delilah, the innocent one. Poor girl, dragged into the reckless actions
+    triggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b6edd553ae284b84facc805a155f59aa, type: 2}
+    revealed: 1
+  - text: Delilah, the innocent one. Poor girl, dragged into the reckless actions
       of her friends, desperate to fit in. Refused to take the narcotics offered
       to her, but stashed them instead of telling her friends.
-    clueTriggers: []
-    eventTriggers: []
+    triggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b6edd553ae284b84facc805a155f59aa, type: 2}
     revealed: 0
-  - eventBased: 0
-    allRequired: 0
-    text: "Damon, the quiet one, Christine's brother. Doesn\u2019t talk a lot, has
+  - text: "Damon, the quiet one, Christine's brother. Doesn\u2019t talk a lot, has
       some problems with Joey. Quite the heavy drinker, many of the empty bottles
       are attributed to him."
-    clueTriggers: []
-    eventTriggers: []
+    triggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b6edd553ae284b84facc805a155f59aa, type: 2}
     revealed: 0
-  - eventBased: 0
-    allRequired: 0
-    text: "Christine, the party animal, Damon\u2019s sister. Joey talks a lot about
+  - text: "Christine, the party animal, Damon\u2019s sister. Joey talks a lot about
       her, yet I can\u2019t seem to find any trace of her presence, save for a note
       from Kabir. Perhaps she left early?"
-    clueTriggers: []
-    eventTriggers: []
+    triggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b6edd553ae284b84facc805a155f59aa, type: 2}
     revealed: 0
   resolution: 

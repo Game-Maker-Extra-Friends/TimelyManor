@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class MysteryUI : MonoBehaviour
 {
@@ -18,11 +17,8 @@ public class MysteryUI : MonoBehaviour
             Destroy(t.gameObject);
         }
         foreach (Mystery m in Resources.LoadAll("Mysteries")) {
-            if (m.entries.Where(x => x.Complete).Any())
-            {
-                MysteryItem instance = Instantiate(mysteryPrefab, scrollContainer).GetComponent<MysteryItem>();
-                instance.Set(m, this);
-            }
+            MysteryItem instance = Instantiate(mysteryPrefab, scrollContainer).GetComponent<MysteryItem>();
+            instance.Set(m, this);
         }
     }
 
@@ -44,7 +40,6 @@ public class MysteryUI : MonoBehaviour
         }
         if (mysteryEntryContainer.childCount == 0)
         {
-            
             return;
         }
         Destroy(mysteryEntryContainer.GetChild(mysteryEntryContainer.childCount - 1).gameObject);
