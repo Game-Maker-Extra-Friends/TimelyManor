@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ItemInteract : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string reqItem;
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    public void Interact(Item item)
     {
-        
+        if (item.name == reqItem)
+        {
+            // Do Stuff
+
+            Inventory.instance.Remove(item);
+        }
     }
 }

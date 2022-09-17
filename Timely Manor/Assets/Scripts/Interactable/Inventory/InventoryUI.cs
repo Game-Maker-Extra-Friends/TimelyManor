@@ -49,7 +49,6 @@ public class InventoryUI : MonoBehaviour
 
 	public void OnUpdateInventory()
 	{
-
         HideInventory();
 		DrawInventory();
 	}

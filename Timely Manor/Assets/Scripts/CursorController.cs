@@ -81,10 +81,14 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
             {
 				if (hit.transform.gameObject.GetComponent<ItemInteract>() != null)
                 {
-
+					ItemCursor(FirstPersonController.instance.GetEquippedItem().icon);
                 }
+				else
+				{
+					DefaultCursor();
+					FirstPersonController.instance.unEquipItem();
+				}
 
-				ItemCursor(FirstPersonController.instance.GetEquippedItem().icon);
             }
 			else
 			{ 

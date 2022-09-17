@@ -10,10 +10,6 @@ public class InventorySlot : MonoBehaviour
     public RawImage detailsIcon;
     public TextMeshProUGUI detailsText;
 
-    public void Start()
-    {
-        icon = GetComponentInChildren(typeof(RawImage)) as RawImage;
-    }
 
     public void AddItem(Item newItem)
     {
