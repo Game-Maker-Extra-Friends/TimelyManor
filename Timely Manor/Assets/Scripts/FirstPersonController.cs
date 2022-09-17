@@ -141,9 +141,8 @@ namespace StarterAssets
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 		public bool Interacting => playerState == PlayerState.Interacting;
 
-
-		private Item _equippedItem = null;
-	
+		public GameEvent startGame;
+		public GameEvent activateTimeTravel;
 
 		private void Start()
 		{
@@ -171,6 +170,9 @@ namespace StarterAssets
 			
 			// ctx dumps unnecessary parameters of event
 			ClueScript.ClueInteract += (ctx) => SetReading();
+
+			startGame.Raise();
+
 			
 			
 		}
@@ -193,7 +195,7 @@ namespace StarterAssets
             {
 				_input.timeTravel = false;
 				playerState = PlayerState.TimeTraveling;
-				StartCoroutine("TimeTravel");
+				StartCoroutine(TimeTravel());
 			}
 
 			_input.timeTravel = false;
@@ -266,7 +268,8 @@ namespace StarterAssets
 			{
 				SceneManager.LoadScene(pastScene);
 			}
-
+			Debug.Log("Time travel complete");
+			activateTimeTravel.Raise();
 			playerState = PlayerState.Moving;
 		}
 
@@ -452,21 +455,6 @@ namespace StarterAssets
 				pressEText.gameObject.SetActive(false);
             }
 		}
-
-		public void Equip(string itmName)
-        {
-			_equippedItem = Inventory.instance.GetItem(itmName);
-        }
-
-		public Item GetEquippedItem()
-        {
-			return _equippedItem;
-        }
-
-		public void unEquipItem()
-        {
-			_equippedItem = new Item();
-        }
 
 		private void OnDrawGizmosSelected()
 		{
