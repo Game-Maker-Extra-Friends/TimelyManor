@@ -6,7 +6,7 @@ public class LetterPuzzleController : MonoBehaviour
 {
     public LetterPuzzle[] _letters;
 
-    bool _correctCombination = false;
+    public bool _correctCombination = false;
 
 
     //ref to light
@@ -17,6 +17,19 @@ public class LetterPuzzleController : MonoBehaviour
 
     public AudioSource fail;
     public AudioSource success;
+
+    //private void Start()
+    //{
+    //    Save save = Resources.Load<Save>("Saves/Save");
+    //    // If the flower lock is not zero then load
+    //    if (save.LoadSpritePuzzleState(name) != 0)
+    //    {
+    //        currentImageNum = save.LoadSpritePuzzleState(name);
+    //        updateImage();
+    //    }
+
+    //}
+
     public void CheckAnswer()
     {
         foreach(LetterPuzzle lp in _letters)
