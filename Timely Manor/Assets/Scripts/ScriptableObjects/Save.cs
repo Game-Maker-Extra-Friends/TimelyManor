@@ -70,7 +70,7 @@ public class Save : ScriptableObject
         }
         foreach (FlowerLockObjectState i in flowerLockStates)
         {
-            SaveFlowerPuzzleState(i.objectName, 0);
+            SaveSpritePuzzleState(i.objectName, 0);
         }
     }
 
@@ -105,11 +105,11 @@ public class Save : ScriptableObject
         SaveInventoryObjectState(fireplaceStates, fireplaceName, completed);
     }
 
-    public void SaveFlowerPuzzleState(string flowerPuzzleName, int currentImgNum)
+    public void SaveSpritePuzzleState(string flowerPuzzleName, int currentImgNum)
     {
         SaveFlowerObjectState(flowerLockStates ,flowerPuzzleName, currentImgNum);
     }
-    public int LoadFlowerPuzzleState(string flowerPuzzleName)
+    public int LoadSpritePuzzleState(string flowerPuzzleName)
     {
         return LoadFlowerLockObjectState(flowerLockStates, flowerPuzzleName);
     }
