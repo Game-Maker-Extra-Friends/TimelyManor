@@ -85,8 +85,9 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 }
 				else
 				{
+					if (clickAction.triggered)
+						FirstPersonController.instance.unEquipItem();
 					DefaultCursor();
-					FirstPersonController.instance.unEquipItem();
 				}
 
             }
