@@ -144,6 +144,10 @@ namespace StarterAssets
 		public GameEvent startGame;
 		public GameEvent activateTimeTravel;
 
+		private Item _equippedItem = null;
+
+
+
 		private void Start()
 		{
 			if (_mainCamera == null)
@@ -447,6 +451,23 @@ namespace StarterAssets
             }
 
 		}
+
+
+		public void Equip(string itmName)
+		{
+			_equippedItem = Inventory.instance.GetItem(itmName);
+		}
+
+		public Item GetEquippedItem()
+		{
+			return _equippedItem;
+		}
+
+		public void unEquipItem()
+		{
+			_equippedItem = new Item();
+		}
+
 
 		private void OnTriggerExit(Collider other)
 		{
