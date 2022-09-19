@@ -9,6 +9,7 @@ public class UpButton : MonoBehaviour
 
     public void ChangeLetterUp()
     {
+        Debug.Log("Button Clicked");
         _letterPuzzle.updateCurrentImageUp();
         _letterPuzzle.updateImage();
     }

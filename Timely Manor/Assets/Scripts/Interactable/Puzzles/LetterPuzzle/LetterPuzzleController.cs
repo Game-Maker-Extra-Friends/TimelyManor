@@ -6,7 +6,7 @@ public class LetterPuzzleController : MonoBehaviour
 {
     public LetterPuzzle[] _letters;
 
-    bool _correctCombination = false;
+    public bool _correctCombination = false;
 
 
     //ref to light
@@ -17,18 +17,46 @@ public class LetterPuzzleController : MonoBehaviour
 
     public AudioSource fail;
     public AudioSource success;
+
+    //private void Start()
+    //{
+    //    Save save = Resources.Load<Save>("Saves/Save");
+    //    // If the flower lock is not zero then load
+    //    if (save.LoadSpritePuzzleState(name) != 0)
+    //    {
+    //        currentImageNum = save.LoadSpritePuzzleState(name);
+    //        updateImage();
+    //    }
+
+    //}
+
     public void CheckAnswer()
     {
         foreach(LetterPuzzle lp in _letters)
         {
-            if(lp.currentSprite.sprite == lp.correctSprite)
+            if(lp.image == false) // If the spriteRenderer is used instead of image (World)
             {
-                _correctCombination = true;
+                if(lp.currentSprite.sprite == lp.correctSprite)
+                {
+                    _correctCombination = true;
+                }
+                else
+                {
+                    _correctCombination = false;
+                    break;
+                }
             }
-            else
+            else // If Image is used instead of SpriteRenderer (UI)
             {
-                _correctCombination = false;
-                break;
+                if (lp.currentImage.sprite == lp.correctSprite)
+                {
+                    _correctCombination = true;
+                }
+                else
+                {
+                    _correctCombination = false;
+                    break;
+                }
             }
         }
 

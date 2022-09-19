@@ -11,19 +11,21 @@ public class LetterPuzzle : MonoBehaviour
     public int currentImageNum = 0;
 
     public SpriteRenderer currentSprite;
-
     public Sprite correctSprite;
 
+    [Tooltip("Tick if the image type is image and not sprite")]
+    public bool image;  // For UI use
+    public Image currentImage;
 
-    public Sprite[] flowers;
+    public Sprite[] sprites;
 
     private void Start()
     {
         Save save = Resources.Load<Save>("Saves/Save");
         // If the flower lock is not zero then load
-        if (save.LoadFlowerPuzzleState(name) != 0)
+        if (save.LoadSpritePuzzleState(name) != 0)
         {
-            currentImageNum = save.LoadFlowerPuzzleState(name);
+            currentImageNum = save.LoadSpritePuzzleState(name);
             updateImage();
         }
         
@@ -32,14 +34,23 @@ public class LetterPuzzle : MonoBehaviour
     public void updateImage()
     {
         Save save = Resources.Load<Save>("Saves/Save");
-        for (int i = 0; i < flowers.Length; i++)
+        for (int i = 0; i < sprites.Length; i++)
         {
             if(currentImageNum == i)
             {
-                currentSprite.sprite = flowers[i];
+                if (image == false)
+                {
+                    currentSprite.sprite = sprites[i];
+                    Debug.Log("Sprite changed");
+                }
+                else
+                {
+                    currentImage.sprite = sprites[i];
+                    Debug.Log("Image changed");
+                }
             }
         }
-        save.SaveFlowerPuzzleState(name, currentImageNum);
+        save.SaveSpritePuzzleState(name, currentImageNum);
     }
 
     //call on the + - button 
@@ -47,7 +58,7 @@ public class LetterPuzzle : MonoBehaviour
     {
         //if we do up to F, put a limit of 6 and reset it back to 0
         
-        if(currentImageNum < flowers.Length)
+        if(currentImageNum < sprites.Length)
         {
             currentImageNum++;
         }
@@ -64,7 +75,7 @@ public class LetterPuzzle : MonoBehaviour
         }
         else
         {
-            currentImageNum = flowers.Length - 1;
+            currentImageNum = sprites.Length - 1;
         }
         
     }
