@@ -20,7 +20,7 @@ public class InventorySlot : MonoBehaviour
 
         icon.enabled = true;
         icon.texture = item.icon;
-        //Debug.Log("The icon is added");
+        Debug.Log("The icon is added");
         
     } 
 
@@ -29,7 +29,7 @@ public class InventorySlot : MonoBehaviour
         item = null;
 
         icon = null;
-        icon.enabled = false;
+        // icon.enabled = false;
     }
 
     public void DisplayDescription()

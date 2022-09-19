@@ -35,6 +35,7 @@ public class InventoryUI : MonoBehaviour
         // Additem to slots or clear them if there's nothing.
         for(int i = 0; i < slots.Length; i++)
         {
+            Debug.Log(slots.Length);
             if(i < inventory.items.Count)
             {
                 Debug.Log("Inventory count is: " + inventory.items.Count);
