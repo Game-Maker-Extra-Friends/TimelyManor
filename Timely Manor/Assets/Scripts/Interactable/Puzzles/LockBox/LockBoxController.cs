@@ -16,17 +16,21 @@ public class LockBoxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(lpc._correctCombination == true)
+        UpdateBox();
+    }
+
+    public void UpdateBox()
+    {
+        if (lpc._correctCombination == true)
         {
             lockedBox.SetActive(false);
             openBox.SetActive(true);
         }
-        if(book.item.pickedUp == true)   // IF book has been taken, disable open box and show the book taken 
+        if (book.item.pickedUp == true)   // IF book has been taken, disable open box and show the book taken 
         {
             openBox.SetActive(false);
             bookTaken.SetActive(true);
         }
     }
-
 
 }
