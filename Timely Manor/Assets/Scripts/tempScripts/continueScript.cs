@@ -13,12 +13,13 @@ public class continueScript : MonoBehaviour
 
     public Sprite[] introSprites;
     public Image image;
+    int i = 0;
+
 
     void Update()
     {
         var keyboard = Keyboard.current;
         var mouse = Mouse.current;
-        int i = 0;  
         if (keyboard.anyKey.wasPressedThisFrame || mouse.leftButton.wasPressedThisFrame)
 		{
             if(i < introSprites.Length)
