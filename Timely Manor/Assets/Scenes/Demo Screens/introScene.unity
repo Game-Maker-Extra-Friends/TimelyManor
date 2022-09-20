@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e988f111e1f879469371a25f94054e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ba204b0b64545d4f817573c0702c7b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -547,6 +547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenename: Present
+  introSprites:
+  - {fileID: 21300000, guid: fcba60c1362357e4e88a39399d68ee72, type: 3}
+  - {fileID: 21300000, guid: fc41d8711d4c6a84eb3ce319a1cac03a, type: 3}
+  - {fileID: 21300000, guid: f8a7fb608ee505c4395de3d541ad601a, type: 3}
+  image: {fileID: 495505432}
 --- !u!1 &2054673843
 GameObject:
   m_ObjectHideFlags: 0
