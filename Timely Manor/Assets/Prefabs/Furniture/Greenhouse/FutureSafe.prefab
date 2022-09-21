@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9293001, y: 1.8855109, z: 1}
-  m_Center: {x: -0.5619589, y: 0.004865527, z: 0}
+  m_Size: {x: 1.9293, y: 1.8855109, z: 0.25530323}
+  m_Center: {x: -0.56195897, y: 0.004865527, z: -0.046373803}
 --- !u!114 &2821677556202568067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +280,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1372261229062865213}
   - component: {fileID: 7688794663557091756}
+  - component: {fileID: 4462762417162905978}
+  - component: {fileID: 1357519230631094131}
   m_Layer: 0
   m_Name: Safe_Future_Closed_310x200px
   m_TagString: Untagged
@@ -354,6 +356,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4462762417162905978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764928321737114033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229749b554d074f3c872ef8ca751c800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reqItem: Key
+  toEnable:
+  - {fileID: 3266894544225847334}
+  toDisable:
+  - {fileID: 6764928321737114033}
+--- !u!65 &1357519230631094131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764928321737114033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9227884, y: 1.8803449, z: 0.2418024}
+  m_Center: {x: -0.5699533, y: -0.00032424927, z: 0.018964738}
 --- !u!1 &8647239485422233501
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,8 +395,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771775986217955379}
-  - component: {fileID: 84768538912696053}
-  - component: {fileID: 1335420376269110802}
   m_Layer: 0
   m_Name: FutureSafe
   m_TagString: Clickable
@@ -391,36 +421,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &84768538912696053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647239485422233501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229749b554d074f3c872ef8ca751c800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reqItem: Key
-  toEnable:
-  - {fileID: 3266894544225847334}
-  toDisable:
-  - {fileID: 6764928321737114033}
---- !u!65 &1335420376269110802
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647239485422233501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9227884, y: 1.8803449, z: 0.2418024}
-  m_Center: {x: -0.5699533, y: -0.00032424927, z: 0.018964738}
 --- !u!1001 &8390348836894439474
 PrefabInstance:
   m_ObjectHideFlags: 0

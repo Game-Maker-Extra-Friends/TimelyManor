@@ -216,6 +216,7 @@ namespace StarterAssets
 				{
 				
 					InventoryUI.instance.HideInventory();
+					unEquipItem();
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
