@@ -82,6 +82,8 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 				if (hit.transform.gameObject.GetComponent<ItemInteract>() != null)
                 {
 					ItemCursor(FirstPersonController.instance.GetEquippedItem().icon);
+					if (clickAction.triggered)
+						hit.transform.SendMessage("Interact", FirstPersonController.instance.GetEquippedItem());
                 }
 				else
 				{

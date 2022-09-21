@@ -465,7 +465,7 @@ namespace StarterAssets
 
 		public void unEquipItem()
 		{
-			_equippedItem = new Item();
+			_equippedItem = null;
 		}
 
 
