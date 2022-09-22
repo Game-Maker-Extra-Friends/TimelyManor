@@ -33,4 +33,9 @@ public class ClueUI : MonoBehaviour
     {
         frame.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        ClueScript.ClueInteract -= Set;
+    }
 }
