@@ -21,7 +21,7 @@ MonoBehaviour:
     pickedUp: 0
   clueInventoryObjectStates:
   - objectName: EmptyAlcohol
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Drugs
     pickedUp: 0
   - objectName: Book Code
@@ -73,6 +73,16 @@ MonoBehaviour:
   - objectName: New Item
     pickedUp: 1
   - objectName: Hidden Fireplace Note
+    pickedUp: 0
+  - objectName: JoeysDiaryBedroom
+    pickedUp: 1
+  - objectName: Large Flowers
+    pickedUp: 0
+  - objectName: Samantha's Transcript
+    pickedUp: 0
+  - objectName: Small Flowers
+    pickedUp: 0
+  - objectName: Loaded Gun
     pickedUp: 0
   fireplaceStates:
   - objectName: CodeLock
