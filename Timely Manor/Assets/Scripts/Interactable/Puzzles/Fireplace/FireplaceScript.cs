@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireplaceScript : MonoBehaviour
 {
-    public SpriteRenderer unsolved, fireplaceKey, finished;
+    public SpriteRenderer unsolved, finished;
     public GameObject key;
 
     public string code = "12345";
@@ -30,7 +30,7 @@ public class FireplaceScript : MonoBehaviour
                 brick.gameObject.SetActive(false);
 
             unsolved.enabled = false;
-            fireplaceKey.enabled = true;
+            finished.enabled = true;
             if (key != null) key.SetActive(true);
             save.SaveFireplaceState(name, true);
         }

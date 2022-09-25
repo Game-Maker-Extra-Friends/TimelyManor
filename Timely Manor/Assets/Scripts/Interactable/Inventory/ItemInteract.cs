@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemInteract : MonoBehaviour
 {
+
+    // String that matches the name of the item required to interact with this
     public string reqItem;
 
     // Sprites, clues, etc that will be revealed after this is interacted with
