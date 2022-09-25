@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
   m_Name: damagedSafe
   m_EditorClassIdentifier: 
-  name: New Item
-  icon: {fileID: 0}
+  name: Damaged Safe
+  icon: {fileID: 21300000, guid: 041c1ad9236290a418405bc17fa6eb34, type: 3}
   presentationMode: 0
-  description: description
+  description: Dents all around the sides, some aged, others quite recent. Teenagers
+    likely attempted to break in. No getting in there without a key
   content: 
   display: {fileID: 0}
-  location: 0
+  location: 1
   timeline: 0
   seen: 0
