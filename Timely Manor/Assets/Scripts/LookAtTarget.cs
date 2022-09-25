@@ -14,12 +14,18 @@ public class LookAtTarget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("PlayerCapsule").transform;
+        // player = GameObject.Find("PlayerCapsule").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // this script starts before the don't destroy prefab instantiate so finding the playercapsule needs to be in update
+        if(player == null)
+        {
+            player = GameObject.Find("PlayerCapsule").transform;
+        }
+
         if (threeAxis)
         {
             transform.LookAt(player);
@@ -28,7 +34,7 @@ public class LookAtTarget : MonoBehaviour
         {
             var lookPos = player.position - transform.position;
             lookPos.y = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
+            var rotation = Quaternion.LookRotation(-lookPos); // The sprite is flippe so -pos
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
 
             

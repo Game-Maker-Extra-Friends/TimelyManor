@@ -33,7 +33,7 @@ public class ClueInventory : MonoBehaviour
     private void Start()
     {
         clues = Resources.LoadAll<Clue>("Clues").ToList();
-        onClueCalledback?.Invoke(); // Invote update when load stuff
+        onClueCalledback?.Invoke(); // Invkte update when load stuff
     }
 
 

@@ -29,4 +29,9 @@ public class InspectUI : MonoBehaviour
     {
         frame.SetActive(false);
     }
+
+    public void OnDestroy()
+    {
+        ClueScript.ClueInteract -= Open;
+    }
 }

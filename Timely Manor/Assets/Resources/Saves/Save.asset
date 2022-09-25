@@ -17,6 +17,8 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Key
     pickedUp: 0
+  - objectName: YellowBook
+    pickedUp: 0
   clueInventoryObjectStates:
   - objectName: EmptyAlcohol
     pickedUp: 1
@@ -38,7 +40,44 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Scattered Money
     pickedUp: 0
-  fireplaceStates: []
+  - objectName: SamanthaNotebook
+    pickedUp: 1
+  - objectName: Fireplace Poker
+    pickedUp: 0
+  - objectName: Damaged Floorboards
+    pickedUp: 0
+  - objectName: Architectural Books
+    pickedUp: 0
+  - objectName: Active Fire
+    pickedUp: 0
+  - objectName: Secret Passage Book
+    pickedUp: 0
+  - objectName: Cracked Bricks
+    pickedUp: 1
+  - objectName: Book with Fingerprints
+    pickedUp: 0
+  - objectName: Fireplace Beer Can
+    pickedUp: 0
+  - objectName: Powder Traces
+    pickedUp: 0
+  - objectName: Scattered Bottles
+    pickedUp: 0
+  - objectName: Decayed Books
+    pickedUp: 0
+  - objectName: Large Hole in Floorboards
+    pickedUp: 0
+  - objectName: KabirFloorboardsNote
+    pickedUp: 0
+  - objectName: Lock Box
+    pickedUp: 0
+  - objectName: New Item
+    pickedUp: 1
+  - objectName: Hidden Fireplace Note
+    pickedUp: 0
+  fireplaceStates:
+  - objectName: CodeLock
+    pickedUp: 0
+  flowerLockStates: []
   masterVolume: -33.319073
   sfxVolume: -54.15402
   musicVolume: -46.067474
