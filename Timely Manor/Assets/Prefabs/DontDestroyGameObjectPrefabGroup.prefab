@@ -10941,8 +10941,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7756601611864221413}
   m_HandleRect: {fileID: 7756601611864221414}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.32129416
+  m_Value: 0.9999997
+  m_Size: 0.32129413
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14503,7 +14503,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2696629, y: 1}
+    m_SensorSize: {x: 1.8737373, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -15523,6 +15523,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 01ad9ccb35e705142a221a4ece188ef1, type: 3}
+    - target: {fileID: 8474157417040165315, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8514745657394937725, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
       propertyPath: location
       value: 2
@@ -16969,6 +16973,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 47721ee81cc48884bb56adb5d9fe3e1d, type: 3}
+    - target: {fileID: 8474157417040165315, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8514745657394937725, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
       propertyPath: location
       value: 3
@@ -17941,6 +17949,10 @@ PrefabInstance:
       propertyPath: detailsText
       value: 
       objectReference: {fileID: 7756601610495882247}
+    - target: {fileID: 8474157417040165315, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8514745657394937725, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
       propertyPath: pastSlots.Array.size
       value: 9
@@ -18905,6 +18917,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c44d51ccfda3c4342a10ec710f7fe740, type: 3}
+    - target: {fileID: 8474157417040165315, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8514745657394937725, guid: 16eab1fd1b8e8d84ba6c34163936b8de, type: 3}
       propertyPath: location
       value: 1

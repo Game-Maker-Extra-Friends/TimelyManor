@@ -20,6 +20,7 @@ public class ClueInventoryUI : MonoBehaviour
         {
             slotsGroup.Add(cluesParent.GetChild(i).GetComponent<ClueSlotGroup>());
         }
+        UpdateUI(); // For first update in case the player loads.
     }
 
 
