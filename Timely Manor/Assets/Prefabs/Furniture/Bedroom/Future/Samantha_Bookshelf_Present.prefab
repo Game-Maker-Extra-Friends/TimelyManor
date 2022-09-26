@@ -638,6 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3471651609263132200}
   - component: {fileID: 7793858390618059552}
+  - component: {fileID: 384796510521323455}
   m_Layer: 0
   m_Name: Samantha_Bookshelf_Present
   m_TagString: Untagged
@@ -714,6 +715,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &384796510521323455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893871784426243042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.7451367, y: 8.103333, z: 0.2720913}
+  m_Center: {x: 0.000007643752, y: -0.000007031268, z: 0.13562681}
 --- !u!1 &4936199351663994535
 GameObject:
   m_ObjectHideFlags: 0
