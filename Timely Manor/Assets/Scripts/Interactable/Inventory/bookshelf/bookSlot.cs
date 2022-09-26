@@ -7,24 +7,36 @@ public class bookSlot : ItemInteract
 
     public Item book;
 
-    public string blueBookName, redBookName, yellowBookName;
+    private string blueBookName = "Blue Leather Bound Book", redBookName = "Red Leather Bound Book", yellowBookName = "Yellow Leather Bound Book";
 
-    public Sprite bookSprite;
+    private SpriteRenderer bookSprite;
 
-    public override void Interact(Item item)
+    private void Start()
     {
+        bookSprite = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    public override void Interact(Item item = null)
+    {
+        Debug.Log(item);
         if (book == null)
         {
             if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
             {
                 book = item;
+                bookshelfInteraction.instance.updateSprites();
+
+                Inventory.instance.Remove(item);
             }
         }
-        else
-        {
-            Inventory.instance.Add(book);
-            book = null;
-        }
+    }
+
+    public void Interact()
+    {
+        Debug.Log(book);
+        Inventory.instance.Add(book);
+        book = null;
+        bookshelfInteraction.instance.updateSprites();
     }
 
     public bool check()
@@ -50,4 +62,8 @@ public class bookSlot : ItemInteract
         return null;
     }
 
+    public void setSprite(Sprite sprite)
+    {
+        bookSprite.sprite = sprite;
+    }
 }

@@ -14,7 +14,7 @@ public class ItemInteract : MonoBehaviour
     // Sprites, clues, etc that will be hidden after this is interacted with
     public GameObject[] toDisable;
 
-    public virtual void Interact(Item item)
+    public virtual void Interact(Item item = null)
     {
         if (item.name == reqItem)
         {

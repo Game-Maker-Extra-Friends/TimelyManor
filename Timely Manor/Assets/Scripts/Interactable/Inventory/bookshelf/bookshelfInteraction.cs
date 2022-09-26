@@ -5,10 +5,12 @@ using UnityEngine;
 public class bookshelfInteraction : MonoBehaviour
 {
 
-    public bookshelfInteraction instance;
+    public static bookshelfInteraction instance;
 
+    [Header("Book Slot Gameobjects")]
     public bookSlot left, middle, right;
 
+    [Header("Book Sprites")]
     public Sprite blue, red, yellow;
 
     public void check()
@@ -35,20 +37,20 @@ public class bookshelfInteraction : MonoBehaviour
     {
         if (slot == null)
         {
-            slot.bookSprite = null;
+            slot.setSprite(null);
             return;
         }
 
         switch (slot.getColor())
         {
             case "blue":
-                slot.bookSprite = blue;
+                slot.setSprite(blue);
                 break;
             case "red":
-                slot.bookSprite = red;
+                slot.setSprite(red);
                 break;
             case "yellow":
-                slot.bookSprite = yellow;
+                slot.setSprite(yellow);
                 break;
             default:
                 break;
