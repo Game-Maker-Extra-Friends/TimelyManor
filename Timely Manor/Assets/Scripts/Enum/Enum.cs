@@ -15,7 +15,8 @@ public class Enum
         Living_Room,
         Green_House,
         Hallway,
-        Benjamin_Bedroom,
-        Samantha_Bedroom
+        Bedrooms
+        //Benjamin_Bedroom,
+        //Samantha_Bedroom
     };
 }
