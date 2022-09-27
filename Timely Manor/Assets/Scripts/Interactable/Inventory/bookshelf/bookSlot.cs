@@ -11,32 +11,40 @@ public class bookSlot : ItemInteract
 
     private SpriteRenderer bookSprite;
 
+    private bookshelfInteraction bookshelf;
+
     private void Start()
     {
         bookSprite = gameObject.GetComponent<SpriteRenderer>();
+        bookshelf = transform.GetComponentInParent<bookshelfInteraction>();
     }
 
-    public override void Interact(Item item = null)
+    public void Interact()
     {
-        Debug.Log(item);
+        Debug.Log("interact()");
+        if (book != null)
+        {
+            Inventory.instance.Add(book);
+            book = null;
+            
+            bookshelf.updateSprites();
+        }
+    }
+
+    public override void useItem(Item item = null)
+    {
+        Debug.Log("interact(item)");
         if (book == null)
         {
             if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
             {
                 book = item;
-                bookshelfInteraction.instance.updateSprites();
-
                 Inventory.instance.Remove(item);
-            }
-        }
-    }
 
-    public void Interact()
-    {
-        Debug.Log(book);
-        Inventory.instance.Add(book);
-        book = null;
-        bookshelfInteraction.instance.updateSprites();
+                bookshelf.updateSprites();
+            }
+            
+        }
     }
 
     public bool check()

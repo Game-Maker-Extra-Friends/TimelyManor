@@ -5,13 +5,13 @@ using UnityEngine;
 public class bookshelfInteraction : MonoBehaviour
 {
 
-    public static bookshelfInteraction instance;
+    //public static bookshelfInteraction instance;
 
-    [Header("Book Slot Gameobjects")]
     public bookSlot left, middle, right;
 
     [Header("Book Sprites")]
     public Sprite blue, red, yellow;
+
 
     public void check()
     {
@@ -35,7 +35,7 @@ public class bookshelfInteraction : MonoBehaviour
 
     private void updateSlotSprite(bookSlot slot)
     {
-        if (slot == null)
+        if (slot.book == null)
         {
             slot.setSprite(null);
             return;

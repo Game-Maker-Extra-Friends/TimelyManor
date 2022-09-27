@@ -54,6 +54,7 @@ public class InventoryUI : MonoBehaviour
 
 	public void OnUpdateInventory()
 	{
+        Debug.Log("update inv ui");
         HideInventory();
 		DrawInventory();
 	}

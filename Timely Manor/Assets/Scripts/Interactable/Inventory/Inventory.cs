@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         item.pickedUp = false;
-        items.Remove(item);
+        //  items.Remove(item);
     }
 
     public Item GetItem(string itmName)

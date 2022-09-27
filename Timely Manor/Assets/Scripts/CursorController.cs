@@ -84,7 +84,7 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 					ItemCursor(FirstPersonController.instance.GetEquippedItem().icon);
 					if (clickAction.triggered)
 					{
-						hit.transform.SendMessage("Interact", FirstPersonController.instance.GetEquippedItem());
+						hit.transform.SendMessage("useItem", FirstPersonController.instance.GetEquippedItem());
 						FirstPersonController.instance.unEquipItem();
 						InventoryUI.instance.OnUpdateInventory();
 					}

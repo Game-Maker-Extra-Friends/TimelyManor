@@ -457,6 +457,7 @@ namespace StarterAssets
 		public void Equip(string itmName)
 		{
 			_equippedItem = Inventory.instance.GetItem(itmName);
+			Debug.Log("Item equipped: " + _equippedItem);
 		}
 
 		public Item GetEquippedItem()
@@ -467,6 +468,7 @@ namespace StarterAssets
 		public void unEquipItem()
 		{
 			_equippedItem = null;
+			Debug.Log("Item unequipped: " + _equippedItem);
 		}
 
 
