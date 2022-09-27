@@ -4153,14 +4153,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MusicPresent
-    clip: {fileID: 8300000, guid: 68bc842c0ccbf984b997f3e4766a154e, type: 3}
+    clip: {fileID: 8300000, guid: cdcc25492b8b0dc46b1eabee6f9163d3, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
     audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
   - name: MusicPast
-    clip: {fileID: 8300000, guid: 3ce1e7623024bde4a84f755c70d2e90e, type: 3}
+    clip: {fileID: 8300000, guid: 4405ca1ec372dbd42886129a3baf7207, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -4173,6 +4173,41 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: NewClueFoundSting
+    clip: {fileID: 8300000, guid: 47d8b283e4fb22f449938289c34db46e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: TimeTravelSting
+    clip: {fileID: 8300000, guid: 6af28d24310ce7643b4165cb2be570e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: TimeTravelSting
+    clip: {fileID: 8300000, guid: 6af28d24310ce7643b4165cb2be570e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 0976c84ce55f8ff46b3b871a96523289, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: PauseTheme
+    clip: {fileID: 8300000, guid: ae2d0c5cecdd7bd43bc1060d6d5cd56b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!1 &7756601610670444546
 GameObject:
   m_ObjectHideFlags: 0
@@ -14580,7 +14615,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8737373, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
