@@ -40,7 +40,16 @@ public class MysteryController : MonoBehaviour
                 e.CheckTriggers(clue);
                 RevealMysteryEntry(e);
             }
+            if (m.Complete)
+            {
+                Notification.instance.solvedMysteryNotification(); // Call newMystery notification to bring up notification
+            }
         }
+        if (mysteries.Count == 1)
+        {
+            Notification.instance.newMysteryNotification(); // Call newMystery notification to bring up notification
+        }
+
 
         if (clue.timeline == Enum.Timeline.Past) pastClueCount++;
         if (pastClueCount == 6) sixPastClues.Raise();
@@ -48,6 +57,7 @@ public class MysteryController : MonoBehaviour
         if (clue.name.Contains("Leather")) leatherBookCount++;
         if (leatherBookCount == 2) secondLeatherBook.Raise();
         if (leatherBookCount == 3) thirdLeatherBook.Raise();
+       
     }
 
     public void RevealMysteryEntry(MysteryEntry e)
@@ -57,6 +67,9 @@ public class MysteryController : MonoBehaviour
             if (e.revealed == false)
             {
                 Debug.Log("New Entries!");
+                Debug.Log(Notification.instance);
+                Notification.instance.updatedMysteryNotification(); // Call newMystery notification to bring up notification
+
             }
             e.revealed = true;
         }

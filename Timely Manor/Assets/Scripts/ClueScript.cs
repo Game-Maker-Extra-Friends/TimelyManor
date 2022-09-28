@@ -44,7 +44,11 @@ public class ClueScript : MonoBehaviour
 	{
 		if (GetComponent<BoxCollider>() != null)
 		{
-			GetComponent<BoxCollider>().enabled = false;
+			BoxCollider[] col = GetComponents<BoxCollider>();
+			foreach(BoxCollider c in col)
+            {
+				c.enabled = false;
+            }
 		}
 		else
 		{
