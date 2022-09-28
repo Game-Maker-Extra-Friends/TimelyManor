@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6166982740839369973}
   - component: {fileID: 4784443955752350365}
   - component: {fileID: 8200901563971762500}
+  - component: {fileID: 3583562371584410254}
   m_Layer: 0
   m_Name: FlowerLock
   m_TagString: Untagged
@@ -253,6 +254,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3583562371584410254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411546367430250813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ce95e3257da764198ddeb150cb821c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5888127014803660425
 GameObject:
   m_ObjectHideFlags: 0
