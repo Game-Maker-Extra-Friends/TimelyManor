@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9b4e58eaa2002469e2f763e3c37c08, type: 3}
   m_Name: combinationLock
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Combination Lock
   icon: {fileID: 0}
-  presentationMode: 0
-  description: description
+  presentationMode: 2
+  description: A combination lock, using pictures of flowers instead of digits. Likely
+    the owner relied on a memorable pattern
   content: 
-  display: {fileID: 0}
-  location: 0
+  display: {fileID: 1293961841606016251, guid: 38ec77dd203179740a74f7612ee9e70c, type: 3}
+  location: 2
   timeline: 0
   seen: 0
