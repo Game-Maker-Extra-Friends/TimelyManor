@@ -5,7 +5,7 @@ using UnityEngine;
 public class bookshelfInteraction : MonoBehaviour
 {
 
-    //public static bookshelfInteraction instance;
+    public float slideAmount = 1.9f;
 
     public bookSlot left, middle, right;
 
@@ -23,7 +23,33 @@ public class bookshelfInteraction : MonoBehaviour
 
     private void open()
     {
+        Debug.Log("open()");
+
+        // Kick player out of interaction
+        StarterAssets.FirstPersonController.instance.ExitAction.Enable();
+
+        GameObject g = this.gameObject.transform.GetChild(0).gameObject;
+
+        g.SetActive(false);
+
+        StartCoroutine(DoSlidingOpen());
         // Slide bookcase when books placed correctly
+    }
+
+    private IEnumerator DoSlidingOpen()
+    {
+        Vector3 endPos = transform.position + slideAmount * Vector3.back;
+        Vector3 startPos = transform.position;
+
+        float time = 0;
+
+        while (time < 1)
+        {
+            Debug.Log(time);
+            transform.position = Vector3.Lerp(startPos, endPos, time);
+            yield return null;
+            time += Time.deltaTime * 1f;
+        }
     }
 
     public void updateSprites()

@@ -21,14 +21,14 @@ public class bookSlot : ItemInteract
 
     public void Interact()
     {
-        Debug.Log("interact()");
-        if (book != null)
-        {
-            Inventory.instance.Add(book);
-            book = null;
+        //Debug.Log("interact()");
+        //if (book != null)
+        //{
+        //    Inventory.instance.Add(book);
+        //    book = null;
             
-            bookshelf.updateSprites();
-        }
+        //    bookshelf.updateSprites();
+        //}
     }
 
     public override void useItem(Item item = null)
@@ -36,12 +36,15 @@ public class bookSlot : ItemInteract
         Debug.Log("interact(item)");
         if (book == null)
         {
-            if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
+            //if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
+            if (item.name == reqItem)
             {
                 book = item;
                 Inventory.instance.Remove(item);
 
                 bookshelf.updateSprites();
+
+                bookshelf.check();
             }
             
         }
@@ -49,6 +52,7 @@ public class bookSlot : ItemInteract
 
     public bool check()
     {
+        //if (book == null) return false;
         if (book.name == reqItem)
         {
             return true;
