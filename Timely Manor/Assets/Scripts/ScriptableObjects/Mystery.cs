@@ -10,6 +10,7 @@ public class Mystery : ScriptableObject
     public List<MysteryEntry> entries;
     public string resolution;
 
+    public bool Complete => GetResolution() != "";
     public string GetResolution()
     {
         if (entries.Where(x => x.revealed).Count() == entries.Count)
