@@ -436,6 +436,8 @@ namespace StarterAssets
 
 				playerState = PlayerState.Interacting;
 
+				ClueCounting.instance.updateCurrentClue(col);
+
 				pressEText.gameObject.SetActive(false);
 				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
 				col.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
