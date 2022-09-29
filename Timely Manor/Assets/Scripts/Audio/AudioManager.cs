@@ -18,8 +18,8 @@ public class AudioManager : MonoBehaviour
         //{
         //    DestroyImmediate(gameObject);
         //}
-        
         instance = this;
+        
 
         // coroutineDone = false;
         //DontDestroyOnLoad(gameObject);
@@ -35,7 +35,9 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.audioMixerGroup;
+            s.source.playOnAwake = false;
         }
+        
     }
 
 
@@ -142,6 +144,7 @@ public class AudioManager : MonoBehaviour
 
         if (fadeOut)
         {
+            Debug.Log("Stopping Sound: " + s.name);
             s.source.Stop();
         }
         // coroutineDone = true;
