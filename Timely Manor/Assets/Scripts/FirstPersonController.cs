@@ -251,13 +251,13 @@ namespace StarterAssets
 			audioManager.Play("TimeTravelSting");
 			if(_timeState == TimeState.Present)
             {
-				Debug.Log("Fade out Present Music");
+				// Debug.Log("Fade out Present Music");
 				audioManager.FadeOut("MusicPresent", "MusicPast");
 				_timeState = TimeState.Past;
             }
             else
             {
-				Debug.Log("Fade out Past Music");
+				// Debug.Log("Fade out Past Music");
 				audioManager.FadeOut("MusicPast", "MusicPresent");
 				_timeState = TimeState.Present;
 			}
