@@ -127,12 +127,12 @@ namespace StarterAssets
 		public PlayerState playerState;
 
 		// Time travel
-		private enum TimeState
+		public enum TimeState
         {
 			Past,
 			Present
         }
-		private TimeState _timeState;
+		public TimeState _timeState;
 		public string pastScene, presentScene;
 		public Animator transition;
 		public Animator timetravelAnim;
@@ -248,6 +248,7 @@ namespace StarterAssets
         {
 			transition.SetTrigger("Start");
 			timetravelAnim.Play("stopwatch");
+			audioManager.Play("TimeTravelSting");
 			if(_timeState == TimeState.Present)
             {
 				Debug.Log("Fade out Present Music");

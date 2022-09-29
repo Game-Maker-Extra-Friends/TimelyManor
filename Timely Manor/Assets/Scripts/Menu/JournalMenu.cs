@@ -54,7 +54,15 @@ public class JournalMenu : MonoBehaviour
     {
         //Return the state to the original
         state.playerState = originalState;
-
+        AudioManager.instance.Stop("PauseTheme");
+        if (FirstPersonController.instance._timeState == FirstPersonController.TimeState.Past)
+        {
+            AudioManager.instance.FadeOut("PauseTheme", "MusicPast");
+        }
+        else
+        {
+            AudioManager.instance.FadeOut("PauseTheme", "MusicPresent");
+        }
         // Makes the cursor invisible and lock it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -83,7 +91,15 @@ public class JournalMenu : MonoBehaviour
         // Makes the cursor visible and unlock it
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
+        AudioManager.instance.Play("PauseTheme");
+        if(FirstPersonController.instance._timeState == FirstPersonController.TimeState.Past)
+        {
+            AudioManager.instance.FadeOut("MusicPast", "PauseTheme");
+        }
+        else
+        {
+            AudioManager.instance.FadeOut("MusicPresent", "PauseTheme");
+        }
         // Open the current page, e.g. if the player close on the inventory page, when the player open the journal again it will be on journal page
         currentPageObject.gameObject.SetActive(true);
 

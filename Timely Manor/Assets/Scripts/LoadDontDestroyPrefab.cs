@@ -24,6 +24,7 @@ public class LoadDontDestroyPrefab : MonoBehaviour
             Instantiate(dontDestroyPrefab, gameObject.transform.position, gameObject.transform.rotation);
             prefabExist = false;
         }
+        Debug.Log("Dont Destroy Exist:" + prefabExist);
     }
 
 }

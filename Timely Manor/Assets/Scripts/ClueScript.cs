@@ -31,11 +31,15 @@ public class ClueScript : MonoBehaviour
 			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
+			AudioManager.instance.Play("NewClueFoundSting");
 			ClueInventory.instance.Add(clue);
 			clue.seen = true;
 
-			if (clue.presentationMode == PresentationMode.Simple) DisableInteraction();
-
+			if (clue.presentationMode == PresentationMode.Simple)
+			{
+				AudioManager.instance.Play("NewClueFoundSting");
+				DisableInteraction();
+			}
 			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 		}
 	}
