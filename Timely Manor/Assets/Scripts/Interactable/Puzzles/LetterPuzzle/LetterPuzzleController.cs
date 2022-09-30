@@ -64,11 +64,11 @@ public class LetterPuzzleController : MonoBehaviour
         if (_correctCombination)
         {
             //_lightBulb.turnOn();
-            success.Play();
+            AudioManager.instance.Play("LockUnlocked");
         }
         else 
         {
-            fail.Play();
+            AudioManager.instance.Play("LockShaking");
         }
     }
 }

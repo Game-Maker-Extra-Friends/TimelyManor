@@ -72,7 +72,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 742cf0145d87eeb4ead4625c4ea691f4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fd7959c9775131c4c968d239f7b19dce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -168,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb540fc152f569248808d5eef1dc8be1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: da6df3fdd5d128846b811b04f8b06035, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -266,6 +266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ce95e3257da764198ddeb150cb821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxOpen: {fileID: 0}
+  boxBookTaken: {fileID: 0}
+  tumblerA: {fileID: 0}
+  tumblerB: {fileID: 0}
+  tumblerC: {fileID: 0}
 --- !u!1 &5888127014803660425
 GameObject:
   m_ObjectHideFlags: 0
