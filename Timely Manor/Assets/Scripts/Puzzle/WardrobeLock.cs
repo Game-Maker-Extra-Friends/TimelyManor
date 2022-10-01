@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodenBoxScript : MonoBehaviour
+public class WardrobeLock : MonoBehaviour
 {
     public SpriteRenderer render;
     public Sprite open;
@@ -14,7 +14,7 @@ public class WoodenBoxScript : MonoBehaviour
         Debug.Log("The Item is: " + item.name + " And the pickedUp bool is: " + item.pickedUp);
         if (item.pickedUp == true)
         {
-            Debug.Log("Blue Book Taken");
+            Debug.Log("Yellow Book Taken");
             TakeBook();
         }
     }
