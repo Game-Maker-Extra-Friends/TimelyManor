@@ -31,8 +31,9 @@ public class ClueScript : MonoBehaviour
 
 			AudioManager.instance.Play("NewClue");
 			AudioManager.instance.Play("NewClueFoundSting");
-			ClueInventory.instance.Add(clue);
 			clue.seen = true;
+			ClueInventory.instance.Add(clue);
+			
 
 			if (clue.presentationMode == PresentationMode.Simple)
 			{
