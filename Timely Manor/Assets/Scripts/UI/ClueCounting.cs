@@ -45,17 +45,13 @@ public class ClueCounting : MonoBehaviour
     public void updateButtonPrompt(Collider col)
     {
         updateCurrentClue(col);
-        Debug.Log(FirstPersonController.instance.playerState);
-        Debug.Log(count);
         if (count == 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
         {
-            Debug.Log("No Clues Left Button");
             image.gameObject.SetActive(true);
             image.sprite = noCluesLeft;
         }
         else if (count > 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
         {
-            Debug.Log("Clues Left Button");
             updateCurrentClue(currentCollider);
             image.gameObject.SetActive(true);
             image.sprite = cluesLeft;

@@ -456,7 +456,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588214
+  m_Name: pb_Mesh-13560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -640,7 +640,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-587778
+  m_Name: pb_Mesh-13124
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -804,7 +804,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-589442
+  m_Name: pb_Mesh-14788
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -968,7 +968,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588320
+  m_Name: pb_Mesh-13666
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2181,6 +2181,10 @@ PrefabInstance:
       propertyPath: m_Faces.Array.data[9].m_Uv.m_Offset.y
       value: 0.12786078
       objectReference: {fileID: 0}
+    - target: {fileID: 799753158603099028, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
     - target: {fileID: 1039970350510632253, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
       propertyPath: m_Name
       value: Rooms
@@ -2389,6 +2393,14 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 7688
       objectReference: {fileID: 0}
+    - target: {fileID: 2010234980863446391, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913791481818439462, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
     - target: {fileID: 3158416137526473290, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2421,14 +2433,46 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1240728592}
+    - target: {fileID: 3405347142494158341, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
     - target: {fileID: 3521378903450740018, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1487315299}
+    - target: {fileID: 4587093158087264272, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819629909927135291, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856485339043635712, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611571543025018976, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300590860917057299, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
     - target: {fileID: 8746384763522836870, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1487315299}
+    - target: {fileID: 8874867619462331723, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976114215886150857, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.778626
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc2273dbfc4c40d428534569eb985599, type: 3}
 --- !u!43 &874997241
@@ -2437,7 +2481,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588228
+  m_Name: pb_Mesh-13574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2601,7 +2645,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588334
+  m_Name: pb_Mesh-13680
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2765,7 +2809,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588242
+  m_Name: pb_Mesh-13588
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2939,7 +2983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588960
+  m_Name: pb_Mesh-14306
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3268,7 +3312,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-589516
+  m_Name: pb_Mesh-14862
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3432,7 +3476,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-589498
+  m_Name: pb_Mesh-14844
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3596,7 +3640,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-589456
+  m_Name: pb_Mesh-14802
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3760,7 +3804,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-589428
+  m_Name: pb_Mesh-14774
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4039,7 +4083,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh132790
+  m_Name: pb_Mesh42516
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -4193,7 +4237,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-590178
+  m_Name: pb_Mesh-15524
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4443,7 +4487,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-588348
+  m_Name: pb_Mesh-13694
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

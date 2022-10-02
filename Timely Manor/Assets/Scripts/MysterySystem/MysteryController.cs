@@ -17,6 +17,7 @@ public class MysteryController : MonoBehaviour
     void Start()
     {
         mysteries = Resources.LoadAll<Mystery>("Mysteries").ToList();
+        ClueScript.ClueInteract += OnCluePickup;
     }
 
     public void OnEventRaised(GameEvent evt)
@@ -50,7 +51,7 @@ public class MysteryController : MonoBehaviour
             Notification.instance.newMysteryNotification(); // Call newMystery notification to bring up notification
         }
 
-
+        Debug.Log(clue.timeline);
         if (clue.timeline == Enum.Timeline.Past) pastClueCount++;
         if (pastClueCount == 6) sixPastClues.Raise();
 

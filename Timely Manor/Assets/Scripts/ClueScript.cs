@@ -27,7 +27,6 @@ public class ClueScript : MonoBehaviour
 	{
 		if (!clue.seen || clue.presentationMode != PresentationMode.Simple)
 		{
-			Debug.Log("Interacting with clue");
 			ClueInteract?.Invoke(clue);
 
 			AudioManager.instance.Play("NewClue");
