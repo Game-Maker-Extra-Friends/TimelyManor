@@ -18,6 +18,7 @@ public class ClueCounting : MonoBehaviour
     public static ClueCounting instance;
     private Collider currentCollider;
 
+
     void Start()
     {
         instance = this;
@@ -41,6 +42,31 @@ public class ClueCounting : MonoBehaviour
         currentCollider = col;
     }
 
+    public void updateButtonPrompt(Collider col)
+    {
+        updateCurrentClue(col);
+        Debug.Log(FirstPersonController.instance.playerState);
+        Debug.Log(count);
+        if (count == 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
+        {
+            Debug.Log("No Clues Left Button");
+            image.gameObject.SetActive(true);
+            image.sprite = noCluesLeft;
+        }
+        else if (count > 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
+        {
+            Debug.Log("Clues Left Button");
+            updateCurrentClue(currentCollider);
+            image.gameObject.SetActive(true);
+            image.sprite = cluesLeft;
+        }
+    }
+
+    public void disable()
+    {
+        image.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         if(count == 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
@@ -53,10 +79,6 @@ public class ClueCounting : MonoBehaviour
             updateCurrentClue(currentCollider);
             image.gameObject.SetActive(true);
             image.sprite = cluesLeft;
-        }
-        else
-        {
-            image.gameObject.SetActive(false);
         }
     }
 }

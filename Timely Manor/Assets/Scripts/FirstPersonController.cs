@@ -209,7 +209,7 @@ namespace StarterAssets
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.None;
 
-				pressESCText.gameObject.SetActive(true);
+				// pressESCText.gameObject.SetActive(true);
 
 				
 				if (ExitAction.triggered)
@@ -222,7 +222,7 @@ namespace StarterAssets
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 					playerState = PlayerState.Moving;
 
-					pressESCText.gameObject.SetActive(false);
+					// pressESCText.gameObject.SetActive(false);
 					Cursor.visible = false;
 					Cursor.lockState = CursorLockMode.Locked;
 					Debug.Log("Cursor locked");
@@ -432,13 +432,13 @@ namespace StarterAssets
 			if (col.gameObject.tag == "InteractPoint" && _input.interact)
 			{
 
-				InventoryUI.instance.OnUpdateInventory();
+				InventoryUI.instance.OnUpdateInventory(); 
 
 				playerState = PlayerState.Interacting;
 
-				ClueCounting.instance.updateCurrentClue(col);
+				ClueCounting.instance.updateCurrentClue(col); // Update The Clue Counting 
 
-				pressEText.gameObject.SetActive(false);
+				// pressEText.gameObject.SetActive(false);
 				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
 				col.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
 
@@ -451,8 +451,8 @@ namespace StarterAssets
 			_input.interact = false; // Prevent E toggle bug
 			if (other.tag == "InteractPoint")
             {
-				pressEText.gameObject.SetActive(true);
-            }
+				ClueCounting.instance.updateButtonPrompt(other); // Swapped from E to Magnifying icon
+			}
 
 		}
 
@@ -479,7 +479,7 @@ namespace StarterAssets
 		{
 			if (other.tag == "InteractPoint")
             {
-				pressEText.gameObject.SetActive(false);
+				ClueCounting.instance.disable();
             }
 		}
 
