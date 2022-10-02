@@ -454,6 +454,12 @@ namespace StarterAssets
 				ClueCounting.instance.updateButtonPrompt(other); // Swapped from E to Magnifying icon
 			}
 
+			if (other.tag == "CameraTrigger")
+			{
+				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+				other.GetComponent<EndSequence>().Sequence();
+			}
+
 		}
 
 

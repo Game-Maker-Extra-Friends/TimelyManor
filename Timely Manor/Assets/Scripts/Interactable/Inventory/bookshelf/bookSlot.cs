@@ -52,7 +52,7 @@ public class bookSlot : ItemInteract
 
     public bool check()
     {
-        //if (book == null) return false;
+        if (book == null) return false;
         if (book.name == reqItem)
         {
             return true;

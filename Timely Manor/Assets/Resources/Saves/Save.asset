@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: Save
   m_EditorClassIdentifier: 
   itemInventoryObjectStates:
-  - objectName: Cube
-    pickedUp: 0
   - objectName: Key
-    pickedUp: 0
-  - objectName: YellowBook
     pickedUp: 0
   - objectName: Blue Leather Book
     pickedUp: 0
@@ -41,7 +37,7 @@ MonoBehaviour:
   - objectName: Game Board
     pickedUp: 0
   - objectName: Joey's Note
-    pickedUp: 0
+    pickedUp: 1
   - objectName: Past Book
     pickedUp: 0
   - objectName: Scattered Money
@@ -146,4 +142,4 @@ MonoBehaviour:
   resolutionIndex: 17
   graphicQuality: 5
   fullscreen: 1
-  mouseSensitivity: 0.94
+  mouseSensitivity: 0.15
