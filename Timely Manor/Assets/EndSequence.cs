@@ -12,6 +12,7 @@ public class EndSequence : MonoBehaviour
 
     public void Sequence()
     {
+        vcam.Priority = 10;
         cart.m_Position = 0;
     }
 }
