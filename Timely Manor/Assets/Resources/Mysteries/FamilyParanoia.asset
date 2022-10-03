@@ -12,6 +12,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62082e03423431f4e83dfb6f585e8944, type: 3}
   m_Name: FamilyParanoia
   m_EditorClassIdentifier: 
-  title: 
-  entries: []
-  resolution: 
+  title: Family Paranoia
+  entries:
+  - eventBased: 0
+    allRequired: 0
+    text: "\u201CThe family was going through a tumultuous time. I should figure
+      out what exactly was making them so upset.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 789c588e316d4514ebb655a681530061, type: 2}
+    - {fileID: 11400000, guid: c84b54fd5ea1149348dc61f1e22a53f1, type: 2}
+    - {fileID: 11400000, guid: aac264fe82354d34ba5755d620b9a84b, type: 2}
+    - {fileID: 11400000, guid: 22c9f09c3caa01c4fa5e6ff29635895e, type: 2}
+    - {fileID: 11400000, guid: 9092e65fcd4d5cc42a45f25e76bbe640, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: e943037fede8dc24687a98f44f1e7127, type: 2}
+    - {fileID: 11400000, guid: e37283da3bbeab04299317f138b2c2af, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CThe family was enjoying a game together, when a disturbance suddenly
+      interrupted their game. Patrick lashed out, started smashing up the floor with
+      a fire poker, terrifying his family. An outburst like this implies said disturbance
+      has happened frequently, enough to cause such a volatile reaction.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 789c588e316d4514ebb655a681530061, type: 2}
+    - {fileID: 11400000, guid: c84b54fd5ea1149348dc61f1e22a53f1, type: 2}
+    - {fileID: 11400000, guid: aac264fe82354d34ba5755d620b9a84b, type: 2}
+    - {fileID: 11400000, guid: 22c9f09c3caa01c4fa5e6ff29635895e, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CPatrick and Marianne were having a private conversation in the greenhouse,
+      discussing the terrifying noises coming from under the house. Marianne feared
+      for her children's safety, whereas Patrick was committed to protecting them,
+      going as far as to acquire a firearm illegally. Unknown to them, Samantha was
+      spying on the whole conversation. She seems quite intrigued by the idea of
+      a mystery to uncover, and has begun investigating the noises herself.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 9092e65fcd4d5cc42a45f25e76bbe640, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CPoor Benjamin seems quite disturbed by the constant noises in the
+      house. He\u2019s plagued by nightmares, and obsessing over his fears of the
+      manor. He\u2019s made a number of disturbing drawings that show his fragile
+      mental state.\u201D "
+    clueTriggers:
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: e943037fede8dc24687a98f44f1e7127, type: 2}
+    - {fileID: 11400000, guid: e37283da3bbeab04299317f138b2c2af, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CSamantha\u2019s reaction to the strange noises is quite unusual.
+      Instead of fear, she's been exhilarated at the premise of solving a mystery.
+      She\u2019s been searching for secrets all over the house, documenting everything
+      she does, yet she's not managed to find much.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 0
+  resolution: "\u201CAfter searching the past, I\u2019ve come to understand why the
+    family that resided here were so unnerved. For quite a while, strange and terrifying
+    noises have been eminiating from the house at night, terrifying most of the family.
+    Said noises have caused Patrick to become enraged and violent, whereas Marianne
+    and Benjamin are left terrified. Samantha was attempting to find the source of
+    the noises, to little success.\u201D"

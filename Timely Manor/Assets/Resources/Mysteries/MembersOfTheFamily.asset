@@ -12,6 +12,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62082e03423431f4e83dfb6f585e8944, type: 3}
   m_Name: MembersOfTheFamily
   m_EditorClassIdentifier: 
-  title: 
-  entries: []
-  resolution: 
+  title: Members of the Family
+  entries:
+  - eventBased: 0
+    allRequired: 0
+    text: "\u201CBack in the 1960\u2019s, a wealthy family lived here. I should build
+      a profile on the family members.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    - {fileID: 11400000, guid: 789c588e316d4514ebb655a681530061, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    - {fileID: 11400000, guid: aa22f85e691bf654582e6e2323ac228f, type: 2}
+    - {fileID: 11400000, guid: 1428172bfd816f94da34156dec7aee0f, type: 2}
+    - {fileID: 11400000, guid: 22c9f09c3caa01c4fa5e6ff29635895e, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CSamantha, the daughter of the family, quite the adventurous little
+      girl. She\u2019s  obsessed with her new home, desperate to uncover some big
+      secret. An overactive imagination, or something else?"
+    clueTriggers:
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CBenjamin, the son of the family. Seems quite upset and distressed
+      about moving house. Strange Poor kids having nightmares, parents don\u2019t
+      know what to do.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CMarianne, the mother. Spends her days looking after the children
+      and tending to quite an impressive garden. She\u2019s particularly worried
+      about their reaction to the move, and the strange noises at night.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 789c588e316d4514ebb655a681530061, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    - {fileID: 11400000, guid: aa22f85e691bf654582e6e2323ac228f, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CPatrick, the father of the family, hard working, but absent quite
+      often. Appears to be a successful architect, explaining the wealth. Also appears
+      to have an anger problem, causing damage around the house when spooked.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 1428172bfd816f94da34156dec7aee0f, type: 2}
+    - {fileID: 11400000, guid: 22c9f09c3caa01c4fa5e6ff29635895e, type: 2}
+    - {fileID: 11400000, guid: 789ea6179dce5ef4e8a713f4de1c9b3b, type: 2}
+    eventTriggers: []
+    revealed: 0
+  resolution: "\u201CI found out the names and personalities of each member of the
+    family that once lived here, but I still don\u2019t know what happened to them.\u201D"

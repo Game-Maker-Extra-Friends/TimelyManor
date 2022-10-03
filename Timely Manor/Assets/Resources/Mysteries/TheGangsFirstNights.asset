@@ -12,6 +12,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62082e03423431f4e83dfb6f585e8944, type: 3}
   m_Name: TheGangsFirstNights
   m_EditorClassIdentifier: 
-  title: 
-  entries: []
-  resolution: 
+  title: The Gangs First Nights
+  entries:
+  - eventBased: 0
+    allRequired: 0
+    text: "\u201CThese teenagers have had quite the time trashing this place. They\u2019ve
+      left more than enough evidence of their presence, maybe I can find out where
+      they\u2019ve ended up.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: 8d854cae785d0b04d8e55f6b3d69ad01, type: 2}
+    - {fileID: 11400000, guid: d4384abd17125104e81846a71d32a637, type: 2}
+    - {fileID: 11400000, guid: 3347cc5961c42764a90cc6c216e6c168, type: 2}
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 2d0ab96ed9011da4481502075877cd79, type: 2}
+    - {fileID: 11400000, guid: d79799feeb8eb0949ae1ab34e03ec7b0, type: 2}
+    - {fileID: 11400000, guid: 6539f1c095c0a714bbdaafeb51c886e3, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 67a0f4670bdc8ef4ea0797065542d3ef, type: 2}
+    - {fileID: 11400000, guid: dae669d09a057b34aa60a7de16e34874, type: 2}
+    - {fileID: 11400000, guid: 4767c52a5eaec3241a0f20d81d688225, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CThe teenagers spent most of their night partying in the family room,
+      using the manors furniture to store their empty cans and bottles. At one point,
+      the group of friends partook in using an unknown substance. Delilah, wanting
+      to fit in, hid her portion in one of the manors books, then lied about her
+      participation. At one point during the night, Kabir tried to spend some time
+      alone with Christine, but was calmly rejected.\u201D "
+    clueTriggers:
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: 8d854cae785d0b04d8e55f6b3d69ad01, type: 2}
+    - {fileID: 11400000, guid: d4384abd17125104e81846a71d32a637, type: 2}
+    - {fileID: 11400000, guid: 3347cc5961c42764a90cc6c216e6c168, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CThe greenhouse is where the teenagers first broke into the manor.
+      Joey had found this place some time before, smashing a window to sneak in.
+      A few nights later, he brought the rest of his friends, with the plans to repurpose
+      the building as a clubhouse. While his friends ran off to explore the manor,
+      Joey stayed behind to document his thoughts and create a map of his new home.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 2d0ab96ed9011da4481502075877cd79, type: 2}
+    - {fileID: 11400000, guid: d79799feeb8eb0949ae1ab34e03ec7b0, type: 2}
+    - {fileID: 11400000, guid: 6539f1c095c0a714bbdaafeb51c886e3, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CThe party died down in the bedrooms. Christine was feeling sick,
+      so her and Damon went outside. Kabir and Joey, still rowdy from the night,
+      took to destroying one of the walls in the bedrooms, under the pretence of
+      \u2018renovation.\u2019 While this was happening, Delilah began acting very
+      unusually, and began to paint some unusual markings on the wall. This concerned
+      Joey, but he likely passed out before he could finish writing his notes.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 67a0f4670bdc8ef4ea0797065542d3ef, type: 2}
+    - {fileID: 11400000, guid: dae669d09a057b34aa60a7de16e34874, type: 2}
+    - {fileID: 11400000, guid: 4767c52a5eaec3241a0f20d81d688225, type: 2}
+    eventTriggers: []
+    revealed: 0
+  resolution: "\u201CI\u2019ve created a recollection of the gang's first few nights
+    in the manor. After breaking into the manor, they developed plans to repurpose
+    the building as their clubhouse. They celebrated the idea with a massive party
+    across the manour\u2019s west wing. While most of the teens had fun and acted
+    recklessly, Delilah seemed disturbed throughout the night, leading to some actions
+    that concerned Joey. Unfortunately, I found no information regarding their current
+    whereabouts.\u201D"

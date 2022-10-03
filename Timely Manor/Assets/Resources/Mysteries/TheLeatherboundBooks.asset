@@ -12,6 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62082e03423431f4e83dfb6f585e8944, type: 3}
   m_Name: TheLeatherboundBooks
   m_EditorClassIdentifier: 
-  title: 
-  entries: []
+  title: The Leatherbound Books
+  entries:
+  - eventBased: 0
+    allRequired: 0
+    text: "\u201CI\u2019ve acquired a strange leatherbound book, presumably part
+      of a set. It's in pristine condition, unlike most of the objects in the manor.
+      If this book was intentionally hidden, then it must hold some importance. I
+      should look for others like\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: f00130362f4ec624bafb634fb982921a, type: 2}
+    - {fileID: 11400000, guid: ce306300c42ea964ebf251f51d3f1020, type: 2}
+    - {fileID: 11400000, guid: 42b08068603157d41b0838ce81862915, type: 2}
+    eventTriggers: []
+    revealed: 0
+  - eventBased: 1
+    allRequired: 0
+    text: "\u201CI\u2019ve found a second leather book, with a very similar craft
+      to the first one. I get the feeling I\u2019m still missing something.\u201D"
+    clueTriggers: []
+    eventTriggers:
+    - {fileID: 11400000, guid: 6fbc5e39110e0a64bb8ce7908cf34091, type: 2}
+    revealed: 0
+  - eventBased: 1
+    allRequired: 0
+    text: "\u201CI\u2019ve found a third and final leather  book, presumably the
+      last of the set. Now I just need to figure out what to do with them. Perhaps
+      there's somewhere I could place these?\u201D"
+    clueTriggers: []
+    eventTriggers:
+    - {fileID: 11400000, guid: aa63b5afa7dfe9d4aae66ed9570e4eee, type: 2}
+    revealed: 0
   resolution: 

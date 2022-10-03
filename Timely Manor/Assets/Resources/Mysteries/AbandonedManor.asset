@@ -23,4 +23,35 @@ MonoBehaviour:
     eventTriggers:
     - {fileID: 11400000, guid: 1b5f861749b9c1e428d8bc2d9f7cc8a9, type: 2}
     revealed: 1
+  - eventBased: 0
+    allRequired: 0
+    text: "\u201CCertain residents of the manor suffered from paranoia and hallucinations
+      that worsened rapidly the longer they resided in the manor.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: dae669d09a057b34aa60a7de16e34874, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 1
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CDelilah showed some understandable discomfort squatting in an abandoned
+      home in the woods, but her strange paintings on the wall are very unnatural
+      behaviour according to Joey.\u201D "
+    clueTriggers:
+    - {fileID: 11400000, guid: dae669d09a057b34aa60a7de16e34874, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    eventTriggers: []
+    revealed: 1
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CBenjamin's hatred of the manor originated from having to leave his
+      old friends behind. However, his behaviour seemed to grow quite erratic over
+      their first few weeks in the manor, scaring his sister.\""
+    clueTriggers:
+    - {fileID: 11400000, guid: e2f3f80fa41805a46893bb672fa2d086, type: 2}
+    - {fileID: 11400000, guid: 70cf304a0b055f14eae06475a81eca46, type: 2}
+    eventTriggers: []
+    revealed: 1
   resolution: 

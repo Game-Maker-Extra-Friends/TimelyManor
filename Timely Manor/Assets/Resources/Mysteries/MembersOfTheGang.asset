@@ -16,42 +16,68 @@ MonoBehaviour:
   entries:
   - eventBased: 0
     allRequired: 0
-    text: "Joey seems to be the adventurous member of the gang, being the one to
-      discover the manor and use it for himself. He\u2019s left a number of diary
-      pages around the house, which have helped me gain insight into their activities."
-    clueTriggers: []
+    text: "\u201CLooks like the teenagers spent a lot of time in this abandoned manor.
+      I have to build a profile for each of our missing teens.\u201D "
+    clueTriggers:
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
     eventTriggers: []
     revealed: 0
   - eventBased: 0
-    allRequired: 0
+    allRequired: 1
     text: Kabir is the daredevil of the gang. Breaking and entering, destruction
       of property, seems like a loose cannon. Likely has some form of infatuation
       with Christine.
-    clueTriggers: []
+    clueTriggers:
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: 8d854cae785d0b04d8e55f6b3d69ad01, type: 2}
     eventTriggers: []
     revealed: 0
   - eventBased: 0
-    allRequired: 0
+    allRequired: 1
     text: Delilah, the innocent one. Poor girl, dragged into the reckless actions
       of her friends, desperate to fit in. Refused to take the narcotics offered
       to her, but stashed them instead of telling her friends.
-    clueTriggers: []
+    clueTriggers:
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    - {fileID: 11400000, guid: b33450411c5c01f418bce79f01baa2d4, type: 2}
     eventTriggers: []
     revealed: 0
   - eventBased: 0
-    allRequired: 0
+    allRequired: 1
     text: "Damon, the quiet one, Christine's brother. Doesn\u2019t talk a lot, has
       some problems with Joey. Quite the heavy drinker, many of the empty bottles
       are attributed to him."
-    clueTriggers: []
+    clueTriggers:
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: d4384abd17125104e81846a71d32a637, type: 2}
     eventTriggers: []
     revealed: 0
   - eventBased: 0
-    allRequired: 0
+    allRequired: 1
     text: "Christine, the party animal, Damon\u2019s sister. Joey talks a lot about
       her, yet I can\u2019t seem to find any trace of her presence, save for a note
       from Kabir. Perhaps she left early?"
-    clueTriggers: []
+    clueTriggers:
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 8d854cae785d0b04d8e55f6b3d69ad01, type: 2}
     eventTriggers: []
     revealed: 0
-  resolution: 
+  - eventBased: 0
+    allRequired: 1
+    text: "\u201CJoey seems to be the adventurous member of the gang, being the one
+      to discover the manor and use it for himself. He\u2019s left a number of diary
+      pages around the house, which have helped me gain insight into their activities.\u201D"
+    clueTriggers:
+    - {fileID: 11400000, guid: 3f30e163cc2d4e14c8c9f0c49ec58d05, type: 2}
+    - {fileID: 11400000, guid: 8ef262a3b1202a541886193a773d7bb7, type: 2}
+    - {fileID: 11400000, guid: 3059404aca60e4178b8016900549ec55, type: 2}
+    eventTriggers: []
+    revealed: 0
+  resolution: "\u201CI found out the names and personalities of each of the teenagers.
+    Hopefully, this will help me figure out their current locations.\u201D"
