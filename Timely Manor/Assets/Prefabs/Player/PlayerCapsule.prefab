@@ -179,7 +179,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
+  m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.25
@@ -219,12 +219,18 @@ MonoBehaviour:
   teleportDistace: 100
   pressEText: {fileID: 0}
   pressESCText: {fileID: 0}
-  _audioManager: {fileID: 0}
-  _playerState: 0
+  uIController: {fileID: 0}
+  audioManager: {fileID: 0}
+  canPause: 0
+  playerState: 0
+  _timeState: 0
   pastScene: 
   presentScene: 
   transition: {fileID: 0}
+  timetravelAnim: {fileID: 0}
   transitionTime: 1
+  startGame: {fileID: 0}
+  activateTimeTravel: {fileID: 0}
 --- !u!114 &1978471637655604388
 MonoBehaviour:
   m_ObjectHideFlags: 0
