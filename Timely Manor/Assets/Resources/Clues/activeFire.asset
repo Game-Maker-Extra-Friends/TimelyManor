@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: activeFire
   m_EditorClassIdentifier: 
   name: Active Fire
-  icon: {fileID: 21300000, guid: dc140a70178a9b546a7da61118c97b58, type: 3}
+  icon: {fileID: 21300000, guid: 3daacf55c74019940b34db13f203580e, type: 3}
+  presentationMode: 0
   description: "The flame is\u2026 still running? People must have been here recently."
   content: 
+  display: {fileID: 0}
   location: 0
   timeline: 1
   seen: 0
-  presentationMode: 0
