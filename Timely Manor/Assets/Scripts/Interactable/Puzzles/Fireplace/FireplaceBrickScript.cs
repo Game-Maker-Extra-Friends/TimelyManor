@@ -36,6 +36,6 @@ public class FireplaceBrickScript : MonoBehaviour
     {
 		isPressed = false;
 		sprite.enabled = false;
-		sound.Play();
-    }
+		if (Time.timeSinceLevelLoad > 3) sound.Play();
+	}
 }
