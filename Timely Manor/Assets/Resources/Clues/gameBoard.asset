@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: gameBoard
   m_EditorClassIdentifier: 
   name: Game Board
-  icon: {fileID: 21300000, guid: 97024e4f7ac8b5e4d99aee67ead7b8d6, type: 3}
+  icon: {fileID: 21300000, guid: e615d43e2ae8a0a44b8c95d9b564b2f3, type: 3}
+  presentationMode: 0
   description: Game night, A few players gathered for a round at the table. Boards
     a mess though, looks like they never finished playing.
+  content: 
+  display: {fileID: 0}
   location: 0
   timeline: 1
+  seen: 0

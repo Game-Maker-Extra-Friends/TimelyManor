@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: damagedFloorboards
   m_EditorClassIdentifier: 
   name: Damaged Floorboards
-  icon: {fileID: 21300000, guid: ba46a74e98ff6bf4c9b1429ccb480688, type: 3}
+  icon: {fileID: 21300000, guid: dee0e7acda3f63e4eb9f105e5a8581f7, type: 3}
+  presentationMode: 0
   description: A large hole in the floorboards in an otherwise undamaged floor. Likely
     structural damage that has only spread since the manor was abandoned
   content: 
+  display: {fileID: 0}
   location: 0
   timeline: 1
   seen: 0
-  presentationMode: 0
