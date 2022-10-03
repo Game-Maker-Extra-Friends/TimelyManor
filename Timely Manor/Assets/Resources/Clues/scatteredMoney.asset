@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: scatteredMoney
   m_EditorClassIdentifier: 
   name: Scattered Money
-  icon: {fileID: 21300000, guid: 1d99d52cc84e10e4abb22efe07af0803, type: 3}
+  icon: {fileID: 21300000, guid: 4cfccea343ec8684494e0ce116a35143, type: 3}
+  presentationMode: 0
   description: Game pieces, scattered everywhere. Looks like game night was suddenly,
     violently interrupted
+  content: 
+  display: {fileID: 0}
   location: 0
   timeline: 1
   seen: 0
