@@ -429,7 +429,7 @@ namespace StarterAssets
 		private void OnTriggerStay(Collider col)
 		{
 			
-			if (col.gameObject.tag == "InteractPoint" && _input.interact)
+			if (col.gameObject.tag == "InteractPoint" && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
 			{
 
 				InventoryUI.instance.OnUpdateInventory(); 
