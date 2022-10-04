@@ -14499,7 +14499,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.8687707, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14984,10 +14984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Frame
       objectReference: {fileID: 0}
-    - target: {fileID: 3806407188099027556, guid: 576fad8f43332d14380507fd5f575665, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7671036384860626158, guid: 576fad8f43332d14380507fd5f575665, type: 3}
+      propertyPath: uIController
+      value: 
+      objectReference: {fileID: 7892820778809551153}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 576fad8f43332d14380507fd5f575665, type: 3}
 --- !u!114 &17259227450734992 stripped
