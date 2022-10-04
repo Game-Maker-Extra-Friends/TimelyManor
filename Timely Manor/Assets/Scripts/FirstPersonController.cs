@@ -108,6 +108,7 @@ namespace StarterAssets
 
 
 		public InputAction ExitAction => _playerInput.actions["Exit"];
+		public InputAction InteractAction => _playerInput.actions["Interact"];
 
 		// Audio
 		public AudioManager audioManager;
@@ -146,7 +147,7 @@ namespace StarterAssets
 
 		private Item _equippedItem = null;
 
-
+		private bool interactDelay = false;
 
 		private void Start()
 		{
@@ -189,6 +190,7 @@ namespace StarterAssets
 				GroundedCheck();
 				Move();
 				canPause = true;
+				interactDelay = false;
 			}
 			else
 			{
@@ -204,7 +206,7 @@ namespace StarterAssets
 
 			_input.timeTravel = false;
 
-			if (playerState == PlayerState.Interacting)
+			if (playerState == PlayerState.Interacting && interactDelay == false)
 			{
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.None;
@@ -212,7 +214,7 @@ namespace StarterAssets
 				// pressESCText.gameObject.SetActive(true);
 
 				
-				if (ExitAction.triggered)
+				if (ExitAction.triggered || InteractAction.triggered)
 				{
 				
 					InventoryUI.instance.HideInventory();
@@ -220,8 +222,8 @@ namespace StarterAssets
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
-					playerState = PlayerState.Moving;
 
+					StartCoroutine(disableInteract());
 					// pressESCText.gameObject.SetActive(false);
 					Cursor.visible = false;
 					Cursor.lockState = CursorLockMode.Locked;
@@ -229,12 +231,12 @@ namespace StarterAssets
 				}
 			}
 
-			
-			if (playerState == PlayerState.Reading)
+
+			if (playerState == PlayerState.Reading && interactDelay == false)
 			{
 				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
-				if (ExitAction.triggered)
+				if (ExitAction.triggered || InteractAction.triggered)
 				{
 					//tells openUI to exit
 					Debug.Log("exit action");
@@ -429,7 +431,7 @@ namespace StarterAssets
 		private void OnTriggerStay(Collider col)
 		{
 			
-			if (col.gameObject.tag == "InteractPoint" && _input.interact)
+			if (col.gameObject.tag == "InteractPoint" && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
 			{
 
 				InventoryUI.instance.OnUpdateInventory(); 
@@ -499,6 +501,16 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		IEnumerator disableInteract()
+        {
+			interactDelay = true;
+			_input.interact = false;
+			// Disable for a few second
+			yield return new WaitForSeconds(0.3f);
+			playerState = PlayerState.Moving;
+
 		}
 	}
 
