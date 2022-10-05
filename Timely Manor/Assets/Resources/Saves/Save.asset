@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInventoryObjectStates:
   - objectName: Key
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Blue Leather Bound Book
     pickedUp: 0
   - objectName: Red Leather Bound Book
@@ -37,7 +37,7 @@ MonoBehaviour:
   - objectName: Game Board
     pickedUp: 0
   - objectName: Joey's Note
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Past Book
     pickedUp: 0
   - objectName: Scattered Money
@@ -55,15 +55,15 @@ MonoBehaviour:
   - objectName: Secret Passage Book
     pickedUp: 0
   - objectName: Cracked Bricks
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Book with Fingerprints
     pickedUp: 0
   - objectName: Fireplace Beer Can
     pickedUp: 0
   - objectName: Powder Traces
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Scattered Bottles
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Decayed Books
     pickedUp: 0
   - objectName: Large Hole in Floorboards
@@ -75,7 +75,7 @@ MonoBehaviour:
   - objectName: New Item
     pickedUp: 1
   - objectName: Hidden Fireplace Note
-    pickedUp: 1
+    pickedUp: 0
   - objectName: JoeysDiaryBedroom
     pickedUp: 0
   - objectName: Large Flowers
@@ -109,7 +109,7 @@ MonoBehaviour:
   - objectName: Hand Paintings
     pickedUp: 0
   - objectName: Hidden Key
-    pickedUp: 1
+    pickedUp: 0
   - objectName: House Drawing
     pickedUp: 0
   - objectName: Joey's Bedroom Note
@@ -132,11 +132,13 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Yellow Leather Book
     pickedUp: 0
+  - objectName: Stashed Powder
+    pickedUp: 0
   fireplaceStates:
   - objectName: CodeLock
-    pickedUp: 1
+    pickedUp: 0
   - objectName: FireplacePast
-    pickedUp: 1
+    pickedUp: 0
   flowerLockStates: []
   masterVolume: 0
   sfxVolume: 0
@@ -144,4 +146,4 @@ MonoBehaviour:
   resolutionIndex: 17
   graphicQuality: 5
   fullscreen: 1
-  mouseSensitivity: 0.15
+  mouseSensitivity: 0.05

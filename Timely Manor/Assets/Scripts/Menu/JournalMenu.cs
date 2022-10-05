@@ -54,16 +54,16 @@ public class JournalMenu : MonoBehaviour
     {
         //Return the state to the original
         state.playerState = originalState;
-        AudioManager.instance.Stop("PauseTheme");
+        // AudioManager.instance.Stop("PauseTheme");
         if (FirstPersonController.instance._timeState == FirstPersonController.TimeState.Past)
         {
-            AudioManager.instance.Play("MusicPast");
-            // AudioManager.instance.FadeOut("PauseTheme", "MusicPast");
+            // AudioManager.instance.Play("MusicPast");
+            AudioManager.instance.FadeOut("PauseTheme", "MusicPast");
         }
         else
         {
-            AudioManager.instance.Play("MusicPresent");
-            // AudioManager.instance.FadeOut("PauseTheme", "MusicPresent");
+            // AudioManager.instance.Play("MusicPresent");
+            AudioManager.instance.FadeOut("PauseTheme", "MusicPresent");
         }
         // Makes the cursor invisible and lock it
         Cursor.lockState = CursorLockMode.Locked;
@@ -93,24 +93,24 @@ public class JournalMenu : MonoBehaviour
         // Makes the cursor visible and unlock it
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("The Audio Manager is:" + AudioManager.instance.name);
-        AudioManager.instance.Play("PauseTheme");
+        // Debug.Log("The Audio Manager is:" + AudioManager.instance.name);
+        // AudioManager.instance.Play("PauseTheme");
         if(FirstPersonController.instance._timeState == FirstPersonController.TimeState.Past)
         {
-            //AudioManager.instance.FadeOut("MusicPast", "PauseTheme");
-            AudioManager.instance.Stop("MusicPast");
+            AudioManager.instance.FadeOut("MusicPast", "PauseTheme");
+            // AudioManager.instance.Stop("MusicPast");
         }
         else
         {
-            AudioManager.instance.Stop("MusicPresent");
+            // AudioManager.instance.Stop("MusicPresent");
             //Debug.Log("Fading out Present and in Pause");
-            //AudioManager.instance.FadeOut("MusicPresent", "PauseTheme");
+            AudioManager.instance.FadeOut("MusicPresent", "PauseTheme");
         }
         // Open the current page, e.g. if the player close on the inventory page, when the player open the journal again it will be on journal page
         currentPageObject.gameObject.SetActive(true);
 
         //Pause time (Might be removed later since it will probably screw up the camrea)
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
 
         journalOpened = true;
         if(currentPageObject.name == "InventoryTab")
