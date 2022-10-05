@@ -77,7 +77,10 @@ public class Save : ScriptableObject
         {
             SaveSpritePuzzleState(i.objectName, 0);
         }
+        
+        #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);
+        #endif
     }
 
     // Gets state of item, returns null if not found
