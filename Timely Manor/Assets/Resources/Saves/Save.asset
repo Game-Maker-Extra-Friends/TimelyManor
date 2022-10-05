@@ -37,7 +37,7 @@ MonoBehaviour:
   - objectName: Game Board
     pickedUp: 0
   - objectName: Joey's Note
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Past Book
     pickedUp: 0
   - objectName: Scattered Money
@@ -61,9 +61,9 @@ MonoBehaviour:
   - objectName: Fireplace Beer Can
     pickedUp: 0
   - objectName: Powder Traces
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Scattered Bottles
-    pickedUp: 1
+    pickedUp: 0
   - objectName: Decayed Books
     pickedUp: 0
   - objectName: Large Hole in Floorboards
@@ -132,8 +132,12 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Yellow Leather Book
     pickedUp: 0
+  - objectName: Stashed Powder
+    pickedUp: 0
   fireplaceStates:
   - objectName: CodeLock
+    pickedUp: 0
+  - objectName: FireplacePast
     pickedUp: 0
   flowerLockStates: []
   masterVolume: 0
@@ -142,4 +146,4 @@ MonoBehaviour:
   resolutionIndex: 17
   graphicQuality: 5
   fullscreen: 1
-  mouseSensitivity: 0.15
+  mouseSensitivity: 0.05

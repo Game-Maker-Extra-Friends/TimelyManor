@@ -6445,7 +6445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7756601610989880408
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14636,7 +14636,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8687707, y: 1}
+    m_SensorSize: {x: 1.778626, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16607,6 +16607,10 @@ PrefabInstance:
       value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 3421419969821407414, guid: 02ac94d08414eb24bbe4528fa7ac4317, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421419969821407414, guid: 02ac94d08414eb24bbe4528fa7ac4317, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00007068273
       objectReference: {fileID: 0}
@@ -16796,7 +16800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8595338508492891733, guid: 02ac94d08414eb24bbe4528fa7ac4317, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 374.99997
+      value: 375.00006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ac94d08414eb24bbe4528fa7ac4317, type: 3}
