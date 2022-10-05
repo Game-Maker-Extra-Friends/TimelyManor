@@ -123,7 +123,8 @@ namespace StarterAssets
 			Interacting,
 			Reading,
 			Paused,
-			Journal
+			Journal,
+			EndDemoSequence
         }
 		public PlayerState playerState;
 

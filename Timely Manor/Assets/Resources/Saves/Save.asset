@@ -13,84 +13,26 @@ MonoBehaviour:
   m_Name: Save
   m_EditorClassIdentifier: 
   itemInventoryObjectStates:
-  - objectName: Key
-    pickedUp: 0
   - objectName: Blue Leather Bound Book
+    pickedUp: 0
+  - objectName: Key
     pickedUp: 0
   - objectName: Red Leather Bound Book
     pickedUp: 0
   - objectName: Yellow Leather Bound Book
     pickedUp: 0
   clueInventoryObjectStates:
-  - objectName: EmptyAlcohol
-    pickedUp: 0
-  - objectName: Drugs
-    pickedUp: 0
-  - objectName: Book Code
-    pickedUp: 0
-  - objectName: Present Book
-    pickedUp: 0
-  - objectName: CocaneLine
-    pickedUp: 0
-  - objectName: Torn Note
-    pickedUp: 0
-  - objectName: Game Board
-    pickedUp: 0
-  - objectName: Joey's Note
-    pickedUp: 0
-  - objectName: Past Book
-    pickedUp: 0
-  - objectName: Scattered Money
-    pickedUp: 0
-  - objectName: SamanthaNotebook
-    pickedUp: 0
-  - objectName: Fireplace Poker
-    pickedUp: 0
-  - objectName: Damaged Floorboards
-    pickedUp: 0
-  - objectName: Architectural Books
+  - objectName: Abandoned Drinks
     pickedUp: 0
   - objectName: Active Fire
     pickedUp: 0
-  - objectName: Secret Passage Book
-    pickedUp: 0
-  - objectName: Cracked Bricks
-    pickedUp: 0
-  - objectName: Book with Fingerprints
-    pickedUp: 0
-  - objectName: Fireplace Beer Can
-    pickedUp: 0
-  - objectName: Powder Traces
-    pickedUp: 0
-  - objectName: Scattered Bottles
-    pickedUp: 0
-  - objectName: Decayed Books
-    pickedUp: 0
-  - objectName: Large Hole in Floorboards
-    pickedUp: 0
-  - objectName: KabirFloorboardsNote
-    pickedUp: 0
-  - objectName: Lock Box
-    pickedUp: 0
-  - objectName: New Item
-    pickedUp: 1
-  - objectName: Hidden Fireplace Note
-    pickedUp: 0
-  - objectName: JoeysDiaryBedroom
-    pickedUp: 0
-  - objectName: Large Flowers
-    pickedUp: 0
-  - objectName: Samantha's Transcript
-    pickedUp: 0
-  - objectName: Small Flowers
-    pickedUp: 0
-  - objectName: Loaded Gun
-    pickedUp: 0
-  - objectName: Abandoned Drinks
+  - objectName: Architectural Books
     pickedUp: 0
   - objectName: Benjamin's Clothing
     pickedUp: 0
   - objectName: Blue Leather Book
+    pickedUp: 0
+  - objectName: Book with Fingerprints
     pickedUp: 0
   - objectName: Brick
     pickedUp: 0
@@ -98,15 +40,33 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Combination Lock
     pickedUp: 0
+  - objectName: Cracked Bricks
+    pickedUp: 0
   - objectName: Damaged Coat Rack
+    pickedUp: 0
+  - objectName: Damaged Floorboards
     pickedUp: 0
   - objectName: Damaged Safe
     pickedUp: 0
   - objectName: Dead Flowers
     pickedUp: 0
+  - objectName: Decayed Books
+    pickedUp: 0
   - objectName: Eyes Drawing
     pickedUp: 0
+  - objectName: Fireplace Beer Can
+    pickedUp: 0
+  - objectName: Hidden Fireplace Note
+    pickedUp: 0
+  - objectName: Fireplace Poker
+    pickedUp: 0
+  - objectName: Torn Note
+    pickedUp: 0
+  - objectName: Game Board
+    pickedUp: 0
   - objectName: Hand Paintings
+    pickedUp: 0
+  - objectName: Book Code
     pickedUp: 0
   - objectName: Hidden Key
     pickedUp: 0
@@ -118,21 +78,45 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: Joey's Map
     pickedUp: 0
+  - objectName: Joey's Note
+    pickedUp: 0
+  - objectName: KabirFloorboardsNote
+    pickedUp: 0
+  - objectName: Large Flowers
+    pickedUp: 0
+  - objectName: Large Hole in Floorboards
+    pickedUp: 0
+  - objectName: Loaded Gun
+    pickedUp: 0
+  - objectName: Lock Box
+    pickedUp: 0
   - objectName: Locked Box
     pickedUp: 0
   - objectName: Missing Painting Drawing
     pickedUp: 0
   - objectName: Novel Collection
     pickedUp: 0
+  - objectName: Powder Traces
+    pickedUp: 0
   - objectName: Red Leather Book
+    pickedUp: 0
+  - objectName: Samantha's Transcript
     pickedUp: 0
   - objectName: Samantha's Clothing
     pickedUp: 0
   - objectName: Samantha's Notebook
     pickedUp: 0
-  - objectName: Yellow Leather Book
+  - objectName: Scattered Bottles
+    pickedUp: 0
+  - objectName: Scattered Money
+    pickedUp: 0
+  - objectName: Secret Passage Book
+    pickedUp: 0
+  - objectName: Small Flowers
     pickedUp: 0
   - objectName: Stashed Powder
+    pickedUp: 0
+  - objectName: Yellow Leather Book
     pickedUp: 0
   fireplaceStates:
   - objectName: CodeLock
