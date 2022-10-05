@@ -15,7 +15,6 @@ public class LoadOptions : MonoBehaviour
     void Start()
     {
         Save save = Resources.Load<Save>("Saves/Save");
-        Debug.Log(save.name);
         audioMixer.SetFloat("master_volume", save.masterVolume);
         audioMixer.SetFloat("sfx_volume", save.sfxVolume);
         audioMixer.SetFloat("music_volume", save.musicVolume);

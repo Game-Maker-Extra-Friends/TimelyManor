@@ -54,6 +54,11 @@ public class Save : ScriptableObject
     //Set all progress to 0
     public void Reset()
     {
+        Debug.Log("Resetting save");
+
+        itemInventoryObjectStates.Clear();
+        clueInventoryObjectStates.Clear();
+
         foreach (Clue c in Resources.LoadAll<Clue>("Clues"))
         {
             SaveClueState(c.name, false);
@@ -72,6 +77,7 @@ public class Save : ScriptableObject
         {
             SaveSpritePuzzleState(i.objectName, 0);
         }
+        UnityEditor.EditorUtility.SetDirty(this);
     }
 
     // Gets state of item, returns null if not found
@@ -136,11 +142,13 @@ public class Save : ScriptableObject
         // Create new if not found
         if (s == null)
         {
+            Debug.Log(name + " not found. Creating save entry with value " + pickedUp);
             states.Add(new InventoryObjectState(name, pickedUp));
         }
         // Edit existing
         else
         {
+            Debug.Log(name + " found! setting value to " + pickedUp);
             s.pickedUp = pickedUp;
         }
     }
