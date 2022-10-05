@@ -8,7 +8,6 @@ using Cinemachine;
 public class EndSequence : MonoBehaviour
 {
     public CinemachineDollyCart cart;
-    public CinemachineTrack track; 
 	public CinemachineVirtualCamera vcam;
 
     public void Sequence()
@@ -27,6 +26,9 @@ public class EndSequence : MonoBehaviour
     IEnumerator EndOfAllThings()
     {
         yield return new WaitForSeconds(transitionTime);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         SceneManager.LoadScene("OutroScene");
     }
