@@ -102,6 +102,7 @@ public class Save : ScriptableObject
 
     public void SaveFireplaceState(string fireplaceName, bool completed)
     {
+        Debug.Log(fireplaceName + " = " + completed);
         SaveInventoryObjectState(fireplaceStates, fireplaceName, completed);
     }
 
