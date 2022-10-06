@@ -217,6 +217,9 @@ namespace StarterAssets
 				
 				if (ExitAction.triggered || InteractAction.triggered)
 				{
+					Cursor.visible = false;
+					Cursor.lockState = CursorLockMode.Locked;
+					StartCoroutine(disableInteract());
 				
 					InventoryUI.instance.HideInventory();
 					unEquipItem();
@@ -224,10 +227,7 @@ namespace StarterAssets
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 
-					StartCoroutine(disableInteract());
 					// pressESCText.gameObject.SetActive(false);
-					Cursor.visible = false;
-					Cursor.lockState = CursorLockMode.Locked;
 					Debug.Log("Cursor locked");
 				}
 			}
