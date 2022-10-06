@@ -19,8 +19,12 @@ public class bookSlot : ItemInteract
         bookshelf = transform.GetComponentInParent<bookshelfInteraction>();
         if (ES3.KeyExists(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3"))
         {
-            book = ES3.Load<Item>(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3");
-            useItem(book);
+            Item tempBook = ES3.Load<Item>(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3");
+            if(tempBook != null)
+            {
+                useItemFromSave(tempBook);
+            }
+            
         }
 
     }
@@ -53,6 +57,24 @@ public class bookSlot : ItemInteract
                 bookshelf.check();
             }
             
+        }
+        ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
+    }
+    public void useItemFromSave(Item item)
+    {
+        Debug.Log("interact(item)");
+        if (book == null)
+        {
+            //if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
+            if (item.name == reqItem)
+            {
+                book = item;
+
+                bookshelf.updateSprites();
+
+                bookshelf.check();
+            }
+
         }
         ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
     }
