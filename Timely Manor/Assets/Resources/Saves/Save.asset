@@ -123,7 +123,23 @@ MonoBehaviour:
     pickedUp: 0
   - objectName: FireplacePast
     pickedUp: 0
-  flowerLockStates: []
+  flowerLockStates:
+  - objectName: Letter
+    currentImgNum: 1
+  - objectName: Letter (1)
+    currentImgNum: 4
+  - objectName: Letter (2)
+    currentImgNum: 2
+  - objectName: Letter (4)
+    currentImgNum: 3
+  - objectName: Image (1)
+    currentImgNum: 0
+  - objectName: Image
+    currentImgNum: 0
+  - objectName: Image (2)
+    currentImgNum: 0
+  - objectName: Letter (3)
+    currentImgNum: 0
   masterVolume: 0
   sfxVolume: 0
   musicVolume: 0
