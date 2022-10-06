@@ -187,6 +187,8 @@ namespace StarterAssets
 		{
 			if (playerState == PlayerState.Moving)
             {
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
@@ -215,7 +217,7 @@ namespace StarterAssets
 				// pressESCText.gameObject.SetActive(true);
 
 				
-				if (ExitAction.triggered || InteractAction.triggered)
+				if (ExitAction.triggered || InteractAction.triggered) // 
 				{
 					Cursor.visible = false;
 					Cursor.lockState = CursorLockMode.Locked;
@@ -237,7 +239,7 @@ namespace StarterAssets
 			{
 				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
-				if (ExitAction.triggered || InteractAction.triggered)
+				if (ExitAction.triggered || InteractAction.triggered) // 
 				{
 					//tells openUI to exit
 					Debug.Log("exit action");

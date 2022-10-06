@@ -69,6 +69,14 @@ public class Save : ScriptableObject
             SaveItemState(i.name, false);
             i.pickedUp = false;
         }
+        foreach (Mystery m in Resources.LoadAll<Mystery>("Mysteries"))
+        {
+            foreach(MysteryEntry me in m.entries)
+            {
+                me.revealed = false;
+            }
+            m.Complete = false;
+        }
         foreach (InventoryObjectState i in fireplaceStates)
         {
             SaveFireplaceState(i.objectName, false);
