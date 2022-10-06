@@ -9,7 +9,7 @@ public class bookSlot : ItemInteract
 
     private string blueBookName = "Blue Leather Bound Book", redBookName = "Red Leather Bound Book", yellowBookName = "Yellow Leather Bound Book";
 
-    private SpriteRenderer bookSprite;
+    public SpriteRenderer bookSprite;
 
     private bookshelfInteraction bookshelf;
 
@@ -52,7 +52,7 @@ public class bookSlot : ItemInteract
                 book = item;
                 Inventory.instance.Remove(item);
 
-                bookshelf.updateSprites();
+                bookshelf.updateSprites(gameObject.name);
 
                 bookshelf.check();
             }
@@ -62,20 +62,12 @@ public class bookSlot : ItemInteract
     }
     public void useItemFromSave(Item item)
     {
-        Debug.Log("interact(item)");
-        if (book == null)
-        {
-            //if (item.name == blueBookName || item.name == redBookName || item.name == yellowBookName)
-            if (item.name == reqItem)
-            {
-                book = item;
+        book = item;
 
-                bookshelf.updateSprites();
+        bookshelf.updateSprites(gameObject.name);
 
-                bookshelf.check();
-            }
+        bookshelf.check();
 
-        }
         ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
     }
 
@@ -105,6 +97,7 @@ public class bookSlot : ItemInteract
 
     public void setSprite(Sprite sprite)
     {
+        Debug.Log("The Book Sprite is: " + bookSprite.name + " The Sprite is: " + sprite);
         bookSprite.sprite = sprite;
     }
 }

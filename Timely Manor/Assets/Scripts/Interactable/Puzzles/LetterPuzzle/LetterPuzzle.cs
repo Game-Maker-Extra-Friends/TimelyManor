@@ -21,23 +21,24 @@ public class LetterPuzzle : MonoBehaviour
 
     private void Start()
     {
-        Save save = Resources.Load<Save>("Saves/Save");
-        // If the flower lock is not zero then load
-        if (save.LoadSpritePuzzleState(name) != 0)
-        {
-            currentImageNum = save.LoadSpritePuzzleState(name);
-            updateImage();
-        }
+        //Save save = Resources.Load<Save>("Saves/Save");
+        //// If the flower lock is not zero then load
+        //if (save.LoadSpritePuzzleState(name) != 0)
+        //{
+        //    currentImageNum = save.LoadSpritePuzzleState(name);
+        //    updateImage();
+        //}
         if (ES3.KeyExists(gameObject.name + "currentImage", "Saves/CombinationPuzzle.es3"))
         {
             currentImageNum = ES3.Load<int>(gameObject.name + "currentImage", "Saves/CombinationPuzzle.es3");
+            updateImage();
         }
 
     }
 
     public void updateImage()
     {
-        Save save = Resources.Load<Save>("Saves/Save");
+        //Save save = Resources.Load<Save>("Saves/Save");
         for (int i = 0; i < sprites.Length; i++)
         {
             if(currentImageNum == i)
@@ -54,7 +55,7 @@ public class LetterPuzzle : MonoBehaviour
                 }
             }
         }
-        save.SaveSpritePuzzleState(name, currentImageNum);
+        // save.SaveSpritePuzzleState(name, currentImageNum);
         ES3.Save(gameObject.name + "currentImage", currentImageNum, "Saves/CombinationPuzzle.es3");
     }
 

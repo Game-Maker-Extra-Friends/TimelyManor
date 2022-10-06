@@ -52,11 +52,14 @@ public class bookshelfInteraction : MonoBehaviour
         }
     }
 
-    public void updateSprites()
+    public void updateSprites(string s)
     {
-        updateSlotSprite(left);
-        updateSlotSprite(middle);
-        updateSlotSprite(right);
+        if(s == "bookSlotLeft")
+           updateSlotSprite(left);
+        if (s == "bookSlotMiddle")
+            updateSlotSprite(middle);
+        if (s == "bookSlotRight")
+            updateSlotSprite(right);
     }
 
     private void updateSlotSprite(bookSlot slot)

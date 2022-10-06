@@ -57,6 +57,7 @@ MonoBehaviour:
   openBox: {fileID: 7470979466226868282}
   bookTaken: {fileID: 9094618335492264209}
   book: {fileID: 6071851740256067044}
+  pickedUpAndUsed: 0
 --- !u!1 &3063658500463631799
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
+  wardrobe: {fileID: 0}
+  forWoodenBox: 1
+  forWardrobe: 0
 --- !u!1 &6890744833395526000
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,8 +549,7 @@ MonoBehaviour:
   _correctCombination: 0
   _lightBulb: {fileID: 0}
   lightBulb: {fileID: 0}
-  fail: {fileID: 0}
-  success: {fileID: 0}
+  combinationFromLoad: 0
 --- !u!1 &8888412319806419823
 GameObject:
   m_ObjectHideFlags: 0
