@@ -74,8 +74,8 @@ public class Save : ScriptableObject
             foreach(MysteryEntry me in m.entries)
             {
                 me.revealed = false;
+                me.triggersMet = 0;
             }
-            m.Complete = false;
         }
         foreach (InventoryObjectState i in fireplaceStates)
         {

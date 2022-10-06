@@ -10,7 +10,7 @@ public class MysteryEntry
     public string text;
     public List<Clue> clueTriggers;
     public List<GameEvent> eventTriggers;
-    private int triggersMet;
+    public int triggersMet;
     public bool revealed;
 
     public bool Complete
