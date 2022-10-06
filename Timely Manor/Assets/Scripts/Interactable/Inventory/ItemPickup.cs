@@ -13,6 +13,12 @@ public class ItemPickup : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (ES3.KeyExists(item.name, "Saves/ItemSaves.es3"))
+        {
+            item.pickedUp = ES3.Load<bool>(item.name, "Saves/ItemSaves.es3");
+            Debug.Log("Save exists");
+        }
+
     }
 
     public void Interact()
@@ -24,17 +30,18 @@ public class ItemPickup : MonoBehaviour
         if (wasPickedUp)
         {
             item.pickedUp = true;
+            ES3.Save(item.name, item.pickedUp, "Saves/ItemSaves.es3");
             Destroy(gameObject);
         }
     }
 
     private void OnApplicationQuit()
     {
-        Resources.Load<Save>("Saves/Save").SaveItemState(item.name, item.pickedUp);
+        //Resources.Load<Save>("Saves/Save").SaveItemState(item.name, item.pickedUp);
     }
 
     private void OnDestroy()
     {
-        Resources.Load<Save>("Saves/Save").SaveItemState(item.name, item.pickedUp);
+        //Resources.Load<Save>("Saves/Save").SaveItemState(item.name, item.pickedUp);
     }
 }

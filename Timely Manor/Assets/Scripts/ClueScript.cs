@@ -18,7 +18,13 @@ public class ClueScript : MonoBehaviour
 	public void Start()
     {
 		// Set the type to Clue in case people forgot to change it in edito
-		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
+		// clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
+
+
+		if (ES3.KeyExists(clue.name + "Seen", "Saves/ClueSaves.es3"))
+		{
+			clue.seen = ES3.Load<bool>(clue.name + "Seen", "Saves/ClueSaves.es3");
+		}
 
 		if (clue.seen == true && clue.presentationMode == PresentationMode.Simple) DisableInteraction();
     }
@@ -40,7 +46,8 @@ public class ClueScript : MonoBehaviour
 				AudioManager.instance.Play("NewClueFoundSting");
 				DisableInteraction();
 			}
-			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+			//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+			ES3.Save(clue.name + "Seen", clue.seen, "Saves/ClueSaves.es3");
 		}
 	}
 
@@ -62,11 +69,11 @@ public class ClueScript : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+		//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 	}
 
 	private void OnDestroy()
 	{
-		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+		//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 	}
 }

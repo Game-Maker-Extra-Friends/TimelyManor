@@ -11,28 +11,40 @@ public class FireplaceScript : MonoBehaviour
     public string attemptedCode = "";
 
     public AudioSource Success;
+    public bool checkFromSave = false;
 
     private void Start()
     {
-        CheckCode();
+        if (ES3.KeyExists(gameObject.name + "CorrectCode", "Saves/FirePlace.es3"))
+        {
+            attemptedCode = ES3.Load<string>(gameObject.name + "CorrectCode", "Saves/FirePlace.es3");
+            checkFromSave = true;
+            CheckCode();
+        }
+        // CheckCode();
     }
 
     private void CheckCode()
     {
-        Save save = Resources.Load<Save>("Saves/Save");
+        //Save save = Resources.Load<Save>("Saves/Save");
 
-        if (attemptedCode == code || save.LoadFireplaceState(name))
+        if (attemptedCode == code) //|| save.LoadFireplaceState(name)
         {
             Debug.Log("unlocked");
-            Success.Play();
+            if(checkFromSave == false)
+            {
+                Success.Play();
+            }
 
             foreach (Transform brick in transform)
                 brick.gameObject.SetActive(false);
 
+            checkFromSave = true;
             unsolved.enabled = false;
             finished.enabled = true;
             if (key != null) key.SetActive(true);
-            save.SaveFireplaceState(name, true);
+            // save.SaveFireplaceState(name, true);
+            ES3.Save(gameObject.name + "CorrectCode", attemptedCode, "Saves/FirePlace.es3");
         }
         else
         {

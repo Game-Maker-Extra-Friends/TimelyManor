@@ -28,7 +28,11 @@ public class LetterPuzzle : MonoBehaviour
             currentImageNum = save.LoadSpritePuzzleState(name);
             updateImage();
         }
-        
+        if (ES3.KeyExists(gameObject.name + "currentImage", "Saves/CombinationPuzzle.es3"))
+        {
+            currentImageNum = ES3.Load<int>(gameObject.name + "currentImage", "Saves/CombinationPuzzle.es3");
+        }
+
     }
 
     public void updateImage()
@@ -51,6 +55,7 @@ public class LetterPuzzle : MonoBehaviour
             }
         }
         save.SaveSpritePuzzleState(name, currentImageNum);
+        ES3.Save(gameObject.name + "currentImage", currentImageNum, "Saves/CombinationPuzzle.es3");
     }
 
     //call on the + - button 

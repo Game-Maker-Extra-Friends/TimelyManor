@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        Resources.Load<Save>("Saves/Save").Reset();
+        //Resources.Load<Save>("Saves/Save").Reset();
+        ES3.DeleteDirectory("Saves/");
         Debug.Log("Save Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

@@ -18,17 +18,14 @@ public class LetterPuzzleController : MonoBehaviour
     public AudioSource fail;
     public AudioSource success;
 
-    //private void Start()
-    //{
-    //    Save save = Resources.Load<Save>("Saves/Save");
-    //    // If the flower lock is not zero then load
-    //    if (save.LoadSpritePuzzleState(name) != 0)
-    //    {
-    //        currentImageNum = save.LoadSpritePuzzleState(name);
-    //        updateImage();
-    //    }
+    private void Start()
+    {
+        if (ES3.KeyExists(gameObject.name + "correctCombination", "Saves/CombinationPuzzle.es3"))
+        {
+            _correctCombination = ES3.Load<bool>(gameObject.name + "correctCombination", "Saves/CombinationPuzzle.es3");
+        }
 
-    //}
+    }
 
     public void CheckAnswer()
     {
@@ -70,5 +67,6 @@ public class LetterPuzzleController : MonoBehaviour
         {
             AudioManager.instance.Play("LockShaking");
         }
+        ES3.Save(gameObject.name + "correctCombination", _correctCombination, "Saves/CombinationPuzzle.es3");
     }
 }
