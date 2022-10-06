@@ -17,6 +17,12 @@ public class bookSlot : ItemInteract
     {
         bookSprite = gameObject.GetComponent<SpriteRenderer>();
         bookshelf = transform.GetComponentInParent<bookshelfInteraction>();
+        if (ES3.KeyExists(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3"))
+        {
+            book = ES3.Load<Item>(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3");
+            useItem(book);
+        }
+
     }
 
     public void Interact()
@@ -48,6 +54,7 @@ public class bookSlot : ItemInteract
             }
             
         }
+        ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
     }
 
     public bool check()
