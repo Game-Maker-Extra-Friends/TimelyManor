@@ -5873,6 +5873,7 @@ GameObject:
   - component: {fileID: 7756601610851330653}
   - component: {fileID: 7756601610851330654}
   - component: {fileID: 7756601610851330655}
+  - component: {fileID: 4929915620949868189}
   m_Layer: 2
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -6125,6 +6126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4587d7a088622ac4b8fbd0c9d1cdf6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4929915620949868189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756601610851330625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b20699288d5c5b4ba42a5f2813d4e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 7756601612429130035}
+  MaxUseDistance: 2
+  UseLayers:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  followCamera: {fileID: 7756601612472120803}
 --- !u!1 &7756601610882322368
 GameObject:
   m_ObjectHideFlags: 0
@@ -14409,7 +14428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612429130036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14599,7 +14618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612472120803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14636,7 +14655,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.778626, y: 1}
+    m_SensorSize: {x: 2.0739796, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

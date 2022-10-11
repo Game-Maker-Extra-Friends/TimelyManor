@@ -1138,6 +1138,7 @@ MonoBehaviour:
   code: 12345
   attemptedCode: 
   Success: {fileID: 3064507324845561666}
+  checkFromSave: 0
 --- !u!82 &3064507324845561666
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1847,27 +1848,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Size.x
-      value: 4.999999
+      value: 11.092039
       objectReference: {fileID: 0}
     - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Size.y
-      value: 4.224216
+      value: 1.3127731
+      objectReference: {fileID: 0}
+    - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
+      propertyPath: m_Size.z
+      value: 17.22267
+      objectReference: {fileID: 0}
+    - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Center.x
-      value: -0.00000005938527
+      value: -0.038611963
       objectReference: {fileID: 0}
     - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Center.y
-      value: 0.3878929
+      value: 3.8226895
       objectReference: {fileID: 0}
     - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Center.z
-      value: -2.311961
+      value: -7.507775
       objectReference: {fileID: 0}
     - target: {fileID: 1369832022781119059, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Name
       value: InteractPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369832022781119059, guid: a67dae22626407b4aac531aef54f9767, type: 3}
+      propertyPath: m_TagString
+      value: InteractLook
       objectReference: {fileID: 0}
     - target: {fileID: 1369832022781119059, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_StaticEditorFlags
