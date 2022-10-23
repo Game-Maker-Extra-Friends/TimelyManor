@@ -433,11 +433,15 @@ namespace StarterAssets
 
 		private void OnTriggerStay(Collider col)
 		{
-			
-			if (col.gameObject.tag == "InteractPoint" && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
-			{
+			EnterInteract(col);
+		}
 
-				InventoryUI.instance.OnUpdateInventory(); 
+		public void EnterInteract(Collider col)
+        {
+			if ((col.gameObject.tag == "InteractPoint" || col.gameObject.tag == "InteractLook") && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
+			{
+				Debug.Log("Enter interact" + col.GetComponentInChildren<CinemachineVirtualCamera>());
+				InventoryUI.instance.OnUpdateInventory();
 
 				playerState = PlayerState.Interacting;
 

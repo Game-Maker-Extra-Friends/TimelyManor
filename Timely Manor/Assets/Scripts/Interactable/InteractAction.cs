@@ -19,22 +19,24 @@ public class InteractAction : MonoBehaviour
 
     public void OnInteract()
     {
-        if(FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+        if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
         {
-
         }
-        if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers))
+        else
         {
-            if (hit.collider.tag == "InteractLook")
+            if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers))
             {
-                followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
-                hit.collider.gameObject.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
-            }
-            else
-            {
-                ClueCounting.instance.disable();
+                if (hit.collider.tag == "InteractLook")
+                {
+                    FirstPersonController.instance.EnterInteract(hit.collider);
+                }
+                else
+                {
+                    ClueCounting.instance.disable();
+                }
             }
         }
+        
     }
 
     private void Update()
