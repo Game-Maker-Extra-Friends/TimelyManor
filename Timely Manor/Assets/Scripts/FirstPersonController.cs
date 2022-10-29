@@ -188,9 +188,7 @@ namespace StarterAssets
 		private void Update()
 		{
 			if (playerState == PlayerState.Moving)
-            {
-				Cursor.visible = false;
-				Cursor.lockState = CursorLockMode.Locked;
+			{
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
@@ -208,39 +206,19 @@ namespace StarterAssets
 			}
 			else if (playerState == PlayerState.Interacting && interactDelay == false)
 			{
-				canPause = false;
-			}
-			
-			if (_input.timeTravel && playerState == PlayerState.Moving )
-            {
-				_input.timeTravel = false;
-				playerState = PlayerState.TimeTraveling;
-				StartCoroutine(TimeTravel());
-			}
-
-			_input.timeTravel = false;
-
-			if (playerState == PlayerState.Interacting && interactDelay == false)
-			{
-				Cursor.visible = true;
-				Cursor.lockState = CursorLockMode.None;
-
-				// pressESCText.gameObject.SetActive(true);
-
-				
-				if (ExitAction.triggered || InteractAction.triggered) // 
+				if (ExitAction.triggered || InteractAction.triggered)
 				{
-					Cursor.visible = false;
-					Cursor.lockState = CursorLockMode.Locked;
-					StartCoroutine(disableInteract());
-			
+
 					InventoryUI.instance.HideInventory();
 					unEquipItem();
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 
+					StartCoroutine(disableInteract());
 					// pressESCText.gameObject.SetActive(false);
+					Cursor.visible = false;
+					Cursor.lockState = CursorLockMode.Locked;
 					Debug.Log("Cursor locked");
 				}
 			}
@@ -248,7 +226,7 @@ namespace StarterAssets
 			{
 				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
-				if (ExitAction.triggered || InteractAction.triggered) // 
+				if (ExitAction.triggered || InteractAction.triggered)
 				{
 					//tells openUI to exit
 					Debug.Log("exit action");
@@ -270,10 +248,10 @@ namespace StarterAssets
 			if (Physics.Raycast(ray.origin, ray.direction, out hit, 8, interactionLayer))
 			{
 				ClueCounting.instance.updateButtonPrompt(hit.collider);
-				if (InteractAction.triggered)
+				if (InteractAction.triggered || ExitAction.triggered)
 				{
 					InventoryUI.instance.OnUpdateInventory();
-
+					
 					playerState = PlayerState.Interacting;
 
 					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
