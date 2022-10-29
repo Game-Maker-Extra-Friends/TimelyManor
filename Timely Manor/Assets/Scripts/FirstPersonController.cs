@@ -115,6 +115,8 @@ namespace StarterAssets
 
 		public bool canPause;
 
+		public LayerMask interactionLayer;
+
 		// State enums
 		public enum PlayerState
         {
@@ -194,8 +196,17 @@ namespace StarterAssets
 				Move();
 				canPause = true;
 				interactDelay = false;
+
+				ClueOnReticleCheck();
+
+				if (_input.timeTravel)
+				{
+					_input.timeTravel = false;
+					playerState = PlayerState.TimeTraveling;
+					StartCoroutine(TimeTravel());
+				}
 			}
-			else
+			else if (playerState == PlayerState.Interacting && interactDelay == false)
 			{
 				canPause = false;
 			}
@@ -222,7 +233,7 @@ namespace StarterAssets
 					Cursor.visible = false;
 					Cursor.lockState = CursorLockMode.Locked;
 					StartCoroutine(disableInteract());
-				
+			
 					InventoryUI.instance.HideInventory();
 					unEquipItem();
 
@@ -233,9 +244,7 @@ namespace StarterAssets
 					Debug.Log("Cursor locked");
 				}
 			}
-
-
-			if (playerState == PlayerState.Reading && interactDelay == false)
+			else if (playerState == PlayerState.Reading && interactDelay == false)
 			{
 				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
@@ -245,8 +254,43 @@ namespace StarterAssets
 					Debug.Log("exit action");
 					playerState = uIController.ExitUILayer() ? PlayerState.Reading : PlayerState.Interacting;
 				}
-				
+
 			}
+			else
+			{
+				canPause = false;
+			}
+		}
+
+		private void ClueOnReticleCheck()
+		{
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
+			RaycastHit hit;
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, 8, interactionLayer))
+			{
+				ClueCounting.instance.updateButtonPrompt(hit.collider);
+				if (InteractAction.triggered)
+				{
+					InventoryUI.instance.OnUpdateInventory();
+
+					playerState = PlayerState.Interacting;
+
+					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
+
+					// pressEText.gameObject.SetActive(false);
+					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+					hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
+					Cursor.visible = true;
+					Cursor.lockState = CursorLockMode.None;
+				}
+			}
+			else
+			{
+				ClueCounting.instance.disable();
+			}
+
 		}
 
 		IEnumerator TimeTravel()
