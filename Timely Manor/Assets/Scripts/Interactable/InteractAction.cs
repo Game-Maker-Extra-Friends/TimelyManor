@@ -46,5 +46,10 @@ public class InteractAction : MonoBehaviour
             ClueCounting.instance.updateCurrentClue(hit.collider);
             ClueCounting.instance.updateButtonPrompt(hit.collider);
         }
+        else
+        {
+            ClueCounting.instance.disable();
+        }
     }
+
 }
