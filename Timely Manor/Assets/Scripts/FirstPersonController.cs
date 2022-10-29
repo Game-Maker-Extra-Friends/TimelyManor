@@ -115,6 +115,8 @@ namespace StarterAssets
 
 		public bool canPause;
 
+		public LayerMask interactionLayer;
+
 		// State enums
 		public enum PlayerState
         {
@@ -123,8 +125,7 @@ namespace StarterAssets
 			Interacting,
 			Reading,
 			Paused,
-			Journal,
-			EndDemoSequence
+			Journal
         }
 		public PlayerState playerState;
 
@@ -187,66 +188,86 @@ namespace StarterAssets
 		{
 			if (playerState == PlayerState.Moving)
             {
-				Cursor.visible = false;
-				Cursor.lockState = CursorLockMode.Locked;
 				JumpAndGravity();
 				GroundedCheck();
 				Move();
 				canPause = true;
 				interactDelay = false;
-			}
-			else
-			{
-				canPause = false;
-			}
-			
-			if (_input.timeTravel && playerState == PlayerState.Moving )
-            {
-				_input.timeTravel = false;
-				playerState = PlayerState.TimeTraveling;
-				StartCoroutine(TimeTravel());
-			}
 
-			_input.timeTravel = false;
+				ClueOnReticleCheck();
 
-			if (playerState == PlayerState.Interacting && interactDelay == false)
-			{
-				Cursor.visible = true;
-				Cursor.lockState = CursorLockMode.None;
-
-				// pressESCText.gameObject.SetActive(true);
-
-				
-				if (ExitAction.triggered || InteractAction.triggered) // 
+				if (_input.timeTravel)
 				{
-					Cursor.visible = false;
-					Cursor.lockState = CursorLockMode.Locked;
-					StartCoroutine(disableInteract());
-				
+					_input.timeTravel = false;
+					playerState = PlayerState.TimeTraveling;
+					StartCoroutine(TimeTravel());
+				}
+			}
+			else if (playerState == PlayerState.Interacting && interactDelay == false)
+			{
+				if (ExitAction.triggered || InteractAction.triggered)
+				{
+
 					InventoryUI.instance.HideInventory();
 					unEquipItem();
 
 					_mainCamera.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 1;
 					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 10;
 
+					StartCoroutine(disableInteract());
 					// pressESCText.gameObject.SetActive(false);
+					Cursor.visible = false;
+					Cursor.lockState = CursorLockMode.Locked;
 					Debug.Log("Cursor locked");
 				}
 			}
-
-
-			if (playerState == PlayerState.Reading && interactDelay == false)
+			else if (playerState == PlayerState.Reading && interactDelay == false)
 			{
 				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
-				if (ExitAction.triggered || InteractAction.triggered) // 
+				if (ExitAction.triggered || InteractAction.triggered)
 				{
 					//tells openUI to exit
 					Debug.Log("exit action");
 					playerState = uIController.ExitUILayer() ? PlayerState.Reading : PlayerState.Interacting;
 				}
-				
+
 			}
+			else
+			{
+				canPause = false;
+			}
+		}
+
+		private void ClueOnReticleCheck()
+		{
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
+			RaycastHit hit;
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, 8, interactionLayer))
+			{
+				ClueCounting.instance.updateButtonPrompt(hit.collider);
+				if (InteractAction.triggered)
+				{
+					InventoryUI.instance.OnUpdateInventory();
+
+					playerState = PlayerState.Interacting;
+
+					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
+
+					// pressEText.gameObject.SetActive(false);
+					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+					hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
+					Cursor.visible = true;
+					Cursor.lockState = CursorLockMode.None;
+				}
+			}
+			else
+			{
+				ClueCounting.instance.disable();
+			}
+
 		}
 
 		IEnumerator TimeTravel()
@@ -433,15 +454,11 @@ namespace StarterAssets
 
 		private void OnTriggerStay(Collider col)
 		{
-			EnterInteract(col);
-		}
-
-		public void EnterInteract(Collider col)
-        {
-			if ((col.gameObject.tag == "InteractPoint" || col.gameObject.tag == "InteractLook") && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
+			
+			if (col.gameObject.tag == "InteractPoint" && _input.interact && (playerState != PlayerState.Interacting && playerState != PlayerState.Reading))
 			{
-				Debug.Log("Enter interact" + col.GetComponentInChildren<CinemachineVirtualCamera>());
-				InventoryUI.instance.OnUpdateInventory();
+
+				InventoryUI.instance.OnUpdateInventory(); 
 
 				playerState = PlayerState.Interacting;
 
