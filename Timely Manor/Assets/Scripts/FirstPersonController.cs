@@ -245,7 +245,7 @@ namespace StarterAssets
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 			RaycastHit hit;
-			if (Physics.Raycast(ray.origin, ray.direction, out hit, 8, interactionLayer))
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, 3, interactionLayer))
 			{
 				ClueCounting.instance.updateCurrentClue(hit.collider);
 				ClueCounting.instance.updateButtonPrompt(hit.collider);
