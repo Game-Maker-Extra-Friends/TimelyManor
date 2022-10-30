@@ -247,6 +247,7 @@ namespace StarterAssets
 			RaycastHit hit;
 			if (Physics.Raycast(ray.origin, ray.direction, out hit, 8, interactionLayer))
 			{
+				ClueCounting.instance.updateCurrentClue(hit.collider);
 				ClueCounting.instance.updateButtonPrompt(hit.collider);
 				if (InteractAction.triggered || ExitAction.triggered)
 				{
@@ -514,10 +515,10 @@ namespace StarterAssets
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.tag == "InteractPoint")
-            {
-				ClueCounting.instance.disable();
-            }
+			//if (other.tag == "InteractPoint")
+   //         {
+			//	ClueCounting.instance.disable();
+   //         }
 		}
 
 		private void OnDrawGizmosSelected()
