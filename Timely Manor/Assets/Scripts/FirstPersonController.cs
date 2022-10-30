@@ -249,10 +249,11 @@ namespace StarterAssets
 			{
 				ClueCounting.instance.updateCurrentClue(hit.collider);
 				ClueCounting.instance.updateButtonPrompt(hit.collider);
-				if (InteractAction.triggered || ExitAction.triggered)
+				if (InteractAction.triggered && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
 				{
 					InventoryUI.instance.OnUpdateInventory();
-					
+					canPause = false;
+
 					playerState = PlayerState.Interacting;
 
 					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
@@ -264,9 +265,26 @@ namespace StarterAssets
 					Cursor.visible = true;
 					Cursor.lockState = CursorLockMode.None;
 				}
+				else if((InteractAction.triggered || ExitAction.triggered) && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+                {
+					InventoryUI.instance.OnUpdateInventory();
+
+					playerState = PlayerState.Interacting;
+
+					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
+
+					// pressEText.gameObject.SetActive(false);
+					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+					hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
+					Cursor.visible = true;
+					Cursor.lockState = CursorLockMode.None;
+					canPause = true;
+				}
 			}
 			else
 			{
+				canPause = true;
 				ClueCounting.instance.disable();
 			}
 
