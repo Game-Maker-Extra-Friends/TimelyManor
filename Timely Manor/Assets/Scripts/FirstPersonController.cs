@@ -245,49 +245,66 @@ namespace StarterAssets
 			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 			Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 			RaycastHit hit;
-			if (Physics.Raycast(ray.origin, ray.direction, out hit, 3, interactionLayer))
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, 3, Physics.AllLayers)) // Before it was Interaction layer only so it will go through walls
 			{
-				ClueCounting.instance.updateCurrentClue(hit.collider);
-				ClueCounting.instance.updateButtonPrompt(hit.collider);
-				if (InteractAction.triggered && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
-				{
-					InventoryUI.instance.OnUpdateInventory();
-					canPause = false;
-
-					playerState = PlayerState.Interacting;
-
-					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
-
-					// pressEText.gameObject.SetActive(false);
-					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
-					hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
-
-					Cursor.visible = true;
-					Cursor.lockState = CursorLockMode.None;
-				}
-				else if((InteractAction.triggered || ExitAction.triggered) && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+				if (hit.transform.tag == "InteractLook")
                 {
-					InventoryUI.instance.OnUpdateInventory();
-
-					playerState = PlayerState.Interacting;
-
-					ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
-
-					// pressEText.gameObject.SetActive(false);
-					followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
-					hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
-
-					Cursor.visible = true;
-					Cursor.lockState = CursorLockMode.None;
-					canPause = true;
+					CanInteract(hit);
 				}
-			}
-			else
-			{
-				canPause = true;
-				ClueCounting.instance.disable();
-			}
+				else if (hit.transform.tag == "Clickable") // So that it can access the interaction box collider behind it
+                {
+					if (Physics.Raycast(ray.origin, ray.direction, out hit, 3, interactionLayer))
+                    {
+						CanInteract(hit);
+					}
+				}
+				else
+				{
+					canPause = true;
+					ClueCounting.instance.disable();
+				}
 
+			}
+				
+
+		}
+
+		public void CanInteract(RaycastHit hit)
+        {
+			ClueCounting.instance.updateCurrentClue(hit.collider);
+			ClueCounting.instance.updateButtonPrompt(hit.collider);
+			if (InteractAction.triggered && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Moving)
+			{
+				InventoryUI.instance.OnUpdateInventory();
+				canPause = false;
+
+				playerState = PlayerState.Interacting;
+
+				ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
+
+				// pressEText.gameObject.SetActive(false);
+				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+				hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+			}
+			else if ((InteractAction.triggered || ExitAction.triggered) && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+			{
+				InventoryUI.instance.OnUpdateInventory();
+
+				playerState = PlayerState.Interacting;
+
+				ClueCounting.instance.updateCurrentClue(hit.collider); // Update The Clue Counting 
+
+				// pressEText.gameObject.SetActive(false);
+				followCamera.GetComponent<CinemachineVirtualCamera>().Priority = 1;
+				hit.collider.GetComponentInChildren<CinemachineVirtualCamera>().Priority = 10;
+
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+				canPause = true;
+			}
 		}
 
 		IEnumerator TimeTravel()
