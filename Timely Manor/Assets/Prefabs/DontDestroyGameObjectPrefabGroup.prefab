@@ -1515,7 +1515,7 @@ RectTransform:
   m_Children:
   - {fileID: 1491143646689380601}
   m_Father: {fileID: 7756601612127305653}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12298,8 +12298,8 @@ Transform:
   - {fileID: 7756601611638064168}
   - {fileID: 7756601610655249832}
   - {fileID: 7756601610516610463}
-  - {fileID: 602088561113402645}
   - {fileID: 4782630669332853740}
+  - {fileID: 602088561113402645}
   - {fileID: 5712796087006137689}
   - {fileID: 3808912435883151317}
   - {fileID: 1880916704804449103}
@@ -14412,7 +14412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612429130036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14602,7 +14602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612472120803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14639,7 +14639,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8915254, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16295,7 +16295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406861185710265074, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1406861185710265074, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_LocalScale.x
@@ -16424,6 +16424,10 @@ PrefabInstance:
     - target: {fileID: 6534040790084225012, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_Size
       value: 0.25731528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534040790084225012, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
+      propertyPath: m_Value
+      value: 0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: 7348124598937634468, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_SizeDelta.y
