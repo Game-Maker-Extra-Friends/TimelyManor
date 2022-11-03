@@ -39,7 +39,7 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
 	public void ClueCursor()
     {
-        Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
+		Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
 	public void ItemCursor(Texture image)
@@ -57,8 +57,10 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
 	public void OnPointerExit(PointerEventData data)
 	{
+		Debug.Log("1");
 		if (data.selectedObject.CompareTag("Clickable"))
 		{
+			Debug.Log("2");
 			DefaultCursor();
 		}
 	}
@@ -98,18 +100,18 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
             }
 			else
-			{ 
-				// Change mouse cursor as appropriate
-				if (hit.transform.gameObject.CompareTag("Clickable"))
-				{
-					ClueCursor();
-				}
-				else
-				{
-					DefaultCursor();
-				}
+			{
+                //// Change mouse cursor as appropriate
+                if (hit.transform.gameObject.CompareTag("Clickable"))
+                {
+                    ClueCursor();
+                }
+                else
+                {
+                    DefaultCursor();
+                }
 
-				if (clickAction.triggered)
+                if (clickAction.triggered)
 				{
 					if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
 					{

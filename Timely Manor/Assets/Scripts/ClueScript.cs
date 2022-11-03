@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using UnityEngine.EventSystems;
 
-public class ClueScript : MonoBehaviour
+public class ClueScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	public delegate void interact(Clue clue);
 	public static event interact ClueInteract;
@@ -66,6 +67,18 @@ public class ClueScript : MonoBehaviour
 			GetComponent<Button>().enabled = false;
 		}
 	}
+
+	public void OnPointerEnter(PointerEventData data)
+	{
+		
+		CursorController.instance.ClueCursor();
+	}
+
+	public void OnPointerExit(PointerEventData data)
+	{
+		CursorController.instance.DefaultCursor();
+	}
+
 
 	private void OnApplicationQuit()
 	{

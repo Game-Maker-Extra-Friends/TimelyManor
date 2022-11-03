@@ -229,7 +229,6 @@ namespace StarterAssets
 				if (ExitAction.triggered || InteractAction.triggered)
 				{
 					//tells openUI to exit
-					Debug.Log("exit action");
 					playerState = uIController.ExitUILayer() ? PlayerState.Reading : PlayerState.Interacting;
 				}
 
