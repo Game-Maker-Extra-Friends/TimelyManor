@@ -224,7 +224,6 @@ namespace StarterAssets
 			}
 			else if (playerState == PlayerState.Reading && interactDelay == false)
 			{
-				CursorController.instance.DefaultCursor();
 				//only true on the frame its pressed. prevents player from leaving interact state the frame after exiting reading state
 				if (ExitAction.triggered || InteractAction.triggered)
 				{

@@ -34,11 +34,13 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void DefaultCursor()
     {
+		Debug.Log("Default Cursor");
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
 	public void ClueCursor()
     {
+		Debug.Log("Clue Cursor");
 		Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
@@ -57,10 +59,8 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
 	public void OnPointerExit(PointerEventData data)
 	{
-		Debug.Log("1");
 		if (data.selectedObject.CompareTag("Clickable"))
 		{
-			Debug.Log("2");
 			DefaultCursor();
 		}
 	}
@@ -99,7 +99,8 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 				}
 
             }
-			else
+
+			if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
 			{
                 //// Change mouse cursor as appropriate
                 if (hit.transform.gameObject.CompareTag("Clickable"))
