@@ -99,8 +99,7 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 				}
 
             }
-
-			if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+			else if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
 			{
                 //// Change mouse cursor as appropriate
                 if (hit.transform.gameObject.CompareTag("Clickable"))
