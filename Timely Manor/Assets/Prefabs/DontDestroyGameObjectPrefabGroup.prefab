@@ -12275,6 +12275,7 @@ GameObject:
   - component: {fileID: 7892820778809551153}
   - component: {fileID: 8716446881285916049}
   - component: {fileID: 2670036058877563380}
+  - component: {fileID: 5260264891273368086}
   m_Layer: 0
   m_Name: CanvasGroup
   m_TagString: Untagged
@@ -12381,6 +12382,19 @@ MonoBehaviour:
   frame: {fileID: 3427507491533098166}
   icon: {fileID: 80078293302101183}
   description: {fileID: 80078293837903656}
+--- !u!114 &5260264891273368086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756601612127305654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123fbbb2caeb341409bc26708e528173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!1 &7756601612129897741
 GameObject:
   m_ObjectHideFlags: 0
@@ -14639,7 +14653,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7538201, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16423,11 +16437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6534040790084225012, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_Size
-      value: 0.25731528
+      value: 0.25731522
       objectReference: {fileID: 0}
     - target: {fileID: 6534040790084225012, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_Value
-      value: 0.50000006
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7348124598937634468, guid: 8c7306d15dbcff448a5050bf61ef6ae7, type: 3}
       propertyPath: m_SizeDelta.y

@@ -263,7 +263,12 @@ namespace StarterAssets
 				}
 
 			}
-				
+			else
+			{
+				canPause = true;
+				ClueCounting.instance.disable();
+			}
+
 
 		}
 

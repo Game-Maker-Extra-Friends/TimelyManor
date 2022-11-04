@@ -48,11 +48,11 @@ public class ClueScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 				DisableInteraction();
 			}
 
-			if (clue.presentationMode == PresentationMode.Complex)
-			{
-				FirstPersonController.instance.playerState = FirstPersonController.PlayerState.Reading;
-				DisableInteraction();
-			}
+			//if (clue.presentationMode == PresentationMode.Complex)
+			//{
+			//	FirstPersonController.instance.playerState = FirstPersonController.PlayerState.Reading;
+			//	DisableInteraction();
+			//}
 
 			//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 			ES3.Save(clue.name + "Seen", clue.seen, "Saves/ClueSaves.es3");

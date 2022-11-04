@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472292018881368799}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -15.905, y: 11.02, z: 4.912}
+  m_LocalPosition: {x: -15.72, y: 11.02, z: 3.99}
   m_LocalScale: {x: 0.45407006, y: 0.45407, z: 0.45407}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8106,24 +8106,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c7579e46a730b148a0729063496baba, type: 3}
---- !u!1 &1607525565821368757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3957782524123411102, guid: 9c7579e46a730b148a0729063496baba, type: 3}
-  m_PrefabInstance: {fileID: 6871422379122504919}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &6871422378814877713
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607525565821368757}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010484996, y: 0.044513103, z: 0.011188914}
-  m_Center: {x: 0.000062410814, y: -0.017256562, z: -0.000019004936}
 --- !u!4 &6401457036608492348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c7579e46a730b148a0729063496baba, type: 3}
@@ -8160,6 +8142,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -1.1557056
       objectReference: {fileID: 0}
+    - target: {fileID: 310147638816731739, guid: a67dae22626407b4aac531aef54f9767, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1369832022781119059, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_Name
       value: InteractPoint
@@ -8170,7 +8156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1369832022781119059, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: InteractLook
       objectReference: {fileID: 0}
     - target: {fileID: 1808698764563578651, guid: a67dae22626407b4aac531aef54f9767, type: 3}
       propertyPath: m_RootOrder
