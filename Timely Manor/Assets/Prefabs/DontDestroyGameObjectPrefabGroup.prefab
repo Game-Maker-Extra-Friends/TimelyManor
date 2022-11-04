@@ -4590,14 +4590,28 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-    audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
   - name: LockShaking
     clip: {fileID: 8300000, guid: fd7959c9775131c4c968d239f7b19dce, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-    audioMixerGroup: {fileID: -917017897424933501, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: BookPutIn
+    clip: {fileID: 8300000, guid: cf5dadb28003b5045a1da0c4e826067d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
+  - name: Bookshelf
+    clip: {fileID: 8300000, guid: 8a46781e936b67f4ea30fa1d2b892e02, type: 3}
+    volume: 0.619
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -6742842023421740756, guid: 5535538c09db5f643b72d39feb87374a, type: 2}
 --- !u!1 &7756601610670444546
 GameObject:
   m_ObjectHideFlags: 0
@@ -14426,7 +14440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612429130036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14616,7 +14630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756601612472120803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3689995, y: -1.848, z: -17.57}
+  m_LocalPosition: {x: 12.094147, y: -1.848, z: -17.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

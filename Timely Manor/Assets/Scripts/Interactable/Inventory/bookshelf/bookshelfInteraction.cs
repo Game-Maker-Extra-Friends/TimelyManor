@@ -31,6 +31,7 @@ public class bookshelfInteraction : MonoBehaviour
         GameObject g = this.gameObject.transform.GetChild(0).gameObject;
 
         g.SetActive(false);
+        AudioManager.instance.Play("Bookshelf");
 
         StartCoroutine(DoSlidingOpen());
         // Slide bookcase when books placed correctly
@@ -55,11 +56,20 @@ public class bookshelfInteraction : MonoBehaviour
     public void updateSprites(string s)
     {
         if(s == "bookSlotLeft")
+        {
            updateSlotSprite(left);
+           AudioManager.instance.Play("BookPutIn");
+        }
         if (s == "bookSlotMiddle")
+        {
             updateSlotSprite(middle);
+            AudioManager.instance.Play("BookPutIn");
+        }
         if (s == "bookSlotRight")
+        {
             updateSlotSprite(right);
+            AudioManager.instance.Play("BookPutIn");
+        }
     }
 
     private void updateSlotSprite(bookSlot slot)
