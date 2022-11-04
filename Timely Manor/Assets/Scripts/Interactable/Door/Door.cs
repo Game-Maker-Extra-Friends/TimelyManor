@@ -42,7 +42,6 @@ public class Door : MonoBehaviour
                 float dot = Vector3.Dot(Forward, (UserPosition - transform.position).normalized);
                 Debug.Log($"Dot: {dot.ToString("N3")}");
                 AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
-                Debug.Log("The dot number is: " + dot);
             }
         }
     }
@@ -58,13 +57,11 @@ public class Door : MonoBehaviour
         {
 
             endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
-            Debug.Log("Door open Forward");
         }
         else
         {
             
             endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
-            Debug.Log("Door open backward");
         }
 
         IsOpen = true;

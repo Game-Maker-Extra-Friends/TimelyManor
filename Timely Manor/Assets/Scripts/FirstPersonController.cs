@@ -249,7 +249,7 @@ namespace StarterAssets
                 {
 					CanInteract(hit);
 				}
-				else if (hit.transform.tag == "Clickable") // So that it can access the interaction box collider behind it
+				else if (hit.transform.tag == "Clickable" || hit.transform.tag == "Key") // So that it can access the interaction box collider behind it
                 {
 					if (Physics.Raycast(ray.origin, ray.direction, out hit, 3, interactionLayer))
                     {
