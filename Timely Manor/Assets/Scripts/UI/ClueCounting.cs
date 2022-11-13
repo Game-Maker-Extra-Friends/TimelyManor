@@ -81,6 +81,7 @@ public class ClueCounting : MonoBehaviour
         text.gameObject.SetActive(false);
     }
 
+
     void Update()
     {
         if(count == 0 && FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)

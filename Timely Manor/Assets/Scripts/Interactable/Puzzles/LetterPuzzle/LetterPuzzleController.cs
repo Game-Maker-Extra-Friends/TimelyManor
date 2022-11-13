@@ -15,60 +15,66 @@ public class LetterPuzzleController : MonoBehaviour
 
     public Transform lightBulb;
 
-    public AudioSource fail;
-    public AudioSource success;
+    public bool combinationFromLoad = false;
 
-    //private void Start()
-    //{
-    //    Save save = Resources.Load<Save>("Saves/Save");
-    //    // If the flower lock is not zero then load
-    //    if (save.LoadSpritePuzzleState(name) != 0)
-    //    {
-    //        currentImageNum = save.LoadSpritePuzzleState(name);
-    //        updateImage();
-    //    }
+    private void Start()
+    {
+        if (ES3.KeyExists(gameObject.name + "correctCombination", "Saves/CombinationPuzzle.es3"))
+        {
+            _correctCombination = ES3.Load<bool>(gameObject.name + "correctCombination", "Saves/CombinationPuzzle.es3");
+            if(_correctCombination == true)
+            {
+                combinationFromLoad = true;
+                Debug.Log("The Correct combination is: " + _correctCombination + "The Combination from load is: " +  combinationFromLoad);
+                LockBoxController.instance.UpdateBox();
+            }
+        }
 
-    //}
+    }
 
     public void CheckAnswer()
     {
-        foreach(LetterPuzzle lp in _letters)
+        if(combinationFromLoad == false)
         {
-            if(lp.image == false) // If the spriteRenderer is used instead of image (World)
+            foreach(LetterPuzzle lp in _letters)
             {
-                if(lp.currentSprite.sprite == lp.correctSprite)
+                if(lp.image == false) // If the spriteRenderer is used instead of image (World)
                 {
-                    _correctCombination = true;
+                    if(lp.currentSprite.sprite == lp.correctSprite)
+                    {
+                        _correctCombination = true;
+                    }
+                    else
+                    {
+                        _correctCombination = false;
+                        break;
+                    }
                 }
-                else
+                else // If Image is used instead of SpriteRenderer (UI)
                 {
-                    _correctCombination = false;
-                    break;
-                }
-            }
-            else // If Image is used instead of SpriteRenderer (UI)
-            {
-                if (lp.currentImage.sprite == lp.correctSprite)
-                {
-                    _correctCombination = true;
-                }
-                else
-                {
-                    _correctCombination = false;
-                    break;
+                    if (lp.currentImage.sprite == lp.correctSprite)
+                    {
+                        _correctCombination = true;
+                    }
+                    else
+                    {
+                        _correctCombination = false;
+                        break;
+                    }
                 }
             }
         }
 
-
-        if (_correctCombination)
+        // Only play sound if it wasn't from loading
+        if (_correctCombination == true && combinationFromLoad == false)
         {
             //_lightBulb.turnOn();
             AudioManager.instance.Play("LockUnlocked");
         }
-        else 
+        else if(_correctCombination == false && combinationFromLoad == false)
         {
             AudioManager.instance.Play("LockShaking");
         }
+        ES3.Save(gameObject.name + "correctCombination", _correctCombination, "Saves/CombinationPuzzle.es3");
     }
 }

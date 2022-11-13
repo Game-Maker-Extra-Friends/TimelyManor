@@ -69,6 +69,14 @@ public class Save : ScriptableObject
             SaveItemState(i.name, false);
             i.pickedUp = false;
         }
+        foreach (Mystery m in Resources.LoadAll<Mystery>("Mysteries"))
+        {
+            foreach(MysteryEntry me in m.entries)
+            {
+                me.revealed = false;
+                me.triggersMet = 0;
+            }
+        }
         foreach (InventoryObjectState i in fireplaceStates)
         {
             SaveFireplaceState(i.objectName, false);
@@ -77,7 +85,10 @@ public class Save : ScriptableObject
         {
             SaveSpritePuzzleState(i.objectName, 0);
         }
+        
+        #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);
+        #endif
     }
 
     // Gets state of item, returns null if not found

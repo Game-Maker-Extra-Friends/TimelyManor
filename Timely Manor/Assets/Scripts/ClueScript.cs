@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using UnityEngine.EventSystems;
 
-public class ClueScript : MonoBehaviour
+public class ClueScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	public delegate void interact(Clue clue);
 	public static event interact ClueInteract;
@@ -18,7 +19,13 @@ public class ClueScript : MonoBehaviour
 	public void Start()
     {
 		// Set the type to Clue in case people forgot to change it in edito
-		clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
+		// clue.seen = Resources.Load<Save>("Saves/Save").LoadClueState(clue.name);
+
+
+		if (ES3.KeyExists(clue.name + "Seen", "Saves/ClueSaves.es3"))
+		{
+			clue.seen = ES3.Load<bool>(clue.name + "Seen", "Saves/ClueSaves.es3");
+		}
 
 		if (clue.seen == true && clue.presentationMode == PresentationMode.Simple) DisableInteraction();
     }
@@ -40,7 +47,15 @@ public class ClueScript : MonoBehaviour
 				AudioManager.instance.Play("NewClueFoundSting");
 				DisableInteraction();
 			}
-			Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+
+			//if (clue.presentationMode == PresentationMode.Complex)
+			//{
+			//	FirstPersonController.instance.playerState = FirstPersonController.PlayerState.Reading;
+			//	DisableInteraction();
+			//}
+
+			//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+			ES3.Save(clue.name + "Seen", clue.seen, "Saves/ClueSaves.es3");
 		}
 	}
 
@@ -54,19 +69,31 @@ public class ClueScript : MonoBehaviour
 				c.enabled = false;
             }
 		}
-		else
+		else if (GetComponent<Button>() != null)
 		{
 			GetComponent<Button>().enabled = false;
+			GetComponent<Image>().enabled = false;
 		}
 	}
 
+	public void OnPointerEnter(PointerEventData data)
+	{
+		CursorController.instance.ClueCursor();
+	}
+
+	public void OnPointerExit(PointerEventData data)
+	{
+		CursorController.instance.DefaultCursor();
+	}
+
+
 	private void OnApplicationQuit()
 	{
-		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+		//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 	}
 
 	private void OnDestroy()
 	{
-		Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
+		//Resources.Load<Save>("Saves/Save").SaveClueState(clue.name, clue.seen);
 	}
 }

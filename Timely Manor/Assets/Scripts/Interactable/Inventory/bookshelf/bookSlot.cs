@@ -9,7 +9,7 @@ public class bookSlot : ItemInteract
 
     private string blueBookName = "Blue Leather Bound Book", redBookName = "Red Leather Bound Book", yellowBookName = "Yellow Leather Bound Book";
 
-    private SpriteRenderer bookSprite;
+    public SpriteRenderer bookSprite;
 
     private bookshelfInteraction bookshelf;
 
@@ -17,6 +17,16 @@ public class bookSlot : ItemInteract
     {
         bookSprite = gameObject.GetComponent<SpriteRenderer>();
         bookshelf = transform.GetComponentInParent<bookshelfInteraction>();
+        if (ES3.KeyExists(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3"))
+        {
+            Item tempBook = ES3.Load<Item>(gameObject.name + "Book", "Saves/BookshelfPuzzle.es3");
+            if(tempBook != null)
+            {
+                useItemFromSave(tempBook);
+            }
+            
+        }
+
     }
 
     public void Interact()
@@ -42,12 +52,23 @@ public class bookSlot : ItemInteract
                 book = item;
                 Inventory.instance.Remove(item);
 
-                bookshelf.updateSprites();
+                bookshelf.updateSprites(gameObject.name);
 
                 bookshelf.check();
             }
             
         }
+        ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
+    }
+    public void useItemFromSave(Item item)
+    {
+        book = item;
+
+        bookshelf.updateSprites(gameObject.name);
+
+        bookshelf.check();
+
+        ES3.Save(gameObject.name + "Book", book, "Saves/BookshelfPuzzle.es3");
     }
 
     public bool check()
@@ -76,6 +97,7 @@ public class bookSlot : ItemInteract
 
     public void setSprite(Sprite sprite)
     {
+        Debug.Log("The Book Sprite is: " + bookSprite.name + " The Sprite is: " + sprite);
         bookSprite.sprite = sprite;
     }
 }

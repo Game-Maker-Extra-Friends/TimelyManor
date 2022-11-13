@@ -33,17 +33,17 @@ public class JournalMenu : MonoBehaviour
         // Open journal: Check for open journal input, if journal is not open and that player is in moving state
         if (input.openJournal && !journalOpened && state.playerState == FirstPersonController.PlayerState.Moving) 
         {
+            input.exit = false;
             input.openJournal = false;
             OpenJournal();
         }
-
         // Close journal: check for either exit or open journal input and if journal is open
-        if ((input.exit || input.openJournal) && journalOpened)
+        else if ((input.exit || input.openJournal) && journalOpened)
 		{
             input.exit = false;
             input.openJournal = false;
             CloseJournal();
-		}
+        }
 
         //Put here so that the if statement doesn't get spam from the input being active
         input.openJournal = false;
@@ -79,7 +79,7 @@ public class JournalMenu : MonoBehaviour
         // Unpause the game
         Time.timeScale = 1f;
         journalOpened = false;
-        Debug.Log("Journal opened");
+        // Debug.Log("Journal opened");
         
     }
 

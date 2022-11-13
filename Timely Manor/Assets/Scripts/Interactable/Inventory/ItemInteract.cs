@@ -14,6 +14,23 @@ public class ItemInteract : MonoBehaviour
     // Sprites, clues, etc that will be hidden after this is interacted with
     public GameObject[] toDisable;
 
+    bool interacted = false;
+
+    private void Start()
+    {
+        if (ES3.KeyExists(gameObject.name + "Enabled", "Saves/Safe.es3"))
+        {
+            foreach (GameObject obj in toDisable)
+            {
+                obj.SetActive(false);
+            }
+            foreach (GameObject obj in toEnable)
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
+
     public virtual void useItem(Item item)
     {
         if (item.name == reqItem)
@@ -26,6 +43,8 @@ public class ItemInteract : MonoBehaviour
             foreach (GameObject obj in toEnable)
             {
                 obj.SetActive(true);
+                interacted = true;
+                ES3.Save(gameObject.name + "Enabled", interacted, "Saves/Safe.es3");
             }
 
             Inventory.instance.Remove(item);

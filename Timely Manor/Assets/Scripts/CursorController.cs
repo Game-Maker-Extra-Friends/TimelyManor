@@ -34,12 +34,14 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void DefaultCursor()
     {
+		Debug.Log("Default Cursor");
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
 	public void ClueCursor()
     {
-        Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
+		Debug.Log("Clue Cursor");
+		Cursor.SetCursor(inspectCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
 	public void ItemCursor(Texture image)
@@ -97,19 +99,19 @@ public class CursorController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 				}
 
             }
-			else
-			{ 
-				// Change mouse cursor as appropriate
-				if (hit.transform.gameObject.CompareTag("Clickable"))
-				{
-					ClueCursor();
-				}
-				else
-				{
-					DefaultCursor();
-				}
+			else if (FirstPersonController.instance.playerState == FirstPersonController.PlayerState.Interacting)
+			{
+                //// Change mouse cursor as appropriate
+                if (hit.transform.gameObject.CompareTag("Clickable"))
+                {
+                    ClueCursor();
+                }
+                else
+                {
+                    DefaultCursor();
+                }
 
-				if (clickAction.triggered)
+                if (clickAction.triggered)
 				{
 					if (hit.transform.gameObject.CompareTag("Clickable") || hit.transform.gameObject.CompareTag("PickupObject"))
 					{
